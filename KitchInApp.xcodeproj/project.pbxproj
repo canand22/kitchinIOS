@@ -44,6 +44,7 @@
 		84E0803C15299BEB00F277B5 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0803815299BE800F277B5 /* GHUnitIOSTestMain.m */; };
 		84E0804D15299DCE00F277B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E0805015299DCE00F277B5 /* Localizable.strings */; };
 		84E0804E15299DCE00F277B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E0805015299DCE00F277B5 /* Localizable.strings */; };
+		84F15C7E18647F1F0049C33F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F15C7D18647F1F0049C33F /* MainStoryboard.storyboard */; };
 		BA27BADE172AAC8B00EF74D7 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27BADD172AAC8B00EF74D7 /* CrashReporter.framework */; };
 		BABE53911720375100109DC9 /* NIXLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BABE53901720375100109DC9 /* NIXLogManager.m */; };
 		BABE53921720375100109DC9 /* NIXLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BABE53901720375100109DC9 /* NIXLogManager.m */; };
@@ -83,7 +84,7 @@
 		848E34801827BD490033F2E7 /* NIXCrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NIXCrashReporter.h; path = Staff/NIXCrashReporter/NIXCrashReporter.h; sourceTree = "<group>"; };
 		848E34811827BD490033F2E7 /* NIXCrashReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NIXCrashReporter.m; path = Staff/NIXCrashReporter/NIXCrashReporter.m; sourceTree = "<group>"; };
 		848E34831827BEAE0033F2E7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		84B5B64514C46B8F00ADE76F /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B5B64514C46B8F00ADE76F /* KitchInApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchInApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B5B64914C46B8F00ADE76F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B5B64B14C46B8F00ADE76F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84B5B64D14C46B8F00ADE76F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,6 +105,7 @@
 		84E0804F15299DCE00F277B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84E0807915299ED700F277B5 /* NixBuildAutomationScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NixBuildAutomationScripts; sourceTree = "<group>"; };
 		84E080861529BE5100F277B5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		84F15C7D18647F1F0049C33F /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		BA27BADD172AAC8B00EF74D7 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
 		BA46D2A41573A50A00572A4D /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = SOURCE_ROOT; };
 		BA7E89DA15455C290010CE70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -193,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				748D51051697394200F0DA25 /* Defaults */,
-				748D51071697394200F0DA25 /* Icons */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -204,13 +205,6 @@
 				748D51061697394200F0DA25 /* Default-568h@2x.png */,
 			);
 			path = Defaults;
-			sourceTree = "<group>";
-		};
-		748D51071697394200F0DA25 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Icons;
 			sourceTree = "<group>";
 		};
 		848E347F1827BD0D0033F2E7 /* Staff */ = {
@@ -239,7 +233,7 @@
 		84B5B64614C46B8F00ADE76F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84B5B64514C46B8F00ADE76F /* Application.app */,
+				84B5B64514C46B8F00ADE76F /* KitchInApp.app */,
 				84B5B67C14C46DBE00ADE76F /* Tests.app */,
 			);
 			name = Products;
@@ -357,6 +351,7 @@
 				748D51041697394200F0DA25 /* Images */,
 				84E0804915299D6500F277B5 /* Localization */,
 				84E0804415299CC600F277B5 /* Plists */,
+				84F15C7C18647F090049C33F /* Storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -376,6 +371,14 @@
 				84E0805015299DCE00F277B5 /* Localizable.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		84F15C7C18647F090049C33F /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				84F15C7D18647F1F0049C33F /* MainStoryboard.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		BABE538C1720375100109DC9 /* NIXLogManager */ = {
@@ -455,7 +458,7 @@
 			);
 			name = Application;
 			productName = NixProject;
-			productReference = 84B5B64514C46B8F00ADE76F /* Application.app */;
+			productReference = 84B5B64514C46B8F00ADE76F /* KitchInApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		84B5B66F14C46DBE00ADE76F /* Tests */ = {
@@ -485,8 +488,13 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = NIX;
+				TargetAttributes = {
+					84B5B64414C46B8F00ADE76F = {
+						DevelopmentTeam = 7AGU424Q34;
+					};
+				};
 			};
-			buildConfigurationList = 84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "NIXProject" */;
+			buildConfigurationList = 84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "KitchInApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -512,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E0804D15299DCE00F277B5 /* Localizable.strings in Resources */,
+				84F15C7E18647F1F0049C33F /* MainStoryboard.storyboard in Resources */,
 				748D51081697394200F0DA25 /* Default-568h@2x.png in Resources */,
 				D634157717C157EA006D383A /* Icon.png in Resources */,
 				D634157817C157EA006D383A /* Icon@2x.png in Resources */,
@@ -816,15 +825,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_ID = "com.nixsolutions.${PRODUCT_NAME:rfc1034identifier}";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendor\"",
 				);
 				INFOPLIST_FILE = Resources/Plists/Info.plist;
-				PRODUCT_NAME = Application;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = KitchInApp;
 				RESIGNED_BUNDLE_ID = com.nixsolutions.ApplicationResignTest;
 				RESIGNED_BUNDLE_NAME = ApplicationResignTest;
 				RESIGNED_ENTITLEMENTS_PATH = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -833,15 +845,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_ID = "com.nixsolutions.${PRODUCT_NAME:rfc1034identifier}";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendor\"",
 				);
 				INFOPLIST_FILE = Resources/Plists/Info.plist;
-				PRODUCT_NAME = Application;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = KitchInApp;
 				RESIGNED_BUNDLE_ID = com.nixsolutions.ApplicationResignTest;
 				RESIGNED_BUNDLE_NAME = ApplicationResignTest;
 				RESIGNED_ENTITLEMENTS_PATH = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -903,7 +918,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "NIXProject" */ = {
+		84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "KitchInApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B5B65B14C46B8F00ADE76F /* Debug */,

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
-               BuildableName = "Tests.app"
-               BlueprintName = "Tests"
-               ReferencedContainer = "container:NIXProject.xcodeproj">
+               BlueprintIdentifier = "84B5B64414C46B8F00ADE76F"
+               BuildableName = "Application.app"
+               BlueprintName = "Application"
+               ReferencedContainer = "container:KitchInApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
-            BuildableName = "Tests.app"
-            BlueprintName = "Tests"
-            ReferencedContainer = "container:NIXProject.xcodeproj">
+            BlueprintIdentifier = "84B5B64414C46B8F00ADE76F"
+            BuildableName = "Application.app"
+            BlueprintName = "Application"
+            ReferencedContainer = "container:KitchInApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,19 +51,12 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
-            BuildableName = "Tests.app"
-            BlueprintName = "Tests"
-            ReferencedContainer = "container:NIXProject.xcodeproj">
+            BlueprintIdentifier = "84B5B64414C46B8F00ADE76F"
+            BuildableName = "Application.app"
+            BlueprintName = "Application"
+            ReferencedContainer = "container:KitchInApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "GHUNIT_AUTORUN"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -76,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
-            BuildableName = "Tests.app"
-            BlueprintName = "Tests"
-            ReferencedContainer = "container:NIXProject.xcodeproj">
+            BlueprintIdentifier = "84B5B64414C46B8F00ADE76F"
+            BuildableName = "Application.app"
+            BlueprintName = "Application"
+            ReferencedContainer = "container:KitchInApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -15,11 +15,6 @@
 
 - (BOOL)application:(UIApplication *)theApplication didFinishLaunchingWithOptions:(NSDictionary *)theLaunchOptions
 {
-    [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
-
-    [[self window] setBackgroundColor:[UIColor whiteColor]];
-    [[self window] makeKeyAndVisible];
-    
     [NIXCrashReporter sendReportViaMail];
     
     return YES;

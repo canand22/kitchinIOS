@@ -7,9 +7,5 @@
 //
 
 @interface AppDelegate : UIResponder<UIApplicationDelegate>
-{
-    UIWindow *window_;
-}
-@property(nonatomic, strong) UIWindow *window;
 
 @end
