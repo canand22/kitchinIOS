@@ -1,0 +1,10 @@
+.DS_Store
+.svn
+*~
+*.pyc
+*.xcworkspace
+xcuserdata
+/build
+_last_build_vars.sh
+_last_revision.sh
+duplication.xml

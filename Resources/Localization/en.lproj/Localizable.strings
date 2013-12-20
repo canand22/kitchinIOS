@@ -1,0 +1,5 @@
+// NIXCrashReporter
+"Reporter:AlertTitle" = "Crash report";
+"Reporter:AlertMessage" = "Would you like to send a crash report?";
+"Reporter:AlertConfirm" = "Yes";
+"Reporter:AlertCancel" = "No";
