@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0460"
+   LastUpgradeVersion = "0500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84B5B64414C46B8F00ADE76F"
-               BuildableName = "Application.app"
+               BuildableName = "KitchInApp.app"
                BlueprintName = "Application"
                ReferencedContainer = "container:KitchInApp.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84B5B64414C46B8F00ADE76F"
-            BuildableName = "Application.app"
+            BuildableName = "KitchInApp.app"
             BlueprintName = "Application"
             ReferencedContainer = "container:KitchInApp.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84B5B64414C46B8F00ADE76F"
-            BuildableName = "Application.app"
+            BuildableName = "KitchInApp.app"
             BlueprintName = "Application"
             ReferencedContainer = "container:KitchInApp.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84B5B64414C46B8F00ADE76F"
-            BuildableName = "Application.app"
+            BuildableName = "KitchInApp.app"
             BlueprintName = "Application"
             ReferencedContainer = "container:KitchInApp.xcodeproj">
          </BuildableReference>
