@@ -33,6 +33,13 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"];
+    
+    [_fio setText:(name ? [NSString stringWithFormat:@"Hi, %@!", name] : @"")];
+}
+
 - (IBAction)myKitchin:(id)sender
 {
     [[self tabBarController] setSelectedIndex:1];

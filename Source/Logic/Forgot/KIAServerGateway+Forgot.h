@@ -8,6 +8,8 @@
 
 #import "KIAServerGateway.h"
 
-@interface KIAServerGateway (Forgot)
+#import "forgotProtocol.h"
+
+@interface KIAServerGateway (Forgot)<forgotProtocol>
 
 @end

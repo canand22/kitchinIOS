@@ -14,6 +14,8 @@
 
 @interface KIALoginMapping : NSObject
 
+@property(nonatomic, strong) NSString *firstName;
+@property(nonatomic, strong) NSString *lastName;
 @property(nonatomic, strong) NSString *SessionId;
 @property(nonatomic, assign) BOOL Success;
 

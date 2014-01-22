@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "baseServerGatewayProtocol.h"
 
-@protocol forgotProtocol <NSObject>
+@protocol forgotProtocol<baseServerGatewayProtocol>
+
+- (void)forgotPasswordWithEmail:(NSString *)email delegate:(id<serverGatewayDelegate>)delegate;
 
 @end

@@ -12,4 +12,9 @@
 
 @protocol serverGatewayDelegate<NSObject>
 
+@optional
+- (void)showData:(NSArray *)itemArray;
+- (void)nullData;
+- (void)loginSuccess:(BOOL)success;
+
 @end

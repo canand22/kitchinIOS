@@ -12,16 +12,14 @@
 
 #import "RestKit.h"
 
-#import "KIAServerGateway.h"
-#import "KIACredentials.h"
-#import "KIACredentials+Mapping.h"
+#import "KIAAutorization.h"
 #import "KIARegisterMapping.h"
 
 @implementation KIAServerGateway (Register)
 
-- (void)registerUser:(NSString *)username withPassword:(NSString *)password delegate:(id<serverGatewayDelegate>)delegate
+- (void)registerUser:(NSString *)username withPassword:(NSString *)password firstName:(NSString *)firstName lastName:(NSString *)lastName delegate:(id<serverGatewayDelegate>)delegate
 {
-    [self postQueryWithRegister:username password:password];
+    [self postQueryWithRegister:username password:password firstName:firstName lastName:lastName];
 }
 
 - (void)setupRegisterMapping
@@ -40,27 +38,29 @@
     [[self objectManager] addResponseDescriptor:descriptor];
 }
 
-- (void)setupCredentionsMappingWithUsername:(NSString *)username password:(NSString *)password
+- (void)setupCredentionsMapping
 {
-    RKObjectMapping *credentialsMapping = [KIACredentials mapping];
+    RKObjectMapping *autorizMapping = [KIAAutorization mapping];
     
-    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[credentialsMapping inverseMapping]
-                                                                                   objectClass:[KIACredentials class]
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[autorizMapping inverseMapping]
+                                                                                   objectClass:[KIAAutorization class]
                                                                                    rootKeyPath:nil
                                                                                         method:RKRequestMethodPOST];
     
     [[self objectManager] addRequestDescriptor:requestDescriptor];
 }
 
-- (void)postQueryWithRegister:(NSString *)username password:(NSString *)password
+- (void)postQueryWithRegister:(NSString *)username password:(NSString *)password firstName:(NSString *)firstName lastName:(NSString *)lastName
 {
-    [self setupCredentionsMappingWithUsername:username password:password];
+    [self setupCredentionsMapping];
     
     [self setupRegisterMapping];
     
     [[[self objectManager] HTTPClient] setAuthorizationHeaderWithUsername:username password:password];
     
-    KIACredentials *credentials = [KIACredentials new];
+    KIAAutorization *credentials = [KIAAutorization new];
+    [credentials setFirstName:firstName];
+    [credentials setLastName:lastName];
     [credentials setEmail:username];
     [credentials setPassword:password];
     

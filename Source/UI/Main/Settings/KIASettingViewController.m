@@ -9,6 +9,9 @@
 // ************************************************ //
 
 #import "KIASettingViewController.h"
+#import "KIALoginViewController.h"
+
+#import "KIAServerGateway.h"
 
 #define BUTTON_TAG 100
 #define VIEW_TAG   200
@@ -19,6 +22,8 @@
 
 @implementation KIASettingViewController
 
+@synthesize logoutGateway = _logoutGateway;
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -26,6 +31,7 @@
     if (self)
     {
         // Custom initialization
+        _logoutGateway = [KIAServerGateway gateway];
     }
     
     return self;
@@ -147,6 +153,26 @@
 - (IBAction)pinterestClick:(id)sender
 {
     // e
+}
+
+- (IBAction)login:(id)sender
+{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"])
+    {
+        NSLog(@"YES");
+    }
+    else
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        KIALoginViewController *loginViewController = (KIALoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+        [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    }
+}
+
+- (IBAction)logout:(id)sender
+{
+    [_logoutGateway logoutWithDelegate:self];
 }
 
 #pragma mark *****

@@ -11,6 +11,7 @@
     // for AFNetworking:
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <MobileCoreServices/MobileCoreServices.h>
+    #import <CoreData/CoreData.h>
 
     #if (!(defined(CONFIGURATION_Release)))
         #define NIX_DEBUG

@@ -10,10 +10,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KIACapturedReceiptViewController : UIViewController
+#import "sendCheckProtocol.h"
+#import "serverGatewayDelegate.h"
+
+@interface KIACapturedReceiptViewController : UIViewController<serverGatewayDelegate>
+{
+    id<sendCheckProtocol> _sendCheckGateway;
+}
+
+@property(nonatomic, strong) id<sendCheckProtocol> sendCheckGateway;
 
 @property(nonatomic, strong) UIImage *photo;
 
 @property(nonatomic, strong) IBOutlet UIImageView *image;
+
+- (void)showData:(NSArray *)arrayItem;
 
 @end

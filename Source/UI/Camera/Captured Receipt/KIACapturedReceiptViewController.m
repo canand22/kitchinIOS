@@ -10,11 +10,18 @@
 
 #import "KIACapturedReceiptViewController.h"
 
+#import "KIAServerGateway.h"
+
+#import "KIAEditRecognizeItemsViewController.h"
+#import "KIALoaderView.h"
+
 @interface KIACapturedReceiptViewController ()
 
 @end
 
 @implementation KIACapturedReceiptViewController
+
+@synthesize sendCheckGateway = _sendCheckGateway;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -23,6 +30,7 @@
     if (self)
     {
         // Custom initialization
+        _sendCheckGateway = [KIAServerGateway gateway];
     }
     
     return self;
@@ -35,9 +43,41 @@
     [_image setImage:_photo];
 }
 
+- (void)showData:(NSArray *)itemArray
+{
+    [[[self view] viewWithTag:1000] removeFromSuperview];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    KIAEditRecognizeItemsViewController *editRecognizeItemsViewController = (KIAEditRecognizeItemsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"editRecognizeItemsViewController"];
+    [editRecognizeItemsViewController setItemArray:itemArray];
+    [self presentViewController:editRecognizeItemsViewController animated:YES completion:nil];
+}
+
+- (void)nullData
+{
+    [[[self view] viewWithTag:1000] removeFromSuperview];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:@"Image is not check or does not contain products."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+}
+
 - (IBAction)back:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)send:(id)sender
+{
+    KIALoaderView *_loader = [[KIALoaderView alloc] initWithFrame:[[self view] bounds]];
+    [_loader setTag:1000];
+    [[self view] addSubview:_loader];
+        
+    [_sendCheckGateway sendCheckWithImage:_photo storeID:1 delegate:self];
 }
 
 - (void)didReceiveMemoryWarning

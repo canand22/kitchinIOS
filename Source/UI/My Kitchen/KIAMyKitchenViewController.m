@@ -27,7 +27,7 @@
     if (self)
     {
         // Custom initialization
-        _categoriesArray = [NSArray arrayWithObjects:@"Fruits", @"Grains", @"Dairy", @"Meat", @"Veggie", @"Poultry", @"Pasta", @"Snacks", @"Drinks", @"Fish", @"Frozen Foods", @"Other", @"Sweets", @"Spice Cabinet", @"Groseries", @"Preserved Food", nil];
+        _categoriesArray = [NSArray arrayWithObjects:@"Dairy", @"Produce", @"Poultry", @"Meats & Deli", @"Seafood", @"Breads & Bakery", @"Pasta", @"Cereal & Grains", @"Drinks", @"Dry Prepared Foods", @"Canned Foods, Soups, Broths", @"Frozen", @"Snacks", @"Sweets", @"Baking", @"Condiments, Sauces, Oils", @"Spices & Herbs", @"Other", nil];
     }
     
     return self;
@@ -46,7 +46,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 16;
+    return [_categoriesArray count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

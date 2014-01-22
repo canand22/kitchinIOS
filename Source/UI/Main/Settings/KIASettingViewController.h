@@ -10,11 +10,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KIASettingViewController : UIViewController
+#import "logoutProtocol.h"
+#import "serverGatewayDelegate.h"
+
+@interface KIASettingViewController : UIViewController<serverGatewayDelegate>
+{
+    id<logoutProtocol> _logoutGateway;
+}
 
 @property(nonatomic, strong) IBOutlet UIImageView *facebookImage;
 @property(nonatomic, strong) IBOutlet UIImageView *twitterImage;
 @property(nonatomic, strong) IBOutlet UIImageView *printerestImage;
+
+@property(nonatomic, strong) id<logoutProtocol> logoutGateway;
 
 - (IBAction)back:(id)sender;
 

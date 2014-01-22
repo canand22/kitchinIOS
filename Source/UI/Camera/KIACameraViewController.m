@@ -48,6 +48,34 @@
     [[self view] addSubview:rightLine];
 }
 
+- (void)saveImageInDocumentFolderWithImage:(UIImage *)imageToSave
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"photo"];
+    
+    NSData *binaryImageData = UIImageJPEGRepresentation(imageToSave, 1.0f);
+    
+    NSError *error;
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path])	// Does directory already exist?
+    {
+        if (![[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:&error])
+        {
+            NSLog(@"Create directory error: %@", error);
+        }
+    }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
+    
+    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", [formatter stringFromDate:[NSDate date]]]];
+    
+    [[NSFileManager defaultManager] createFileAtPath:path
+                                            contents:binaryImageData
+                                          attributes:nil];
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *originalImage = nil;
@@ -62,6 +90,8 @@
     {
         originalImage = [info objectForKey:UIImagePickerControllerCropRect];
     }
+    
+    [self saveImageInDocumentFolderWithImage:originalImage];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     KIACapturedReceiptViewController *capturedReceiptViewController = (KIACapturedReceiptViewController *)[storyboard instantiateViewControllerWithIdentifier:@"capturedReceipt"];

@@ -13,9 +13,11 @@
 #import "autorizationProtocol.h"
 #import "serverGatewayDelegate.h"
 
-@interface KIALoginViewController : UIViewController<serverGatewayDelegate>
+@interface KIALoginViewController : UIViewController<serverGatewayDelegate, UITextFieldDelegate>
 {
     id<autorizationProtocol> _loginGateway;
+    
+    IBOutlet UIView *_mainView;
 }
 
 @property(nonatomic, strong) id<autorizationProtocol> loginGateway;

@@ -15,4 +15,6 @@
 @property(nonatomic, strong) IBOutlet UIImageView *image;
 @property(nonatomic, strong) IBOutlet UILabel *title;
 
+@property(nonatomic, strong) IBOutlet UIButton *deleteButton;
+
 @end

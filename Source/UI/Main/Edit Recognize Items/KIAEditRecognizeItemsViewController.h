@@ -10,8 +10,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KIAEditRecognizeItemsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+#import "EditRecognizedItemCellDelegate.h"
 
+@interface KIAEditRecognizeItemsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, EditRecognizedItemCellDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property(nonatomic, strong) NSArray *itemArray;
+@property(nonatomic, strong) NSArray *unitArray;
+@property(nonatomic, strong) NSArray *unitReductionArray;
 @property(nonatomic, strong) IBOutlet UITableView *table;
+
+- (IBAction)addToMyKitchIn:(id)sender;
 
 @end

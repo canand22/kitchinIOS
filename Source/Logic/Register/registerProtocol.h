@@ -13,6 +13,6 @@
 
 @protocol registerProtocol<baseServerGatewayProtocol>
 
-- (void)registerUser:(NSString *)username withPassword:(NSString *)password delegate:(id<serverGatewayDelegate>)delegate;
+- (void)registerUser:(NSString *)username withPassword:(NSString *)password firstName:(NSString *)firstName lastName:(NSString *)lastName delegate:(id<serverGatewayDelegate>)delegate;
 
 @end

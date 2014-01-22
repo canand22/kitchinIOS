@@ -14,14 +14,13 @@
 
 #import "KIAServerGateway.h"
 #import "KIACredentials.h"
-#import "KIACredentials+Mapping.h"
 #import "KIALoginMapping.h"
 
 @implementation KIAServerGateway (Login)
 
 - (void)loginUser:(NSString *)username withPassword:(NSString *)password delegate:(id<serverGatewayDelegate>)delegate
 {
-    [self postQueryWithLogin:username password:password];
+    [self postQueryWithLogin:username password:password delegate:delegate];
 }
 
 - (void)setupLoginMapping
@@ -40,7 +39,7 @@
     [[self objectManager] addResponseDescriptor:descriptor];
 }
 
-- (void)setupCredentionsMappingWithUsername:(NSString *)username password:(NSString *)password
+- (void)setupCredentionsMapping
 {
     RKObjectMapping *credentialsMapping = [KIACredentials mapping];
     
@@ -52,9 +51,9 @@
     [[self objectManager] addRequestDescriptor:requestDescriptor];
 }
 
-- (void)postQueryWithLogin:(NSString *)username password:(NSString *)password
+- (void)postQueryWithLogin:(NSString *)username password:(NSString *)password delegate:(id<serverGatewayDelegate>)delegate
 {
-    [self setupCredentionsMappingWithUsername:username password:password];
+    [self setupCredentionsMapping];
     
     [self setupLoginMapping];
     
@@ -76,11 +75,15 @@
                                     {
                                         if ([[result objectAtIndex:0] Success])
                                         {
+                                            [[NSUserDefaults standardUserDefaults] setObject:[[result objectAtIndex:0] firstName] forKey:@"firstName"];
+                                            [[NSUserDefaults standardUserDefaults] setObject:[[result objectAtIndex:0] lastName] forKey:@"lastName"];
                                             [[NSUserDefaults standardUserDefaults] setObject:[[result objectAtIndex:0] SessionId] forKey:@"sessionId"];
                                             [[NSUserDefaults standardUserDefaults] synchronize];
                                          
                                             NSLog(@"Success!!!");
                                         }
+                                        
+                                        [delegate loginSuccess:[[result objectAtIndex:0] Success]];
                                     }
                                 }
                              failure:^(RKObjectRequestOperation *operation, NSError *error)

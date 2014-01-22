@@ -20,7 +20,7 @@
     RKObjectMapping *loginMapping = [RKObjectMapping mappingForClass:[KIALoginMapping class]];
     
     // setup current weather mapping
-    [loginMapping addAttributeMappingsFromDictionary:@{@"SessionId" : @"SessionId", @"Success" : @"Success"}];
+    [loginMapping addAttributeMappingsFromDictionary:@{@"FirstName" : @"firstName", @"LastName" : @"lastName", @"SessionId" : @"SessionId", @"Success" : @"Success"}];
     
     return loginMapping;
 }

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class RKObjectMapping;
+
 @interface KIACredentials : NSObject
 {
     NSString *_email;
@@ -16,5 +18,7 @@
 
 @property(nonatomic, strong) NSString *email;
 @property(nonatomic, strong) NSString *password;
+
++ (RKObjectMapping *)mapping;
 
 @end
