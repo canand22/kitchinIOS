@@ -98,6 +98,24 @@
 		84F15CCE1864A2130049C33F /* KIAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F15CCD1864A2130049C33F /* KIAMainViewController.m */; };
 		84F15CD31864A6C60049C33F /* KIACameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F15CD21864A6C60049C33F /* KIACameraViewController.m */; };
 		84F15CD61864A7B30049C33F /* my_kitchen_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F15CD51864A7B30049C33F /* my_kitchen_bg@2x.png */; };
+		84F1B7EA188FD83300535A5D /* Breads & Bakery_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7E9188FD83300535A5D /* Breads & Bakery_category@2x.png */; };
+		84F1B7EC188FD84C00535A5D /* Canned Foods, Soups, Broths_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7EB188FD84C00535A5D /* Canned Foods, Soups, Broths_category@2x.png */; };
+		84F1B7EE188FD86500535A5D /* Spices & Herbs_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7ED188FD86500535A5D /* Spices & Herbs_category@2x.png */; };
+		84F1B7F0188FD88100535A5D /* Drinks_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7EF188FD88100535A5D /* Drinks_category@2x.png */; };
+		84F1B7F2188FD8C000535A5D /* Meats & Deli_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7F1188FD8C000535A5D /* Meats & Deli_category@2x.png */; };
+		84F1B7F4188FD8F100535A5D /* Frozen_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7F3188FD8F100535A5D /* Frozen_category@2x.png */; };
+		84F1B7F6188FD91600535A5D /* Cereal & Grains_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7F5188FD91600535A5D /* Cereal & Grains_category@2x.png */; };
+		84F1B7F8188FD92C00535A5D /* Condiments, Sauces, Oils_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7F7188FD92C00535A5D /* Condiments, Sauces, Oils_category@2x.png */; };
+		84F1B7FA188FD98800535A5D /* Baking_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7F9188FD98800535A5D /* Baking_category@2x.png */; };
+		84F1B7FC188FD9AA00535A5D /* Dairy_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7FB188FD9AA00535A5D /* Dairy_category@2x.png */; };
+		84F1B7FE188FD9CD00535A5D /* Dry Prepared Foods_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7FD188FD9CD00535A5D /* Dry Prepared Foods_category@2x.png */; };
+		84F1B800188FDA1900535A5D /* Other_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B7FF188FDA1900535A5D /* Other_category@2x.png */; };
+		84F1B802188FDA5600535A5D /* Pasta_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B801188FDA5600535A5D /* Pasta_category@2x.png */; };
+		84F1B804188FDA7100535A5D /* Poultry_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B803188FDA7100535A5D /* Poultry_category@2x.png */; };
+		84F1B806188FDA9000535A5D /* Produce_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B805188FDA9000535A5D /* Produce_category@2x.png */; };
+		84F1B808188FDABD00535A5D /* Seafood_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B807188FDABD00535A5D /* Seafood_category@2x.png */; };
+		84F1B80A188FDADD00535A5D /* Snacks_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B809188FDADD00535A5D /* Snacks_category@2x.png */; };
+		84F1B80C188FDAF700535A5D /* Sweets_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B80B188FDAF700535A5D /* Sweets_category@2x.png */; };
 		84F2334B1881462B00D870CB /* KIAServerGateway+SendCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2334A1881462B00D870CB /* KIAServerGateway+SendCheck.m */; };
 		84F2334F18814B2300D870CB /* KIASendCheckMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2334E18814B2300D870CB /* KIASendCheckMapping.m */; };
 		84F2A1E8188556EC007024D5 /* KIAAutorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2A1E7188556EC007024D5 /* KIAAutorization.m */; };
@@ -459,6 +477,24 @@
 		84F15CD11864A6C60049C33F /* KIACameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACameraViewController.h; sourceTree = "<group>"; };
 		84F15CD21864A6C60049C33F /* KIACameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACameraViewController.m; sourceTree = "<group>"; };
 		84F15CD51864A7B30049C33F /* my_kitchen_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_kitchen_bg@2x.png"; sourceTree = "<group>"; };
+		84F1B7E9188FD83300535A5D /* Breads & Bakery_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Breads & Bakery_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7EB188FD84C00535A5D /* Canned Foods, Soups, Broths_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Canned Foods, Soups, Broths_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7ED188FD86500535A5D /* Spices & Herbs_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spices & Herbs_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7EF188FD88100535A5D /* Drinks_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drinks_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7F1188FD8C000535A5D /* Meats & Deli_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Meats & Deli_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7F3188FD8F100535A5D /* Frozen_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Frozen_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7F5188FD91600535A5D /* Cereal & Grains_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cereal & Grains_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7F7188FD92C00535A5D /* Condiments, Sauces, Oils_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Condiments, Sauces, Oils_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7F9188FD98800535A5D /* Baking_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Baking_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7FB188FD9AA00535A5D /* Dairy_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dairy_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7FD188FD9CD00535A5D /* Dry Prepared Foods_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dry Prepared Foods_category@2x.png"; sourceTree = "<group>"; };
+		84F1B7FF188FDA1900535A5D /* Other_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Other_category@2x.png"; sourceTree = "<group>"; };
+		84F1B801188FDA5600535A5D /* Pasta_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pasta_category@2x.png"; sourceTree = "<group>"; };
+		84F1B803188FDA7100535A5D /* Poultry_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Poultry_category@2x.png"; sourceTree = "<group>"; };
+		84F1B805188FDA9000535A5D /* Produce_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Produce_category@2x.png"; sourceTree = "<group>"; };
+		84F1B807188FDABD00535A5D /* Seafood_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Seafood_category@2x.png"; sourceTree = "<group>"; };
+		84F1B809188FDADD00535A5D /* Snacks_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Snacks_category@2x.png"; sourceTree = "<group>"; };
+		84F1B80B188FDAF700535A5D /* Sweets_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sweets_category@2x.png"; sourceTree = "<group>"; };
 		84F233481881451300D870CB /* sendCheckProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendCheckProtocol.h; sourceTree = "<group>"; };
 		84F233491881462B00D870CB /* KIAServerGateway+SendCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+SendCheck.h"; sourceTree = "<group>"; };
 		84F2334A1881462B00D870CB /* KIAServerGateway+SendCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+SendCheck.m"; sourceTree = "<group>"; };
@@ -1422,23 +1458,41 @@
 			isa = PBXGroup;
 			children = (
 				84F538C5188950CD00EEE86D /* Baking@2x.png */,
+				84F1B7F9188FD98800535A5D /* Baking_category@2x.png */,
 				84F538E71889629D00EEE86D /* Breads & Bakery@2x.png */,
+				84F1B7E9188FD83300535A5D /* Breads & Bakery_category@2x.png */,
 				84F538C6188950CD00EEE86D /* Drinks@2x.png */,
+				84F1B7EF188FD88100535A5D /* Drinks_category@2x.png */,
 				84F538C7188950CD00EEE86D /* Canned Foods, Soups, Broths@2x.png */,
+				84F1B7EB188FD84C00535A5D /* Canned Foods, Soups, Broths_category@2x.png */,
 				84F538C8188950CD00EEE86D /* Cereal & Grains@2x.png */,
+				84F1B7F5188FD91600535A5D /* Cereal & Grains_category@2x.png */,
 				84F538C9188950CD00EEE86D /* Condiments, Sauces, Oils@2x.png */,
+				84F1B7F7188FD92C00535A5D /* Condiments, Sauces, Oils_category@2x.png */,
 				84F538CA188950CD00EEE86D /* Dairy@2x.png */,
+				84F1B7FB188FD9AA00535A5D /* Dairy_category@2x.png */,
 				84F538CB188950CD00EEE86D /* Dry Prepared Foods@2x.png */,
+				84F1B7FD188FD9CD00535A5D /* Dry Prepared Foods_category@2x.png */,
 				84F538CC188950CD00EEE86D /* Frozen@2x.png */,
+				84F1B7F3188FD8F100535A5D /* Frozen_category@2x.png */,
 				84F538CD188950CD00EEE86D /* Meats & Deli@2x.png */,
+				84F1B7F1188FD8C000535A5D /* Meats & Deli_category@2x.png */,
 				84F538CE188950CD00EEE86D /* Other@2x.png */,
+				84F1B7FF188FDA1900535A5D /* Other_category@2x.png */,
 				84F538CF188950CD00EEE86D /* Pasta@2x.png */,
+				84F1B801188FDA5600535A5D /* Pasta_category@2x.png */,
 				84F538D0188950CD00EEE86D /* Poultry@2x.png */,
+				84F1B803188FDA7100535A5D /* Poultry_category@2x.png */,
 				84F538D1188950CD00EEE86D /* Produce@2x.png */,
+				84F1B805188FDA9000535A5D /* Produce_category@2x.png */,
 				84F538D2188950CD00EEE86D /* Seafood@2x.png */,
+				84F1B807188FDABD00535A5D /* Seafood_category@2x.png */,
 				84F538D3188950CD00EEE86D /* Snacks@2x.png */,
+				84F1B809188FDADD00535A5D /* Snacks_category@2x.png */,
 				84F538D4188950CD00EEE86D /* Spices & Herbs@2x.png */,
+				84F1B7ED188FD86500535A5D /* Spices & Herbs_category@2x.png */,
 				84F538D5188950CD00EEE86D /* Sweets@2x.png */,
+				84F1B80B188FDAF700535A5D /* Sweets_category@2x.png */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1852,6 +1906,7 @@
 				84F15CC1186498D20049C33F /* tools@2x.png in Resources */,
 				84F2F15E18685CFB008FF7A1 /* my_kitchen_collection_bg@2x.png in Resources */,
 				84F33423188696E4009818C2 /* bottom_grey_line@2x.png in Resources */,
+				84F1B804188FDA7100535A5D /* Poultry_category@2x.png in Resources */,
 				84F2F16A1868934F008FF7A1 /* settings meal settings@2x.png in Resources */,
 				84F2F17D18689512008FF7A1 /* button_suggestions_empty@2x.png in Resources */,
 				84F51A3E1869EF4D0045B7AB /* bottom@2x.png in Resources */,
@@ -1864,6 +1919,7 @@
 				84F2F0F418683C60008FF7A1 /* top@2x.png in Resources */,
 				84F538DA188950CD00EEE86D /* Condiments, Sauces, Oils@2x.png in Resources */,
 				84F15C9F186498B80049C33F /* search_active@2x.png in Resources */,
+				84F1B7EE188FD86500535A5D /* Spices & Herbs_category@2x.png in Resources */,
 				84F2F18118689551008FF7A1 /* view recipe last4@2x.png in Resources */,
 				84F2F0E818683B00008FF7A1 /* tweet@2x.png in Resources */,
 				84F51A0A1869A49C0045B7AB /* bg white@2x.png in Resources */,
@@ -1885,6 +1941,7 @@
 				84F2F0B31868365E008FF7A1 /* back_active@2x.png in Resources */,
 				84F15C90186498B80049C33F /* bar@2x.png in Resources */,
 				84F15CD61864A7B30049C33F /* my_kitchen_bg@2x.png in Resources */,
+				84F1B7FC188FD9AA00535A5D /* Dairy_category@2x.png in Resources */,
 				84F51A301869E0820045B7AB /* button_quality_left_active@2x.png in Resources */,
 				84F33421188691FC009818C2 /* more_btn@2x.png in Resources */,
 				84F2F0E718683B00008FF7A1 /* top_menu_button_active@2x.png in Resources */,
@@ -1896,6 +1953,7 @@
 				84F51A241869C9710045B7AB /* bottom_shanding@2x.png in Resources */,
 				84F2F0DF18683B00008FF7A1 /* button_switch_active@2x.png in Resources */,
 				84F15C97186498B80049C33F /* home@2x.png in Resources */,
+				84F1B7FA188FD98800535A5D /* Baking_category@2x.png in Resources */,
 				84C338DA188456EB008814E4 /* title line@2x.png in Resources */,
 				84F2F0E118683B00008FF7A1 /* change_password_and_purchase_button_active@2x.png in Resources */,
 				84EF45321887FC7600E08450 /* 31.png in Resources */,
@@ -1924,17 +1982,22 @@
 				84F15C9E186498B80049C33F /* search@2x.png in Resources */,
 				84F2F0EB18683B00008FF7A1 /* button__active@2x.png in Resources */,
 				84F2F0EE18683B00008FF7A1 /* button_time_active@2x.png in Resources */,
+				84F1B7F8188FD92C00535A5D /* Condiments, Sauces, Oils_category@2x.png in Resources */,
+				84F1B7FE188FD9CD00535A5D /* Dry Prepared Foods_category@2x.png in Resources */,
 				D634157717C157EA006D383A /* Icon.png in Resources */,
 				84F3344F1886AB63009818C2 /* 13.png in Resources */,
 				84F2F0E318683B00008FF7A1 /* face_active@2x.png in Resources */,
+				84F1B800188FDA1900535A5D /* Other_category@2x.png in Resources */,
 				84F51A361869E87D0045B7AB /* line@2x.png in Resources */,
 				84F15CBC186498D20049C33F /* line@2x.png in Resources */,
 				84F538DB188950CD00EEE86D /* Dairy@2x.png in Resources */,
 				84F2F0E018683B00008FF7A1 /* change_password_and_purchase_button@2x.png in Resources */,
 				84F538E5188950CD00EEE86D /* Spices & Herbs@2x.png in Resources */,
+				84F1B7EC188FD84C00535A5D /* Canned Foods, Soups, Broths_category@2x.png in Resources */,
 				84F15C91186498B80049C33F /* capture@2x.png in Resources */,
 				84F2F0B51868365E008FF7A1 /* img1@2x.png in Resources */,
 				84F2F17618689512008FF7A1 /* button_course@2x.png in Resources */,
+				84F1B7EA188FD83300535A5D /* Breads & Bakery_category@2x.png in Resources */,
 				84F2F0E518683B00008FF7A1 /* pinterest_active@2x.png in Resources */,
 				84F334541886AB63009818C2 /* 18.png in Resources */,
 				84F51A431869EF4D0045B7AB /* photo_reciept@2x.png in Resources */,
@@ -1955,7 +2018,10 @@
 				84F334621886AB63009818C2 /* 4.png in Resources */,
 				84F15C9A186498B80049C33F /* middle_lef_right_button_active@2x.png in Resources */,
 				84F538D6188950CD00EEE86D /* Baking@2x.png in Resources */,
+				84F1B806188FDA9000535A5D /* Produce_category@2x.png in Resources */,
+				84F1B7F6188FD91600535A5D /* Cereal & Grains_category@2x.png in Resources */,
 				84F51A141869A49C0045B7AB /* textfields@2x.png in Resources */,
+				84F1B802188FDA5600535A5D /* Pasta_category@2x.png in Resources */,
 				84F538DE188950CD00EEE86D /* Meats & Deli@2x.png in Resources */,
 				84F15C96186498B80049C33F /* create meal_active@2x.png in Resources */,
 				84F334631886AB63009818C2 /* 5.png in Resources */,
@@ -1966,14 +2032,17 @@
 				84F334671886AB63009818C2 /* 9.png in Resources */,
 				84F51A401869EF4D0045B7AB /* button_cancel_empty@2x.png in Resources */,
 				84F2CD50188D741000E96509 /* aa@2x.png in Resources */,
+				84F1B7F2188FD8C000535A5D /* Meats & Deli_category@2x.png in Resources */,
 				84F2F166186879A1008FF7A1 /* settings my account@2x.png in Resources */,
 				84F15CB9186498D20049C33F /* favorite@2x.png in Resources */,
 				84F15C95186498B80049C33F /* create meal@2x.png in Resources */,
 				84F538DC188950CD00EEE86D /* Dry Prepared Foods@2x.png in Resources */,
+				84F1B808188FDABD00535A5D /* Seafood_category@2x.png in Resources */,
 				84F15CBA186498D20049C33F /* history@2x.png in Resources */,
 				84F15CB2186498D20049C33F /* button@2x.png in Resources */,
 				84F51A0C1869A49C0045B7AB /* button add@2x.png in Resources */,
 				84F2F17A18689512008FF7A1 /* button_item@2x.png in Resources */,
+				84F1B80A188FDADD00535A5D /* Snacks_category@2x.png in Resources */,
 				84F3345D1886AB63009818C2 /* 26.png in Resources */,
 				84F2F0F218683B00008FF7A1 /* title_bg@2x.png in Resources */,
 				84F2F0E218683B00008FF7A1 /* face@2x.png in Resources */,
@@ -1988,6 +2057,7 @@
 				84F15CC41864990B0049C33F /* Default@2x.png in Resources */,
 				84C338D21883E7C9008814E4 /* NSData+Base64.podspec in Resources */,
 				84F3341D18868727009818C2 /* popup_header_block@2x.png in Resources */,
+				84F1B7F0188FD88100535A5D /* Drinks_category@2x.png in Resources */,
 				D634157817C157EA006D383A /* Icon@2x.png in Resources */,
 				84F3345A1886AB63009818C2 /* 23.png in Resources */,
 				84F2F0E918683B00008FF7A1 /* tweet_active@2x.png in Resources */,
@@ -2002,11 +2072,13 @@
 				84F15CB5186498D20049C33F /* button_bottom_active@2x.png in Resources */,
 				84F15CBE186498D20049C33F /* purchase@2x.png in Resources */,
 				84F3345F1886AB63009818C2 /* 28.png in Resources */,
+				84F1B80C188FDAF700535A5D /* Sweets_category@2x.png in Resources */,
 				84F15C9B186498B80049C33F /* My Kitchin@2x.png in Resources */,
 				84F15C93186498B80049C33F /* capture_button@2x.png in Resources */,
 				84F334551886AB63009818C2 /* 19.png in Resources */,
 				84F2F0EA18683B00008FF7A1 /* button_@2x.png in Resources */,
 				84F15C98186498B80049C33F /* home_active@2x.png in Resources */,
+				84F1B7F4188FD8F100535A5D /* Frozen_category@2x.png in Resources */,
 				84F51A2D1869DFE60045B7AB /* button_quality_right@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
