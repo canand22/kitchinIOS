@@ -12,5 +12,6 @@
 
 - (void)showActionSheet:(NSInteger)numberOfCellRow;
 - (void)showPickerView:(NSInteger)numberOfCellRow;
+- (void)deleteItemFromIndex:(NSInteger)index;
 
 @end

@@ -19,7 +19,7 @@
 
 - (void)registerUser:(NSString *)username withPassword:(NSString *)password firstName:(NSString *)firstName lastName:(NSString *)lastName delegate:(id<serverGatewayDelegate>)delegate
 {
-    [self postQueryWithRegister:username password:password firstName:firstName lastName:lastName];
+    [self postQueryWithRegister:username password:password firstName:firstName lastName:lastName delegate:(id<serverGatewayDelegate>)delegate];
 }
 
 - (void)setupRegisterMapping
@@ -38,7 +38,7 @@
     [[self objectManager] addResponseDescriptor:descriptor];
 }
 
-- (void)setupCredentionsMapping
+- (RKRequestDescriptor *)setupCredentionsMappingForRegister
 {
     RKObjectMapping *autorizMapping = [KIAAutorization mapping];
     
@@ -48,11 +48,13 @@
                                                                                         method:RKRequestMethodPOST];
     
     [[self objectManager] addRequestDescriptor:requestDescriptor];
+    
+    return requestDescriptor;
 }
 
-- (void)postQueryWithRegister:(NSString *)username password:(NSString *)password firstName:(NSString *)firstName lastName:(NSString *)lastName
+- (void)postQueryWithRegister:(NSString *)username password:(NSString *)password firstName:(NSString *)firstName lastName:(NSString *)lastName delegate:(id<serverGatewayDelegate>)delegate
 {
-    [self setupCredentionsMapping];
+    RKRequestDescriptor *request = [self setupCredentionsMappingForRegister];
     
     [self setupRegisterMapping];
     
@@ -81,6 +83,10 @@
                                             
                                             NSLog(@"Success!!!");
                                         }
+                                        
+                                        [delegate loginSuccess:[[result objectAtIndex:0] IsUserRegistered]];
+                                        
+                                        [[self objectManager] removeRequestDescriptor:request];
                                     }
                                 }
                              failure:^(RKObjectRequestOperation *operation, NSError *error)
@@ -96,6 +102,8 @@
                                     }
          
                                     NSLog(@"Failure: %@", [error localizedDescription]);
+                                    
+                                    [[self objectManager] removeRequestDescriptor:request];
                                 }];
 }
 

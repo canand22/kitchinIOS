@@ -8,17 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-#import "getCategoryItemProtocol.h"
+#import "searchItemProtocol.h"
 #import "serverGatewayDelegate.h"
 
-@interface KIAAddItemViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, serverGatewayDelegate>
+@interface KIAAddItemViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, serverGatewayDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
-    id<getCategoryItemProtocol> _getItemGateway;
+    id<searchItemProtocol> _searchItemGateway;
     
     NSArray *_storeArray;
+    
+    IBOutlet UITableView *_table;
+    NSArray *_itemArray;
+    
+    IBOutlet UITextField *_itemTextField;
 }
 
-@property(nonatomic, strong) id<getCategoryItemProtocol> getItemGateway;
+@property(nonatomic, strong) id<searchItemProtocol> searchItemGateway;
 
 @property(nonatomic, strong) IBOutlet UIPickerView *picker;
 

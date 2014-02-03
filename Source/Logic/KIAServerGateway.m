@@ -29,8 +29,11 @@
     
     if (self)
     {
-        [self setupEnvironment];
-        [self setUpDataBase];
+        if (!_objectManager)
+        {
+            [self setupEnvironment];
+            [self setUpDataBase];
+        }
     }
     
     return self;

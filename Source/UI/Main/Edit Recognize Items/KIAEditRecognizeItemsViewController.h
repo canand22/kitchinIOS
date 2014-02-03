@@ -10,13 +10,23 @@
 
 #import <UIKit/UIKit.h>
 
+#import "getCategoryItemProtocol.h"
+#import "serverGatewayDelegate.h"
+
 #import "EditRecognizedItemCellDelegate.h"
 
-@interface KIAEditRecognizeItemsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, EditRecognizedItemCellDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface KIAEditRecognizeItemsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, EditRecognizedItemCellDelegate, UIPickerViewDataSource, UIPickerViewDelegate, serverGatewayDelegate>
+{
+    id<getCategoryItemProtocol> _getItemGateway;
+}
 
-@property(nonatomic, strong) NSArray *itemArray;
+@property(nonatomic, strong) NSMutableArray *itemArray;
 @property(nonatomic, strong) NSArray *unitArray;
 @property(nonatomic, strong) NSArray *unitReductionArray;
+@property(nonatomic, strong) NSDictionary *category;
+
+@property(nonatomic, strong) id<getCategoryItemProtocol> getItemGateway;
+
 @property(nonatomic, strong) IBOutlet UITableView *table;
 
 - (IBAction)addToMyKitchIn:(id)sender;

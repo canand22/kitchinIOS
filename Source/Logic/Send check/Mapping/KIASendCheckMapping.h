@@ -14,10 +14,11 @@
 
 @interface KIASendCheckMapping : NSObject
 
-@property(nonatomic, strong) NSString *Id;
+@property(nonatomic, assign) NSInteger Id;
 @property(nonatomic, strong) NSString *Category;
 @property(nonatomic, assign) BOOL IsSuccessMatching;
 @property(nonatomic, strong) NSString *ItemName;
+@property(nonatomic, strong) NSString *ItemShortName;
 
 + (RKObjectMapping *)mapping;
 

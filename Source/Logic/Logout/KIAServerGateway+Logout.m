@@ -37,7 +37,7 @@
 
 - (void)postQueryWithLogout
 {
-    //[self setupLogoutMapping];
+    [self setupLogoutMapping];
 
     // выполнение запроса
     [[self objectManager] getObject:nil

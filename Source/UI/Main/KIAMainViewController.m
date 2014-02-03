@@ -10,6 +10,8 @@
 
 #import "KIAMainViewController.h"
 
+#import "KIACategory.h"
+
 @interface KIAMainViewController ()
 
 @end

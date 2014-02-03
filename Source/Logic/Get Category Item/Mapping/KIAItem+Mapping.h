@@ -1,19 +1,19 @@
 //
-//  KIAgetItem+Mapping.h
+//  KIAItem+Mapping.h
 //  KitchInApp
 //
 //  Created by DeMoN on 1/21/14.
 //  Copyright (c) 2014 NIX. All rights reserved.
 //
 
-#import "KIAgetItem.h"
+#import "KIAItem.h"
 
 @class RKEntityMapping;
 @class RKManagedObjectStore;
 
-@interface KIAgetItem (Mapping)
+@interface KIAItem (Mapping)
 
 + (RKEntityMapping *)mappingForManagedObjectStore:(RKManagedObjectStore *)store;
-+ (NSString*)primaryKeyProperty;
++ (NSString *)primaryKeyProperty;
 
 @end

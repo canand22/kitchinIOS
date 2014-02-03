@@ -39,7 +39,7 @@
     [[self objectManager] addResponseDescriptor:descriptor];
 }
 
-- (void)setupCredentionsMapping
+- (RKRequestDescriptor *)setupCredentionsMappingForLogin
 {
     RKObjectMapping *credentialsMapping = [KIACredentials mapping];
     
@@ -49,11 +49,13 @@
                                                                                         method:RKRequestMethodPOST];
     
     [[self objectManager] addRequestDescriptor:requestDescriptor];
+    
+    return requestDescriptor;
 }
 
 - (void)postQueryWithLogin:(NSString *)username password:(NSString *)password delegate:(id<serverGatewayDelegate>)delegate
 {
-    [self setupCredentionsMapping];
+    RKRequestDescriptor *request = [self setupCredentionsMappingForLogin];
     
     [self setupLoginMapping];
     
@@ -84,6 +86,8 @@
                                         }
                                         
                                         [delegate loginSuccess:[[result objectAtIndex:0] Success]];
+                                        
+                                        [[self objectManager] removeRequestDescriptor:request];
                                     }
                                 }
                              failure:^(RKObjectRequestOperation *operation, NSError *error)
@@ -99,6 +103,8 @@
                                     }
                                     
                                     NSLog(@"Failure: %@", [error localizedDescription]);
+                                    
+                                    [[self objectManager] removeRequestDescriptor:request];
                                 }];
 }
 

@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="KIAgetItem" syncable="YES">
-        <attribute name="idItem" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    <entity name="KIACategory" syncable="YES">
+        <attribute name="idCategory" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="KIAItem" representedClassName="KIAItem" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="idCategory" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="idItem" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reduction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="KIAgetItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="KIACategory" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="KIAItem" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

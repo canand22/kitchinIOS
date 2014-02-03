@@ -80,15 +80,30 @@
 {
     BOOL falseData = NO;
     
-    falseData = ([[_firstName text] length] > 0 && falseData == NO ? NO : YES);
-    falseData = ([[_lastName text] length] > 0 && falseData == NO ? NO : YES);
-    falseData = ([[_email text] length] > 0 && [self validateEmail:[_email text]] && falseData == NO ? NO : YES);
-    falseData = ([[_password text] length] > 0 && [[_password text] isEqualToString:[_replasePassword text]] && falseData == NO ? NO : YES);
+    NSString *errorMessage;
+    
+    if (!([[_firstName text] length] > 0 && falseData == NO) || !([[_lastName text] length] > 0 && falseData == NO))
+    {
+        falseData = YES;
+        errorMessage = @"Please enter first name or last name.";
+    }
+    
+    if (!([[_email text] length] > 0 && [self validateEmail:[_email text]] && falseData == NO))
+    {
+        falseData = YES;
+        errorMessage = @"Please enter valid email address.";
+    }
+
+    if ([[_password text] length] > 0 && [[_password text] isEqualToString:[_replasePassword text]] && falseData == NO)
+    {
+        falseData = YES;
+        errorMessage = @"Passwords do not match.";
+    }
     
     if (falseData)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:@"Incorrectly entered data!!!"
+                                                        message:errorMessage
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -132,6 +147,24 @@
     }
     
     return NO; // We do not want UITextField to insert line-breaks.
+}
+
+- (void)loginSuccess:(BOOL)success
+{
+    if (success)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Email account already registered."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 - (IBAction)back:(id)sender

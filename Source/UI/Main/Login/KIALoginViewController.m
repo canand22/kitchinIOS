@@ -50,8 +50,8 @@
     [[[note userInfo] valueForKey:UIKeyboardFrameBeginUserInfoKey] getValue:&keyboardBounds];
 		
     CGRect frame = [_mainView frame];
-    frame.origin.y = 20;
-    frame.size.height -= MIN(keyboardBounds.size.height, keyboardBounds.size.width) - 40;
+    frame.origin.y = 5;
+    frame.size.height -= MIN(keyboardBounds.size.height, keyboardBounds.size.width) - 90;
     [_mainView setFrame:frame];
 }
 
@@ -86,7 +86,7 @@
     if (falseData)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:@"Incorrectly entered data!!!"
+                                                        message:@"Please enter email and password."
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -131,7 +131,7 @@
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:@"Invalid login or password"
+                                                        message:@"User is not found. Please ensure that you have entered correct email and password."
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

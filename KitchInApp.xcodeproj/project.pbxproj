@@ -45,6 +45,8 @@
 		84C338D618842C9D008814E4 /* EditRecognizedItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C338D518842C9D008814E4 /* EditRecognizedItemCell.m */; };
 		84C338DA188456EB008814E4 /* title line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C338D9188456EB008814E4 /* title line@2x.png */; };
 		84C338DE188458A3008814E4 /* KIASelectCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C338DD188458A3008814E4 /* KIASelectCategoryViewController.m */; };
+		84C6157318990021008C887C /* KIAServerGateway+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6157218990021008C887C /* KIAServerGateway+Add.m */; };
+		84C615771899095D008C887C /* KIAAddItemMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C615761899095D008C887C /* KIAAddItemMapping.m */; };
 		84E0803615299BAF00F277B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0803515299BAF00F277B5 /* AppDelegate.m */; };
 		84E0803B15299BE800F277B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0803915299BE800F277B5 /* main.m */; };
 		84E0803C15299BEB00F277B5 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0803815299BE800F277B5 /* GHUnitIOSTestMain.m */; };
@@ -61,6 +63,7 @@
 		84EF45311887FC7600E08450 /* 30.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EF452E1887FC7600E08450 /* 30.png */; };
 		84EF45321887FC7600E08450 /* 31.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EF452F1887FC7600E08450 /* 31.png */; };
 		84EF45331887FC7600E08450 /* 32.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EF45301887FC7600E08450 /* 32.png */; };
+		84F0BC2D18940C9D00A0C971 /* submit_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F0BC2C18940C9D00A0C971 /* submit_btn@2x.png */; };
 		84F15C7E18647F1F0049C33F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F15C7D18647F1F0049C33F /* MainStoryboard.storyboard */; };
 		84F15C90186498B80049C33F /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F15C80186498B80049C33F /* bar@2x.png */; };
 		84F15C91186498B80049C33F /* capture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F15C81186498B80049C33F /* capture@2x.png */; };
@@ -116,13 +119,13 @@
 		84F1B808188FDABD00535A5D /* Seafood_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B807188FDABD00535A5D /* Seafood_category@2x.png */; };
 		84F1B80A188FDADD00535A5D /* Snacks_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B809188FDADD00535A5D /* Snacks_category@2x.png */; };
 		84F1B80C188FDAF700535A5D /* Sweets_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F1B80B188FDAF700535A5D /* Sweets_category@2x.png */; };
+		84F1B80F1890212800535A5D /* KIACategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F1B80E1890212800535A5D /* KIACategory.m */; };
 		84F2334B1881462B00D870CB /* KIAServerGateway+SendCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2334A1881462B00D870CB /* KIAServerGateway+SendCheck.m */; };
 		84F2334F18814B2300D870CB /* KIASendCheckMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2334E18814B2300D870CB /* KIASendCheckMapping.m */; };
 		84F2A1E8188556EC007024D5 /* KIAAutorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2A1E7188556EC007024D5 /* KIAAutorization.m */; };
 		84F2A1EE18855DDC007024D5 /* KIARegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2A1ED18855DDC007024D5 /* KIARegisterViewController.m */; };
 		84F2CD50188D741000E96509 /* aa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2CD4F188D741000E96509 /* aa@2x.png */; };
 		84F2CD55188DBD0400E96509 /* KIAServerGateway+getItemOfCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2CD54188DBD0400E96509 /* KIAServerGateway+getItemOfCategory.m */; };
-		84F2CD5D188DC23300E96509 /* KIAgetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2CD5C188DC23300E96509 /* KIAgetItem.m */; };
 		84F2F0A918682FAC008FF7A1 /* KIAMyKitchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2F0A818682FAC008FF7A1 /* KIAMyKitchenViewController.m */; };
 		84F2F0B21868365E008FF7A1 /* add_receipt_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2F0AB1868365E008FF7A1 /* add_receipt_bg@2x.png */; };
 		84F2F0B31868365E008FF7A1 /* back_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2F0AC1868365E008FF7A1 /* back_active@2x.png */; };
@@ -211,10 +214,14 @@
 		84F334661886AB63009818C2 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F334481886AB63009818C2 /* 8.png */; };
 		84F334671886AB63009818C2 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F334491886AB63009818C2 /* 9.png */; };
 		84F3346C1886ACA4009818C2 /* KIALoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3346B1886ACA4009818C2 /* KIALoaderView.m */; };
-		84F4505B188E69DD0076C014 /* KIAgetItem+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4505A188E69DD0076C014 /* KIAgetItem+Mapping.m */; };
+		84F4505B188E69DD0076C014 /* KIAItem+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4505A188E69DD0076C014 /* KIAItem+Mapping.m */; };
 		84F4505F188EAD710076C014 /* KIAServerGateway+Logout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4505E188EAD710076C014 /* KIAServerGateway+Logout.m */; };
 		84F45063188EAD9F0076C014 /* KIALogoutMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F45062188EAD9F0076C014 /* KIALogoutMapping.m */; };
+		84F48D4F1892646600504130 /* KIAUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F48D4E1892646600504130 /* KIAUpdater.m */; };
 		84F49DDF187AC4E400130FAA /* KIACredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F49DDE187AC4E400130FAA /* KIACredentials.m */; };
+		84F4FF09189F9C6E00216C95 /* KIAItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4FF08189F9C6E00216C95 /* KIAItem.m */; };
+		84F518511896492A004667D4 /* KIANewItemWithStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F518501896492A004667D4 /* KIANewItemWithStoreViewController.m */; };
+		84F5185418964958004667D4 /* KIANewItemWithOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5185318964958004667D4 /* KIANewItemWithOtherViewController.m */; };
 		84F51A0A1869A49C0045B7AB /* bg white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F519FF1869A49C0045B7AB /* bg white@2x.png */; };
 		84F51A0B1869A49C0045B7AB /* button add active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F51A001869A49C0045B7AB /* button add active@2x.png */; };
 		84F51A0C1869A49C0045B7AB /* button add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F51A011869A49C0045B7AB /* button add@2x.png */; };
@@ -243,7 +250,6 @@
 		84F51A401869EF4D0045B7AB /* button_cancel_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F51A3A1869EF4D0045B7AB /* button_cancel_empty@2x.png */; };
 		84F51A411869EF4D0045B7AB /* button_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F51A3B1869EF4D0045B7AB /* button_more@2x.png */; };
 		84F51A421869EF4D0045B7AB /* button_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F51A3C1869EF4D0045B7AB /* button_orange@2x.png */; };
-		84F51A431869EF4D0045B7AB /* photo_reciept@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F51A3D1869EF4D0045B7AB /* photo_reciept@2x.png */; };
 		84F51A491869F03B0045B7AB /* KIACapturedReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F51A481869F03B0045B7AB /* KIACapturedReceiptViewController.m */; };
 		84F538D6188950CD00EEE86D /* Baking@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F538C5188950CD00EEE86D /* Baking@2x.png */; };
 		84F538D7188950CD00EEE86D /* Drinks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F538C6188950CD00EEE86D /* Drinks@2x.png */; };
@@ -264,6 +270,9 @@
 		84F538E6188950CD00EEE86D /* Sweets@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F538D5188950CD00EEE86D /* Sweets@2x.png */; };
 		84F538E81889629D00EEE86D /* Breads & Bakery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F538E71889629D00EEE86D /* Breads & Bakery@2x.png */; };
 		84F538EB188974B600EEE86D /* KIAForgotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F538EA188974B600EEE86D /* KIAForgotViewController.m */; };
+		84F553D2189A51BB00EB4C61 /* KIAAddItemResultMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F553D1189A51BB00EB4C61 /* KIAAddItemResultMapping.m */; };
+		84F553D7189A727D00EB4C61 /* KIAServerGateway+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F553D6189A727D00EB4C61 /* KIAServerGateway+Search.m */; };
+		84F553DB189A72D200EB4C61 /* KIASearchItemMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F553DA189A72D200EB4C61 /* KIASearchItemMapping.m */; };
 		84F56822187E9F5D00B7AFCC /* KIAServerGateway+Register.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F56821187E9F5D00B7AFCC /* KIAServerGateway+Register.m */; };
 		84F56828187EAEA700B7AFCC /* KIARegisterMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F56827187EAEA700B7AFCC /* KIARegisterMapping.m */; };
 		84F5682D187EC2F500B7AFCC /* KIAServerGateway+Forgot.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5682C187EC2F500B7AFCC /* KIAServerGateway+Forgot.m */; };
@@ -316,6 +325,11 @@
 		84C338D9188456EB008814E4 /* title line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title line@2x.png"; sourceTree = "<group>"; };
 		84C338DC188458A3008814E4 /* KIASelectCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASelectCategoryViewController.h; sourceTree = "<group>"; };
 		84C338DD188458A3008814E4 /* KIASelectCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASelectCategoryViewController.m; sourceTree = "<group>"; };
+		84C615701898FE24008C887C /* addNewItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = addNewItemProtocol.h; sourceTree = "<group>"; };
+		84C6157118990021008C887C /* KIAServerGateway+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+Add.h"; sourceTree = "<group>"; };
+		84C6157218990021008C887C /* KIAServerGateway+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+Add.m"; sourceTree = "<group>"; };
+		84C615751899095D008C887C /* KIAAddItemMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAAddItemMapping.h; sourceTree = "<group>"; };
+		84C615761899095D008C887C /* KIAAddItemMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAAddItemMapping.m; sourceTree = "<group>"; };
 		84DC64EC18111C7A00C8FE9D /* ConfigurationFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ConfigurationFiles; sourceTree = "<group>"; };
 		84E0803415299BAF00F277B5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84E0803515299BAF00F277B5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -437,6 +451,7 @@
 		84EF452E1887FC7600E08450 /* 30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30.png; sourceTree = "<group>"; };
 		84EF452F1887FC7600E08450 /* 31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 31.png; sourceTree = "<group>"; };
 		84EF45301887FC7600E08450 /* 32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32.png; sourceTree = "<group>"; };
+		84F0BC2C18940C9D00A0C971 /* submit_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submit_btn@2x.png"; sourceTree = "<group>"; };
 		84F15C7D18647F1F0049C33F /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		84F15C80186498B80049C33F /* bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar@2x.png"; sourceTree = "<group>"; };
 		84F15C81186498B80049C33F /* capture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture@2x.png"; sourceTree = "<group>"; };
@@ -495,6 +510,8 @@
 		84F1B807188FDABD00535A5D /* Seafood_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Seafood_category@2x.png"; sourceTree = "<group>"; };
 		84F1B809188FDADD00535A5D /* Snacks_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Snacks_category@2x.png"; sourceTree = "<group>"; };
 		84F1B80B188FDAF700535A5D /* Sweets_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sweets_category@2x.png"; sourceTree = "<group>"; };
+		84F1B80D1890212800535A5D /* KIACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACategory.h; sourceTree = "<group>"; };
+		84F1B80E1890212800535A5D /* KIACategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACategory.m; sourceTree = "<group>"; };
 		84F233481881451300D870CB /* sendCheckProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendCheckProtocol.h; sourceTree = "<group>"; };
 		84F233491881462B00D870CB /* KIAServerGateway+SendCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+SendCheck.h"; sourceTree = "<group>"; };
 		84F2334A1881462B00D870CB /* KIAServerGateway+SendCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+SendCheck.m"; sourceTree = "<group>"; };
@@ -508,8 +525,6 @@
 		84F2CD52188DBBA200E96509 /* getCategoryItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = getCategoryItemProtocol.h; sourceTree = "<group>"; };
 		84F2CD53188DBD0400E96509 /* KIAServerGateway+getItemOfCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+getItemOfCategory.h"; sourceTree = "<group>"; };
 		84F2CD54188DBD0400E96509 /* KIAServerGateway+getItemOfCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+getItemOfCategory.m"; sourceTree = "<group>"; };
-		84F2CD5B188DC23300E96509 /* KIAgetItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAgetItem.h; sourceTree = "<group>"; };
-		84F2CD5C188DC23300E96509 /* KIAgetItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAgetItem.m; sourceTree = "<group>"; };
 		84F2F0A718682FAC008FF7A1 /* KIAMyKitchenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAMyKitchenViewController.h; sourceTree = "<group>"; };
 		84F2F0A818682FAC008FF7A1 /* KIAMyKitchenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAMyKitchenViewController.m; sourceTree = "<group>"; };
 		84F2F0AB1868365E008FF7A1 /* add_receipt_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_receipt_bg@2x.png"; sourceTree = "<group>"; };
@@ -604,15 +619,23 @@
 		84F334491886AB63009818C2 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
 		84F3346A1886ACA4009818C2 /* KIALoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIALoaderView.h; sourceTree = "<group>"; };
 		84F3346B1886ACA4009818C2 /* KIALoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIALoaderView.m; sourceTree = "<group>"; };
-		84F45059188E69DD0076C014 /* KIAgetItem+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAgetItem+Mapping.h"; sourceTree = "<group>"; };
-		84F4505A188E69DD0076C014 /* KIAgetItem+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAgetItem+Mapping.m"; sourceTree = "<group>"; };
+		84F45059188E69DD0076C014 /* KIAItem+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAItem+Mapping.h"; sourceTree = "<group>"; };
+		84F4505A188E69DD0076C014 /* KIAItem+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAItem+Mapping.m"; sourceTree = "<group>"; };
 		84F4505C188EAD320076C014 /* logoutProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = logoutProtocol.h; sourceTree = "<group>"; };
 		84F4505D188EAD710076C014 /* KIAServerGateway+Logout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+Logout.h"; sourceTree = "<group>"; };
 		84F4505E188EAD710076C014 /* KIAServerGateway+Logout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+Logout.m"; sourceTree = "<group>"; };
 		84F45061188EAD9F0076C014 /* KIALogoutMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIALogoutMapping.h; sourceTree = "<group>"; };
 		84F45062188EAD9F0076C014 /* KIALogoutMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIALogoutMapping.m; sourceTree = "<group>"; };
+		84F48D4D1892646600504130 /* KIAUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAUpdater.h; sourceTree = "<group>"; };
+		84F48D4E1892646600504130 /* KIAUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAUpdater.m; sourceTree = "<group>"; };
 		84F49DDD187AC4E400130FAA /* KIACredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACredentials.h; sourceTree = "<group>"; };
 		84F49DDE187AC4E400130FAA /* KIACredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACredentials.m; sourceTree = "<group>"; };
+		84F4FF07189F9C6E00216C95 /* KIAItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KIAItem.h; path = "Source/Logic/Get Category Item/Mapping/KIAItem.h"; sourceTree = SOURCE_ROOT; };
+		84F4FF08189F9C6E00216C95 /* KIAItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KIAItem.m; path = "Source/Logic/Get Category Item/Mapping/KIAItem.m"; sourceTree = SOURCE_ROOT; };
+		84F5184F1896492A004667D4 /* KIANewItemWithStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIANewItemWithStoreViewController.h; sourceTree = "<group>"; };
+		84F518501896492A004667D4 /* KIANewItemWithStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIANewItemWithStoreViewController.m; sourceTree = "<group>"; };
+		84F5185218964958004667D4 /* KIANewItemWithOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIANewItemWithOtherViewController.h; sourceTree = "<group>"; };
+		84F5185318964958004667D4 /* KIANewItemWithOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIANewItemWithOtherViewController.m; sourceTree = "<group>"; };
 		84F519FF1869A49C0045B7AB /* bg white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg white@2x.png"; sourceTree = "<group>"; };
 		84F51A001869A49C0045B7AB /* button add active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button add active@2x.png"; sourceTree = "<group>"; };
 		84F51A011869A49C0045B7AB /* button add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button add@2x.png"; sourceTree = "<group>"; };
@@ -643,7 +666,6 @@
 		84F51A3A1869EF4D0045B7AB /* button_cancel_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_cancel_empty@2x.png"; sourceTree = "<group>"; };
 		84F51A3B1869EF4D0045B7AB /* button_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_more@2x.png"; sourceTree = "<group>"; };
 		84F51A3C1869EF4D0045B7AB /* button_orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_orange@2x.png"; sourceTree = "<group>"; };
-		84F51A3D1869EF4D0045B7AB /* photo_reciept@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_reciept@2x.png"; sourceTree = "<group>"; };
 		84F51A471869F03B0045B7AB /* KIACapturedReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACapturedReceiptViewController.h; sourceTree = "<group>"; };
 		84F51A481869F03B0045B7AB /* KIACapturedReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACapturedReceiptViewController.m; sourceTree = "<group>"; };
 		84F538C5188950CD00EEE86D /* Baking@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Baking@2x.png"; sourceTree = "<group>"; };
@@ -666,6 +688,13 @@
 		84F538E71889629D00EEE86D /* Breads & Bakery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Breads & Bakery@2x.png"; sourceTree = "<group>"; };
 		84F538E9188974B600EEE86D /* KIAForgotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAForgotViewController.h; sourceTree = "<group>"; };
 		84F538EA188974B600EEE86D /* KIAForgotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAForgotViewController.m; sourceTree = "<group>"; };
+		84F553D0189A51BB00EB4C61 /* KIAAddItemResultMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAAddItemResultMapping.h; sourceTree = "<group>"; };
+		84F553D1189A51BB00EB4C61 /* KIAAddItemResultMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAAddItemResultMapping.m; sourceTree = "<group>"; };
+		84F553D4189A726D00EB4C61 /* searchItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = searchItemProtocol.h; sourceTree = "<group>"; };
+		84F553D5189A727D00EB4C61 /* KIAServerGateway+Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+Search.h"; sourceTree = "<group>"; };
+		84F553D6189A727D00EB4C61 /* KIAServerGateway+Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+Search.m"; sourceTree = "<group>"; };
+		84F553D9189A72D200EB4C61 /* KIASearchItemMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASearchItemMapping.h; sourceTree = "<group>"; };
+		84F553DA189A72D200EB4C61 /* KIASearchItemMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASearchItemMapping.m; sourceTree = "<group>"; };
 		84F56820187E9F5D00B7AFCC /* KIAServerGateway+Register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+Register.h"; sourceTree = "<group>"; };
 		84F56821187E9F5D00B7AFCC /* KIAServerGateway+Register.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+Register.m"; sourceTree = "<group>"; };
 		84F56823187E9F7800B7AFCC /* registerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = registerProtocol.h; sourceTree = "<group>"; };
@@ -941,6 +970,28 @@
 			path = "Category Controller";
 			sourceTree = "<group>";
 		};
+		84C6156F1898FDFE008C887C /* Add New Item */ = {
+			isa = PBXGroup;
+			children = (
+				84C615701898FE24008C887C /* addNewItemProtocol.h */,
+				84C6157118990021008C887C /* KIAServerGateway+Add.h */,
+				84C6157218990021008C887C /* KIAServerGateway+Add.m */,
+				84C6157418990090008C887C /* Mapping */,
+			);
+			path = "Add New Item";
+			sourceTree = "<group>";
+		};
+		84C6157418990090008C887C /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				84C615751899095D008C887C /* KIAAddItemMapping.h */,
+				84C615761899095D008C887C /* KIAAddItemMapping.m */,
+				84F553D0189A51BB00EB4C61 /* KIAAddItemResultMapping.h */,
+				84F553D1189A51BB00EB4C61 /* KIAAddItemResultMapping.m */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
 		84E0803115299AC600F277B5 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -998,6 +1049,15 @@
 				84E0805015299DCE00F277B5 /* Localizable.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		84EC785F1891617E0017E7ED /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				84F48D4D1892646600504130 /* KIAUpdater.h */,
+				84F48D4E1892646600504130 /* KIAUpdater.m */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		84EDFE06186AE24F00D695AC /* RestKit */ = {
@@ -1258,6 +1318,7 @@
 		84F15CD01864A6A50049C33F /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				84EC785F1891617E0017E7ED /* Database */,
 				84F7ACD7186DC01C0092E0B0 /* baseServerGatewayProtocol.h */,
 				84F7ACD8186DC0770092E0B0 /* serverGatewayDelegate.h */,
 				84EDFE85186C92EE00D695AC /* KIAServerGateway.h */,
@@ -1268,6 +1329,8 @@
 				84F56835187F08B800B7AFCC /* Logout */,
 				84F56832187EDB9000B7AFCC /* Send check */,
 				84F2CD51188DB9C300E96509 /* Get Category Item */,
+				84C6156F1898FDFE008C887C /* Add New Item */,
+				84F553D3189A725400EB4C61 /* Search Item */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -1314,10 +1377,12 @@
 		84F2CD5A188DC20400E96509 /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
-				84F2CD5B188DC23300E96509 /* KIAgetItem.h */,
-				84F2CD5C188DC23300E96509 /* KIAgetItem.m */,
-				84F45059188E69DD0076C014 /* KIAgetItem+Mapping.h */,
-				84F4505A188E69DD0076C014 /* KIAgetItem+Mapping.m */,
+				84F4FF07189F9C6E00216C95 /* KIAItem.h */,
+				84F4FF08189F9C6E00216C95 /* KIAItem.m */,
+				84F45059188E69DD0076C014 /* KIAItem+Mapping.h */,
+				84F4505A188E69DD0076C014 /* KIAItem+Mapping.m */,
+				84F1B80D1890212800535A5D /* KIACategory.h */,
+				84F1B80E1890212800535A5D /* KIACategory.m */,
 			);
 			path = Mapping;
 			sourceTree = "<group>";
@@ -1522,6 +1587,7 @@
 				84F3341A18868721009818C2 /* popup_block@2x.png */,
 				84F3341C18868727009818C2 /* popup_header_block@2x.png */,
 				84F3341E18869196009818C2 /* register_btn@2x.png */,
+				84F0BC2C18940C9D00A0C971 /* submit_btn@2x.png */,
 				84F33420188691FC009818C2 /* more_btn@2x.png */,
 				84F33422188696E4009818C2 /* bottom_grey_line@2x.png */,
 				84F33424188697A4009818C2 /* login_text_field@2x.png */,
@@ -1534,6 +1600,8 @@
 			children = (
 				84F334291886A592009818C2 /* KIAAddItemViewController.h */,
 				84F3342A1886A592009818C2 /* KIAAddItemViewController.m */,
+				84F5184D18964905004667D4 /* Item With Store */,
+				84F5184E18964905004667D4 /* Item Without Store */,
 			);
 			path = "Add New Item";
 			sourceTree = "<group>";
@@ -1593,6 +1661,24 @@
 				84F45062188EAD9F0076C014 /* KIALogoutMapping.m */,
 			);
 			path = Mapping;
+			sourceTree = "<group>";
+		};
+		84F5184D18964905004667D4 /* Item With Store */ = {
+			isa = PBXGroup;
+			children = (
+				84F5184F1896492A004667D4 /* KIANewItemWithStoreViewController.h */,
+				84F518501896492A004667D4 /* KIANewItemWithStoreViewController.m */,
+			);
+			path = "Item With Store";
+			sourceTree = "<group>";
+		};
+		84F5184E18964905004667D4 /* Item Without Store */ = {
+			isa = PBXGroup;
+			children = (
+				84F5185218964958004667D4 /* KIANewItemWithOtherViewController.h */,
+				84F5185318964958004667D4 /* KIANewItemWithOtherViewController.m */,
+			);
+			path = "Item Without Store";
 			sourceTree = "<group>";
 		};
 		84F519FE1869A49C0045B7AB /* Edit recognized items */ = {
@@ -1664,7 +1750,6 @@
 				84F51A3A1869EF4D0045B7AB /* button_cancel_empty@2x.png */,
 				84F51A3B1869EF4D0045B7AB /* button_more@2x.png */,
 				84F51A3C1869EF4D0045B7AB /* button_orange@2x.png */,
-				84F51A3D1869EF4D0045B7AB /* photo_reciept@2x.png */,
 			);
 			path = "capture recite";
 			sourceTree = "<group>";
@@ -1676,6 +1761,26 @@
 				84F51A481869F03B0045B7AB /* KIACapturedReceiptViewController.m */,
 			);
 			path = "Captured Receipt";
+			sourceTree = "<group>";
+		};
+		84F553D3189A725400EB4C61 /* Search Item */ = {
+			isa = PBXGroup;
+			children = (
+				84F553D4189A726D00EB4C61 /* searchItemProtocol.h */,
+				84F553D5189A727D00EB4C61 /* KIAServerGateway+Search.h */,
+				84F553D6189A727D00EB4C61 /* KIAServerGateway+Search.m */,
+				84F553D8189A72BA00EB4C61 /* Mapping */,
+			);
+			path = "Search Item";
+			sourceTree = "<group>";
+		};
+		84F553D8189A72BA00EB4C61 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				84F553D9189A72D200EB4C61 /* KIASearchItemMapping.h */,
+				84F553DA189A72D200EB4C61 /* KIASearchItemMapping.m */,
+			);
+			path = Mapping;
 			sourceTree = "<group>";
 		};
 		84F5681F187E9F2D00B7AFCC /* Register */ = {
@@ -2000,7 +2105,6 @@
 				84F1B7EA188FD83300535A5D /* Breads & Bakery_category@2x.png in Resources */,
 				84F2F0E518683B00008FF7A1 /* pinterest_active@2x.png in Resources */,
 				84F334541886AB63009818C2 /* 18.png in Resources */,
-				84F51A431869EF4D0045B7AB /* photo_reciept@2x.png in Resources */,
 				84F2F0B41868365E008FF7A1 /* back_empty@2x.png in Resources */,
 				84F2F17C18689512008FF7A1 /* button_suggestions_active@2x.png in Resources */,
 				84F33425188697A4009818C2 /* login_text_field@2x.png in Resources */,
@@ -2022,6 +2126,7 @@
 				84F1B7F6188FD91600535A5D /* Cereal & Grains_category@2x.png in Resources */,
 				84F51A141869A49C0045B7AB /* textfields@2x.png in Resources */,
 				84F1B802188FDA5600535A5D /* Pasta_category@2x.png in Resources */,
+				84F0BC2D18940C9D00A0C971 /* submit_btn@2x.png in Resources */,
 				84F538DE188950CD00EEE86D /* Meats & Deli@2x.png in Resources */,
 				84F15C96186498B80049C33F /* create meal_active@2x.png in Resources */,
 				84F334631886AB63009818C2 /* 5.png in Resources */,
@@ -2236,18 +2341,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84F2CD5D188DC23300E96509 /* KIAgetItem.m in Sources */,
 				84E0803615299BAF00F277B5 /* AppDelegate.m in Sources */,
 				84F15CD31864A6C60049C33F /* KIACameraViewController.m in Sources */,
 				84EDFE87186C92EE00D695AC /* KIAServerGateway.m in Sources */,
 				84F51A221869C6150045B7AB /* KIACategoryContentViewController.m in Sources */,
 				84F7ACD6186DB8920092E0B0 /* KIALoginViewController.m in Sources */,
 				84C338D618842C9D008814E4 /* EditRecognizedItemCell.m in Sources */,
+				84F5185418964958004667D4 /* KIANewItemWithOtherViewController.m in Sources */,
 				84F2334B1881462B00D870CB /* KIAServerGateway+SendCheck.m in Sources */,
 				84F45063188EAD9F0076C014 /* KIALogoutMapping.m in Sources */,
 				84F56831187EC4CF00B7AFCC /* KIAForgotMapping.m in Sources */,
 				84E0803B15299BE800F277B5 /* main.m in Sources */,
+				84F553D2189A51BB00EB4C61 /* KIAAddItemResultMapping.m in Sources */,
 				84F56822187E9F5D00B7AFCC /* KIAServerGateway+Register.m in Sources */,
+				84F553D7189A727D00EB4C61 /* KIAServerGateway+Search.m in Sources */,
+				84F518511896492A004667D4 /* KIANewItemWithStoreViewController.m in Sources */,
 				84F2A1EE18855DDC007024D5 /* KIARegisterViewController.m in Sources */,
 				84C338DE188458A3008814E4 /* KIASelectCategoryViewController.m in Sources */,
 				84F2F0A918682FAC008FF7A1 /* KIAMyKitchenViewController.m in Sources */,
@@ -2258,15 +2366,19 @@
 				84F56828187EAEA700B7AFCC /* KIARegisterMapping.m in Sources */,
 				84F51A181869A5AE0045B7AB /* KIAEditRecognizeItemsViewController.m in Sources */,
 				84F51A491869F03B0045B7AB /* KIACapturedReceiptViewController.m in Sources */,
-				84F4505B188E69DD0076C014 /* KIAgetItem+Mapping.m in Sources */,
+				84F4505B188E69DD0076C014 /* KIAItem+Mapping.m in Sources */,
 				84F2CD55188DBD0400E96509 /* KIAServerGateway+getItemOfCategory.m in Sources */,
 				84F4505F188EAD710076C014 /* KIAServerGateway+Logout.m in Sources */,
 				84C338D11883E7C9008814E4 /* NSData+Base64.m in Sources */,
 				84F5682D187EC2F500B7AFCC /* KIAServerGateway+Forgot.m in Sources */,
 				84F7ACD2186D91740092E0B0 /* KIALoginMapping.m in Sources */,
 				BABE53911720375100109DC9 /* NIXLogManager.m in Sources */,
+				84C615771899095D008C887C /* KIAAddItemMapping.m in Sources */,
 				84EDFE84186C8F1F00D695AC /* KitchInModel.xcdatamodeld in Sources */,
+				84F4FF09189F9C6E00216C95 /* KIAItem.m in Sources */,
 				84F3342B1886A592009818C2 /* KIAAddItemViewController.m in Sources */,
+				84C6157318990021008C887C /* KIAServerGateway+Add.m in Sources */,
+				84F553DB189A72D200EB4C61 /* KIASearchItemMapping.m in Sources */,
 				84F49DDF187AC4E400130FAA /* KIACredentials.m in Sources */,
 				848E34821827BD490033F2E7 /* NIXCrashReporter.m in Sources */,
 				84F7ACCE186D83400092E0B0 /* KIAServerGateway+Login.m in Sources */,
@@ -2277,6 +2389,8 @@
 				84F538EB188974B600EEE86D /* KIAForgotViewController.m in Sources */,
 				84F2F0F818683CF6008FF7A1 /* KIASettingViewController.m in Sources */,
 				84F2A1E8188556EC007024D5 /* KIAAutorization.m in Sources */,
+				84F48D4F1892646600504130 /* KIAUpdater.m in Sources */,
+				84F1B80F1890212800535A5D /* KIACategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

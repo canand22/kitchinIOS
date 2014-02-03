@@ -43,7 +43,7 @@
     [[self objectManager] addResponseDescriptor:descriptor];
 }
 
-- (void)setupRequestWithImage:(UIImage *)image storeID:(NSUInteger)storeID
+- (RKRequestDescriptor *)setupRequestWithImage:(UIImage *)image storeID:(NSUInteger)storeID
 {
     RKObjectMapping *imageMapping = [KIAImageMapping mapping];
     
@@ -53,11 +53,13 @@
                                                                                         method:RKRequestMethodPOST];
     
     [[self objectManager] addRequestDescriptor:requestDescriptor];
+    
+    return requestDescriptor;
 }
 
 - (void)postQueryWithImage:(UIImage *)image storeID:(NSUInteger)storeID delegate:(id<serverGatewayDelegate>)theDelegate
 {
-    [self setupRequestWithImage:image storeID:storeID];
+    RKRequestDescriptor *request = [self setupRequestWithImage:image storeID:storeID];
     
     [self setupSendCheckMappingWithStoreId:storeID];
     
@@ -92,6 +94,8 @@
                                         
                                         [theDelegate nullData];
                                     }
+                                    
+                                    [[self objectManager] removeRequestDescriptor:request];
                                 }
                              failure:^(RKObjectRequestOperation *operation, NSError *error)
                                 {
@@ -106,6 +110,8 @@
                                     }
          
                                     NSLog(@"Failure: %@", [error localizedDescription]);
+                                    
+                                    [[self objectManager] removeRequestDescriptor:request];
                                 }];
 }
 

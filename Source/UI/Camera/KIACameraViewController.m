@@ -40,11 +40,11 @@
     [self setDelegate:self];
     
     UIImageView *leftLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line.png"]];
-    [leftLine setFrame:CGRectMake(15, 50, 7, 400)];
+    [leftLine setFrame:CGRectMake(15, 50, 5, 400)];
     [[self view] addSubview:leftLine];
     
     UIImageView *rightLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line.png"]];
-    [rightLine setFrame:CGRectMake(305, 50, 7, 400)];
+    [rightLine setFrame:CGRectMake(300, 50, 5, 400)];
     [[self view] addSubview:rightLine];
 }
 

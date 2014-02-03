@@ -32,6 +32,11 @@
     [_delegate showPickerView:[self tag]];
 }
 
+- (IBAction)deleteItem:(id)sender
+{
+    [_delegate deleteItemFromIndex:[self tag]];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

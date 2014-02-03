@@ -20,7 +20,7 @@
     RKObjectMapping *sendCheckMapping = [RKObjectMapping mappingForClass:[KIASendCheckMapping class]];
     
     // setup current weather mapping
-    [sendCheckMapping addAttributeMappingsFromArray:@[@"Id", @"Category", @"IsSuccessMatching", @"ItemName"]];
+    [sendCheckMapping addAttributeMappingsFromArray:@[@"Id", @"Category", @"IsSuccessMatching", @"ItemName", @"ItemShortName"]];
     
     return sendCheckMapping;
 }

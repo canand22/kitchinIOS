@@ -15,12 +15,12 @@
 {
     IBOutlet UITextField *_email;
     
-    id<forgotProtocol> _forgotGateway;
+    __weak id<forgotProtocol> _forgotGateway;
     
     IBOutlet UIView *_mainView;
 }
 
-@property(nonatomic, strong) id<forgotProtocol> forgotGateway;
+@property(nonatomic, weak) id<forgotProtocol> forgotGateway;
 
 - (IBAction)forgot:(id)sender;
 - (IBAction)back:(id)sender;

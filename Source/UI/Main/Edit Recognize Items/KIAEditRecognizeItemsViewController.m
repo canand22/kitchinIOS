@@ -17,6 +17,10 @@
 
 #import "KIALoginViewController.h"
 
+#import "KIAServerGateway.h"
+
+#import "KIAUpdater.h"
+
 #define CELL_TAG 100
 
 @interface KIAEditRecognizeItemsViewController ()
@@ -25,6 +29,8 @@
 
 @implementation KIAEditRecognizeItemsViewController
 
+@synthesize getItemGateway = _getItemGateway;
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -32,10 +38,14 @@
     if (self)
     {
         // Custom initialization
-        _itemArray = [[NSArray alloc] init];
+        _itemArray = [[NSMutableArray alloc] init];
         
         _unitArray = @[@"teaspoon", @"tablespoon", @"fluid ounce", @"cups", @"pint", @"quart", @"gallon", @"milliliter", @"liter, litre", @"deciliter", @"pound", @"ounce", @"mcg", @"milligram", @"gram", @"kilogram"];
         _unitReductionArray = @[@"tsp", @"tbsp", @"fl oz", @"cup(s)", @"pt", @"qt", @"gal", @"ml", @"l", @"dl", @"lb", @"oz", @"μg", @"mg", @"g", @"kg"];
+        
+        _category = @{@"DAIRY" : @"6", @"PRODUCE" : @"10", @"POULTRY" : @"12", @"MEATS & DELI" : @"14", @"SEAFOOD" : @"13", @"BREADS & BAKERY" : @"2", @"PASTA" : @"11", @"CEREAL & GRAINS" : @"4", @"DRINKS" : @"7", @"DRY PREPARED FOODS" : @"8", @"CANNED FOODS, SOUPS, BROTHS" : @"3", @"FROZEN" : @"9", @"SNACKS" : @"15", @"SWEETS" : @"17", @"BAKING" : @"1", @"CONDIMENTS, SAUCES, OILS" : @"5", @"SPICES & HERBS" : @"16", @"OTHER" : @"18"};
+        
+        _getItemGateway = [KIAServerGateway gateway];
     }
     
     return self;
@@ -57,6 +67,16 @@
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"])
     {
         NSLog(@"YES");
+        
+        for (int i = 0; i < [_itemArray count]; i++)
+        {
+            KIASendCheckMapping *item = [_itemArray objectAtIndex:i];
+            
+            if ([item IsSuccessMatching])
+            {
+                [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[item Category]] integerValue] shortName:[item ItemShortName] count:1 value:@"1"];
+            }
+        }
     }
     else
     {
@@ -128,6 +148,8 @@
         }
         
         [(EditRecognizedItemCell *)cell setDelegate:self];
+        
+        [[(EditRecognizedItemCell *)cell deleteButton] setTag:[indexPath row] + CELL_TAG];
     }
     
     [cell setTag:[indexPath row] + CELL_TAG];
@@ -173,16 +195,33 @@
     }
 }
 
+- (void)deleteItemFromIndex:(NSInteger)index
+{
+    [_itemArray removeObjectAtIndex:index - CELL_TAG - 1];
+    
+    [_table reloadData];
+}
+
 #pragma mark ***** picker view *****
 
 - (void)showPickerView:(NSInteger)numberOfCellRow
 {
-    UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 160, 40)];
+    UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, [[self view] frame].size.height, 320, 160)];
     [picker setShowsSelectionIndicator:YES];
     [picker setDataSource:self];
     [picker setDelegate:self];
     [picker setTag:numberOfCellRow];
     [[self view] addSubview:picker];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.5f];
+    
+    CGRect frame = [_table frame];
+    frame.size.height -= [picker frame].size.height;
+    [picker setFrame:CGRectMake(0, [[self view] frame].size.height - 160, 320, 160)];
+    [_table setFrame:frame];
+    
+    [UIView commitAnimations];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -210,6 +249,18 @@
     EditRecognizedItemCell *cell = (EditRecognizedItemCell *)[_table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[pickerView tag] - CELL_TAG inSection:0]];
     
     [[cell unit] setTitle:[_unitReductionArray objectAtIndex:row] forState:UIControlStateNormal];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.5f];
+    
+    CGRect frame = [_table frame];
+    frame.size.height += [pickerView frame].size.height;
+    [pickerView setFrame:CGRectMake(0, [[self view] frame].size.height, 320, 160)];
+    [_table setFrame:frame];
+    
+    [UIView commitAnimations];
+    
+    [pickerView performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:.5f];
 }
 
 #pragma mark *****
