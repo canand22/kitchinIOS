@@ -17,7 +17,7 @@
 
 - (void)forgotPasswordWithEmail:(NSString *)email delegate:(id<serverGatewayDelegate>)delegate
 {
-    [self postQueryWithEmail:email];
+    [self postQueryWithEmail:email delegate:delegate];
 }
 
 - (void)setupForgotMappingWithEmail:(NSString *)email
@@ -36,7 +36,7 @@
     [[self objectManager] addResponseDescriptor:descriptor];
 }
 
-- (void)postQueryWithEmail:(NSString *)email
+- (void)postQueryWithEmail:(NSString *)email delegate:(id<serverGatewayDelegate>)delegate
 {
     [self setupForgotMappingWithEmail:email];
     
@@ -54,6 +54,8 @@
                                     {
                                         NSLog(@"Success!!!");
                                     }
+                                    
+                                    [delegate forgotSuccess:[[result objectAtIndex:0] IsUserRegistered]];
                                 }
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error)

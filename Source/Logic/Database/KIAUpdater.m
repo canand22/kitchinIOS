@@ -67,21 +67,44 @@
 - (void)addItemFromKitchInWihtId:(NSInteger)theId name:(NSString *)name categoryId:(NSInteger)catId shortName:(NSString *)shortName count:(NSInteger)count value:(NSString *)value
 {
     NSManagedObjectContext *context = [self managedObjectContext];
-        
-    KIAItem *newItem = (KIAItem *)[NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([KIAItem class]) inManagedObjectContext:context];
-    [newItem setIdItem:[NSNumber numberWithInteger:theId]];
-    [newItem setName:name];
-    [newItem setIdCategory:[NSNumber numberWithInteger:catId]];
-    [newItem setReduction:shortName];
-    [newItem setCount:[NSNumber numberWithInteger:count]];
-    [newItem setValue:value];
+ 
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    BOOL unique = YES;
+    NSError  *error;
+    NSArray *items = [context executeFetchRequest:request error:&error];
+    if(items.count > 0){
+        for(KIAItem *thisItem in items)
+        {
+            if([[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:theId]])
+            {
+                unique = NO;
+            }
+        }
+    }
     
-    NSError *error = nil;
-        
-    // Save the object to persistent store
-    if (![context save:&error])
+    if(unique)
     {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        KIAItem *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"KIAItem" inManagedObjectContext:context];
+        [newItem setIdItem:[NSNumber numberWithInteger:theId]];
+        [newItem setName:name];
+        [newItem setIdCategory:[NSNumber numberWithInteger:catId]];
+        [newItem setReduction:shortName];
+        [newItem setCount:[NSNumber numberWithInteger:count]];
+        [newItem setValue:value];
+    
+        NSError *error = nil;
+        
+        // Save the object to persistent store
+        if (![context save:&error])
+        {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+    }
+    else
+    {
+        
     }
 }
 

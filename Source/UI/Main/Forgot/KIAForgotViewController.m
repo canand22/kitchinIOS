@@ -48,8 +48,8 @@
     [[[note userInfo] valueForKey:UIKeyboardFrameBeginUserInfoKey] getValue:&keyboardBounds];
     
     CGRect frame = [_mainView frame];
-    frame.origin.y = 20;
-    frame.size.height -= MIN(keyboardBounds.size.height, keyboardBounds.size.width) - 40;
+    frame.origin.y = 5;
+    frame.size.height -= MIN(keyboardBounds.size.height, keyboardBounds.size.width) - 90;
     [_mainView setFrame:frame];
 }
 
@@ -83,7 +83,7 @@
     if (falseData)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:@"Incorrectly entered data!!!"
+                                                        message:@"Please enter valid email address"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -118,6 +118,8 @@
 
 - (IBAction)back:(id)sender
 {
+    [_email resignFirstResponder];
+    
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
@@ -125,6 +127,24 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)forgotSuccess:(BOOL)success
+{
+    if (success)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Email is not registered with Kitchin."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 - (void)dealloc

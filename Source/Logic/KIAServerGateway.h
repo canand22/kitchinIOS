@@ -13,7 +13,7 @@
 #import "baseServerGatewayProtocol.h"
 #import "serverGatewayDelegate.h"
 
-#define BASE_URL       @"http://10.11.72.12:1711"
+#define BASE_URL       @"http://kitchinservice.net.nixsolutions.com"
 #define DEFAULT_HEADER @"Accept"
 
 @class RKObjectManager;

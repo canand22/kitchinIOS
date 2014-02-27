@@ -50,8 +50,8 @@
     [[[note userInfo] valueForKey:UIKeyboardFrameBeginUserInfoKey] getValue:&keyboardBounds];
     
     CGRect frame = [_mainView frame];
-    frame.origin.y = 20;
-    frame.size.height -= MIN(keyboardBounds.size.height, keyboardBounds.size.width) - 40;
+    frame.origin.y = 5;
+    frame.size.height -= MIN(keyboardBounds.size.height, keyboardBounds.size.width) - 90;
     [_mainView setFrame:frame];
 }
 
@@ -153,13 +153,19 @@
 {
     if (success)
     {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Congratulations, you are registered. Enjoy your digital kitchen"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
     }
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                         message:@"Email account already registered."
-                                                       delegate:self
+                                                       delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         
@@ -167,8 +173,19 @@
     }
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)back:(id)sender
 {
+    [_firstName resignFirstResponder];
+    [_lastName resignFirstResponder];
+    [_email resignFirstResponder];
+    [_password resignFirstResponder];
+    [_replasePassword resignFirstResponder];
+    
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

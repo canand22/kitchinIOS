@@ -9,6 +9,7 @@
 #import "KIATabBarViewController.h"
 
 #import "KIACameraViewController.h"
+#import "KIALoginViewController.h"
 
 @interface KIATabBarViewController ()
 
@@ -167,14 +168,6 @@
     
     if (index == 3)
     {
-        UIImage *image = [UIImage imageNamed:@"capture_button_active.png"];
-        [(UIButton *)[blueView_ viewWithTag:3] setImage:image forState:UIControlStateNormal];
-        [(UIButton *)[blueView_ viewWithTag:3] setImage:image forState:UIControlStateHighlighted];
-        
-        [(UIImageView *)[(UIButton *)[blueView_ viewWithTag:3] viewWithTag:13] setImage:[UIImage imageNamed:@"capture_active.png"]];
-    }
-    else
-    {
         UIImage *image = [UIImage imageNamed:@"capture_button.png"];
         [(UIButton *)[blueView_ viewWithTag:3] setImage:image forState:UIControlStateNormal];
         [(UIButton *)[blueView_ viewWithTag:3] setImage:image forState:UIControlStateHighlighted];
@@ -217,25 +210,38 @@
 
 - (void)pressButton:(id)sender
 {
-    [self reloadButtonImageWithIndex:[sender tag]];
-    
-    if ([sender tag] < 3)
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"] || [sender tag] == 3 || [sender tag] == 1)
     {
-        [self setSelectedIndex:[sender tag] - 1];
-        [[[self viewControllers] objectAtIndex:[sender tag] - 1] popToRootViewControllerAnimated:NO];
-    }
+        [self reloadButtonImageWithIndex:[sender tag]];
     
-    if ([sender tag] > 3)
-    {
-        [self setSelectedIndex:[sender tag] - 2];
-        [[[self viewControllers] objectAtIndex:[sender tag] - 2] popToRootViewControllerAnimated:NO];
-    }
+        if ([sender tag] < 3)
+        {
+            [self setSelectedIndex:[sender tag] - 1];
+            [[[self viewControllers] objectAtIndex:[sender tag] - 1] popToRootViewControllerAnimated:NO];
+        }
     
-    if ([sender tag] == 3)
+        if ([sender tag] > 3)
+        {
+            [self setSelectedIndex:[sender tag] - 2];
+            [[[self viewControllers] objectAtIndex:[sender tag] - 2] popToRootViewControllerAnimated:NO];
+        }
+    
+        if ([sender tag] == 3)
+        {
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+            {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                KIACameraViewController *cameraViewController = (KIACameraViewController *)[storyboard instantiateViewControllerWithIdentifier:@"cameraViewViewController"];
+                [self presentViewController:cameraViewController animated:YES completion:nil];
+            }
+        }
+    }
+    else
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        KIACameraViewController *cameraViewController = (KIACameraViewController *)[storyboard instantiateViewControllerWithIdentifier:@"cameraViewViewController"];
-        [self presentViewController:cameraViewController animated:YES completion:nil];
+        KIALoginViewController *loginViewController = (KIALoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+        [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+        [self presentViewController:loginViewController animated:YES completion:nil];
     }
 }
 

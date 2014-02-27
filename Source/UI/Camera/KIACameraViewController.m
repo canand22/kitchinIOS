@@ -11,6 +11,9 @@
 #import "KIACameraViewController.h"
 
 #import "KIACapturedReceiptViewController.h"
+#import "KIATabBarViewController.h"
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
 @interface KIACameraViewController ()
 
@@ -35,16 +38,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
     [self setSourceType:UIImagePickerControllerSourceTypeCamera];
     
     [self setDelegate:self];
     
     UIImageView *leftLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line.png"]];
-    [leftLine setFrame:CGRectMake(15, 50, 5, 400)];
+    [leftLine setFrame:CGRectMake(15, 80, 5, IS_IPHONE_5 ? 400 : 280)];
     [[self view] addSubview:leftLine];
     
     UIImageView *rightLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line.png"]];
-    [rightLine setFrame:CGRectMake(300, 50, 5, 400)];
+    [rightLine setFrame:CGRectMake(300, 80, 5, IS_IPHONE_5 ? 400 : 280)];
     [[self view] addSubview:rightLine];
 }
 
@@ -101,6 +106,13 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
+    KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self presentingViewController];
+    
+    [tabBarVC setSelectedIndex:0];
+    [[[tabBarVC viewControllers] objectAtIndex:0] popToRootViewControllerAnimated:NO];
+    
+    [tabBarVC reloadButtonImageWithIndex:1];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -108,6 +120,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+- (UIViewController *)childViewControllerForStatusBarHidden
+{
+    return nil;
 }
 
 @end

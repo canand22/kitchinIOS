@@ -24,7 +24,7 @@
     if (self)
     {
         // Custom initialization
-        photo = [[NSMutableArray alloc] init];
+        _photo = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -40,15 +40,15 @@
 
 - (void)loadImage
 {
-    [photo removeAllObjects];
+    [_photo removeAllObjects];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"photo"];
     NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
     
-    for (int i = 0; i < [directoryContent count]; i++)
+    for (int i = [directoryContent count] - 1; i >= 0; i--)
     {
-        [photo addObject:[directoryContent objectAtIndex:i]];
+        [_photo addObject:[directoryContent objectAtIndex:i]];
     }
 }
 
@@ -86,7 +86,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [photo count];
+    return [_photo count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -95,12 +95,21 @@
     
     MyKitchInCell *cell = (MyKitchInCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    [[cell image] setImage:[self imageWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", path, [photo objectAtIndex:[indexPath row]]]] scaledToSize:CGSizeMake(90, 119)]];
-    
-    [[cell title] setText:[self formattedStringFromString:[photo objectAtIndex:[indexPath row]]]];
+    [[cell title] setText:[self formattedStringFromString:[_photo objectAtIndex:[indexPath row]]]];
     
     [[cell deleteButton] setTag:[indexPath row]];
     [[cell deleteButton] addTarget:self action:@selector(deleteImage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    
+    dispatch_async(queue, ^{
+        UIImage *image = [self imageWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", path, [_photo objectAtIndex:[indexPath row]]]] scaledToSize:CGSizeMake(90, 119)];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [[cell image] setImage:image];
+            [cell setNeedsLayout];
+        });
+    });
     
     return cell;
 }
@@ -109,31 +118,44 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     KIACapturedReceiptViewController *capturedReceiptViewController = (KIACapturedReceiptViewController *)[storyboard instantiateViewControllerWithIdentifier:@"capturedReceipt"];
-    [capturedReceiptViewController setPhoto:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", path, [photo objectAtIndex:[indexPath row]]]]];
+    [capturedReceiptViewController setPhoto:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", path, [_photo objectAtIndex:[indexPath row]]]]];
     [self presentViewController:capturedReceiptViewController animated:YES completion:nil];
 }
 
 - (void)deleteImage:(UIButton *)sender
 {
-    NSLog(@"%d", [sender tag]);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Remove"
+                                                    message:@"Are you sure?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"OK", nil];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    path = [[[paths objectAtIndex:0] stringByAppendingPathComponent:@"photo"] stringByAppendingPathComponent:[photo objectAtIndex:[sender tag]]];
-    
-    NSError *error;
-    
-    if ([[NSFileManager defaultManager] isDeletableFileAtPath:path])
+    [alert setTag:[sender tag]];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
     {
-        BOOL success = [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        path = [[[paths objectAtIndex:0] stringByAppendingPathComponent:@"photo"] stringByAppendingPathComponent:[_photo objectAtIndex:[alertView tag]]];
+    
+        NSError *error;
+    
+        if ([[NSFileManager defaultManager] isDeletableFileAtPath:path])
+        {
+            BOOL success = [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
         
-        if (!success)
-        {
-            NSLog(@"Error removing file at path: %@", error.localizedDescription);
-        }
-        else
-        {
-            [self loadImage];
-            [_collectionView reloadData];
+            if (!success)
+            {
+                NSLog(@"Error removing file at path: %@", error.localizedDescription);
+            }
+            else
+            {
+                [self loadImage];
+                [_collectionView reloadData];
+            }
         }
     }
 }

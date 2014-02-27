@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KIAHistoryViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface KIAHistoryViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate>
 {
-    NSMutableArray *photo;
     NSString *path;
 }
+
+@property(nonatomic, strong) NSMutableArray *photo;
 
 @property(nonatomic, strong) IBOutlet UICollectionView *collectionView;
 
