@@ -76,7 +76,7 @@
     return [emailTest evaluateWithObject:candidate];
 }
 
-- (IBAction)register:(id)sender
+- (IBAction)registerUser:(id)sender
 {
     BOOL falseData = NO;
     
@@ -93,8 +93,8 @@
         falseData = YES;
         errorMessage = @"Please enter valid email address.";
     }
-
-    if ([[_password text] length] > 0 && [[_password text] isEqualToString:[_replasePassword text]] && falseData == NO)
+    
+    if (!([[_password text] length] > 0 && [[_password text] isEqualToString:[_replasePassword text]] && (falseData == NO)))
     {
         falseData = YES;
         errorMessage = @"Passwords do not match.";
@@ -143,7 +143,7 @@
         // Not found, so remove keyboard.
         [textField resignFirstResponder];
         
-        [self register:nil];
+        [self registerUser:nil];
     }
     
     return NO; // We do not want UITextField to insert line-breaks.
@@ -175,7 +175,8 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [[self presentingViewController] dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (IBAction)back:(id)sender

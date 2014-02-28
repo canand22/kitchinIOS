@@ -27,7 +27,7 @@
     // create responce descriptor. Attention to pattern espesseally '/'
     RKResponseDescriptor *descriptor = [RKResponseDescriptor responseDescriptorWithMapping:logoutMapping
                                                                                     method:RKRequestMethodGET
-                                                                               pathPattern:[NSString stringWithFormat:@"/KitchInAppService.svc/LogOut?id=%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"]]
+                                                                               pathPattern:@"/KitchInAppService.svc/:id"
                                                                                    keyPath:@""
                                                                                statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
@@ -47,7 +47,7 @@
                             {
                                 NSLog(@"Success!!!");
                                         
-                                [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"sessionId"];
+                                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"sessionId"];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error)

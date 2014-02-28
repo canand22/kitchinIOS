@@ -28,7 +28,7 @@
     // create responce descriptor. Attention to pattern espesseally '/'
     RKResponseDescriptor *descriptor = [RKResponseDescriptor responseDescriptorWithMapping:registerMapping
                                                                                     method:RKRequestMethodGET
-                                                                               pathPattern:[NSString stringWithFormat:@"/KitchInAppService.svc/Forgot?email=%@", email]
+                                                                               pathPattern:@"/KitchInAppService.svc/:email"
                                                                                    keyPath:@""
                                                                                statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
@@ -50,12 +50,12 @@
          
                                 if ([result count] > 0)
                                 {
-                                    if ([[result objectAtIndex:0] IsUserRegistered])
+                                    if ([[result objectAtIndex:0] IsSuccessfully])
                                     {
                                         NSLog(@"Success!!!");
                                     }
                                     
-                                    [delegate forgotSuccess:[[result objectAtIndex:0] IsUserRegistered]];
+                                    [delegate forgotSuccess:[[result objectAtIndex:0] IsSuccessfully]];
                                 }
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error)

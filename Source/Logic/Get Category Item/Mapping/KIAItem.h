@@ -11,11 +11,11 @@
 
 @interface KIAItem : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * count;
-@property (nonatomic, retain) NSNumber * idCategory;
-@property (nonatomic, retain) NSNumber * idItem;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * reduction;
-@property (nonatomic, retain) NSString * value;
+@property(nonatomic, retain) NSNumber * count;
+@property(nonatomic, retain) NSNumber * idCategory;
+@property(nonatomic, retain) NSNumber * idItem;
+@property(nonatomic, retain) NSString * name;
+@property(nonatomic, retain) NSString * reduction;
+@property(nonatomic, retain) NSString * value;
 
 @end

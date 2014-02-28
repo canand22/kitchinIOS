@@ -161,14 +161,24 @@
 
 - (void)showActionSheet:(NSInteger)numberOfCellRow
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Add new item", @"Item from My Kitchen", nil];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"])
+    {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"Cancel"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"Add new item", @"Item from My Kitchen", nil];
     
-    [actionSheet setTag:numberOfCellRow];
-    [actionSheet showInView:[self view]];
+        [actionSheet setTag:numberOfCellRow];
+        [actionSheet showInView:[self view]];
+    }
+    else
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        KIALoginViewController *loginViewController = (KIALoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+        [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    }
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex

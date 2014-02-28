@@ -63,6 +63,7 @@
 		84EF45311887FC7600E08450 /* 30.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EF452E1887FC7600E08450 /* 30.png */; };
 		84EF45321887FC7600E08450 /* 31.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EF452F1887FC7600E08450 /* 31.png */; };
 		84EF45331887FC7600E08450 /* 32.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EF45301887FC7600E08450 /* 32.png */; };
+		84EFC17818BF7685009CAAD3 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EFC17718BF7685009CAAD3 /* circle@2x.png */; };
 		84F0BC2D18940C9D00A0C971 /* submit_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F0BC2C18940C9D00A0C971 /* submit_btn@2x.png */; };
 		84F15C7E18647F1F0049C33F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F15C7D18647F1F0049C33F /* MainStoryboard.storyboard */; };
 		84F15C90186498B80049C33F /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F15C80186498B80049C33F /* bar@2x.png */; };
@@ -451,6 +452,7 @@
 		84EF452E1887FC7600E08450 /* 30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30.png; sourceTree = "<group>"; };
 		84EF452F1887FC7600E08450 /* 31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 31.png; sourceTree = "<group>"; };
 		84EF45301887FC7600E08450 /* 32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32.png; sourceTree = "<group>"; };
+		84EFC17718BF7685009CAAD3 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 		84F0BC2C18940C9D00A0C971 /* submit_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submit_btn@2x.png"; sourceTree = "<group>"; };
 		84F15C7D18647F1F0049C33F /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		84F15C80186498B80049C33F /* bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar@2x.png"; sourceTree = "<group>"; };
@@ -1338,6 +1340,7 @@
 		84F15CD41864A7B30049C33F /* My Kitchen */ = {
 			isa = PBXGroup;
 			children = (
+				84EFC17718BF7685009CAAD3 /* circle@2x.png */,
 				84F2F15D18685CFB008FF7A1 /* my_kitchen_collection_bg@2x.png */,
 				84F15CD51864A7B30049C33F /* my_kitchen_bg@2x.png */,
 			);
@@ -2022,6 +2025,7 @@
 				84F538D9188950CD00EEE86D /* Cereal & Grains@2x.png in Resources */,
 				84F15CB4186498D20049C33F /* button_bottom@2x.png in Resources */,
 				84F2F0F418683C60008FF7A1 /* top@2x.png in Resources */,
+				84EFC17818BF7685009CAAD3 /* circle@2x.png in Resources */,
 				84F538DA188950CD00EEE86D /* Condiments, Sauces, Oils@2x.png in Resources */,
 				84F15C9F186498B80049C33F /* search_active@2x.png in Resources */,
 				84F1B7EE188FD86500535A5D /* Spices & Herbs_category@2x.png in Resources */,

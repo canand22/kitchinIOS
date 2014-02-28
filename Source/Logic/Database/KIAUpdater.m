@@ -108,6 +108,21 @@
     }
 }
 
+- (NSArray *)itemsForCategoryName:(NSString *)catName
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    /*
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"idCategory==%@", []];
+    [request setPredicate:predicate];
+    NSError  *error;
+    NSArray *itemArr = [context executeFetchRequest:request error:&error];
+    
+    return itemArr;*/
+}
+
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

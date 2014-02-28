@@ -20,7 +20,7 @@
     RKObjectMapping *registerMapping = [RKObjectMapping mappingForClass:[KIARegisterMapping class]];
     
     // setup current weather mapping
-    [registerMapping addAttributeMappingsFromDictionary:@{@"SessionId" : @"SessionId", @"IsUserRegistered" : @"IsUserRegistered"}];
+    [registerMapping addAttributeMappingsFromDictionary:@{@"SessionId" : @"SessionId", @"IsUserRegistered" : @"IsUserRegistered", @"Message" : @"Message"}];
     
     return registerMapping;
 }

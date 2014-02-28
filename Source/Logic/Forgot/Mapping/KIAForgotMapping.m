@@ -18,7 +18,7 @@
     RKObjectMapping *forgotMapping = [RKObjectMapping mappingForClass:[KIAForgotMapping class]];
     
     // setup current weather mapping
-    [forgotMapping addAttributeMappingsFromDictionary:@{@"IsUserRegistered" : @"IsUserRegistered"}];
+    [forgotMapping addAttributeMappingsFromDictionary:@{@"IsSuccessfully" : @"IsSuccessfully", @"Message" : @"Message"}];
     
     return forgotMapping;
 }

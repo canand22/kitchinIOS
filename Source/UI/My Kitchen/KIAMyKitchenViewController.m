@@ -11,6 +11,7 @@
 #import "KIAMyKitchenViewController.h"
 
 #import "KIACategoryContentViewController.h"
+#import "KIAUpdater.h"
 
 #import "MyKitchInCell.h"
 
@@ -37,6 +38,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    CGRect frame = [_collectionView frame];
+    frame.size.height = [[self view] frame].size.height - frame.origin.x - 120;
+    [_collectionView setFrame:frame];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -58,6 +62,8 @@
     [[cell image] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [_categoriesArray objectAtIndex:[indexPath row]]]]];
     
     [[cell title] setText:[_categoriesArray objectAtIndex:[indexPath row]]];
+    
+    //NSArray *temp = [[KIAUpdater sharedUpdater] itemsForCategoryName:[_categoriesArray objectAtIndex:[indexPath row]]];
     
     return cell;
 }

@@ -15,14 +15,14 @@
 
 @interface KIASettingViewController : UIViewController<serverGatewayDelegate>
 {
-    __weak id<logoutProtocol> _logoutGateway;
+    id<logoutProtocol> _logoutGateway;
 }
 
 @property(nonatomic, strong) IBOutlet UIImageView *facebookImage;
 @property(nonatomic, strong) IBOutlet UIImageView *twitterImage;
 @property(nonatomic, strong) IBOutlet UIImageView *printerestImage;
 
-@property(nonatomic, weak) id<logoutProtocol> logoutGateway;
+@property(nonatomic, strong) id<logoutProtocol> logoutGateway;
 
 - (IBAction)back:(id)sender;
 

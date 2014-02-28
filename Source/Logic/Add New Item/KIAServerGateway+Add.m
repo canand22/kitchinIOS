@@ -20,7 +20,7 @@
     [self postQueryWithCategoryId:catId expirationDate:expDate ingredientName:ingrName name:name sessionId:sessionId shortName:shortName storeId:storeId upcCode:upcCode delegate:delegate];
 }
 
-- (void)setupRegisterMapping
+- (void)setupProductMapping
 {
     // create mapping
     RKObjectMapping *resultMapping = [KIAAddItemResultMapping mapping];
@@ -69,7 +69,7 @@
 {
     RKRequestDescriptor *request = [self setupAddItemMappingWithName:name shortName:shortName upcCode:upcCode];
     
-    [self setupRegisterMapping];
+    [self setupProductMapping];
 
     KIAAddItemMapping *addItem = [KIAAddItemMapping new];
     [addItem setSessionId:sessionId];

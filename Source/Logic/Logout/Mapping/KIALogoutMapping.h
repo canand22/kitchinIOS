@@ -12,6 +12,9 @@
 
 @interface KIALogoutMapping : NSObject
 
+@property(nonatomic, assign) BOOL IsSuccessfully;
+@property(nonatomic, strong) NSString *Message;
+
 + (RKObjectMapping *)mapping;
 
 @end

@@ -16,6 +16,7 @@
 
 @property(nonatomic, strong) NSString *SessionId;
 @property(nonatomic, assign) BOOL IsUserRegistered;
+@property(nonatomic, strong) NSString *Message;
 
 + (RKObjectMapping *)mapping;
 

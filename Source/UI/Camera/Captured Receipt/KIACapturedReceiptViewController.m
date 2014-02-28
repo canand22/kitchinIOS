@@ -41,6 +41,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [_image setImage:_photo];
+    [_titleLabel setText:_titleText];
 }
 
 - (void)showData:(NSArray *)itemArray

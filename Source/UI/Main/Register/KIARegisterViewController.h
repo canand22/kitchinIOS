@@ -22,12 +22,11 @@
     IBOutlet UIView *_mainView;
     IBOutlet UIScrollView *_scroll;
     
-    __weak id<registerProtocol> _registerGateway;
+    id<registerProtocol> _registerGateway;
 }
 
-@property(nonatomic, weak) id<registerProtocol> registerGateway;
+@property(nonatomic, strong) id<registerProtocol> registerGateway;
 
-- (IBAction)register:(id)sender;
 - (IBAction)back:(id)sender;
 
 @end

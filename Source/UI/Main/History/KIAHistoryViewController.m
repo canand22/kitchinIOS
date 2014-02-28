@@ -95,21 +95,24 @@
     
     MyKitchInCell *cell = (MyKitchInCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    [[cell title] setText:[self formattedStringFromString:[_photo objectAtIndex:[indexPath row]]]];
+    if (cell)
+    {
+        [[cell title] setText:[self formattedStringFromString:[_photo objectAtIndex:[indexPath row]]]];
     
-    [[cell deleteButton] setTag:[indexPath row]];
-    [[cell deleteButton] addTarget:self action:@selector(deleteImage:) forControlEvents:UIControlEventTouchUpInside];
+        [[cell deleteButton] setTag:[indexPath row]];
+        [[cell deleteButton] addTarget:self action:@selector(deleteImage:) forControlEvents:UIControlEventTouchUpInside];
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
     
-    dispatch_async(queue, ^{
-        UIImage *image = [self imageWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", path, [_photo objectAtIndex:[indexPath row]]]] scaledToSize:CGSizeMake(90, 119)];
+        dispatch_async(queue, ^{
+            UIImage *image = [self imageWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", path, [_photo objectAtIndex:[indexPath row]]]] scaledToSize:CGSizeMake(90, 119)];
         
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [[cell image] setImage:image];
-            [cell setNeedsLayout];
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [[cell image] setImage:image];
+                [cell setNeedsLayout];
+            });
         });
-    });
+    }
     
     return cell;
 }
@@ -119,6 +122,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     KIACapturedReceiptViewController *capturedReceiptViewController = (KIACapturedReceiptViewController *)[storyboard instantiateViewControllerWithIdentifier:@"capturedReceipt"];
     [capturedReceiptViewController setPhoto:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", path, [_photo objectAtIndex:[indexPath row]]]]];
+    [capturedReceiptViewController setTitleText:[self formattedStringFromString:[_photo objectAtIndex:[indexPath row]]]];
     [self presentViewController:capturedReceiptViewController animated:YES completion:nil];
 }
 

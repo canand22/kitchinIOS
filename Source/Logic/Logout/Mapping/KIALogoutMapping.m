@@ -17,6 +17,8 @@
     // create mapping
     RKObjectMapping *forgotMapping = [RKObjectMapping mappingForClass:[KIALogoutMapping class]];
     
+    [forgotMapping addAttributeMappingsFromDictionary:@{@"IsSuccessfully" : @"IsSuccessfully", @"Message" : @"Message"}];
+    
     return forgotMapping;
 }
 

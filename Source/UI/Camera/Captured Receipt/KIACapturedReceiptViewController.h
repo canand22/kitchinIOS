@@ -21,8 +21,10 @@
 @property(nonatomic, strong) id<sendCheckProtocol> sendCheckGateway;
 
 @property(nonatomic, strong) UIImage *photo;
+@property(nonatomic, strong) NSString *titleText;
 
 @property(nonatomic, strong) IBOutlet UIImageView *image;
+@property(nonatomic, strong) IBOutlet UILabel *titleLabel;
 
 - (void)showData:(NSArray *)arrayItem;
 
