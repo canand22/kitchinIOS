@@ -11,6 +11,9 @@
 #import <UIKit/UIKit.h>
 
 @interface KIACategoryContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+{
+    NSArray *_categoryItems;
+}
 
 @property(nonatomic, strong) NSString *categoryName;
 

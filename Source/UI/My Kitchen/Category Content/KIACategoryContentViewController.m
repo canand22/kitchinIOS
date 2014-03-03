@@ -10,6 +10,11 @@
 
 #import "KIACategoryContentViewController.h"
 
+#import "CategoryItemCell.h"
+
+#import "KIAUpdater.h"
+#import "KIAItem.h"
+
 @interface KIACategoryContentViewController ()
 
 @end
@@ -34,6 +39,8 @@
 	// Do any additional setup after loading the view.
     [_categoryTitle setText:_categoryName];
     [_categoryImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_category.png", _categoryName]]];
+    
+    _categoryItems = [[KIAUpdater sharedUpdater] itemsForCategoryName:_categoryName];
 }
 
 - (IBAction)back:(id)sender
@@ -50,13 +57,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return [_categoryItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    CategoryItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
+    KIAItem *temp = [_categoryItems objectAtIndex:[indexPath row]];
+    
+    [[cell itemName] setText:[temp name]];
+    
     return cell;
 }
 

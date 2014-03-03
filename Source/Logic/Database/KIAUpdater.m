@@ -37,26 +37,26 @@
 
 - (void)update
 {
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"firstRun"])
+    if (/*![[NSUserDefaults standardUserDefaults] objectForKey:@"firstRun"]*/ YES)
     {
         NSArray *_categoriesArray = @[@"Dairy", @"Produce", @"Poultry", @"Meats & Deli", @"Seafood", @"Breads & Bakery", @"Pasta", @"Cereal & Grains", @"Drinks", @"Dry Prepared Foods", @"Canned Foods, Soups, Broths", @"Frozen", @"Snacks", @"Sweets", @"Baking", @"Condiments, Sauces, Oils", @"Spices & Herbs", @"Other"];
         NSArray *_categoriesKeyArray = @[@6, @10, @12, @14, @13, @2, @11, @4, @7, @8, @3, @9, @15, @17, @1, @5, @16, @18];
+    
+        NSManagedObjectContext *context = [self managedObjectContext];
         
         for (int i = 0; i < [_categoriesArray count]; i++)
         {
-            NSManagedObjectContext *context = [self managedObjectContext];
-            
             KIACategory *newCategory = [NSEntityDescription insertNewObjectForEntityForName:@"KIACategory" inManagedObjectContext:context];
             [newCategory setName:[_categoriesArray objectAtIndex:i]];
-            [newCategory setIdCategory:[_categoriesKeyArray objectAtIndex:i]];
-            
-            NSError *error = nil;
-            
-            // Save the object to persistent store
-            if (![context save:&error])
-            {
-                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-            }
+            [newCategory setIdCategory:(NSNumber *)[_categoriesKeyArray objectAtIndex:i]];
+        }
+        
+        NSError *error = nil;
+        
+        // Save the object to persistent store
+        if (![context save:&error])
+        {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         }
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstRun"];
@@ -74,17 +74,19 @@
     BOOL unique = YES;
     NSError  *error;
     NSArray *items = [context executeFetchRequest:request error:&error];
-    if(items.count > 0){
-        for(KIAItem *thisItem in items)
+    
+    if (items.count > 0)
+    {
+        for (KIAItem *thisItem in items)
         {
-            if([[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:theId]])
+            if ([[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:theId]])
             {
                 unique = NO;
             }
         }
     }
     
-    if(unique)
+    if (unique)
     {
         KIAItem *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"KIAItem" inManagedObjectContext:context];
         [newItem setIdItem:[NSNumber numberWithInteger:theId]];
@@ -104,23 +106,53 @@
     }
     else
     {
-        
+        // а
     }
 }
 
-- (NSArray *)itemsForCategoryName:(NSString *)catName
+- (NSInteger)idCategoryFromCategoryName:(NSString *)name
 {
     NSManagedObjectContext *context = [self managedObjectContext];
-    /*
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIACategory" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
-    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"idCategory==%@", []];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name==%@", name];
     [request setPredicate:predicate];
     NSError  *error;
     NSArray *itemArr = [context executeFetchRequest:request error:&error];
     
-    return itemArr;*/
+    NSInteger index;
+    
+    if (itemArr.count > 0)
+    {
+        for (KIACategory *thisCat in itemArr)
+        {
+            if ([[thisCat name] isEqualToString:name])
+            {
+                index = [thisCat idCategory].integerValue;
+            }
+        }
+    }
+    
+    return index;
+}
+
+- (NSArray *)itemsForCategoryName:(NSString *)catName
+{
+    NSInteger catId = [self idCategoryFromCategoryName:catName];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCategory==%@", [NSNumber numberWithInteger:catId]];
+    [request setPredicate:predicate];
+    NSError  *error;
+    NSArray *itemArr = [context executeFetchRequest:request error:&error];
+    
+    return itemArr;
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator

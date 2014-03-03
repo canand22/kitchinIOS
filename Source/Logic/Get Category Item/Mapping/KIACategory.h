@@ -10,7 +10,7 @@
 
 @interface KIACategory : NSManagedObject
 
-@property(nonatomic, assign) NSInteger idCategory;
+@property(nonatomic, strong) NSNumber *idCategory;
 @property(nonatomic, strong) NSString *name;
 
 @end

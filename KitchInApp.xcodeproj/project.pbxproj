@@ -131,7 +131,6 @@
 		84F2F0B21868365E008FF7A1 /* add_receipt_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2F0AB1868365E008FF7A1 /* add_receipt_bg@2x.png */; };
 		84F2F0B31868365E008FF7A1 /* back_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2F0AC1868365E008FF7A1 /* back_active@2x.png */; };
 		84F2F0B41868365E008FF7A1 /* back_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2F0AD1868365E008FF7A1 /* back_empty@2x.png */; };
-		84F2F0B51868365E008FF7A1 /* img1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2F0AE1868365E008FF7A1 /* img1@2x.png */; };
 		84F2F0B61868365E008FF7A1 /* img2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2F0AF1868365E008FF7A1 /* img2@2x.png */; };
 		84F2F0B71868365E008FF7A1 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2F0B01868365E008FF7A1 /* list@2x.png */; };
 		84F2F0B81868365E008FF7A1 /* text_field@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F2F0B11868365E008FF7A1 /* text_field@2x.png */; };
@@ -215,6 +214,7 @@
 		84F334661886AB63009818C2 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F334481886AB63009818C2 /* 8.png */; };
 		84F334671886AB63009818C2 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F334491886AB63009818C2 /* 9.png */; };
 		84F3346C1886ACA4009818C2 /* KIALoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3346B1886ACA4009818C2 /* KIALoaderView.m */; };
+		84F3C2D218C48CB00037BD5B /* CategoryItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3C2D118C48CB00037BD5B /* CategoryItemCell.m */; };
 		84F4505B188E69DD0076C014 /* KIAItem+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4505A188E69DD0076C014 /* KIAItem+Mapping.m */; };
 		84F4505F188EAD710076C014 /* KIAServerGateway+Logout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4505E188EAD710076C014 /* KIAServerGateway+Logout.m */; };
 		84F45063188EAD9F0076C014 /* KIALogoutMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F45062188EAD9F0076C014 /* KIALogoutMapping.m */; };
@@ -532,7 +532,6 @@
 		84F2F0AB1868365E008FF7A1 /* add_receipt_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_receipt_bg@2x.png"; sourceTree = "<group>"; };
 		84F2F0AC1868365E008FF7A1 /* back_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_active@2x.png"; sourceTree = "<group>"; };
 		84F2F0AD1868365E008FF7A1 /* back_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_empty@2x.png"; sourceTree = "<group>"; };
-		84F2F0AE1868365E008FF7A1 /* img1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img1@2x.png"; sourceTree = "<group>"; };
 		84F2F0AF1868365E008FF7A1 /* img2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img2@2x.png"; sourceTree = "<group>"; };
 		84F2F0B01868365E008FF7A1 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 		84F2F0B11868365E008FF7A1 /* text_field@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text_field@2x.png"; sourceTree = "<group>"; };
@@ -621,6 +620,8 @@
 		84F334491886AB63009818C2 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
 		84F3346A1886ACA4009818C2 /* KIALoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIALoaderView.h; sourceTree = "<group>"; };
 		84F3346B1886ACA4009818C2 /* KIALoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIALoaderView.m; sourceTree = "<group>"; };
+		84F3C2D018C48CB00037BD5B /* CategoryItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryItemCell.h; sourceTree = "<group>"; };
+		84F3C2D118C48CB00037BD5B /* CategoryItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryItemCell.m; sourceTree = "<group>"; };
 		84F45059188E69DD0076C014 /* KIAItem+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAItem+Mapping.h"; sourceTree = "<group>"; };
 		84F4505A188E69DD0076C014 /* KIAItem+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAItem+Mapping.m"; sourceTree = "<group>"; };
 		84F4505C188EAD320076C014 /* logoutProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = logoutProtocol.h; sourceTree = "<group>"; };
@@ -1407,7 +1408,6 @@
 				84F2F0AB1868365E008FF7A1 /* add_receipt_bg@2x.png */,
 				84F2F0AC1868365E008FF7A1 /* back_active@2x.png */,
 				84F2F0AD1868365E008FF7A1 /* back_empty@2x.png */,
-				84F2F0AE1868365E008FF7A1 /* img1@2x.png */,
 				84F2F0AF1868365E008FF7A1 /* img2@2x.png */,
 				84F2F0B01868365E008FF7A1 /* list@2x.png */,
 				84F2F0B11868365E008FF7A1 /* text_field@2x.png */,
@@ -1509,6 +1509,7 @@
 			children = (
 				84F2F0FA18684D4B008FF7A1 /* UICollectionViewCell */,
 				84C338D318842C4B008814E4 /* EditRecognizedItemCell */,
+				84F3C2CF18C48C7B0037BD5B /* Category Item Cell */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1655,6 +1656,15 @@
 				84F3346B1886ACA4009818C2 /* KIALoaderView.m */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		84F3C2CF18C48C7B0037BD5B /* Category Item Cell */ = {
+			isa = PBXGroup;
+			children = (
+				84F3C2D018C48CB00037BD5B /* CategoryItemCell.h */,
+				84F3C2D118C48CB00037BD5B /* CategoryItemCell.m */,
+			);
+			path = "Category Item Cell";
 			sourceTree = "<group>";
 		};
 		84F45060188EAD820076C014 /* Mapping */ = {
@@ -2104,7 +2114,6 @@
 				84F538E5188950CD00EEE86D /* Spices & Herbs@2x.png in Resources */,
 				84F1B7EC188FD84C00535A5D /* Canned Foods, Soups, Broths_category@2x.png in Resources */,
 				84F15C91186498B80049C33F /* capture@2x.png in Resources */,
-				84F2F0B51868365E008FF7A1 /* img1@2x.png in Resources */,
 				84F2F17618689512008FF7A1 /* button_course@2x.png in Resources */,
 				84F1B7EA188FD83300535A5D /* Breads & Bakery_category@2x.png in Resources */,
 				84F2F0E518683B00008FF7A1 /* pinterest_active@2x.png in Resources */,
@@ -2381,6 +2390,7 @@
 				84EDFE84186C8F1F00D695AC /* KitchInModel.xcdatamodeld in Sources */,
 				84F4FF09189F9C6E00216C95 /* KIAItem.m in Sources */,
 				84F3342B1886A592009818C2 /* KIAAddItemViewController.m in Sources */,
+				84F3C2D218C48CB00037BD5B /* CategoryItemCell.m in Sources */,
 				84C6157318990021008C887C /* KIAServerGateway+Add.m in Sources */,
 				84F553DB189A72D200EB4C61 /* KIASearchItemMapping.m in Sources */,
 				84F49DDF187AC4E400130FAA /* KIACredentials.m in Sources */,

@@ -48,6 +48,7 @@
                                 NSLog(@"Success!!!");
                                         
                                 [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"sessionId"];
+                                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"firstName"];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error)
