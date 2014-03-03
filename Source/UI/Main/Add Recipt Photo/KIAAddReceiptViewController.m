@@ -58,14 +58,9 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"1"];
     }
     
-    if ([indexPath row] == 1)
+    if ([indexPath row] > 0)
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"2"];
-    }
-    
-    if ([indexPath row] > 1)
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"3"];
     }
     
     return cell;

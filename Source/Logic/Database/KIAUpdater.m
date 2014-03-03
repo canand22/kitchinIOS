@@ -37,7 +37,7 @@
 
 - (void)update
 {
-    if (/*![[NSUserDefaults standardUserDefaults] objectForKey:@"firstRun"]*/ YES)
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"firstRun"])
     {
         NSArray *_categoriesArray = @[@"Dairy", @"Produce", @"Poultry", @"Meats & Deli", @"Seafood", @"Breads & Bakery", @"Pasta", @"Cereal & Grains", @"Drinks", @"Dry Prepared Foods", @"Canned Foods, Soups, Broths", @"Frozen", @"Snacks", @"Sweets", @"Baking", @"Condiments, Sauces, Oils", @"Spices & Herbs", @"Other"];
         NSArray *_categoriesKeyArray = @[@6, @10, @12, @14, @13, @2, @11, @4, @7, @8, @3, @9, @15, @17, @1, @5, @16, @18];
