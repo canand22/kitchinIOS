@@ -15,6 +15,8 @@
 #import "KIAUpdater.h"
 #import "KIAItem.h"
 
+#define CELL_TAG 100
+
 @interface KIACategoryContentViewController ()
 
 @end
@@ -36,10 +38,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
     [_categoryTitle setText:_categoryName];
     [_categoryImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_category.png", _categoryName]]];
     
+    [self reloadDataFromTable];
+}
+
+- (void)reloadDataFromTable
+{
     _categoryItems = [[KIAUpdater sharedUpdater] itemsForCategoryName:_categoryName];
 }
 
@@ -68,7 +76,19 @@
     
     [[cell itemName] setText:[temp name]];
     
+    [cell setDelegate:self];
+    [[cell removeButton] setTag:[indexPath row] + CELL_TAG];
+    
     return cell;
+}
+
+- (void)deleteItemFromIndex:(NSInteger)index
+{
+    [[KIAUpdater sharedUpdater] removeItem:[_categoryItems objectAtIndex:index - CELL_TAG]];
+    
+    [self reloadDataFromTable];
+    
+    [_table reloadData];
 }
 
 #pragma mark *****

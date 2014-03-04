@@ -622,6 +622,7 @@
 		84F3346B1886ACA4009818C2 /* KIALoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIALoaderView.m; sourceTree = "<group>"; };
 		84F3C2D018C48CB00037BD5B /* CategoryItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryItemCell.h; sourceTree = "<group>"; };
 		84F3C2D118C48CB00037BD5B /* CategoryItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryItemCell.m; sourceTree = "<group>"; };
+		84F3F15118C5CFE700D52A99 /* CategoryItemCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryItemCellProtocol.h; sourceTree = "<group>"; };
 		84F45059188E69DD0076C014 /* KIAItem+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAItem+Mapping.h"; sourceTree = "<group>"; };
 		84F4505A188E69DD0076C014 /* KIAItem+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAItem+Mapping.m"; sourceTree = "<group>"; };
 		84F4505C188EAD320076C014 /* logoutProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = logoutProtocol.h; sourceTree = "<group>"; };
@@ -1661,6 +1662,7 @@
 		84F3C2CF18C48C7B0037BD5B /* Category Item Cell */ = {
 			isa = PBXGroup;
 			children = (
+				84F3F15118C5CFE700D52A99 /* CategoryItemCellProtocol.h */,
 				84F3C2D018C48CB00037BD5B /* CategoryItemCell.h */,
 				84F3C2D118C48CB00037BD5B /* CategoryItemCell.m */,
 			);

@@ -10,7 +10,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KIACategoryContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+#import "CategoryItemCellProtocol.h"
+
+@interface KIACategoryContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, CategoryItemCellProtocol>
 {
     NSArray *_categoryItems;
 }
@@ -19,5 +21,7 @@
 
 @property(nonatomic, strong) IBOutlet UILabel *categoryTitle;
 @property(nonatomic, strong) IBOutlet UIImageView *categoryImage;
+
+@property(nonatomic, strong) IBOutlet UITableView *table;
 
 @end

@@ -155,6 +155,13 @@
     return itemArr;
 }
 
+- (void)removeItem:(KIAItem *)item
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    [context deleteObject:item];
+}
+
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
