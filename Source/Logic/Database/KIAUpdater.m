@@ -79,7 +79,7 @@
     {
         for (KIAItem *thisItem in items)
         {
-            if ([[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:theId]])
+            if ([[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:theId]] && ![[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:-1]])
             {
                 unique = NO;
             }
@@ -122,7 +122,7 @@
     NSError  *error;
     NSArray *itemArr = [context executeFetchRequest:request error:&error];
     
-    NSInteger index;
+    NSInteger index = 0;
     
     if (itemArr.count > 0)
     {

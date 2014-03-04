@@ -17,6 +17,7 @@
 
 - (void)update;
 - (void)addItemFromKitchInWihtId:(NSInteger)theId name:(NSString *)name categoryId:(NSInteger)catId shortName:(NSString *)shortName count:(NSInteger)count value:(NSString *)value;
+- (NSInteger)idCategoryFromCategoryName:(NSString *)name;
 - (NSArray *)itemsForCategoryName:(NSString *)catName;
 - (void)removeItem:(KIAItem *)item;
 

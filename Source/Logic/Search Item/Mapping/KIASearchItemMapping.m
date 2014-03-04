@@ -22,7 +22,7 @@
 {
     RKObjectMapping *searchMapping = [RKObjectMapping mappingForClass:[KIASearchItemMapping class]];
     
-    [searchMapping addAttributeMappingsFromDictionary:@{@"Category" : @"_category", @"ItemId" : @"_itemId", @"IsSuccessMatching" : @"_isSuccessMatching", @"ItemName" : @"_itemName", @"ItemShortName" : @"_itemShortName"}];
+    [searchMapping addAttributeMappingsFromDictionary:@{@"Category" : @"_category", @"Id" : @"_itemId", @"IsSuccessMatching" : @"_isSuccessMatching", @"ItemName" : @"_itemName", @"ItemShortName" : @"_itemShortName"}];
     
     return searchMapping;
 }

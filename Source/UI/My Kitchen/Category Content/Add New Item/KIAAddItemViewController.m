@@ -14,6 +14,10 @@
 #import "KIANewItemWithStoreViewController.h"
 #import "KIANewItemWithOtherViewController.h"
 
+#import "KIAUpdater.h"
+
+#import "KIAItem.h"
+
 @interface KIAAddItemViewController ()
 
 @end
@@ -105,18 +109,30 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         KIANewItemWithStoreViewController *addItemsViewController = (KIANewItemWithStoreViewController *)[storyboard instantiateViewControllerWithIdentifier:@"newItemWithStoreViewController"];
         [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+        [addItemsViewController setCategoryName:_categoryName];
         [self presentViewController:addItemsViewController animated:YES completion:nil];
     }
+}
+
+- (IBAction)addItem:(id)sender
+{
+    KIASearchItemMapping *item = [_itemArray objectAtIndex:indexOfItem];
+    
+    [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item itemId]
+                                                    name:[item itemName]
+                                              categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
+                                               shortName:[item itemShortName]
+                                                   count:0
+                                                   value:@""];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark ***** text delegate *****
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if ([[textField text] length] > 1)
-    {
-        [_searchItemGateway searchItemWithText:[[textField text] stringByAppendingString:string] categoyId:7 storeId:1 delegate:self];
-    }
+    [_searchItemGateway searchItemWithText:[[textField text] stringByAppendingString:string] categoyId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName] storeId:1 delegate:self];
     
     return YES;
 }
@@ -154,6 +170,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [_itemTextField setText:[[_itemArray objectAtIndex:[indexPath row]] itemName]];
+    
+    indexOfItem = [indexPath row];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

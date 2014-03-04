@@ -9,6 +9,7 @@
 #import "KIANewItemWithStoreViewController.h"
 
 #import "KIAServerGateway.h"
+#import "KIAUpdater.h"
 
 @interface KIANewItemWithStoreViewController ()
 
@@ -39,7 +40,7 @@
 
 - (IBAction)submit:(id)sender
 {
-    [_addItemGateway addItemWithCategoryId:2
+    [_addItemGateway addItemWithCategoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
                             expirationDate:nil
                             ingredientName:nil
                                       name:[_foodType text]
@@ -48,6 +49,13 @@
                                    storeId:1
                                    upcCode:nil
                                   delegate:self];
+    
+    [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:-1
+                                                    name:[_foodType text]
+                                              categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
+                                               shortName:[_itemText text]
+                                                   count:1
+                                                   value:nil];
 }
 
 - (IBAction)back:(id)sender

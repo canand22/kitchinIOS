@@ -15,6 +15,8 @@
 #import "KIAUpdater.h"
 #import "KIAItem.h"
 
+#import "KIAAddItemViewController.h"
+
 #define CELL_TAG 100
 
 @interface KIACategoryContentViewController ()
@@ -42,6 +44,11 @@
 	// Do any additional setup after loading the view.
     [_categoryTitle setText:_categoryName];
     [_categoryImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_category.png", _categoryName]]];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
     [self reloadDataFromTable];
 }
@@ -49,6 +56,8 @@
 - (void)reloadDataFromTable
 {
     _categoryItems = [[KIAUpdater sharedUpdater] itemsForCategoryName:_categoryName];
+    
+    [_table reloadData];
 }
 
 - (IBAction)back:(id)sender
@@ -89,6 +98,16 @@
     [self reloadDataFromTable];
     
     [_table reloadData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"1000"])
+    {
+        KIAAddItemViewController *categoryContent = (KIAAddItemViewController *)[segue destinationViewController];
+        
+        [categoryContent setCategoryName:_categoryName];
+    }
 }
 
 #pragma mark *****

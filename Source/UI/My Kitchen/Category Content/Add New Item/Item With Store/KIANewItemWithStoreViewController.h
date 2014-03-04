@@ -21,4 +21,6 @@
 @property(nonatomic, strong) IBOutlet UITextField *foodType;
 @property(nonatomic, strong) IBOutlet UITextField *itemText;
 
+@property(nonatomic, strong) NSString *categoryName;
+
 @end

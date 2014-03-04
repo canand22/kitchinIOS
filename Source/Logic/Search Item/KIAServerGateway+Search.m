@@ -47,13 +47,10 @@
                                    success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                                     {
                                         NSArray *result = [mappingResult array];
-         
-                                        if ([result count] > 0)
-                                        {
-                                            [delegate showData:result];
+                                        
+                                        [delegate showData:result];
                                             
-                                            NSLog(@"Success!!!");
-                                        }
+                                        NSLog(@"Success!!!");
                                     }
                                    failure:^(RKObjectRequestOperation *operation, NSError *error)
                                     {

@@ -21,6 +21,8 @@
     NSArray *_itemArray;
     
     IBOutlet UITextField *_itemTextField;
+    
+    NSInteger indexOfItem;
 }
 
 @property(nonatomic, strong) id<searchItemProtocol> searchItemGateway;
@@ -31,5 +33,7 @@
 
 @property(nonatomic, strong) IBOutlet UIView *addNewItem;
 @property(nonatomic, strong) IBOutlet UIView *addKitchInItem;
+
+@property(nonatomic, strong) NSString *categoryName;
 
 @end
