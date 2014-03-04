@@ -1980,11 +1980,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = NIX;
-				TargetAttributes = {
-					84B5B64414C46B8F00ADE76F = {
-						DevelopmentTeam = 7AGU424Q34;
-					};
-				};
 			};
 			buildConfigurationList = 84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "KitchInApp" */;
 			compatibilityVersion = "Xcode 3.2";
