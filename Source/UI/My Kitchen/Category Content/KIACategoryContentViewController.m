@@ -107,6 +107,7 @@
         KIAAddItemViewController *categoryContent = (KIAAddItemViewController *)[segue destinationViewController];
         
         [categoryContent setCategoryName:_categoryName];
+        [categoryContent setIsRecognition:NO];
     }
 }
 

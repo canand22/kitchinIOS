@@ -23,4 +23,6 @@
 
 @property(nonatomic, strong) NSString *categoryName;
 
+@property(nonatomic, assign) BOOL isRecognition;
+
 @end

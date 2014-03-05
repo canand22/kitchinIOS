@@ -69,6 +69,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         KIAAddItemViewController *addItemsViewController = (KIAAddItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addItemViewController"];
         [addItemsViewController setCategoryName:[_categoriesArray objectAtIndex:[indexPath row]]];
+        [addItemsViewController setIsRecognition:YES];
         [self presentViewController:addItemsViewController animated:YES completion:nil];
     }
     
@@ -77,6 +78,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         KIAAddItemViewController *addItemsViewController = (KIAAddItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addItemViewController"];
         [addItemsViewController setCategoryName:[_categoriesArray objectAtIndex:[indexPath row]]];
+        [addItemsViewController setIsRecognition:YES];
         [self presentViewController:addItemsViewController animated:YES completion:nil];
     }
 }

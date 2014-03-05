@@ -14,9 +14,12 @@
 #import "KIANewItemWithStoreViewController.h"
 #import "KIANewItemWithOtherViewController.h"
 
+#import "KIAEditRecognizeItemsViewController.h"
+
 #import "KIAUpdater.h"
 
 #import "KIAItem.h"
+#import "KIASendCheckMapping.h"
 
 @interface KIAAddItemViewController ()
 
@@ -105,6 +108,7 @@
         KIANewItemWithOtherViewController *addItemsViewController = (KIANewItemWithOtherViewController *)[storyboard instantiateViewControllerWithIdentifier:@"newItemWithOtherViewController"];
         [self setModalPresentationStyle:UIModalPresentationCurrentContext];
         [addItemsViewController setCategoryName:_categoryName];
+        [addItemsViewController setIsRecognition:_isRecognition];
         [self presentViewController:addItemsViewController animated:YES completion:nil];
     }
     else
@@ -113,6 +117,7 @@
         KIANewItemWithStoreViewController *addItemsViewController = (KIANewItemWithStoreViewController *)[storyboard instantiateViewControllerWithIdentifier:@"newItemWithStoreViewController"];
         [self setModalPresentationStyle:UIModalPresentationCurrentContext];
         [addItemsViewController setCategoryName:_categoryName];
+        [addItemsViewController setIsRecognition:_isRecognition];
         [self presentViewController:addItemsViewController animated:YES completion:nil];
     }
 }
@@ -121,16 +126,41 @@
 {
     if (!isBlock)
     {
-        KIASearchItemMapping *item = [_itemArray objectAtIndex:indexOfItem];
+        if (_isRecognition)
+        {
+            KIASearchItemMapping *item = [_itemArray objectAtIndex:indexOfItem];
+            
+            KIAEditRecognizeItemsViewController *editVC = (KIAEditRecognizeItemsViewController *)[[self presentingViewController] presentingViewController];
+            
+            for (int i = 0; i < [[editVC itemArray] count]; i++)
+            {
+                if (![(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] IsSuccessMatching])
+                {
+                    [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setId:[item itemId]];
+                    [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemName:[item itemName]];
+                    [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setCategory:_categoryName];
+                    [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemShortName:[item itemShortName]];
+                    [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setIsSuccessMatching:YES];
+                    
+                    break;
+                }
+            }
+            
+            [editVC dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            KIASearchItemMapping *item = [_itemArray objectAtIndex:indexOfItem];
     
-        [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item itemId]
-                                                        name:[item itemName]
-                                                  categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
-                                                   shortName:[item itemShortName]
-                                                       count:0
-                                                       value:@""];
+            [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item itemId]
+                                                            name:[item itemName]
+                                                      categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
+                                                       shortName:[item itemShortName]
+                                                           count:0
+                                                           value:@""];
     
-        [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     }
     else
     {

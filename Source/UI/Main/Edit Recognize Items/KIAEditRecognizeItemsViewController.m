@@ -16,6 +16,7 @@
 #import "KIASelectCategoryViewController.h"
 #import "KIATabBarViewController.h"
 #import "KIAMyKitchenViewController.h"
+#import "KIACameraViewController.h"
 
 #import "KIALoginViewController.h"
 
@@ -64,6 +65,13 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [_table reloadData];
+}
+
 - (IBAction)addToMyKitchIn:(id)sender
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"])
@@ -78,7 +86,9 @@
             {
                 [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[item Category]] integerValue] shortName:[item ItemShortName] count:1 value:@"1"];
                 
-                KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[[self presentingViewController] presentingViewController];
+                UIViewController *temp = [[self presentingViewController] presentingViewController];
+                
+                KIATabBarViewController *tabBarVC = (KIATabBarViewController *)([temp isKindOfClass:[KIACameraViewController class]] ? [temp presentingViewController] : temp);
                 
                 [tabBarVC dismissViewControllerAnimated:YES completion:nil];
                 
