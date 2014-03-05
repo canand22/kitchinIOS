@@ -175,6 +175,11 @@
     [_logoutGateway logoutWithDelegate:self];
 }
 
+- (void)loginSuccess:(BOOL)success
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark *****
 
 - (void)didReceiveMemoryWarning

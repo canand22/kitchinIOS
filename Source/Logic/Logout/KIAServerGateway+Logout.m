@@ -16,7 +16,7 @@
 
 - (void)logoutWithDelegate:(id<serverGatewayDelegate>)delegate
 {
-    [self postQueryWithLogout];
+    [self postQueryWithLogoutWithDelegate:delegate];
 }
 
 - (void)setupLogoutMapping
@@ -35,7 +35,7 @@
     [[self objectManager] addResponseDescriptor:descriptor];
 }
 
-- (void)postQueryWithLogout
+- (void)postQueryWithLogoutWithDelegate:(id<serverGatewayDelegate>)delegate
 {
     [self setupLogoutMapping];
 
@@ -46,10 +46,14 @@
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                             {
                                 NSLog(@"Success!!!");
-                                        
+                                
+                                NSArray *result = [mappingResult array];
+                                
                                 [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"sessionId"];
                                 [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"firstName"];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
+                                
+                                [delegate loginSuccess:[[result objectAtIndex:0] IsSuccessfully]];
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error)
                             {

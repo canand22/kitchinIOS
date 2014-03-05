@@ -14,6 +14,8 @@
 #import "EditRecognizedItemCell.h"
 
 #import "KIASelectCategoryViewController.h"
+#import "KIATabBarViewController.h"
+#import "KIAMyKitchenViewController.h"
 
 #import "KIALoginViewController.h"
 
@@ -75,6 +77,15 @@
             if ([item IsSuccessMatching])
             {
                 [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[item Category]] integerValue] shortName:[item ItemShortName] count:1 value:@"1"];
+                
+                KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[[self presentingViewController] presentingViewController];
+                
+                [tabBarVC dismissViewControllerAnimated:YES completion:nil];
+                
+                [tabBarVC setSelectedIndex:1];
+                [[[tabBarVC viewControllers] objectAtIndex:1] popToRootViewControllerAnimated:NO];
+                
+                [tabBarVC reloadButtonImageWithIndex:2];
             }
         }
     }
