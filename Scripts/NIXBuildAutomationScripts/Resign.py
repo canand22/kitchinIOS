@@ -69,6 +69,10 @@ def resign(app_product_path, new_ipa_path, new_bundle_id=None, new_bundle_name=N
     if not new_bundle_name:
         new_bundle_name = get_bundle_name(app_product_path)
 
+    if new_bundle_id == "com.nixsolutions.ApplicationResignTest":
+        print(color.FAIL + "error: change RESIGNED_BUNDLE_ID value in the project settings! " + color.UNDERLINE + "com.nixsolutions.ApplicationResignTest" + color.ENDC + color.FAIL + " is not allowed" + color.ENDC)
+        exit(1)
+
     profiles_and_identities = None
 
     if profile_type == "developer":
@@ -135,7 +139,7 @@ def package_application(app_product_path, new_ipa_path, new_bundle_id, new_bundl
         is_bundle_id_or_name_changed = rename_bundle_id_and_name(dest_app_product_path, new_bundle_id, new_bundle_name)
 
         resource_rules_path = os.path.join(dest_app_product_path, "ResourceRules.plist")
-        codesign_args = ["/usr/bin/codesign", "--force", "--preserve-metadata=identifier,entitlements,resource-rules",
+        codesign_args = ["/usr/bin/codesign", "--force",
                          "--sign", identity_name,
                          "--resource-rules={}".format(resource_rules_path)]
 
@@ -486,15 +490,13 @@ def identity_is_valid(identity_name):
 
 
 def get_valid_keychain_identities():
-    security_report = subprocess.check_output(["security", "find-identity", "-v"])
+    keychain_path = os.path.expanduser("~/Library/Keychains/XCodeKeys.keychain");
+    security_report = subprocess.check_output(["Scripts/NIXBuildAutomationScripts/Utils/identitieslist", keychain_path])
     entries = re.split(r"\n", security_report)
 
     identities = set()
     for entry in entries:
-        match = re.search(r'"(.*)"', entry)
-
-        if match:
-            identities.add(match.group(1))
+        identities.add(entry)
 
     return identities
 
