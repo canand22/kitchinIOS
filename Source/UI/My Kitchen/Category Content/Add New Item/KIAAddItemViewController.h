@@ -23,6 +23,8 @@
     IBOutlet UITextField *_itemTextField;
     
     NSInteger indexOfItem;
+    
+    BOOL isBlock;
 }
 
 @property(nonatomic, strong) id<searchItemProtocol> searchItemGateway;

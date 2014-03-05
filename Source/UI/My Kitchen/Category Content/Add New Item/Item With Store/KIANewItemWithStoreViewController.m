@@ -67,7 +67,7 @@
 {
     if (success)
     {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }
     else
     {

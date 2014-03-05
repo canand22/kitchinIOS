@@ -2418,6 +2418,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="foodType" destination="qQ8-Fa-TPY" id="fJ4-Ru-oBY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RV5-ps-Mzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

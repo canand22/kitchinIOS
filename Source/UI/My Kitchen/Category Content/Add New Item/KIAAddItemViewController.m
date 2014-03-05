@@ -34,6 +34,8 @@
         _searchItemGateway = [KIAServerGateway gateway];
         
         _storeArray = @[@"Potash store", @"Other"];
+        
+        isBlock = YES;
     }
     
     return self;
@@ -102,6 +104,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         KIANewItemWithOtherViewController *addItemsViewController = (KIANewItemWithOtherViewController *)[storyboard instantiateViewControllerWithIdentifier:@"newItemWithOtherViewController"];
         [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+        [addItemsViewController setCategoryName:_categoryName];
         [self presentViewController:addItemsViewController animated:YES completion:nil];
     }
     else
@@ -116,16 +119,28 @@
 
 - (IBAction)addItem:(id)sender
 {
-    KIASearchItemMapping *item = [_itemArray objectAtIndex:indexOfItem];
+    if (!isBlock)
+    {
+        KIASearchItemMapping *item = [_itemArray objectAtIndex:indexOfItem];
     
-    [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item itemId]
-                                                    name:[item itemName]
-                                              categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
-                                               shortName:[item itemShortName]
-                                                   count:0
-                                                   value:@""];
+        [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item itemId]
+                                                        name:[item itemName]
+                                                  categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
+                                                   shortName:[item itemShortName]
+                                                       count:0
+                                                       value:@""];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Select to start the product from the list of found"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 #pragma mark ***** text delegate *****
@@ -133,6 +148,8 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     [_searchItemGateway searchItemWithText:[[textField text] stringByAppendingString:string] categoyId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName] storeId:1 delegate:self];
+    
+    isBlock = YES;
     
     return YES;
 }
@@ -172,6 +189,8 @@
     [_itemTextField setText:[[_itemArray objectAtIndex:[indexPath row]] itemName]];
     
     indexOfItem = [indexPath row];
+    
+    isBlock = NO;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

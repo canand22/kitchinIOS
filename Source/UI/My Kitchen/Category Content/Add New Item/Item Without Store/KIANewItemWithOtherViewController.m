@@ -8,6 +8,8 @@
 
 #import "KIANewItemWithOtherViewController.h"
 
+#import "KIAUpdater.h"
+
 @interface KIANewItemWithOtherViewController ()
 
 @end
@@ -34,7 +36,14 @@
 
 - (IBAction)submit:(id)sender
 {
+    [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:-1
+                                                    name:[_foodType text]
+                                              categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
+                                               shortName:nil
+                                                   count:1
+                                                   value:nil];
     
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)back:(id)sender

@@ -10,4 +10,8 @@
 
 @interface KIANewItemWithOtherViewController : UIViewController
 
+@property(nonatomic, strong) IBOutlet UITextField *foodType;
+
+@property(nonatomic, strong) NSString *categoryName;
+
 @end
