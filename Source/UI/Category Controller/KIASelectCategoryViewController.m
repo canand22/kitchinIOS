@@ -12,6 +12,8 @@
 
 #import "MyKitchInCell.h"
 
+#import "KIAUpdater.h"
+
 @interface KIASelectCategoryViewController ()
 
 @end
@@ -58,6 +60,20 @@
     [[cell image] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [_categoriesArray objectAtIndex:[indexPath row]]]]];
     
     [[cell title] setText:[_categoriesArray objectAtIndex:[indexPath row]]];
+    
+    NSArray *temp = [[KIAUpdater sharedUpdater] itemsForCategoryName:[_categoriesArray objectAtIndex:[indexPath row]]];
+    
+    if ([temp count] > 0)
+    {
+        [[cell circle] setHidden:NO];
+        [[cell circleText] setText:[NSString stringWithFormat:@"%d", [temp count]]];
+        [[cell circleText] setHidden:NO];
+    }
+    else
+    {
+        [[cell circle] setHidden:YES];
+        [[cell circleText] setHidden:YES];
+    }
     
     return cell;
 }
