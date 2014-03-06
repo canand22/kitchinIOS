@@ -21,6 +21,8 @@ typedef enum creationItemMode
     NSInteger selectItemIndex;
     
     KIACreationItemMode _mode;
+    
+    NSString *_categoryName;
 }
 
 @property(nonatomic, strong) IBOutlet UICollectionView *collectionView;

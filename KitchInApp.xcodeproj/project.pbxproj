@@ -264,6 +264,7 @@
 		84F56828187EAEA700B7AFCC /* KIARegisterMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F56827187EAEA700B7AFCC /* KIARegisterMapping.m */; };
 		84F5682D187EC2F500B7AFCC /* KIAServerGateway+Forgot.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5682C187EC2F500B7AFCC /* KIAServerGateway+Forgot.m */; };
 		84F56831187EC4CF00B7AFCC /* KIAForgotMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F56830187EC4CF00B7AFCC /* KIAForgotMapping.m */; };
+		84F60F2018C8BDA300437554 /* KIASelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F60F1F18C8BDA300437554 /* KIASelectItemViewController.m */; };
 		84F7ACCE186D83400092E0B0 /* KIAServerGateway+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F7ACCD186D83400092E0B0 /* KIAServerGateway+Login.m */; };
 		84F7ACD2186D91740092E0B0 /* KIALoginMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F7ACD1186D91740092E0B0 /* KIALoginMapping.m */; };
 		84F7ACD6186DB8920092E0B0 /* KIALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F7ACD5186DB8920092E0B0 /* KIALoginViewController.m */; };
@@ -689,6 +690,8 @@
 		84F5682C187EC2F500B7AFCC /* KIAServerGateway+Forgot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+Forgot.m"; sourceTree = "<group>"; };
 		84F5682F187EC4CF00B7AFCC /* KIAForgotMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAForgotMapping.h; sourceTree = "<group>"; };
 		84F56830187EC4CF00B7AFCC /* KIAForgotMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAForgotMapping.m; sourceTree = "<group>"; };
+		84F60F1E18C8BDA300437554 /* KIASelectItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASelectItemViewController.h; sourceTree = "<group>"; };
+		84F60F1F18C8BDA300437554 /* KIASelectItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASelectItemViewController.m; sourceTree = "<group>"; };
 		84F7ACCC186D83400092E0B0 /* KIAServerGateway+Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+Login.h"; sourceTree = "<group>"; };
 		84F7ACCD186D83400092E0B0 /* KIAServerGateway+Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+Login.m"; sourceTree = "<group>"; };
 		84F7ACD0186D91740092E0B0 /* KIALoginMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIALoginMapping.h; sourceTree = "<group>"; };
@@ -913,6 +916,7 @@
 			children = (
 				84C338DC188458A3008814E4 /* KIASelectCategoryViewController.h */,
 				84C338DD188458A3008814E4 /* KIASelectCategoryViewController.m */,
+				84F60F1D18C8BD9100437554 /* Select Item */,
 			);
 			path = "Category Controller";
 			sourceTree = "<group>";
@@ -1822,6 +1826,15 @@
 			path = Logout;
 			sourceTree = "<group>";
 		};
+		84F60F1D18C8BD9100437554 /* Select Item */ = {
+			isa = PBXGroup;
+			children = (
+				84F60F1E18C8BDA300437554 /* KIASelectItemViewController.h */,
+				84F60F1F18C8BDA300437554 /* KIASelectItemViewController.m */,
+			);
+			path = "Select Item";
+			sourceTree = "<group>";
+		};
 		84F7ACCF186D8C3F0092E0B0 /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -2285,6 +2298,7 @@
 				84F2A1E8188556EC007024D5 /* KIAAutorization.m in Sources */,
 				84F48D4F1892646600504130 /* KIAUpdater.m in Sources */,
 				84F1B80F1890212800535A5D /* KIACategory.m in Sources */,
+				84F60F2018C8BDA300437554 /* KIASelectItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

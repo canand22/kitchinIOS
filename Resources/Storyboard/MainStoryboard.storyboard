@@ -2535,176 +2535,152 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="l9G-uK-KPV" id="n2e-UG-3yN"/>
+                        <segue destination="3I5-JQ-qIG" kind="modal" identifier="SelectItemVC" id="Djx-cm-woj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejB-3q-rHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1783" y="-2988"/>
         </scene>
+        <!--Select Item View Controller-->
+        <scene sceneID="4Im-tg-jAa">
+            <objects>
+                <viewController id="3I5-JQ-qIG" customClass="KIASelectItemViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rBr-nF-u4M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top.png" highlightedImage="top.png" id="bBO-Ws-2s0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lIU-Wv-4uI">
+                                <rect key="frame" x="0.0" y="33" width="320" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UzD-bV-7eW">
+                                <rect key="frame" x="10" y="29" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Back" backgroundImage="back_empty.png">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="back_active.png">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="3I5-JQ-qIG" eventType="touchUpInside" id="G8C-7B-qSR"/>
+                                    <action selector="back:" destination="6DV-Gc-bgl" eventType="touchUpInside" id="Lkl-dn-bU7"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tru-0g-cj0">
+                                <rect key="frame" x="0.0" y="62" width="320" height="506"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="HoC-DB-GeV" style="IBUITableViewCellStyleDefault" id="goY-QY-47c">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="goY-QY-47c">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HoC-DB-GeV">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="3I5-JQ-qIG" id="nFi-38-Az3"/>
+                                    <outlet property="delegate" destination="3I5-JQ-qIG" id="5pe-lZ-m5C"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="Tru-0g-cj0" id="bt3-Lb-a9G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ub-Gi-6Y1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2406" y="-2725"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1.png" width="640" height="960"/>
         <image name="aa.png" width="118" height="16"/>
         <image name="add_receipt_bg.png" width="320" height="568"/>
-        <image name="add_receipt_bg.png" width="320" height="568"/>
         <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
         <image name="back_empty.png" width="50" height="30"/>
         <image name="bottom.png" width="320" height="58"/>
-        <image name="bottom.png" width="320" height="58"/>
-        <image name="bottom_grey_line.png" width="320" height="60"/>
-        <image name="bottom_grey_line.png" width="320" height="60"/>
         <image name="bottom_grey_line.png" width="320" height="60"/>
         <image name="bottom_shanding.png" width="320" height="32"/>
         <image name="button add active.png" width="93" height="29"/>
         <image name="button add.png" width="93" height="29"/>
         <image name="button.png" width="222" height="43"/>
-        <image name="button.png" width="222" height="43"/>
-        <image name="button.png" width="222" height="43"/>
-        <image name="button_.png" width="91" height="25"/>
         <image name="button_.png" width="91" height="25"/>
         <image name="button_active.png" width="219" height="40"/>
-        <image name="button_active.png" width="219" height="40"/>
-        <image name="button_active.png" width="219" height="40"/>
-        <image name="button_bottom.png" width="67" height="67"/>
         <image name="button_bottom.png" width="67" height="67"/>
         <image name="button_bottom_active.png" width="67" height="67"/>
-        <image name="button_bottom_active.png" width="67" height="67"/>
-        <image name="button_cancel.png" width="52" height="30"/>
         <image name="button_cancel.png" width="52" height="30"/>
         <image name="button_course.png" width="106" height="25"/>
-        <image name="button_course.png" width="106" height="25"/>
-        <image name="button_course.png" width="106" height="25"/>
-        <image name="button_course_active.png" width="106" height="25"/>
-        <image name="button_course_active.png" width="106" height="25"/>
         <image name="button_course_active.png" width="106" height="25"/>
         <image name="button_create.png" width="52" height="30"/>
         <image name="button_create_active.png" width="52" height="30"/>
         <image name="button_more.png" width="103" height="37"/>
-        <image name="button_more.png" width="103" height="37"/>
-        <image name="button_more.png" width="103" height="37"/>
-        <image name="button_orange.png" width="103" height="37"/>
         <image name="button_orange.png" width="103" height="37"/>
         <image name="button_quality_left_active.png" width="69" height="26"/>
         <image name="button_quality_right.png" width="69" height="26"/>
         <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_time.png" width="91" height="25"/>
-        <image name="button_time.png" width="91" height="25"/>
         <image name="button_time.png" width="91" height="25"/>
         <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="change_password_and_purchase_button.png" width="91" height="25"/>
-        <image name="change_password_and_purchase_button.png" width="91" height="25"/>
-        <image name="change_password_and_purchase_button.png" width="91" height="25"/>
         <image name="change_password_and_purchase_button.png" width="91" height="25"/>
         <image name="change_password_and_purchase_button_active.png" width="91" height="25"/>
-        <image name="change_password_and_purchase_button_active.png" width="91" height="25"/>
         <image name="circle.png" width="24" height="23"/>
-        <image name="circle.png" width="24" height="23"/>
-        <image name="close.png" width="18" height="19"/>
-        <image name="close.png" width="18" height="19"/>
         <image name="close.png" width="18" height="19"/>
         <image name="eri-bg.png" width="320" height="568"/>
         <image name="face.png" width="20" height="20"/>
         <image name="favorite.png" width="37" height="31"/>
-        <image name="favorite.png" width="37" height="31"/>
         <image name="forgot_pass_icon.png" width="46" height="43"/>
         <image name="img2.png" width="89" height="55"/>
-        <image name="img2.png" width="89" height="55"/>
         <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
         <image name="login_text_field.png" width="223" height="32"/>
         <image name="main-bg.png" width="320" height="568"/>
         <image name="more_btn.png" width="103" height="37"/>
-        <image name="more_btn.png" width="103" height="37"/>
-        <image name="more_btn.png" width="103" height="37"/>
         <image name="my_kitchen_bg.png" width="320" height="568"/>
-        <image name="my_kitchen_collection_bg.png" width="300" height="535"/>
         <image name="my_kitchen_collection_bg.png" width="300" height="535"/>
         <image name="pinterest.png" width="20" height="20"/>
         <image name="popup_block.png" width="286" height="314"/>
-        <image name="popup_block.png" width="286" height="314"/>
-        <image name="popup_block.png" width="286" height="314"/>
-        <image name="popup_header_block.png" width="268" height="43"/>
-        <image name="popup_header_block.png" width="268" height="43"/>
         <image name="popup_header_block.png" width="268" height="43"/>
         <image name="receipt_bg.png" width="320" height="480"/>
-        <image name="register_btn.png" width="121" height="36"/>
-        <image name="register_btn.png" width="121" height="36"/>
-        <image name="register_btn.png" width="121" height="36"/>
-        <image name="register_btn.png" width="121" height="36"/>
         <image name="register_btn.png" width="121" height="36"/>
         <image name="settings meal settings.png" width="320" height="379"/>
         <image name="settings my account.png" width="320" height="376"/>
         <image name="settings notifications.png" width="320" height="378"/>
         <image name="settings.png" width="34" height="34"/>
-        <image name="settings.png" width="34" height="34"/>
-        <image name="submit_btn.png" width="121" height="36"/>
         <image name="submit_btn.png" width="121" height="36"/>
         <image name="text_field.png" width="170" height="22"/>
-        <image name="text_field.png" width="170" height="22"/>
-        <image name="text_field.png" width="170" height="22"/>
-        <image name="text_field.png" width="170" height="22"/>
-        <image name="textfield.png" width="170" height="22"/>
-        <image name="textfield.png" width="170" height="22"/>
-        <image name="textfield.png" width="170" height="22"/>
-        <image name="textfield.png" width="170" height="22"/>
         <image name="textfield.png" width="170" height="22"/>
         <image name="textfields min.png" width="36" height="21"/>
-        <image name="textfields min.png" width="36" height="21"/>
-        <image name="textfields.png" width="182" height="21"/>
         <image name="textfields.png" width="182" height="21"/>
         <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
         <image name="top_menu_button.png" width="78" height="25"/>
-        <image name="top_menu_button.png" width="78" height="25"/>
-        <image name="top_menu_button.png" width="78" height="25"/>
-        <image name="top_menu_button_active.png" width="78" height="25"/>
-        <image name="top_menu_button_active.png" width="78" height="25"/>
-        <image name="top_menu_button_active.png" width="78" height="25"/>
-        <image name="top_menu_button_active.png" width="78" height="25"/>
         <image name="top_menu_button_active.png" width="78" height="25"/>
         <image name="tweet.png" width="20" height="20"/>
         <image name="view recipe last4.png" width="320" height="429"/>

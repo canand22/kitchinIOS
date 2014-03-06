@@ -9,6 +9,7 @@
 #import "KIASelectCategoryViewController.h"
 
 #import "KIAAddItemViewController.h"
+#import "KIASelectItemViewController.h"
 
 #import "MyKitchInCell.h"
 
@@ -91,11 +92,9 @@
     
     if (_mode == addKitchInItem)
     {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        KIAAddItemViewController *addItemsViewController = (KIAAddItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addItemViewController"];
-        [addItemsViewController setCategoryName:[_categoriesArray objectAtIndex:[indexPath row]]];
-        [addItemsViewController setIsRecognition:YES];
-        [self presentViewController:addItemsViewController animated:YES completion:nil];
+        _categoryName = [_categoriesArray objectAtIndex:[indexPath row]];
+        
+        [self performSegueWithIdentifier:@"SelectItemVC" sender:self];
     }
 }
 
@@ -108,6 +107,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"SelectItemVC"])
+    {
+        KIASelectItemViewController *categoryContent = (KIASelectItemViewController *)[segue destinationViewController];
+        
+        [categoryContent setCategoryName:_categoryName];
+    }
 }
 
 @end
