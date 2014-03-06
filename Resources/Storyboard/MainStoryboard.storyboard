@@ -2578,7 +2578,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="back:" destination="3I5-JQ-qIG" eventType="touchUpInside" id="G8C-7B-qSR"/>
+                                    <action selector="back:" destination="3I5-JQ-qIG" eventType="touchUpInside" id="6RM-WP-oOE"/>
                                     <action selector="back:" destination="6DV-Gc-bgl" eventType="touchUpInside" id="Lkl-dn-bU7"/>
                                 </connections>
                             </button>
