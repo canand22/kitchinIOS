@@ -165,7 +165,7 @@
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:@"Select to start the product from the list of found"
+                                                        message:@"Please search an item to add"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK" otherButtonTitles:nil];
         

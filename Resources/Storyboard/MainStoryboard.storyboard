@@ -155,7 +155,6 @@
                                                 <rect key="frame" x="20" y="0.0" width="104" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="-1" height="-1"/>
                                                 <state key="normal" title="Register" backgroundImage="more_btn.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -168,7 +167,6 @@
                                                 <rect key="frame" x="144" y="0.0" width="104" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="-1" height="-1"/>
                                                 <state key="normal" title="Cancel" backgroundImage="register_btn.png">
                                                     <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -271,7 +269,6 @@
                                                 <rect key="frame" x="20" y="0.0" width="104" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="-1" height="-1"/>
                                                 <state key="normal" title="Send" backgroundImage="more_btn.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -285,7 +282,6 @@
                                                 <rect key="frame" x="144" y="0.0" width="104" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="-1" height="-1"/>
                                                 <state key="normal" title="Cancel" backgroundImage="register_btn.png">
                                                     <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -400,7 +396,6 @@
                                                 <rect key="frame" x="20" y="1" width="104" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="-1" height="-1"/>
                                                 <state key="normal" title="Login" backgroundImage="more_btn.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,7 +408,6 @@
                                                 <rect key="frame" x="144" y="0.0" width="104" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <size key="titleShadowOffset" width="-1" height="-1"/>
                                                 <state key="normal" title="Cancel" backgroundImage="register_btn.png">
                                                     <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -443,7 +437,7 @@
                                                 <rect key="frame" x="20" y="41" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <state key="normal" title="Sing Up">
+                                                <state key="normal" title="Sign Up">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -541,7 +535,6 @@
                                 <rect key="frame" x="32" y="520" width="104" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <size key="titleShadowOffset" width="-1" height="-1"/>
                                 <state key="normal" title="Recognize" backgroundImage="button_orange.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -687,7 +680,6 @@
                                 <rect key="frame" x="14" y="293" width="106" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
-                                <size key="titleShadowOffset" width="0.40000000000000002" height="0.40000000000000002"/>
                                 <state key="normal" title="Add Ingredients" backgroundImage="button_course.png">
                                     <color key="titleColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -698,7 +690,6 @@
                                 <rect key="frame" x="14" y="104" width="106" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
-                                <size key="titleShadowOffset" width="0.40000000000000002" height="0.40000000000000002"/>
                                 <state key="normal" title="Course" backgroundImage="button_course.png">
                                     <color key="titleColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -709,7 +700,6 @@
                                 <rect key="frame" x="14" y="162" width="106" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
-                                <size key="titleShadowOffset" width="0.40000000000000002" height="0.40000000000000002"/>
                                 <state key="normal" title="Add Ingredients" backgroundImage="button_course.png">
                                     <color key="titleColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -818,7 +808,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <size key="shadowOffset" width="-1" height="-1"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="beQ-gd-gW9">
                                 <rect key="frame" x="48" y="167" width="224" height="43"/>
@@ -886,7 +876,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="-1" height="-1"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Grocery Shopping Tools" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DcU-IU-IsK">
                                 <rect key="frame" x="65" y="247" width="191" height="21"/>
@@ -896,7 +886,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="-1" height="-1"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="settings.png" highlightedImage="settings.png" id="qZp-n2-i84">
                                 <rect key="frame" x="65" y="316" width="34" height="34"/>
@@ -961,13 +951,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="my_kitchen_bg.png" id="t8F-mK-t6v">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="631"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="line.png" id="AbS-uw-cbL">
-                                <rect key="frame" x="0.0" y="48" width="320" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top.png" highlightedImage="top.png" id="5Wl-8A-2Z7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="My KitchIn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PGx-MN-or7">
                                 <rect key="frame" x="0.0" y="15" width="320" height="26"/>
@@ -979,11 +965,11 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_kitchen_collection_bg.png" id="j5j-pj-TC5">
-                                <rect key="frame" x="0.0" y="49" width="320" height="535"/>
+                                <rect key="frame" x="0.0" y="57" width="320" height="527"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Fvi-C9-dmq">
-                                <rect key="frame" x="10" y="49" width="300" height="440"/>
+                                <rect key="frame" x="10" y="57" width="300" height="432"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ffO-N4-xdo">
@@ -1048,7 +1034,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" none="YES" image="YES"/>
                         </accessibility>
@@ -1459,7 +1445,6 @@
                                         <rect key="frame" x="112" y="93" width="91" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
-                                        <size key="titleShadowOffset" width="0.40000000000000002" height="0.40000000000000002"/>
                                         <state key="normal" title="Change user name" backgroundImage="change_password_and_purchase_button.png">
                                             <color key="titleColor" red="0.89803921568627454" green="0.38823529411764707" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1517,7 +1502,6 @@
                                         <rect key="frame" x="206" y="2" width="91" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
-                                        <size key="titleShadowOffset" width="0.40000000000000002" height="0.40000000000000002"/>
                                         <state key="normal" title="Logout" backgroundImage="change_password_and_purchase_button.png">
                                             <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1530,7 +1514,6 @@
                                         <rect key="frame" x="112" y="2" width="91" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
-                                        <size key="titleShadowOffset" width="0.40000000000000002" height="0.40000000000000002"/>
                                         <state key="normal" title="Login" backgroundImage="change_password_and_purchase_button.png">
                                             <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1987,7 +1970,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J2e-sw-zzd">
-                                                    <rect key="frame" x="281" y="8" width="19" height="19"/>
+                                                    <rect key="frame" x="291" y="8" width="19" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="close.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1997,21 +1980,21 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ICa-fC-SM7">
-                                                    <rect key="frame" x="204" y="5" width="69" height="26"/>
+                                                    <rect key="frame" x="248" y="5" width="34" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="button_quality_right.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xcF-3V-Jou">
-                                                    <rect key="frame" x="136" y="5" width="69" height="26"/>
+                                                    <rect key="frame" x="214" y="5" width="34" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="button_quality_left_active.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orange" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hca-4h-xOm">
-                                                    <rect key="frame" x="10" y="7" width="118" height="21"/>
+                                                    <rect key="frame" x="10" y="7" width="196" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -2167,7 +2150,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <size key="titleShadowOffset" width="-1" height="-1"/>
                                         <state key="normal" title="Add" backgroundImage="button_orange.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2181,7 +2163,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <size key="titleShadowOffset" width="-1" height="-1"/>
                                         <state key="normal" title="Cancel" backgroundImage="button_more.png">
                                             <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2201,7 +2182,6 @@
                                         <rect key="frame" x="200" y="9" width="111" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <size key="titleShadowOffset" width="-1" height="-1"/>
                                         <state key="normal" title="Enter item manually" backgroundImage="button_more.png">
                                             <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2211,7 +2191,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Can't find item in your KitchIn? You can add it manually right here!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SMC-YJ-wRp">
-                                        <rect key="frame" x="10" y="9" width="172" height="38"/>
+                                        <rect key="frame" x="5" y="9" width="187" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -2275,7 +2255,6 @@
                                         <rect key="frame" x="20" y="133" width="104" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <size key="titleShadowOffset" width="-1" height="-1"/>
                                         <state key="normal" title="Cancel" backgroundImage="register_btn.png">
                                             <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2287,7 +2266,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k9X-SP-Njq">
                                         <rect key="frame" x="156" y="133" width="104" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                        <size key="titleShadowOffset" width="-1" height="-1"/>
                                         <state key="normal" title="Submit" backgroundImage="submit_btn.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2372,7 +2350,6 @@
                                         <rect key="frame" x="20" y="133" width="104" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <size key="titleShadowOffset" width="-1" height="-1"/>
                                         <state key="normal" title="Cancel" backgroundImage="register_btn.png">
                                             <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2384,7 +2361,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wBn-8S-IUd">
                                         <rect key="frame" x="164" y="133" width="104" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                        <size key="titleShadowOffset" width="-1" height="-1"/>
                                         <state key="normal" title="Submit" backgroundImage="submit_btn.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2590,7 +2566,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="HoC-DB-GeV" style="IBUITableViewCellStyleDefault" id="goY-QY-47c">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="goY-QY-47c">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="goY-QY-47c" id="KIY-Ab-Stw">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -2626,61 +2602,169 @@
         <image name="1.png" width="640" height="960"/>
         <image name="aa.png" width="118" height="16"/>
         <image name="add_receipt_bg.png" width="320" height="568"/>
+        <image name="add_receipt_bg.png" width="320" height="568"/>
+        <image name="back_active.png" width="50" height="30"/>
+        <image name="back_active.png" width="50" height="30"/>
+        <image name="back_active.png" width="50" height="30"/>
+        <image name="back_active.png" width="50" height="30"/>
+        <image name="back_active.png" width="50" height="30"/>
+        <image name="back_active.png" width="50" height="30"/>
         <image name="back_active.png" width="50" height="30"/>
         <image name="back_empty.png" width="50" height="30"/>
+        <image name="back_empty.png" width="50" height="30"/>
+        <image name="back_empty.png" width="50" height="30"/>
+        <image name="back_empty.png" width="50" height="30"/>
+        <image name="back_empty.png" width="50" height="30"/>
+        <image name="back_empty.png" width="50" height="30"/>
+        <image name="back_empty.png" width="50" height="30"/>
         <image name="bottom.png" width="320" height="58"/>
+        <image name="bottom.png" width="320" height="58"/>
+        <image name="bottom_grey_line.png" width="320" height="60"/>
+        <image name="bottom_grey_line.png" width="320" height="60"/>
         <image name="bottom_grey_line.png" width="320" height="60"/>
         <image name="bottom_shanding.png" width="320" height="32"/>
         <image name="button add active.png" width="93" height="29"/>
         <image name="button add.png" width="93" height="29"/>
         <image name="button.png" width="222" height="43"/>
+        <image name="button.png" width="222" height="43"/>
+        <image name="button.png" width="222" height="43"/>
+        <image name="button_.png" width="91" height="25"/>
         <image name="button_.png" width="91" height="25"/>
         <image name="button_active.png" width="219" height="40"/>
+        <image name="button_active.png" width="219" height="40"/>
+        <image name="button_active.png" width="219" height="40"/>
+        <image name="button_bottom.png" width="67" height="67"/>
         <image name="button_bottom.png" width="67" height="67"/>
         <image name="button_bottom_active.png" width="67" height="67"/>
+        <image name="button_bottom_active.png" width="67" height="67"/>
+        <image name="button_cancel.png" width="52" height="30"/>
         <image name="button_cancel.png" width="52" height="30"/>
         <image name="button_course.png" width="106" height="25"/>
+        <image name="button_course.png" width="106" height="25"/>
+        <image name="button_course.png" width="106" height="25"/>
+        <image name="button_course_active.png" width="106" height="25"/>
+        <image name="button_course_active.png" width="106" height="25"/>
         <image name="button_course_active.png" width="106" height="25"/>
         <image name="button_create.png" width="52" height="30"/>
         <image name="button_create_active.png" width="52" height="30"/>
         <image name="button_more.png" width="103" height="37"/>
+        <image name="button_more.png" width="103" height="37"/>
+        <image name="button_more.png" width="103" height="37"/>
+        <image name="button_orange.png" width="103" height="37"/>
         <image name="button_orange.png" width="103" height="37"/>
         <image name="button_quality_left_active.png" width="69" height="26"/>
         <image name="button_quality_right.png" width="69" height="26"/>
         <image name="button_switch.png" width="92" height="34"/>
+        <image name="button_switch.png" width="92" height="34"/>
+        <image name="button_switch.png" width="92" height="34"/>
+        <image name="button_switch.png" width="92" height="34"/>
+        <image name="button_switch.png" width="92" height="34"/>
+        <image name="button_switch.png" width="92" height="34"/>
+        <image name="button_switch.png" width="92" height="34"/>
+        <image name="button_time.png" width="91" height="25"/>
+        <image name="button_time.png" width="91" height="25"/>
         <image name="button_time.png" width="91" height="25"/>
         <image name="ceckbox.png" width="9" height="9"/>
+        <image name="ceckbox.png" width="9" height="9"/>
+        <image name="ceckbox.png" width="9" height="9"/>
+        <image name="ceckbox.png" width="9" height="9"/>
+        <image name="ceckbox.png" width="9" height="9"/>
+        <image name="ceckbox.png" width="9" height="9"/>
+        <image name="ceckbox.png" width="9" height="9"/>
+        <image name="change_password_and_purchase_button.png" width="91" height="25"/>
+        <image name="change_password_and_purchase_button.png" width="91" height="25"/>
+        <image name="change_password_and_purchase_button.png" width="91" height="25"/>
         <image name="change_password_and_purchase_button.png" width="91" height="25"/>
         <image name="change_password_and_purchase_button_active.png" width="91" height="25"/>
+        <image name="change_password_and_purchase_button_active.png" width="91" height="25"/>
         <image name="circle.png" width="24" height="23"/>
+        <image name="circle.png" width="24" height="23"/>
+        <image name="close.png" width="18" height="19"/>
+        <image name="close.png" width="18" height="19"/>
         <image name="close.png" width="18" height="19"/>
         <image name="eri-bg.png" width="320" height="568"/>
         <image name="face.png" width="20" height="20"/>
         <image name="favorite.png" width="37" height="31"/>
+        <image name="favorite.png" width="37" height="31"/>
         <image name="forgot_pass_icon.png" width="46" height="43"/>
         <image name="img2.png" width="89" height="55"/>
+        <image name="img2.png" width="89" height="55"/>
         <image name="line.png" width="3" height="67"/>
+        <image name="line.png" width="3" height="67"/>
+        <image name="line.png" width="3" height="67"/>
+        <image name="line.png" width="3" height="67"/>
+        <image name="line.png" width="3" height="67"/>
+        <image name="line.png" width="3" height="67"/>
+        <image name="line.png" width="3" height="67"/>
+        <image name="line.png" width="3" height="67"/>
+        <image name="login_text_field.png" width="223" height="32"/>
+        <image name="login_text_field.png" width="223" height="32"/>
+        <image name="login_text_field.png" width="223" height="32"/>
+        <image name="login_text_field.png" width="223" height="32"/>
+        <image name="login_text_field.png" width="223" height="32"/>
+        <image name="login_text_field.png" width="223" height="32"/>
+        <image name="login_text_field.png" width="223" height="32"/>
         <image name="login_text_field.png" width="223" height="32"/>
         <image name="main-bg.png" width="320" height="568"/>
         <image name="more_btn.png" width="103" height="37"/>
-        <image name="my_kitchen_bg.png" width="320" height="568"/>
+        <image name="more_btn.png" width="103" height="37"/>
+        <image name="more_btn.png" width="103" height="37"/>
+        <image name="my_kitchen_collection_bg.png" width="300" height="535"/>
         <image name="my_kitchen_collection_bg.png" width="300" height="535"/>
         <image name="pinterest.png" width="20" height="20"/>
         <image name="popup_block.png" width="286" height="314"/>
+        <image name="popup_block.png" width="286" height="314"/>
+        <image name="popup_block.png" width="286" height="314"/>
+        <image name="popup_header_block.png" width="268" height="43"/>
+        <image name="popup_header_block.png" width="268" height="43"/>
         <image name="popup_header_block.png" width="268" height="43"/>
         <image name="receipt_bg.png" width="320" height="480"/>
+        <image name="register_btn.png" width="121" height="36"/>
+        <image name="register_btn.png" width="121" height="36"/>
+        <image name="register_btn.png" width="121" height="36"/>
+        <image name="register_btn.png" width="121" height="36"/>
         <image name="register_btn.png" width="121" height="36"/>
         <image name="settings meal settings.png" width="320" height="379"/>
         <image name="settings my account.png" width="320" height="376"/>
         <image name="settings notifications.png" width="320" height="378"/>
         <image name="settings.png" width="34" height="34"/>
+        <image name="settings.png" width="34" height="34"/>
+        <image name="submit_btn.png" width="121" height="36"/>
         <image name="submit_btn.png" width="121" height="36"/>
         <image name="text_field.png" width="170" height="22"/>
+        <image name="text_field.png" width="170" height="22"/>
+        <image name="text_field.png" width="170" height="22"/>
+        <image name="text_field.png" width="170" height="22"/>
+        <image name="textfield.png" width="170" height="22"/>
+        <image name="textfield.png" width="170" height="22"/>
+        <image name="textfield.png" width="170" height="22"/>
+        <image name="textfield.png" width="170" height="22"/>
         <image name="textfield.png" width="170" height="22"/>
         <image name="textfields min.png" width="36" height="21"/>
+        <image name="textfields min.png" width="36" height="21"/>
+        <image name="textfields.png" width="182" height="21"/>
         <image name="textfields.png" width="182" height="21"/>
         <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
+        <image name="top.png" width="320" height="48"/>
         <image name="top_menu_button.png" width="78" height="25"/>
+        <image name="top_menu_button.png" width="78" height="25"/>
+        <image name="top_menu_button.png" width="78" height="25"/>
+        <image name="top_menu_button_active.png" width="78" height="25"/>
+        <image name="top_menu_button_active.png" width="78" height="25"/>
+        <image name="top_menu_button_active.png" width="78" height="25"/>
+        <image name="top_menu_button_active.png" width="78" height="25"/>
         <image name="top_menu_button_active.png" width="78" height="25"/>
         <image name="tweet.png" width="20" height="20"/>
         <image name="view recipe last4.png" width="320" height="429"/>
