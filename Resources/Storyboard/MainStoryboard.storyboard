@@ -2201,6 +2201,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                             </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picker.png" id="pnf-40-sKF">
+                                <rect key="frame" x="132" y="145" width="168" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <pickerView hidden="YES" contentMode="scaleToFill" id="303-NB-3nw">
                                 <rect key="frame" x="132" y="145" width="168" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -2209,6 +2213,10 @@
                                     <outlet property="delegate" destination="jka-lR-ywL" id="IPF-hq-mNh"/>
                                 </connections>
                             </pickerView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picker_indicator.png" id="pwE-z8-dXD">
+                                <rect key="frame" x="142" y="204" width="148" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -2219,6 +2227,8 @@
                         <outlet property="addKitchInItem" destination="GP4-gN-qd3" id="NGL-pz-uWU"/>
                         <outlet property="addNewItem" destination="IsN-vm-alO" id="IR7-6H-uwP"/>
                         <outlet property="picker" destination="303-NB-3nw" id="l5p-dH-spL"/>
+                        <outlet property="pickerFon" destination="pnf-40-sKF" id="n8t-1T-oPV"/>
+                        <outlet property="pickerIndicator" destination="pwE-z8-dXD" id="lFk-nT-kdG"/>
                         <outlet property="selectStoreTextFild" destination="I5D-dO-ZTm" id="Kwc-hn-AhZ"/>
                     </connections>
                 </viewController>
@@ -2602,169 +2612,62 @@
         <image name="1.png" width="640" height="960"/>
         <image name="aa.png" width="118" height="16"/>
         <image name="add_receipt_bg.png" width="320" height="568"/>
-        <image name="add_receipt_bg.png" width="320" height="568"/>
         <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_active.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
-        <image name="back_empty.png" width="50" height="30"/>
         <image name="back_empty.png" width="50" height="30"/>
         <image name="bottom.png" width="320" height="58"/>
-        <image name="bottom.png" width="320" height="58"/>
-        <image name="bottom_grey_line.png" width="320" height="60"/>
-        <image name="bottom_grey_line.png" width="320" height="60"/>
         <image name="bottom_grey_line.png" width="320" height="60"/>
         <image name="bottom_shanding.png" width="320" height="32"/>
         <image name="button add active.png" width="93" height="29"/>
         <image name="button add.png" width="93" height="29"/>
         <image name="button.png" width="222" height="43"/>
-        <image name="button.png" width="222" height="43"/>
-        <image name="button.png" width="222" height="43"/>
-        <image name="button_.png" width="91" height="25"/>
         <image name="button_.png" width="91" height="25"/>
         <image name="button_active.png" width="219" height="40"/>
-        <image name="button_active.png" width="219" height="40"/>
-        <image name="button_active.png" width="219" height="40"/>
-        <image name="button_bottom.png" width="67" height="67"/>
         <image name="button_bottom.png" width="67" height="67"/>
         <image name="button_bottom_active.png" width="67" height="67"/>
-        <image name="button_bottom_active.png" width="67" height="67"/>
-        <image name="button_cancel.png" width="52" height="30"/>
         <image name="button_cancel.png" width="52" height="30"/>
         <image name="button_course.png" width="106" height="25"/>
-        <image name="button_course.png" width="106" height="25"/>
-        <image name="button_course.png" width="106" height="25"/>
-        <image name="button_course_active.png" width="106" height="25"/>
-        <image name="button_course_active.png" width="106" height="25"/>
         <image name="button_course_active.png" width="106" height="25"/>
         <image name="button_create.png" width="52" height="30"/>
         <image name="button_create_active.png" width="52" height="30"/>
         <image name="button_more.png" width="103" height="37"/>
-        <image name="button_more.png" width="103" height="37"/>
-        <image name="button_more.png" width="103" height="37"/>
-        <image name="button_orange.png" width="103" height="37"/>
         <image name="button_orange.png" width="103" height="37"/>
         <image name="button_quality_left_active.png" width="69" height="26"/>
         <image name="button_quality_right.png" width="69" height="26"/>
         <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_switch.png" width="92" height="34"/>
-        <image name="button_time.png" width="91" height="25"/>
-        <image name="button_time.png" width="91" height="25"/>
         <image name="button_time.png" width="91" height="25"/>
         <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="ceckbox.png" width="9" height="9"/>
-        <image name="change_password_and_purchase_button.png" width="91" height="25"/>
-        <image name="change_password_and_purchase_button.png" width="91" height="25"/>
-        <image name="change_password_and_purchase_button.png" width="91" height="25"/>
         <image name="change_password_and_purchase_button.png" width="91" height="25"/>
         <image name="change_password_and_purchase_button_active.png" width="91" height="25"/>
-        <image name="change_password_and_purchase_button_active.png" width="91" height="25"/>
         <image name="circle.png" width="24" height="23"/>
-        <image name="circle.png" width="24" height="23"/>
-        <image name="close.png" width="18" height="19"/>
-        <image name="close.png" width="18" height="19"/>
         <image name="close.png" width="18" height="19"/>
         <image name="eri-bg.png" width="320" height="568"/>
         <image name="face.png" width="20" height="20"/>
         <image name="favorite.png" width="37" height="31"/>
-        <image name="favorite.png" width="37" height="31"/>
         <image name="forgot_pass_icon.png" width="46" height="43"/>
         <image name="img2.png" width="89" height="55"/>
-        <image name="img2.png" width="89" height="55"/>
         <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="line.png" width="3" height="67"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
-        <image name="login_text_field.png" width="223" height="32"/>
         <image name="login_text_field.png" width="223" height="32"/>
         <image name="main-bg.png" width="320" height="568"/>
         <image name="more_btn.png" width="103" height="37"/>
-        <image name="more_btn.png" width="103" height="37"/>
-        <image name="more_btn.png" width="103" height="37"/>
         <image name="my_kitchen_collection_bg.png" width="300" height="535"/>
-        <image name="my_kitchen_collection_bg.png" width="300" height="535"/>
+        <image name="picker.png" width="168" height="162"/>
+        <image name="picker_indicator.png" width="148" height="44"/>
         <image name="pinterest.png" width="20" height="20"/>
         <image name="popup_block.png" width="286" height="314"/>
-        <image name="popup_block.png" width="286" height="314"/>
-        <image name="popup_block.png" width="286" height="314"/>
-        <image name="popup_header_block.png" width="268" height="43"/>
-        <image name="popup_header_block.png" width="268" height="43"/>
         <image name="popup_header_block.png" width="268" height="43"/>
         <image name="receipt_bg.png" width="320" height="480"/>
-        <image name="register_btn.png" width="121" height="36"/>
-        <image name="register_btn.png" width="121" height="36"/>
-        <image name="register_btn.png" width="121" height="36"/>
-        <image name="register_btn.png" width="121" height="36"/>
         <image name="register_btn.png" width="121" height="36"/>
         <image name="settings meal settings.png" width="320" height="379"/>
         <image name="settings my account.png" width="320" height="376"/>
         <image name="settings notifications.png" width="320" height="378"/>
         <image name="settings.png" width="34" height="34"/>
-        <image name="settings.png" width="34" height="34"/>
-        <image name="submit_btn.png" width="121" height="36"/>
         <image name="submit_btn.png" width="121" height="36"/>
         <image name="text_field.png" width="170" height="22"/>
-        <image name="text_field.png" width="170" height="22"/>
-        <image name="text_field.png" width="170" height="22"/>
-        <image name="text_field.png" width="170" height="22"/>
-        <image name="textfield.png" width="170" height="22"/>
-        <image name="textfield.png" width="170" height="22"/>
-        <image name="textfield.png" width="170" height="22"/>
-        <image name="textfield.png" width="170" height="22"/>
         <image name="textfield.png" width="170" height="22"/>
         <image name="textfields min.png" width="36" height="21"/>
-        <image name="textfields min.png" width="36" height="21"/>
-        <image name="textfields.png" width="182" height="21"/>
         <image name="textfields.png" width="182" height="21"/>
         <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
-        <image name="top.png" width="320" height="48"/>
         <image name="top_menu_button.png" width="78" height="25"/>
-        <image name="top_menu_button.png" width="78" height="25"/>
-        <image name="top_menu_button.png" width="78" height="25"/>
-        <image name="top_menu_button_active.png" width="78" height="25"/>
-        <image name="top_menu_button_active.png" width="78" height="25"/>
-        <image name="top_menu_button_active.png" width="78" height="25"/>
-        <image name="top_menu_button_active.png" width="78" height="25"/>
         <image name="top_menu_button_active.png" width="78" height="25"/>
         <image name="tweet.png" width="20" height="20"/>
         <image name="view recipe last4.png" width="320" height="429"/>

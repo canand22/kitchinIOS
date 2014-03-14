@@ -70,7 +70,14 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     [_selectStoreTextFild setText:[_storeArray objectAtIndex:row]];
+    
     [_picker setHidden:![_picker isHidden]];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+    {
+        [_pickerFon setHidden:![_pickerFon isHidden]];
+        [_pickerIndicator setHidden:![_pickerIndicator isHidden]];
+    }
     
     if ([[_storeArray objectAtIndex:row] isEqualToString:@"Other"])
     {
@@ -93,6 +100,12 @@
 - (IBAction)checkStore:(id)sender
 {
     [_picker setHidden:![_picker isHidden]];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+    {
+        [_pickerFon setHidden:![_pickerFon isHidden]];
+        [_pickerIndicator setHidden:![_pickerIndicator isHidden]];
+    }
 }
 
 - (IBAction)back:(id)sender

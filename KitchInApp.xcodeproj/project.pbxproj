@@ -38,6 +38,8 @@
 		84E0803615299BAF00F277B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0803515299BAF00F277B5 /* AppDelegate.m */; };
 		84E0803B15299BE800F277B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0803915299BE800F277B5 /* main.m */; };
 		84E0804D15299DCE00F277B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E0805015299DCE00F277B5 /* Localizable.strings */; };
+		84EBDD4718D31C460046E9A5 /* picker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EBDD4618D31C460046E9A5 /* picker@2x.png */; };
+		84EBDD4918D31E5E0046E9A5 /* picker_indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EBDD4818D31E5E0046E9A5 /* picker_indicator@2x.png */; };
 		84EDFE6F186AE24F00D695AC /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EDFE07186AE24F00D695AC /* libRestKit.a */; };
 		84EDFE71186C8AB000D695AC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EDFE70186C8AAF00D695AC /* CoreData.framework */; };
 		84EDFE73186C8AC000D695AC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EDFE72186C8AC000D695AC /* Security.framework */; };
@@ -320,6 +322,8 @@
 		84E0804F15299DCE00F277B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84E0807915299ED700F277B5 /* NixBuildAutomationScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NixBuildAutomationScripts; sourceTree = "<group>"; };
 		84E080861529BE5100F277B5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		84EBDD4618D31C460046E9A5 /* picker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker@2x.png"; sourceTree = "<group>"; };
+		84EBDD4818D31E5E0046E9A5 /* picker_indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker_indicator@2x.png"; sourceTree = "<group>"; };
 		84EDFE07186AE24F00D695AC /* libRestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRestKit.a; sourceTree = "<group>"; };
 		84EDFE12186AE24F00D695AC /* CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreData.h; sourceTree = "<group>"; };
 		84EDFE13186AE24F00D695AC /* lcl_config_components_RK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lcl_config_components_RK.h; sourceTree = "<group>"; };
@@ -1310,6 +1314,8 @@
 			isa = PBXGroup;
 			children = (
 				84F2CD4F188D741000E96509 /* aa@2x.png */,
+				84EBDD4618D31C460046E9A5 /* picker@2x.png */,
+				84EBDD4818D31E5E0046E9A5 /* picker_indicator@2x.png */,
 			);
 			path = "Add New Item";
 			sourceTree = "<group>";
@@ -2013,6 +2019,7 @@
 				84F2F0F118683B00008FF7A1 /* ceckbox_active@2x.png in Resources */,
 				84F51A121869A49C0045B7AB /* eri-bg@2x.png in Resources */,
 				84F3341F18869196009818C2 /* register_btn@2x.png in Resources */,
+				84EBDD4718D31C460046E9A5 /* picker@2x.png in Resources */,
 				84F334651886AB63009818C2 /* 7.png in Resources */,
 				84F2F0F018683B00008FF7A1 /* ceckbox@2x.png in Resources */,
 				84F2F0B21868365E008FF7A1 /* add_receipt_bg@2x.png in Resources */,
@@ -2054,6 +2061,7 @@
 				84F2F17C18689512008FF7A1 /* button_suggestions_active@2x.png in Resources */,
 				84F33425188697A4009818C2 /* login_text_field@2x.png in Resources */,
 				84F538E2188950CD00EEE86D /* Produce@2x.png in Resources */,
+				84EBDD4918D31E5E0046E9A5 /* picker_indicator@2x.png in Resources */,
 				84F2F0ED18683B00008FF7A1 /* button_time@2x.png in Resources */,
 				84F2F0B61868365E008FF7A1 /* img2@2x.png in Resources */,
 				84F3342718869E78009818C2 /* receipt_bg@2x.png in Resources */,

@@ -29,7 +29,9 @@
 
 @property(nonatomic, strong) id<searchItemProtocol> searchItemGateway;
 
+@property(nonatomic, strong) IBOutlet UIImageView *pickerFon;
 @property(nonatomic, strong) IBOutlet UIPickerView *picker;
+@property(nonatomic, strong) IBOutlet UIImageView *pickerIndicator;
 
 @property(nonatomic, strong) IBOutlet UITextField *selectStoreTextFild;
 
