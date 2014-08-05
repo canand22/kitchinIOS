@@ -1,1 +1,6 @@
-*/XcodeIconTagger/tagImage.workflow/Contents/QuickLook/Thumbnail.png
+*/XcodeIconTagger/masks/OneLineMask.png
+*/XcodeIconTagger/masks/TwoLineMask.png
+*/Resources/Images/Images.xcassets/AppIcon.appiconset/*
+-diff.png
+.png
+-new.png

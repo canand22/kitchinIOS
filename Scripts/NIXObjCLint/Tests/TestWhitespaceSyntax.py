@@ -657,6 +657,32 @@ int    count = 10;'''
         # verify
         self.will_not_raise_error_with_code(code_string)
 
+    def test_does_not_raise_error_with_correct_static_variable_syntax_in_class_implementation(self):
+        code_string = '''\
+@implementation Class ()
+static NSString *const VisiblePopoverAssociationKey;
+@end'''
+
+        # verify
+        self.will_not_raise_error_with_code(code_string)
+
+    def test_raises_error_whitespace_should_not_be_after_pointer_symbol_for_static_variable_syntax_in_class_implementation(self):
+        code_string = '''\
+@implementation Class ()
+static NSString * const VisiblePopoverAssociationKey;
+@end'''
+
+        # verify
+        self.will_raise_error_with_code(code_string, [2], [18], ["Wrong whitespace count"])
+
+        code_string = '''\
+@implementation Class ()
+static NSString *      const VisiblePopoverAssociationKey;
+@end'''
+
+        # verify
+        self.will_raise_error_with_code(code_string, [2], [23], ["Wrong whitespace count"])
+
     def test_raises_error_whitespace_should_not_be_after_pointer_symbol(self):
         code_string = '''\
 NSString * string;'''

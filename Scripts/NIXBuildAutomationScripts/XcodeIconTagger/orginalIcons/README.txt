@@ -1,1 +1,0 @@
-Original icons of the app will be stored in this folder.

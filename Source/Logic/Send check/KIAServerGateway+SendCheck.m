@@ -64,7 +64,7 @@
     [self setupSendCheckMappingWithStoreId:storeID];
     
     NSData *data = UIImageJPEGRepresentation(image, .6f);
-    NSString *checkImage = [data base64Encoding];
+    NSString *checkImage = [data base64EncodedString];
     
     KIAImageMapping *imageMapping = [KIAImageMapping new];
     [imageMapping setImageAsBase64String:checkImage];

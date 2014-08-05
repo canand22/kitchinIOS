@@ -1,0 +1,1 @@
+../../NIXLogManager/Source/NIXLogManager.h

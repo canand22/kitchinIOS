@@ -1,0 +1,7 @@
+.DS_Store
+*.pyc
+*.xcworkspace
+token_names.h
+xcuserdata
+NIXObjCLint/IntermediateBuildFiles/*
+NIXObjCLint/Builds/*

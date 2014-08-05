@@ -7,15 +7,14 @@
 //
 
 #import "AppDelegate.h"
-#import "AFNetworking.h"
 #import "NIXCrashReporter.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool
     {
-        [NIXCrashReporter enableCrashReporterAndReturnError:nil];
         [NIXCrashReporter sendReportViaRequest];
+        [NIXCrashReporter enableCrashReporter];
         
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

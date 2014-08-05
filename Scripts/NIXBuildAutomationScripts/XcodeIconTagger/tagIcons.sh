@@ -18,11 +18,13 @@ else
     short_version=0
 fi
 
-currentScriptDir=$(cd "$(dirname "$0")"; pwd)
-currentScriptDir=${currentScriptDir%/*}
+taggerDirectory=$(cd "$(dirname "$0")"; pwd)
+scriptDirectory=${taggerDirectory%/*}
+projectDirectory=${scriptDirectory%/*}
+projectDirectory=${projectDirectory%/*}
 
 # load build vars
-source "${currentScriptDir}/LoadBuildEnvVars.sh"
+source "${scriptDirectory}/LoadBuildEnvVars.sh"
 
 if [ "${MONOTONIC_REVISION}" == "undefined" ]; then
     revisionNumber=`/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${INFOPLIST_FILE}"`
@@ -32,66 +34,28 @@ fi
 
 version=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${INFOPLIST_FILE}"`
 
+style="TwoLine"
 if [ "$short_version" == "1" ];
 then
-    version=""
-    suffix="OneLine"
+    style="OneLine"
 fi
 
-iconsDirectory=`cd $1 && pwd`
-icons=(`/usr/libexec/PlistBuddy -c "Print CFBundleIconFiles" -c "Print CFBundleIconFile" -c "Print :CFBundleIcons:CFBundlePrimaryIcon:CFBundleIconFiles" "${INFOPLIST_FILE}" | grep -v "{" | grep -v "}" | sed -e "s/^[ ]*//g" | sort -u`)
+maskPath="${taggerDirectory}/masks/${style}Mask.png"
 
-taggerDirectory=`dirname $0`
-taggerPlist="tagImage.workflow/Contents/document.wflow"
-tagsSubfolder="tagFiles"
-paramsPath=":actions:0:action:ActionParameters"
-iconsCount=${#icons[*]}
+utility="${taggerDirectory}"
 
-cd $taggerDirectory
+utility=$(printf '%q' "${taggerDirectory}")
 
-for (( j=0; j<2; j++ ))
-do
-    resolution_suffix=""
-    extension=""
-
-    if((j == 1)); then
-        resolution_suffix="@2x"
-    fi
-
-    for (( i=0; i<iconsCount; i++ ))
-    do
-        src_icon="${iconsDirectory}/${icons[$i]}"
-        dst_icon="$APP_PRODUCT/${icons[$i]}"
-
-        src_icon_no_ext="${src_icon/.png/}"
-        dst_icon_no_ext="${dst_icon/.png/}"
-
-        src_icon_no_ext="${src_icon_no_ext/@2x/}"
-        dst_icon_no_ext="${dst_icon_no_ext/@2x/}"
-
-        src_icon="${src_icon_no_ext}${resolution_suffix}.png"
-        dst_icon="${dst_icon_no_ext}${resolution_suffix}.png"
-
-        if [ -f $icon ]; then
-            height=`sips -g pixelHeight "$src_icon" | tail -n 1 | sed "s/ *pixelHeight: */ /"`
-            width=`sips -g pixelWidth "$src_icon" | tail -n 1 | sed "s/ *pixelWidth: */ /"`
-
-            if (( $height == $width )); then
-                renderSize=$(( $width * 10 )) # for some reason it looks much better when rendering canvas are bigger than an icon
-                renderSize=$(( $renderSize + $width%2 )) # rendering canvas for odd sized images should also be odd
-
-                /usr/libexec/PlistBuddy -c "Set $paramsPath:renderPixelsHigh $renderSize" -c "Set $paramsPath:renderPixelsWide $renderSize" $taggerPlist
-
-                if( [[ "$src_icon" == *@2x* ]]); then
-                    resolution_suffix="@2x"
-                fi
+iconsDirectory="$projectDirectory/$1"
+plistPath="$projectDirectory/${INFOPLIST_FILE}"
 
 
-                automator -D text=${version}$'\n'${revisionNumber} -D image="$src_icon" -i "${tagsSubfolder}/tagImage${suffix}${resolution_suffix}.qtz" tagImage.workflow > /dev/null
+DIR=$( pwd )
+cd "Scripts"
+cd "NixBuildAutomationScripts"
+cd "XcodeIconTagger"
+DIR=$( pwd )
 
-                sips --cropToHeightWidth $height $width "${tagsSubfolder}/tagImage${suffix}${resolution_suffix}.png" > /dev/null
-                mv "${tagsSubfolder}/tagImage${suffix}${resolution_suffix}.png" "$dst_icon"
-            fi
-        fi
-    done
-done
+"./IconTagger" --shortVersion=${version} --buildNumber=${revisionNumber} --style=${style} --maskPath="${maskPath}" --plist="${plistPath}" --sourceIconsPath="${iconsDirectory}" --destinationIconsPath="${APP_PRODUCT}"
+
+

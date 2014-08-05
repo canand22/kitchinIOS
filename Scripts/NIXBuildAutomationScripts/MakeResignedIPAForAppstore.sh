@@ -15,7 +15,8 @@ echo "IPA_PRODUCT = ${IPA_PRODUCT}"
 
 # create temp build
 INFOPLIST_NAME=$(basename "${APP_INFOPLIST_FILE}")
-TEMP_APP_PRODUCT="${BUILT_PRODUCTS_DIR}/TempAppStore.app"
+APP_NAME=$(basename "${APP_PRODUCT}")
+TEMP_APP_PRODUCT="/tmp/${APP_NAME}"
 TEMP_APP_INFOPLIST_FILE="${TEMP_APP_PRODUCT}/${INFOPLIST_NAME}"
 
 remove_temp_appstore_app() {

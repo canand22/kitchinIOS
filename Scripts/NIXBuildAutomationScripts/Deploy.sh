@@ -12,7 +12,7 @@ fi
 
 function zipDSYM {
     cd "${BUILT_PRODUCTS_DIR}"
-    zip -r $1 "${EXECUTABLE_NAME}.app.dSYM"
+    zip -r "$1" "${EXECUTABLE_NAME}.app.dSYM"
     cd "${currentScriptDir}"
 }
 

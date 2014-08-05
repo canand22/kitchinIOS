@@ -1,12 +1,12 @@
 # set these vars if you have multiple projects in the root directory:
 PROJECT_TO_BUILD :=
-PROJECT_TARGET_TO_BUILD := Application
-PROJECT_TARGET_TO_TEST := Tests
+PROJECT_TARGET_TO_BUILD :=
+PROJECT_TARGET_TO_TEST :=
 
 # OR set these vars if you want to build the workspace instead of the project:
-WORKSPACE_TO_BUILD :=
-WORKSPACE_SCHEME_TO_BUILD :=
-WORKSPACE_SCHEME_TO_TEST :=
+WORKSPACE_TO_BUILD := NIXProject.xcworkspace
+WORKSPACE_SCHEME_TO_BUILD := Application
+WORKSPACE_SCHEME_TO_TEST := Tests
 
 # for osx projects sdk should be macosx10.8 or macosx10.7
 SDK           := iphoneos

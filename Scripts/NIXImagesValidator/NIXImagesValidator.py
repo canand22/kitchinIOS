@@ -2,7 +2,7 @@
 
 # NIXImagesValidator.py
 #
-# Created by Egor Zubkov on 02/07/13.
+# Created by Egor Zubkov on 02/07/14.
 # Copyright 2013 nix. All rights reserved.
 
 import os
@@ -44,7 +44,7 @@ def main():
     image_names                = remove_excluded_images(image_names)
 
     verify_unused_images(image_names, source_file_paths)
-    verify_missing_images(original_image_names, source_file_paths)
+    verify_missing_images(original_image_names, source_file_paths, excluded_file_pattern_list)
 
     return 0
 
@@ -116,7 +116,7 @@ def remove_excluded_images(image_names):
     return filtered_images
 
 def filter_images_with_suffixes(image_names):
-    suffixes = ['@2x', '~ipad', '~iphone', '-PortraitUpsideDown', '-LandscapeLeft', '-LandscapeRight', '-Portrait', '-Landscape']
+    suffixes = ['@2x', '~ipad', '~iphone', '-PortraitUpsideDown', '-LandscapeLeft', '-LandscapeRight', '-Portrait', '-Landscape', '-76', '-72', '-60']
 
     filtered_images = []
 
@@ -149,7 +149,7 @@ def verify_unused_images(image_names, source_file_paths):
         if not image_is_used:
             output_warning("'%s' image is unused" % image_name)
 
-def verify_missing_images(image_names, source_file_paths):
+def verify_missing_images(image_names, source_file_paths, excluded_file_patterns):
     splitter = "|\\";
     matched_extensions = splitter.join(image_extensions);
     pattern = '(?<=")[^"\s]*(?:\%s)(?=")|(?<=>)[^>\s]*(?:\%s)(?=<)' % (matched_extensions, matched_extensions)
@@ -158,7 +158,7 @@ def verify_missing_images(image_names, source_file_paths):
         matched_strings = set(re.findall(pattern, file_content(source_file_path)))
 
         for matched_string in matched_strings:
-            if matched_string not in image_names:
+            if matched_string not in image_names and not is_exclusion_file(matched_string, excluded_file_patterns):
                 output_warning("'%s' image is missing" % matched_string)
 
 def file_content(file_path):

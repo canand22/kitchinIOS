@@ -1,0 +1,6 @@
+platform :ios, '7.0'
+	pod 'NIXCrashReporter'
+	pod 'NIXLogManager'
+	pod 'RestKit', '0.23.2'
+    pod 'NSData+Base64', '1.0.0'
+    pod 'DWTagList', '~> 0.0.5'

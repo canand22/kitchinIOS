@@ -11,7 +11,6 @@ import sys
 import optparse
 import commands
 import fnmatch
-from Utils.SVNExternalsValidator import SVNExternalsValidator
 
 def main():
     parser = optparse.OptionParser(description='Script validates coding style of files with Objective-C file extensions, prints warnings with format to highlight them in Xcode', prog='NIXObjCLint')
@@ -56,8 +55,6 @@ def main():
     print output
 
     os.remove(input_files_list_path)
-
-    validate_externals()
 
 def objc_files_by_path(source_path):
     source_file_paths = []
@@ -105,13 +102,6 @@ def exclude_files_with_patterns(paths, file_with_patterns_path):
                 break
 
     return filtered_paths
-
-def validate_externals():
-    root_folder = os.getcwd()
-    folders_with_defined_externals = SVNExternalsValidator().validate_externals(root_folder)
-
-    for folder in folders_with_defined_externals:
-        print "warning: %s: All svn:externals should be defined in the root folder: '%s' [NIXObjCLint]" % (folder, root_folder)
 
 if __name__ == '__main__':
     sys.exit(main())

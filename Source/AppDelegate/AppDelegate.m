@@ -1,15 +1,12 @@
-// ************************************************ //
-//                                                  //
-//  AppDelegate.m                                   //
-//  NIXProject                                      //
-//                                                  //
-//  Created by Egor Zubkov on 1/22/13.              //
-//  Copyright (c) 2013 NIX. All rights reserved.    //
-//                                                  //
-// ************************************************ //
+//
+//  AppDelegate.m
+//  NIXProject
+//
+//  Created by Egor Zubkov on 1/22/13.
+//  Copyright (c) 2013 NIX. All rights reserved.
+//
 
 #import "AppDelegate.h"
-#import "NIXCrashReporter.h"
 
 #import "KIAUpdater.h"
 
@@ -17,10 +14,8 @@
 
 @synthesize window = window_;
 
-- (BOOL)application:(UIApplication *)theApplication didFinishLaunchingWithOptions:(NSDictionary *)theLaunchOptions
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [NIXCrashReporter sendReportViaMail];
-    
     return YES;
 }
 

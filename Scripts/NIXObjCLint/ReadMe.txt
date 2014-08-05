@@ -1,8 +1,6 @@
     Инструкция конфигурирования NIXObjCLint.
 
-    NIXObjCLint директория должна быть добавлена в дерево проекта как svn:externals, который находится по адресу
-"http://repos.nixsolutions.com/NixIphoneLibrary/Validators/NIXObjCLint/tags/<LastVersionNumber>/NIXObjCLint".
-Выглядит следующим образом:
+    NIXObjCLint директория должна быть добавлена в дерево проекта следующим образом:
 
 Source/
     ...

@@ -18,4 +18,5 @@
     #endif
 
     #import "NIXDebugMacros.h"
+    #define NIXLocalizedString(key, comment) NSLocalizedString(key, comment)
 #endif

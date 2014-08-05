@@ -1,0 +1,1 @@
+../../NIXCrashReporter/Source/NIXCrashReporter/NIXCrashReporter.h

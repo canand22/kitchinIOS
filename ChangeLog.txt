@@ -1,0 +1,28 @@
+Legend:
+[Changes] - What changes were in the project.
+[TODO]    - Сhanges which should be made in the project.
+————————————————————————————————————————————————————————————————————————————————————————————————————
+tag   : 81
+author: Egor Zubkov
+date  : 16-may-2014
+	
+[Changes] 1. Added "NIXObjCLint" build phase to the "Tests" target.
+
+[TODO] 	  1. Create "NIXObjCLint.py" build phase in the "Tests" target.
+          2. Add executable script to added build phase:
+             ./Scripts/NIXObjCLint/NIXObjCLint.py --source="${SRCROOT}/Source"
+————————————————————————————————————————————————————————————————————————————————————————————————————
+tag   : 72
+author: Sergey Nazarenko
+date  : 17-mar-2014
+	
+[Changes] 1. Assets are supported.
+		  2. Script |AddBuildNumberOnIcon.sh| works faster.
+
+[TODO] 	  1. Update |NIXBuildAutomationScripts| for tag 65.
+          2. Remove icons from resources.
+          3. Add asset in resources.
+          4. Select added asset in general settings.
+          5. In "Info.plist" file remove all keys which contain icons(CFBundleIconFiles).
+          6. In build phase |AddBuildNumberOnIcon.sh| set path for asset. For example "Resources/Icons" change on "Resources/Images/Images.xcassets".
+————————————————————————————————————————————————————————————————————————————————————————————————————

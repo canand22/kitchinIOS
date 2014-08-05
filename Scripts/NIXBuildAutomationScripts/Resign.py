@@ -15,6 +15,7 @@ import shutil
 import subprocess
 import tempfile
 import filecmp
+import codecs
 
 from contextlib import contextmanager
 
@@ -459,6 +460,7 @@ def get_matching_identities_from_certs(certs):
     for cert in certs:
         cert_str = parse_cert(cert)
         identity_name = get_identity_name_from_cert(cert_str)
+        identity_name = identity_name.decode("string_escape")
 
         print("\tIdentity '{}'...".format(identity_name), end='')
 
@@ -491,7 +493,7 @@ def identity_is_valid(identity_name):
 
 def get_valid_keychain_identities():
     keychain_path = os.path.expanduser("~/Library/Keychains/XCodeKeys.keychain");
-    security_report = subprocess.check_output(["Scripts/NIXBuildAutomationScripts/Utils/identitieslist", keychain_path])
+    security_report = subprocess.check_output(["Scripts/NIXBuildAutomationScripts/Utils/identitieslist", "-k", keychain_path])
     entries = re.split(r"\n", security_report)
 
     identities = set()
