@@ -2204,7 +2204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This target can be used to debug the app in Xcode with any bundle id (paticularly with bundle id which will be used for Appstore),\n# so there's no need to duplicate Application target if only bundle id varies.\n# Developer must manually set path to executable in scheme settings to debug the build product.\n# Do NOT use this target on CI server, because it's much faster to resign the app instead of recompiling it.\n./Scripts/NIXBuildAutomationScripts/Build.py --workspace \"NIXProject.xcworkspace\" --scheme \"Application\" --configuration \"${CONFIGURATION}\" --sdk \"${PLATFORM_NAME}\" \"BUNDLE_ID=com.nixsolutions.ApplicationResignTest\"";
+			shellScript = "# This target can be used to debug the app in Xcode with any bundle id (paticularly with bundle id which will be used for Appstore),\n# so there's no need to duplicate Application target if only bundle id varies.\n# Developer must manually set path to executable in scheme settings to debug the build product.\n# Do NOT use this target on CI server, because it's much faster to resign the app instead of recompiling it.\n./Scripts/NIXBuildAutomationScripts/Build.py --scheme \"Application\" --configuration \"${CONFIGURATION}\" --sdk \"${PLATFORM_NAME}\" \"BUNDLE_ID=com.nixsolutions.ApplicationResignTest\"";
 			showEnvVarsInLog = 0;
 		};
 		BA6382099A79438B95E6FF1B /* Copy Pods Resources */ = {
