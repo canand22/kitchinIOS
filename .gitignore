@@ -2,7 +2,6 @@
 .svn
 *~
 *.pyc
-*.xcworkspace
 xcuserdata
 /build
 _last_build_vars.sh

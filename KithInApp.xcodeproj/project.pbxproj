@@ -439,7 +439,7 @@
 		74DD09B516C8E32500969175 /* NIXImagesValidator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NIXImagesValidator; sourceTree = "<group>"; };
 		8411D60C198A7A8900ADD72F /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = SOURCE_ROOT; };
 		84503C8218BCA53F00191278 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		84B5B64514C46B8F00ADE76F /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B5B64514C46B8F00ADE76F /* KitchInApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchInApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B5B64914C46B8F00ADE76F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84CB837019910C0F00EC34A3 /* KIACreateMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACreateMealViewController.h; sourceTree = "<group>"; };
 		84CB837119910C0F00EC34A3 /* KIACreateMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACreateMealViewController.m; sourceTree = "<group>"; };
@@ -842,7 +842,7 @@
 		84B5B64614C46B8F00ADE76F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84B5B64514C46B8F00ADE76F /* Application.app */,
+				84B5B64514C46B8F00ADE76F /* KitchInApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1780,7 +1780,7 @@
 			);
 			name = Application;
 			productName = NixProject;
-			productReference = 84B5B64514C46B8F00ADE76F /* Application.app */;
+			productReference = 84B5B64514C46B8F00ADE76F /* KitchInApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2464,7 +2464,7 @@
 				);
 				INFOPLIST_FILE = Resources/Plists/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = Application;
+				PRODUCT_NAME = KitchInApp;
 				RESIGNED_BUNDLE_ID = com.corey.KitchInApp;
 				RESIGNED_BUNDLE_NAME = KitchInApp;
 				RESIGNED_ENTITLEMENTS_PATH = "";
@@ -2486,7 +2486,7 @@
 				);
 				INFOPLIST_FILE = Resources/Plists/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = Application;
+				PRODUCT_NAME = KitchInApp;
 				RESIGNED_BUNDLE_ID = com.corey.KitchInApp;
 				RESIGNED_BUNDLE_NAME = KitchInApp;
 				RESIGNED_ENTITLEMENTS_PATH = "";
@@ -2498,14 +2498,14 @@
 		BA4D002C17256C84006ED0F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = KitchInApp;
 			};
 			name = Debug;
 		};
 		BA4D002D17256C84006ED0F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = KitchInApp;
 			};
 			name = Release;
 		};
