@@ -4,7 +4,7 @@ PROJECT_TARGET_TO_BUILD :=
 PROJECT_TARGET_TO_TEST :=
 
 # OR set these vars if you want to build the workspace instead of the project:
-WORKSPACE_TO_BUILD := NIXProject.xcworkspace
+# WORKSPACE_TO_BUILD := NIXProject.xcworkspace
 WORKSPACE_SCHEME_TO_BUILD := Application
 WORKSPACE_SCHEME_TO_TEST := Tests
 
