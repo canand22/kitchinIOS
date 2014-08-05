@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
-               BuildableName = "Tests.app"
-               BlueprintName = "Tests"
-               ReferencedContainer = "container:KithInApp.xcodeproj">
+               BlueprintIdentifier = "BA4D002A17256C84006ED0F1"
+               BuildableName = "ApplicationCustomer"
+               BlueprintName = "ApplicationCustomer"
+               ReferencedContainer = "container:KitchInApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
-            BuildableName = "Tests.app"
-            BlueprintName = "Tests"
-            ReferencedContainer = "container:KithInApp.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -48,22 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
-            BuildableName = "Tests.app"
-            BlueprintName = "Tests"
-            ReferencedContainer = "container:KithInApp.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "GHUNIT_AUTORUN"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -73,15 +48,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
-            BuildableName = "Tests.app"
-            BlueprintName = "Tests"
-            ReferencedContainer = "container:KithInApp.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

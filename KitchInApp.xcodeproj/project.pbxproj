@@ -1792,7 +1792,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = NIX;
 			};
-			buildConfigurationList = 84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "KithInApp" */;
+			buildConfigurationList = 84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "KitchInApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2512,7 +2512,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "KithInApp" */ = {
+		84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "KitchInApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B5B65B14C46B8F00ADE76F /* Debug */,
