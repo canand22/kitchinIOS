@@ -17,7 +17,7 @@
                BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
                BuildableName = "Tests.app"
                BlueprintName = "Tests"
-               ReferencedContainer = "container:NIXProject.xcodeproj">
+               ReferencedContainer = "container:KithInApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
             BuildableName = "Tests.app"
             BlueprintName = "Tests"
-            ReferencedContainer = "container:NIXProject.xcodeproj">
+            ReferencedContainer = "container:KithInApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,7 +54,7 @@
             BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
             BuildableName = "Tests.app"
             BlueprintName = "Tests"
-            ReferencedContainer = "container:NIXProject.xcodeproj">
+            ReferencedContainer = "container:KithInApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -79,7 +79,7 @@
             BlueprintIdentifier = "84B5B66F14C46DBE00ADE76F"
             BuildableName = "Tests.app"
             BlueprintName = "Tests"
-            ReferencedContainer = "container:NIXProject.xcodeproj">
+            ReferencedContainer = "container:KithInApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

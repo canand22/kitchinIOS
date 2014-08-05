@@ -13,7 +13,7 @@
 #import "KIACapturedReceiptViewController.h"
 #import "KIATabBarViewController.h"
 
-#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double)568) < DBL_EPSILON)
 
 @interface KIACameraViewController ()
 
@@ -44,11 +44,11 @@
     
     [self setDelegate:self];
     
-    UIImageView *leftLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line.png"]];
+    UIImageView *leftLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_camera.png"]];
     [leftLine setFrame:CGRectMake(15, 80, 5, IS_IPHONE_5 ? 400 : 280)];
     [[self view] addSubview:leftLine];
     
-    UIImageView *rightLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line.png"]];
+    UIImageView *rightLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_camera.png"]];
     [rightLine setFrame:CGRectMake(300, 80, 5, IS_IPHONE_5 ? 400 : 280)];
     [[self view] addSubview:rightLine];
 }

@@ -8,7 +8,6 @@
 
 #import "KIAItem.h"
 
-
 @implementation KIAItem
 
 @dynamic count;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol CategoryItemCellProtocol <NSObject>
+@protocol CategoryItemCellProtocol<NSObject>
 
 - (void)deleteItemFromIndex:(NSInteger)index;
 

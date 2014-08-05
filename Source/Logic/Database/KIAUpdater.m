@@ -17,7 +17,8 @@
 {
     static KIAUpdater *sharedUpdater = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^
+    {
         sharedUpdater = [[KIAUpdater alloc] init];
     });
     
@@ -28,7 +29,8 @@
 {
     static KIAUpdater *sharedUpdater = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^
+    {
         sharedUpdater = [super allocWithZone:zone];
     });
     

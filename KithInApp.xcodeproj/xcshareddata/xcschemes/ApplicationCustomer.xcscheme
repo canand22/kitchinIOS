@@ -17,7 +17,7 @@
                BlueprintIdentifier = "BA4D002A17256C84006ED0F1"
                BuildableName = "ApplicationCustomer"
                BlueprintName = "ApplicationCustomer"
-               ReferencedContainer = "container:NIXProject.xcodeproj">
+               ReferencedContainer = "container:KithInApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

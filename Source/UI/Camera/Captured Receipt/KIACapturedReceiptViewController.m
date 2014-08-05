@@ -50,7 +50,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     KIAEditRecognizeItemsViewController *editRecognizeItemsViewController = (KIAEditRecognizeItemsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"editRecognizeItemsViewController"];
-    [editRecognizeItemsViewController setItemArray:itemArray];
+    [editRecognizeItemsViewController setItemArray:[itemArray mutableCopy]];
     [self presentViewController:editRecognizeItemsViewController animated:YES completion:nil];
 }
 

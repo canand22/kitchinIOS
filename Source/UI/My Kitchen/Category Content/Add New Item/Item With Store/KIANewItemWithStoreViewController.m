@@ -45,7 +45,7 @@
 - (IBAction)submit:(id)sender
 {
     [_addItemGateway addItemWithCategoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
-                            expirationDate:nil
+                            expirationDate:0
                             ingredientName:nil
                                       name:[_foodType text]
                                  sessionId:[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"]

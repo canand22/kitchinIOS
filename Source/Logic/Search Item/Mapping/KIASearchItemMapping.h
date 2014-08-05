@@ -13,10 +13,10 @@
 @interface KIASearchItemMapping : NSObject
 {
     NSString *_category;
-	NSInteger _itemId;
-	BOOL _isSuccessMatching;
-	NSString *_itemName;
-	NSString *_itemShortName;
+    NSInteger _itemId;
+    BOOL _isSuccessMatching;
+    NSString *_itemName;
+    NSString *_itemShortName;
 }
 
 @property(nonatomic, strong) NSString *category;

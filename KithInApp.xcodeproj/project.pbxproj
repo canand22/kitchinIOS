@@ -24,6 +24,8 @@
 		6B520969C2944D2DB36A9BD5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 934B9C312E7845A38D8175F7 /* libPods.a */; };
 		84503C8318BCA53F00191278 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84503C8218BCA53F00191278 /* MainStoryboard.storyboard */; };
 		84B5B64A14C46B8F00ADE76F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B5B64914C46B8F00ADE76F /* UIKit.framework */; };
+		84CB837219910C0F00EC34A3 /* KIACreateMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB837119910C0F00EC34A3 /* KIACreateMealViewController.m */; };
+		84CB83761991195B00EC34A3 /* KIASearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB83751991195B00EC34A3 /* KIASearchViewController.m */; };
 		84DB3570198FDCFE006029A8 /* aa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34A2198FDCFE006029A8 /* aa@2x.png */; };
 		84DB3571198FDCFE006029A8 /* picker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34A3198FDCFE006029A8 /* picker@2x.png */; };
 		84DB3572198FDCFE006029A8 /* picker_indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34A4198FDCFE006029A8 /* picker_indicator@2x.png */; };
@@ -34,9 +36,8 @@
 		84DB3577198FDCFE006029A8 /* img2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34AA198FDCFE006029A8 /* img2@2x.png */; };
 		84DB3578198FDCFE006029A8 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34AB198FDCFE006029A8 /* list@2x.png */; };
 		84DB3579198FDCFE006029A8 /* text_field@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34AC198FDCFE006029A8 /* text_field@2x.png */; };
-		84DB357A198FDCFE006029A8 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34AE198FDCFE006029A8 /* line@2x.png */; };
+		84DB357A198FDCFE006029A8 /* line_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34AE198FDCFE006029A8 /* line_camera@2x.png */; };
 		84DB357B198FDCFE006029A8 /* bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34B0198FDCFE006029A8 /* bottom@2x.png */; };
-		84DB357C198FDCFE006029A8 /* button_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34B1198FDCFE006029A8 /* button_cancel@2x.png */; };
 		84DB357D198FDCFE006029A8 /* button_cancel_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34B2198FDCFE006029A8 /* button_cancel_empty@2x.png */; };
 		84DB357E198FDCFE006029A8 /* button_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34B3198FDCFE006029A8 /* button_more@2x.png */; };
 		84DB357F198FDCFE006029A8 /* button_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34B4198FDCFE006029A8 /* button_orange@2x.png */; };
@@ -99,7 +100,6 @@
 		84DB35B8198FDCFF006029A8 /* button_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34F1198FDCFE006029A8 /* button_cancel@2x.png */; };
 		84DB35B9198FDCFF006029A8 /* cancel active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34F2198FDCFE006029A8 /* cancel active@2x.png */; };
 		84DB35BA198FDCFF006029A8 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34F3198FDCFE006029A8 /* cancel@2x.png */; };
-		84DB35BB198FDCFF006029A8 /* caution@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34F4198FDCFE006029A8 /* caution@2x.png */; };
 		84DB35BC198FDCFF006029A8 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34F5198FDCFE006029A8 /* close@2x.png */; };
 		84DB35BD198FDCFF006029A8 /* eri-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34F6198FDCFE006029A8 /* eri-bg@2x.png */; };
 		84DB35BE198FDCFF006029A8 /* receipt_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34F7198FDCFE006029A8 /* receipt_bg@2x.png */; };
@@ -338,77 +338,91 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 6B88C603B8AC4EAD83138412;
+			remoteGlobalIDString = BD34D9546084414E9DBBD0B7;
 			remoteInfo = Pods;
 		};
 		8411D62F198A7AA300ADD72F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = A2DA01184A9E4553B01629E0;
+			remoteGlobalIDString = 0043066076534162A7637F90;
 			remoteInfo = "Pods-AFNetworking";
 		};
 		8411D631198A7AA300ADD72F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 164CCE8B3E0641CCA3D8DEDF;
+			remoteGlobalIDString = 74FF7E811461452C8EBC97D4;
 			remoteInfo = "Pods-ISO8601DateFormatterValueTransformer";
 		};
 		8411D633198A7AA300ADD72F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 48DDA1A654E948A3A1B75B5E;
+			remoteGlobalIDString = 4D0FB7C10D404F0895725AFF;
 			remoteInfo = "Pods-NIXCrashReporter";
 		};
 		8411D635198A7AA300ADD72F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = EA183DE3B7BB49B7BF3FBC8D;
+			remoteGlobalIDString = 5A8C85194F214DBEA4CA153A;
 			remoteInfo = "Pods-NIXLogManager";
 		};
 		8411D637198A7AA300ADD72F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 54A204970497417498027C62;
+			remoteGlobalIDString = 4C15673CB7914F96A8DD6BDA;
 			remoteInfo = "Pods-PLCrashReporter";
 		};
 		8411D639198A7AA300ADD72F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = A5A3BA8055A64A2A873D2C40;
+			remoteGlobalIDString = 9B68EC94D1FD45FF856A6381;
 			remoteInfo = "Pods-RKValueTransformers";
 		};
 		8411D63B198A7AA300ADD72F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 468CBC953D71441E9EBBF384;
+			remoteGlobalIDString = 17A5D874285D47A6891BDB6C;
 			remoteInfo = "Pods-RestKit";
 		};
 		8411D63D198A7AA300ADD72F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = AA86D1E832C3410A9E5C7436;
+			remoteGlobalIDString = D0F231CCB6B943E6BF33D8FE;
 			remoteInfo = "Pods-SOCKit";
 		};
 		8411D63F198A7AA300ADD72F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = C72EF4B9A13A4FDDA3D7175D;
+			remoteGlobalIDString = 4FF0CCDA33374B4F8BB5C5E0;
 			remoteInfo = "Pods-TransitionKit";
+		};
+		84CB836A1990DD9A00EC34A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E9D5E3B57A0F4240AE534411;
+			remoteInfo = "Pods-DWTagList";
+		};
+		84CB836D1990DD9A00EC34A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DEA0236C3C1427CAC023423;
+			remoteInfo = "Pods-DWTagList";
 		};
 		84DB3705198FE578006029A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8411D60C198A7A8900ADD72F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 062D73E26E6A42DAAB87260A;
+			remoteGlobalIDString = 9E8C640532F64D78A539DBA3;
 			remoteInfo = "Pods-NSData+Base64";
 		};
 		84DB3708198FE578006029A8 /* PBXContainerItemProxy */ = {
@@ -427,6 +441,10 @@
 		84503C8218BCA53F00191278 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		84B5B64514C46B8F00ADE76F /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B5B64914C46B8F00ADE76F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		84CB837019910C0F00EC34A3 /* KIACreateMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACreateMealViewController.h; sourceTree = "<group>"; };
+		84CB837119910C0F00EC34A3 /* KIACreateMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACreateMealViewController.m; sourceTree = "<group>"; };
+		84CB83741991195B00EC34A3 /* KIASearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASearchViewController.h; sourceTree = "<group>"; };
+		84CB83751991195B00EC34A3 /* KIASearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASearchViewController.m; sourceTree = "<group>"; };
 		84DB34A2198FDCFE006029A8 /* aa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aa@2x.png"; sourceTree = "<group>"; };
 		84DB34A3198FDCFE006029A8 /* picker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker@2x.png"; sourceTree = "<group>"; };
 		84DB34A4198FDCFE006029A8 /* picker_indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picker_indicator@2x.png"; sourceTree = "<group>"; };
@@ -437,9 +455,8 @@
 		84DB34AA198FDCFE006029A8 /* img2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img2@2x.png"; sourceTree = "<group>"; };
 		84DB34AB198FDCFE006029A8 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 		84DB34AC198FDCFE006029A8 /* text_field@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text_field@2x.png"; sourceTree = "<group>"; };
-		84DB34AE198FDCFE006029A8 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
+		84DB34AE198FDCFE006029A8 /* line_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line_camera@2x.png"; sourceTree = "<group>"; };
 		84DB34B0198FDCFE006029A8 /* bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom@2x.png"; sourceTree = "<group>"; };
-		84DB34B1198FDCFE006029A8 /* button_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_cancel@2x.png"; sourceTree = "<group>"; };
 		84DB34B2198FDCFE006029A8 /* button_cancel_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_cancel_empty@2x.png"; sourceTree = "<group>"; };
 		84DB34B3198FDCFE006029A8 /* button_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_more@2x.png"; sourceTree = "<group>"; };
 		84DB34B4198FDCFE006029A8 /* button_orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_orange@2x.png"; sourceTree = "<group>"; };
@@ -502,7 +519,6 @@
 		84DB34F1198FDCFE006029A8 /* button_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_cancel@2x.png"; sourceTree = "<group>"; };
 		84DB34F2198FDCFE006029A8 /* cancel active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel active@2x.png"; sourceTree = "<group>"; };
 		84DB34F3198FDCFE006029A8 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
-		84DB34F4198FDCFE006029A8 /* caution@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caution@2x.png"; sourceTree = "<group>"; };
 		84DB34F5198FDCFE006029A8 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		84DB34F6198FDCFE006029A8 /* eri-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eri-bg@2x.png"; sourceTree = "<group>"; };
 		84DB34F7198FDCFE006029A8 /* receipt_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "receipt_bg@2x.png"; sourceTree = "<group>"; };
@@ -779,6 +795,7 @@
 			children = (
 				8411D61A198A7A8900ADD72F /* libPods.a */,
 				8411D61C198A7A8900ADD72F /* libPods-AFNetworking.a */,
+				84CB836E1990DD9A00EC34A3 /* libPods-DWTagList.a */,
 				8411D61E198A7A8900ADD72F /* libPods-ISO8601DateFormatterValueTransformer.a */,
 				8411D620198A7A8900ADD72F /* libPods-NIXCrashReporter.a */,
 				8411D622198A7A8900ADD72F /* libPods-NIXLogManager.a */,
@@ -860,6 +877,24 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
+		84CB836F19910BEF00EC34A3 /* Create Meal */ = {
+			isa = PBXGroup;
+			children = (
+				84CB837019910C0F00EC34A3 /* KIACreateMealViewController.h */,
+				84CB837119910C0F00EC34A3 /* KIACreateMealViewController.m */,
+			);
+			path = "Create Meal";
+			sourceTree = "<group>";
+		};
+		84CB83731991194B00EC34A3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				84CB83741991195B00EC34A3 /* KIASearchViewController.h */,
+				84CB83751991195B00EC34A3 /* KIASearchViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		84DB34A1198FDCFE006029A8 /* Add New Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -887,7 +922,7 @@
 		84DB34AD198FDCFE006029A8 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				84DB34AE198FDCFE006029A8 /* line@2x.png */,
+				84DB34AE198FDCFE006029A8 /* line_camera@2x.png */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -896,7 +931,6 @@
 			isa = PBXGroup;
 			children = (
 				84DB34B0198FDCFE006029A8 /* bottom@2x.png */,
-				84DB34B1198FDCFE006029A8 /* button_cancel@2x.png */,
 				84DB34B2198FDCFE006029A8 /* button_cancel_empty@2x.png */,
 				84DB34B3198FDCFE006029A8 /* button_more@2x.png */,
 				84DB34B4198FDCFE006029A8 /* button_orange@2x.png */,
@@ -987,7 +1021,6 @@
 				84DB34F1198FDCFE006029A8 /* button_cancel@2x.png */,
 				84DB34F2198FDCFE006029A8 /* cancel active@2x.png */,
 				84DB34F3198FDCFE006029A8 /* cancel@2x.png */,
-				84DB34F4198FDCFE006029A8 /* caution@2x.png */,
 				84DB34F5198FDCFE006029A8 /* close@2x.png */,
 				84DB34F6198FDCFE006029A8 /* eri-bg@2x.png */,
 				84DB34F7198FDCFE006029A8 /* receipt_bg@2x.png */,
@@ -1414,6 +1447,8 @@
 				84DB3693198FDE17006029A8 /* Loader */,
 				84DB3696198FDE17006029A8 /* Main */,
 				84DB36AE198FDE17006029A8 /* My Kitchen */,
+				84CB836F19910BEF00EC34A3 /* Create Meal */,
+				84CB83731991194B00EC34A3 /* Search */,
 				84DB36BD198FDE17006029A8 /* Tabbar */,
 			);
 			path = UI;
@@ -1725,12 +1760,12 @@
 				84E0807F1529A24F00F277B5 /* UpdateBuildNumber.sh */,
 				BA715ADB162C608E007D326F /* UpdateRevisionNumber.sh */,
 				74BA8F85165536FE00FD00B1 /* NIXObjCLint.py */,
-				74DD09B616C8E36900969175 /* NIXImagesValidator.py */,
 				BA6382099A79438B95E6FF1B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				84CB836B1990DD9A00EC34A3 /* PBXTargetDependency */,
 				84DB3706198FE578006029A8 /* PBXTargetDependency */,
 				8411D62E198A7AA300ADD72F /* PBXTargetDependency */,
 				8411D630198A7AA300ADD72F /* PBXTargetDependency */,
@@ -1757,7 +1792,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = NIX;
 			};
-			buildConfigurationList = 84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "NIXProject" */;
+			buildConfigurationList = 84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "KithInApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1853,6 +1888,13 @@
 			remoteRef = 8411D62B198A7A8900ADD72F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		84CB836E1990DD9A00EC34A3 /* libPods-DWTagList.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-DWTagList.a";
+			remoteRef = 84CB836D1990DD9A00EC34A3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		84DB3709198FE578006029A8 /* libPods-NSData+Base64.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1871,7 +1913,7 @@
 				84DB3603198FDCFF006029A8 /* change_password_and_purchase_button@2x.png in Resources */,
 				84DB358F198FDCFE006029A8 /* Dry Prepared Foods_category@2x.png in Resources */,
 				84DB3626198FDCFF006029A8 /* my_kitchin@2x.png in Resources */,
-				84DB357A198FDCFE006029A8 /* line@2x.png in Resources */,
+				84DB357A198FDCFE006029A8 /* line_camera@2x.png in Resources */,
 				84DB35C0198FDCFF006029A8 /* textfields@2x.png in Resources */,
 				84DB3615198FDCFF006029A8 /* bg_orange@2x.png in Resources */,
 				84DB361D198FDCFF006029A8 /* capture_button_active@2x.png in Resources */,
@@ -1884,13 +1926,11 @@
 				84DB3599198FDCFE006029A8 /* Poultry_category@2x.png in Resources */,
 				84DB35DA198FDCFF006029A8 /* 21.png in Resources */,
 				84DB3575198FDCFE006029A8 /* back_empty@2x.png in Resources */,
-				84DB35BB198FDCFF006029A8 /* caution@2x.png in Resources */,
 				84DB358A198FDCFE006029A8 /* Dairy@2x.png in Resources */,
 				84DB35DF198FDCFF006029A8 /* 26.png in Resources */,
 				84DB3619198FDCFF006029A8 /* bar@2x.png in Resources */,
 				84DB35A2198FDCFE006029A8 /* Sweets@2x.png in Resources */,
 				84DB360C198FDCFF006029A8 /* tweet@2x.png in Resources */,
-				84DB357C198FDCFE006029A8 /* button_cancel@2x.png in Resources */,
 				84DB358B198FDCFE006029A8 /* Dairy_category@2x.png in Resources */,
 				84DB35EB198FDCFF006029A8 /* 8.png in Resources */,
 				84DB35B5198FDCFF006029A8 /* button add@2x.png in Resources */,
@@ -2092,21 +2132,6 @@
 			shellScript = "./Scripts/NIXObjCLint/NIXObjCLint.py --source=\"${SRCROOT}/Source\" --excluded_files=\"${SRCROOT}/Scripts/ConfigurationFiles/NIXObjCLint/ExcludedFiles\"";
 			showEnvVarsInLog = 0;
 		};
-		74DD09B616C8E36900969175 /* NIXImagesValidator.py */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = NIXImagesValidator.py;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Scripts/NIXImagesValidator/NIXImagesValidator.py --source=\"${SRCROOT}\" --excluded_files=\"${SRCROOT}/Scripts/ConfigurationFiles/NIXImagesValidator/ExcludedFiles\"";
-			showEnvVarsInLog = 0;
-		};
 		84AD0D8417BE59EA00280019 /* AddBuildNumberOnIcon.sh */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2239,6 +2264,7 @@
 				84DB36DE198FDE17006029A8 /* MyKitchInCell.m in Sources */,
 				84DB36C5198FDE17006029A8 /* KIAForgotMapping.m in Sources */,
 				84E0803B15299BE800F277B5 /* main.m in Sources */,
+				84CB83761991195B00EC34A3 /* KIASearchViewController.m in Sources */,
 				84DB36D4198FDE17006029A8 /* KIASearchItemMapping.m in Sources */,
 				84DB36CB198FDE17006029A8 /* KIAServerGateway+Login.m in Sources */,
 				84DB36CE198FDE17006029A8 /* KIAServerGateway+Logout.m in Sources */,
@@ -2268,6 +2294,7 @@
 				84DB36CD198FDE17006029A8 /* KIALoginMapping.m in Sources */,
 				84DB36DF198FDE17006029A8 /* KIALoaderView.m in Sources */,
 				84DB36E7198FDE17006029A8 /* KIASettingViewController.m in Sources */,
+				84CB837219910C0F00EC34A3 /* KIACreateMealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2323,6 +2350,11 @@
 			isa = PBXTargetDependency;
 			name = "Pods-TransitionKit";
 			targetProxy = 8411D63F198A7AA300ADD72F /* PBXContainerItemProxy */;
+		};
+		84CB836B1990DD9A00EC34A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DWTagList";
+			targetProxy = 84CB836A1990DD9A00EC34A3 /* PBXContainerItemProxy */;
 		};
 		84DB3706198FE578006029A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2425,17 +2457,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				BUNDLE_ID = "com.nixsolutions.${PRODUCT_NAME:rfc1034identifier}";
+				BUNDLE_ID = com.nixsolutions.KitchInApp;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Source/Pods/PLCrashReporter/iOS",
-					Framework,
+					"$(PROJECT_DIR)/Pods/PLCrashReporter/iOS\\ Framework",
 				);
 				INFOPLIST_FILE = Resources/Plists/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = Application;
-				RESIGNED_BUNDLE_ID = com.nixsolutions.ApplicationResignTest;
-				RESIGNED_BUNDLE_NAME = ApplicationResignTest;
+				RESIGNED_BUNDLE_ID = com.corey.KitchInApp;
+				RESIGNED_BUNDLE_NAME = KitchInApp;
 				RESIGNED_ENTITLEMENTS_PATH = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -2448,17 +2479,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				BUNDLE_ID = "com.nixsolutions.${PRODUCT_NAME:rfc1034identifier}";
+				BUNDLE_ID = com.nixsolutions.KitchInApp;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Source/Pods/PLCrashReporter/iOS",
-					Framework,
+					"$(PROJECT_DIR)/Pods/PLCrashReporter/iOS\\ Framework",
 				);
 				INFOPLIST_FILE = Resources/Plists/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = Application;
-				RESIGNED_BUNDLE_ID = com.nixsolutions.ApplicationResignTest;
-				RESIGNED_BUNDLE_NAME = ApplicationResignTest;
+				RESIGNED_BUNDLE_ID = com.corey.KitchInApp;
+				RESIGNED_BUNDLE_NAME = KitchInApp;
 				RESIGNED_ENTITLEMENTS_PATH = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -2482,7 +2512,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "NIXProject" */ = {
+		84B5B63F14C46B8F00ADE76F /* Build configuration list for PBXProject "KithInApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B5B65B14C46B8F00ADE76F /* Debug */,

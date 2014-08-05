@@ -104,10 +104,12 @@
     
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
     
-        dispatch_async(queue, ^{
+        dispatch_async(queue, ^
+        {
             UIImage *image = [self imageWithImage:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", path, [_photo objectAtIndex:[indexPath row]]]] scaledToSize:CGSizeMake(90, 119)];
         
-            dispatch_sync(dispatch_get_main_queue(), ^{
+            dispatch_sync(dispatch_get_main_queue(), ^
+            {
                 [[cell image] setImage:image];
                 [cell setNeedsLayout];
             });
