@@ -10,6 +10,7 @@
 
 #import "KIAItem.h"
 #import "KIACategory.h"
+#import "KIAUser.h"
 
 @implementation KIAUpdater
 
@@ -37,6 +38,8 @@
     return sharedUpdater;
 }
 
+#pragma mark ***** category data *****
+
 - (void)update
 {
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"firstRun"])
@@ -63,52 +66,6 @@
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstRun"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-}
-
-- (void)addItemFromKitchInWihtId:(NSInteger)theId name:(NSString *)name categoryId:(NSInteger)catId shortName:(NSString *)shortName count:(NSInteger)count value:(NSString *)value
-{
-    NSManagedObjectContext *context = [self managedObjectContext];
- 
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    BOOL unique = YES;
-    NSError  *error;
-    NSArray *items = [context executeFetchRequest:request error:&error];
-    
-    if (items.count > 0)
-    {
-        for (KIAItem *thisItem in items)
-        {
-            if ([[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:theId]] && ![[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:-1]])
-            {
-                unique = NO;
-            }
-        }
-    }
-    
-    if (unique)
-    {
-        KIAItem *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"KIAItem" inManagedObjectContext:context];
-        [newItem setIdItem:[NSNumber numberWithInteger:theId]];
-        [newItem setName:name];
-        [newItem setIdCategory:[NSNumber numberWithInteger:catId]];
-        [newItem setReduction:shortName];
-        [newItem setCount:[NSNumber numberWithInteger:count]];
-        [newItem setValue:value];
-    
-        NSError *error = nil;
-        
-        // Save the object to persistent store
-        if (![context save:&error])
-        {
-            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        }
-    }
-    else
-    {
-        // а
     }
 }
 
@@ -140,6 +97,54 @@
     return index;
 }
 
+#pragma mark ***** item data *****
+
+- (void)addItemFromKitchInWihtId:(NSInteger)theId name:(NSString *)name categoryId:(NSInteger)catId shortName:(NSString *)shortName count:(NSInteger)count value:(NSString *)value
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    BOOL unique = YES;
+    NSError  *error;
+    NSArray *items = [context executeFetchRequest:request error:&error];
+    
+    if (items.count > 0)
+    {
+        for (KIAItem *thisItem in items)
+        {
+            if ([[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:theId]] && ![[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:-1]])
+            {
+                unique = NO;
+            }
+        }
+    }
+    
+    if (unique)
+    {
+        KIAItem *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"KIAItem" inManagedObjectContext:context];
+        [newItem setIdItem:[NSNumber numberWithInteger:theId]];
+        [newItem setName:name];
+        [newItem setIdCategory:[NSNumber numberWithInteger:catId]];
+        [newItem setReduction:shortName];
+        [newItem setCount:[NSNumber numberWithInteger:count]];
+        [newItem setValue:value];
+        
+        NSError *error = nil;
+        
+        // Save the object to persistent store
+        if (![context save:&error])
+        {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+    }
+    else
+    {
+        // а
+    }
+}
+
 - (NSArray *)itemsForCategoryName:(NSString *)catName
 {
     NSInteger catId = [self idCategoryFromCategoryName:catName];
@@ -163,6 +168,63 @@
     
     [context deleteObject:item];
 }
+
+#pragma mark ***** user data *****
+
+- (void)addUserWithId:(NSInteger)idUser name:(NSString *)userName
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    KIAUser *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"KIAUser" inManagedObjectContext:context];
+    [newUser setIdUser:[NSNumber numberWithInteger:idUser]];
+    [newUser setName:userName];
+    [newUser setIsActiveState:@NO];
+    [newUser setDislikeIngredients:[NSMutableArray arrayWithObjects:nil]];
+    [newUser setDietaryRestrictions:[NSMutableArray arrayWithObjects:nil]];
+        
+    NSError *error = nil;
+    
+    // Save the object to persistent store
+    if (![context save:&error])
+    {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+}
+
+- (void)updateUsersInfo:(KIAUser *)user
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSError *error = nil;
+    
+    // Save the object to persistent store
+    if (![context save:&error])
+    {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+}
+
+- (NSArray *)getAllUsers
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAUser" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSError  *error;
+    NSArray *users = [context executeFetchRequest:request error:&error];
+    
+    return users;
+}
+
+- (void)removeUser:(KIAUser *)user
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    [context deleteObject:user];
+}
+
+#pragma mark ***** core data *****
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
@@ -202,5 +264,7 @@
     
     return _managedObjectContext;
 }
+
+#pragma mark *****
 
 @end

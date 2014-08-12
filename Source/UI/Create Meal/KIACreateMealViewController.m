@@ -8,6 +8,8 @@
 
 #import "KIACreateMealViewController.h"
 
+#import "KIAUsersFromHouseholdViewController.h"
+
 @interface KIACreateMealViewController ()
 
 @end
@@ -23,6 +25,8 @@
         // Custom initialization
         _mealArray = @[@"Any", @"Breakfast & Brunch", @"Dinner", @"Lunch & Snack"];
         _dishTypeArray = @[@"Any", @"Beverage", @"Bread", @"Dessert", @"Main Dish", @"Salad", @"Side Dish", @"Soup"];
+        
+        _usersCooking = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -31,7 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    [_userTagView setTagDelegate:self];
 }
 
 - (IBAction)checkMealAction:(id)sender
@@ -54,6 +60,51 @@
         [_pickerFonDishType setHidden:![_pickerFonDishType isHidden]];
         [_pickerIndicatorDishType setHidden:![_pickerIndicatorDishType isHidden]];
     }
+}
+
+- (void)usersForCooking:(NSArray *)users
+{
+    _usersCooking = [users mutableCopy];
+
+    [_userTagView setTags:_usersCooking];
+    
+    [_userTagView setFrame:CGRectMake([_userTagView frame].origin.x, [_userTagView frame].origin.y, [_userTagView fittedSize].width, [_userTagView fittedSize].height)];
+    
+    CGRect frame = [_userTagFoneView frame];
+    frame.size.height = [_userTagView fittedSize].height + 6;
+    [_userTagFoneView setFrame:frame];
+    
+    frame = [_contentView frame];
+    frame.origin.y = [_userTagFoneView frame].origin.x + [_userTagFoneView frame].size.height + 8;
+    [_contentView setFrame:frame];
+}
+
+#pragma mark ***** DWTagList delegate *****
+
+- (void)tagViewWantsToBeDeleted:(DWTagView *)tagView
+{
+    // TODO:
+}
+
+- (void)tagListTagsChanged:(DWTagList *)tagList
+{
+    // TODO:
+}
+
+- (void)selectedTag:(NSString *)tagName
+{
+    if ([_usersCooking containsObject:tagName])
+    {
+        [_usersCooking removeObject:tagName];
+    }
+    
+    [_userTagView setTags:_usersCooking];
+
+    [_userTagView setFrame:CGRectMake([_userTagView frame].origin.x, [_userTagView frame].origin.y, [_userTagView fittedSize].width, [_userTagView fittedSize].height)];
+    
+    CGRect frame = [_userTagFoneView frame];
+    frame.size.height = [_userTagView fittedSize].height + 6;
+    [_userTagFoneView setFrame:frame];
 }
 
 #pragma mark ***** picker controller *****
@@ -133,7 +184,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -141,7 +191,12 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"usersFromHousehold"])
+    {
+        KIAUsersFromHouseholdViewController *viewController = (KIAUsersFromHouseholdViewController *)[segue destinationViewController];
+        [viewController setDelegate:self];
+        [viewController setCurrentUsers:_usersCooking];
+    }
 }
-*/
 
 @end

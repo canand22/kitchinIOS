@@ -46,7 +46,7 @@
     path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"photo"];
     NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
     
-    for (int i = [directoryContent count] - 1; i >= 0; i--)
+    for (int i = (int)[directoryContent count] - 1; i >= 0; i--)
     {
         [_photo addObject:[directoryContent objectAtIndex:i]];
     }

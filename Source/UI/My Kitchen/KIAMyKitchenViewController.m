@@ -75,7 +75,7 @@
     if ([temp count] > 0)
     {
         [[cell circle] setHidden:NO];
-        [[cell circleText] setText:[NSString stringWithFormat:@"%d", [temp count]]];
+        [[cell circleText] setText:[NSString stringWithFormat:@"%lu", (unsigned long)[temp count]]];
         [[cell circleText] setHidden:NO];
     }
     else

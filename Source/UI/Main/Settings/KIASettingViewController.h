@@ -13,14 +13,22 @@
 #import "logoutProtocol.h"
 #import "serverGatewayDelegate.h"
 
-@interface KIASettingViewController : UIViewController<serverGatewayDelegate>
+#import "KIAMealSettingsTableViewCellProtocol.h"
+
+@interface KIASettingViewController : UIViewController<serverGatewayDelegate, UITableViewDelegate, UITableViewDataSource, KIAMealSettingsTableViewCellProtocol>
 {
     id<logoutProtocol> _logoutGateway;
+    
+    NSMutableArray *_users;
+    
+    NSInteger _index;
 }
 
 @property(nonatomic, strong) IBOutlet UIImageView *facebookImage;
 @property(nonatomic, strong) IBOutlet UIImageView *twitterImage;
 @property(nonatomic, strong) IBOutlet UIImageView *printerestImage;
+
+@property(nonatomic, strong) IBOutlet UITableView *table;
 
 @property(nonatomic, strong) id<logoutProtocol> logoutGateway;
 

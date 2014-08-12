@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="KIACategory" representedClassName="KIACategory" syncable="YES">
         <attribute name="idCategory" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,8 +12,16 @@
         <attribute name="reduction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="KIAUser" syncable="YES">
+        <attribute name="dietaryRestrictions" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="dislikeIngredients" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="idUser" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="isActiveState" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="KIACategory" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="KIAItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="KIACategory" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="KIAItem" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="KIAUser" positionX="0" positionY="45" width="128" height="120"/>
     </elements>
 </model>
