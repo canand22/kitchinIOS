@@ -10,6 +10,7 @@
 
 #import "KIAServerGateway.h"
 #import "KIAUpdater.h"
+#import "KIAYamlyMapping.h"
 
 #import "KIASearchRecipiesViewController.h"
 
@@ -168,7 +169,7 @@
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         
-        [[cell textLabel] setText:[[_autocompleteArray objectAtIndex:[indexPath row]] name]];
+        [[cell textLabel] setText:[[_autocompleteArray objectAtIndex:[indexPath row]] yummlyName]];
         
         return cell;
     }
@@ -177,7 +178,7 @@
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ingredientCell"];
         
-        [[cell textLabel] setText:[[_ingredientArray objectAtIndex:[indexPath row]] name]];
+        [[cell textLabel] setText:[[_ingredientArray objectAtIndex:[indexPath row]] yummlyName]];
         
         return cell;
     }

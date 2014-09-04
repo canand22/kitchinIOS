@@ -45,6 +45,8 @@
     
     // Do any additional setup after loading the view.
     [_userTagView setTagDelegate:self];
+    [_ingredientWithTagView setTagDelegate:self];
+    [_ingredientWithoutTagView setTagDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated

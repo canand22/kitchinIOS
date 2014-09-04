@@ -10,6 +10,10 @@
 
 #import "KIAAddReceiptViewController.h"
 
+#import "KIATabBarViewController.h"
+
+#import "KIACameraViewController.h"
+
 @interface KIAAddReceiptViewController ()
 
 @end
@@ -68,6 +72,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self tabBarController];
+    
+    [tabBarVC setSelectedIndex:0];
+    [[[tabBarVC viewControllers] objectAtIndex:0] popToRootViewControllerAnimated:NO];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        KIACameraViewController *cameraViewController = (KIACameraViewController *)[storyboard instantiateViewControllerWithIdentifier:@"cameraViewViewController"];
+        [self presentViewController:cameraViewController animated:YES completion:nil];
+    }
+    
+    [tabBarVC reloadButtonImageWithIndex:3];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

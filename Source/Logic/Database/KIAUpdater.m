@@ -192,7 +192,7 @@
     
     for (int i = 0; i < [ingredientArray count]; i++)
     {
-        if ([self whetherThereIsAnIngredient:[ingredientArray objectAtIndex:i]])
+        if (![self whetherThereIsAnIngredient:[ingredientArray objectAtIndex:i]])
         {
             count++;
         }

@@ -143,7 +143,7 @@
     {
         if ([[_categoryItemsCheck objectAtIndex:i] isEqualToNumber:@YES])
         {
-            [temp addObject:[[_categoryItems objectAtIndex:i] name]];
+            [temp addObject:[[_categoryItems objectAtIndex:i] yummlyName]];
         }
     }
     

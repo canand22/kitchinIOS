@@ -115,12 +115,52 @@
 
 - (void)sortForMissingIngredients
 {
-    // NSPredicate *predicate = [NSPredicate predicateWithFormat:@""];
+    _recipiesArray = [_recipiesArray sortedArrayUsingComparator:^NSComparisonResult (id obj1, id obj2)
+    {
+        NSInteger firstObj = [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[obj1 Ingredients]];
+        NSInteger secondObj = [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[obj2 Ingredients]];
+                          
+        if (firstObj < secondObj)
+        {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        else if (firstObj > secondObj)
+        {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else
+        {
+            return (NSComparisonResult)NSOrderedSame;
+        }
+    }];
+    
+    [_collection reloadData];
+    [_table reloadData];
 }
 
 - (void)sortForRating
 {
-    // NSPredicate *predicate = [NSPredicate predicateWithFormat:@""];
+    _recipiesArray = [_recipiesArray sortedArrayUsingComparator:^NSComparisonResult (id obj1, id obj2)
+    {
+        NSInteger firstObj = [obj1 Rating];
+        NSInteger secondObj = [obj2 Rating];
+        
+        if (firstObj > secondObj)
+        {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        else if (firstObj < secondObj)
+        {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else
+        {
+            return (NSComparisonResult)NSOrderedSame;
+        }
+    }];
+    
+    [_collection reloadData];
+    [_table reloadData];
 }
 
 #pragma mark ***** picker controller *****
@@ -206,7 +246,7 @@
         
     [[cell title] setText:[item Title]];
     
-    [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[item Ingredients] count]]];
+    [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[item Ingredients]]]];
     [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
     [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d-star.png", [item Rating]]]];
     [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %d min", [item TotalTime] / 3600, [item TotalTime] / 60] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
@@ -261,7 +301,7 @@
     
     [[cell title] setText:[item Title]];
     
-    [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[item Ingredients] count]]];
+    [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[item Ingredients]]]];
     [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
     [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d-star.png", [item Rating]]]];
     [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %d min", [item TotalTime] / 3600, [item TotalTime] / 60] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
