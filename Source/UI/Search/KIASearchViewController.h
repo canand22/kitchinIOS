@@ -17,7 +17,7 @@
     
     NSArray *_whereSearchArray;
     
-    NSArray *_autocompleteArray;
+    NSMutableArray *_autocompleteArray;
     NSMutableArray *_ingredientArray;
 }
 

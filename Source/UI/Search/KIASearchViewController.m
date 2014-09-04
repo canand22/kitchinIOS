@@ -34,6 +34,7 @@
         _yummlyGateway = [KIAServerGateway gateway];
         
         _ingredientArray = [[NSMutableArray alloc] init];
+        _autocompleteArray = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -71,7 +72,19 @@
 
 - (void)showData:(NSArray *)itemArray
 {
-    _autocompleteArray = itemArray;
+    [_autocompleteArray removeAllObjects];
+    NSMutableSet *names = [NSMutableSet set];
+    
+    for (id obj in itemArray)
+    {
+        NSString *yummlyName = [obj yummlyName];
+        
+        if (![names containsObject:yummlyName])
+        {
+            [_autocompleteArray addObject:obj];
+            [names addObject:yummlyName];
+        }
+    }
     
     [_autocompleteTable reloadData];
 }
@@ -87,9 +100,7 @@
     
     if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In my Kitchin"])
     {
-        _autocompleteArray = [[KIAUpdater sharedUpdater] findItemForText:[[textField text] stringByAppendingString:string]];
-        
-        _autocompleteArray = [[NSSet setWithArray:_autocompleteArray] allObjects];
+        _autocompleteArray = [[[KIAUpdater sharedUpdater] findItemForText:[[textField text] stringByAppendingString:string]] mutableCopy];
         
         [_autocompleteTable reloadData];
     }
