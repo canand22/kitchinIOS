@@ -11,7 +11,7 @@
 #import "KIAUsersFromHouseholdAddCellProtocol.h"
 #import "KIASelectedItemsProtocol.h"
 
-@interface KIASelectItemsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, KIAUsersFromHouseholdAddCellProtocol>
+@interface KIASelectItemsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, KIAUsersFromHouseholdAddCellProtocol, UIAlertViewDelegate>
 {
     NSArray *_categoryItems;
     

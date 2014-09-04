@@ -52,14 +52,7 @@
         
         for (int i = 0; i < [_categoryItems count]; i++)
         {
-            /*if ([_categoryItemsCheck containsObject:[_categoryItems objectAtIndex:i]])
-            {
-                [_categoryItemsCheck addObject:@YES];
-            }
-            else
-            {*/
             [_categoryItemsCheck addObject:@NO];
-            // }
         }
     }
 }
@@ -68,7 +61,20 @@
 {
     _categoryItems = [[KIAUpdater sharedUpdater] itemsForCategoryName:_categoryName];
     
-    [_table reloadData];
+    if ([_categoryItems count] == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:@"Sorry there are no ingredients in this category"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
+    else
+    {
+        [_table reloadData];
+    }
 }
 
 - (IBAction)back:(id)sender
@@ -150,6 +156,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
     [_delegate itemChecked:temp];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
