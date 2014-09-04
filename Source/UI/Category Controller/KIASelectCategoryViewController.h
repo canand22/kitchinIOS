@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "KIASelectedItemsProtocol.h"
+
 typedef enum creationItemMode
 {
     addNewItem,
     addKitchInItem,
+    selectItems,
 }KIACreationItemMode;
 
-@interface KIASelectCategoryViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface KIASelectCategoryViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, KIASelectedItemsProtocol>
 {
     NSArray *_categoriesArray;
     
@@ -27,6 +30,7 @@ typedef enum creationItemMode
 
 @property(nonatomic, strong) IBOutlet UICollectionView *collectionView;
 @property(nonatomic, assign) KIACreationItemMode mode;
+@property(nonatomic, strong) NSMutableArray *selectedItems;
 
 - (IBAction)back:(id)sender;
 

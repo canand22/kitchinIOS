@@ -19,7 +19,7 @@
     RKEntityMapping *itemMapping = [RKEntityMapping mappingForEntityForName:@"KIAItem" inManagedObjectStore:store];
     
     // setup mapping
-    [itemMapping addAttributeMappingsFromDictionary:@{@"Id" : @"idItem", @"Name" : @"name", @"ShortName" : @"reduction"}];
+    [itemMapping addAttributeMappingsFromDictionary:@{@"Id" : @"idItem", @"Name" : @"name", @"ShortName" : @"reduction", @"YummlyName" : @"yummlyName"}];
     [itemMapping setIdentificationAttributes:@[@"idItem"]];
     
     return itemMapping;

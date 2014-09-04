@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KIASelectItemViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+// #import "KIASelectedItemsProtocol.h"
+
+@interface KIASelectItemViewController : UIViewController<UITableViewDataSource, UITableViewDelegate /*, KIASelectedItemsProtocol*/>
 {
     NSArray *_categoryItems;
 }

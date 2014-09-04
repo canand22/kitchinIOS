@@ -17,5 +17,6 @@
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSString *reduction;
 @property(nonatomic, strong) NSString *value;
+@property(nonatomic, strong) NSString *yummlyName;
 
 @end

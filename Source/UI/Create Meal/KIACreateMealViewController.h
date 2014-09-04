@@ -18,7 +18,14 @@
     NSArray *_dishTypeArray;
     
     NSMutableArray *_usersCooking;
+    NSMutableArray *_cookWith;
+    NSMutableArray *_cookWithout;
 }
+
+@property(nonatomic, strong) IBOutlet UIButton *mealButton;
+@property(nonatomic, strong) IBOutlet UIButton *dishTypeButton;
+@property(nonatomic, strong) IBOutlet UIButton *cookWithButton;
+@property(nonatomic, strong) IBOutlet UIButton *cookWithoutButton;
 
 @property(nonatomic, strong) IBOutlet UIImageView *pickerFonMeal;
 @property(nonatomic, strong) IBOutlet UIPickerView *pickerMeal;
@@ -27,10 +34,16 @@
 @property(nonatomic, strong) IBOutlet UIPickerView *pickerDishType;
 @property(nonatomic, strong) IBOutlet UIImageView *pickerIndicatorDishType;
 
-@property(nonatomic, strong) IBOutlet UIView *contentView;
-
 @property(nonatomic, strong) IBOutlet DWTagList *userTagView;
 @property(nonatomic, strong) IBOutlet UIView *userTagFoneView;
-@property(nonatomic, strong) IBOutlet DWTagList *ingredientTagView;
+@property(nonatomic, strong) IBOutlet DWTagList *ingredientWithTagView;
+@property(nonatomic, strong) IBOutlet UIView *ingredientWithTagFoneView;
+@property(nonatomic, strong) IBOutlet DWTagList *ingredientWithoutTagView;
+@property(nonatomic, strong) IBOutlet UIView *ingredientWithoutTagFoneView;
+
+@property(nonatomic, strong) IBOutlet UIButton *searchResipiesButton;
+
+@property(nonatomic, strong) IBOutlet UIView *firstSectionView;
+@property(nonatomic, strong) IBOutlet UIView *secondSectionView;
 
 @end

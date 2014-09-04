@@ -17,12 +17,13 @@
 @synthesize isSuccessMatching = _isSuccessMatching;
 @synthesize itemName = _itemName;
 @synthesize itemShortName = _itemShortName;
+@synthesize yummlyName = _yummlyName;
 
 + (RKObjectMapping *)mapping
 {
     RKObjectMapping *searchMapping = [RKObjectMapping mappingForClass:[KIASearchItemMapping class]];
     
-    [searchMapping addAttributeMappingsFromDictionary:@{@"Category" : @"_category", @"Id" : @"_itemId", @"IsSuccessMatching" : @"_isSuccessMatching", @"ItemName" : @"_itemName", @"ItemShortName" : @"_itemShortName"}];
+    [searchMapping addAttributeMappingsFromDictionary:@{@"Category" : @"_category", @"Id" : @"_itemId", @"IsSuccessMatching" : @"_isSuccessMatching", @"ItemName" : @"_itemName", @"ItemShortName" : @"_itemShortName", @"YummlyName" : @"_yummlyName"}];
     
     return searchMapping;
 }

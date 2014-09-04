@@ -12,48 +12,46 @@
 
 #import "KIASearchRecipiesMapping.h"
 
+#import "KIASearchDefines.h"
+
 @implementation KIAServerGateway (SearchRecipies)
 
-- (void)logoutWithDelegate:(id<serverGatewayDelegate>)delegate
+- (void)sendSearchRecipiesForItem:(NSDictionary *)item delegate:(id<serverGatewayDelegate>)delegate
 {
-    [self postQueryWithSearchResipiesWithDelegate:delegate];
+    [self postQueryWithSearchResipiesItem:item delegate:delegate];
 }
 
 - (void)setupSearchRecipiesMapping
 {
     // create mapping
-    RKObjectMapping *logoutMapping = [KIASearchRecipiesMapping mapping];
+    RKObjectMapping *recipiesMapping = [KIASearchRecipiesMapping mapping];
     
     // create responce descriptor. Attention to pattern espesseally '/'
-    RKResponseDescriptor *descriptor = [RKResponseDescriptor responseDescriptorWithMapping:logoutMapping
+    RKResponseDescriptor *descriptor = [RKResponseDescriptor responseDescriptorWithMapping:recipiesMapping
                                                                                     method:RKRequestMethodGET
-                                                                               pathPattern:@"/KitchInAppService.svc/:id"
-                                                                                   keyPath:@""
+                                                                               pathPattern:nil
+                                                                                   keyPath:nil
                                                                                statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     [descriptor setBaseURL:[NSURL URLWithString:BASE_URL]];
     [[self objectManager] addResponseDescriptor:descriptor];
 }
 
-- (void)postQueryWithSearchResipiesWithDelegate:(id<serverGatewayDelegate>)delegate
+- (void)postQueryWithSearchResipiesItem:(NSDictionary *)item delegate:(id<serverGatewayDelegate>)delegate
 {
     [self setupSearchRecipiesMapping];
     
     // выполнение запроса
     [[self objectManager] getObject:nil
-                               path:[NSString stringWithFormat:@"/KitchInAppService.svc/Recipies?cookwith=%@&cookwithout=%@&allergies=%@&diets=%@&cuisine=%@&dishtype=%@&holiday=%@&meal=%@&time=%@"]
+                               path:[[NSString stringWithFormat:@"/KitchInAppService.svc/Recipies?cookwith=%@&cookwithout=%@&allergies=%@&diets=%@&cuisine=%@&dishtype=%@&holiday=%@&meal=%@&time=%@", [item objectForKey:COOK_WITH], [item objectForKey:COOK_WITHOUT], [item objectForKey:ALLERGIES], [item objectForKey:DIETS], [item objectForKey:CUISINE], [item objectForKey:DISH_TYPE], [item objectForKey:HOLIDAY], [item objectForKey:MEAL], [item objectForKey:TIME]] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]
                          parameters:nil
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                             {
                                 NSLog(@"Success!!!");
          
                                 NSArray *result = [mappingResult array];
-                                /*
-                                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"sessionId"];
-                                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"firstName"];
-                                [[NSUserDefaults standardUserDefaults] synchronize];
          
-                                [delegate loginSuccess:[[result objectAtIndex:0] IsSuccessfully]];*/
+                                [delegate showData:result];
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error)
                             {

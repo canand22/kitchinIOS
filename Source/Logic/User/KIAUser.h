@@ -13,7 +13,7 @@
 
 @property(nonatomic, strong) NSNumber *idUser;
 @property(nonatomic, strong) NSString *name;
-@property(nonatomic, assign) NSNumber *isActiveState;
+@property(nonatomic, strong) NSNumber *isActiveState;
 @property(nonatomic, strong) NSMutableArray *dislikeIngredients;
 @property(nonatomic, strong) NSMutableArray *dietaryRestrictions;
 

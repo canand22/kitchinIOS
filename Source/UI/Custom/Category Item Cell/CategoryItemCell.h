@@ -8,13 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CategoryItemCellProtocol.h"
-
 @interface CategoryItemCell : UITableViewCell
 
-@property(nonatomic, weak) id<CategoryItemCellProtocol> delegate;
-
 @property(nonatomic, strong) IBOutlet UILabel *itemName;
-@property(nonatomic, strong) IBOutlet UIButton *removeButton;
 
 @end

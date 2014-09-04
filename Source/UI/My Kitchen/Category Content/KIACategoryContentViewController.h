@@ -10,9 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CategoryItemCellProtocol.h"
-
-@interface KIACategoryContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, CategoryItemCellProtocol>
+@interface KIACategoryContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *_categoryItems;
 }

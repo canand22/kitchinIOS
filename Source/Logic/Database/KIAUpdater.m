@@ -11,6 +11,7 @@
 #import "KIAItem.h"
 #import "KIACategory.h"
 #import "KIAUser.h"
+#import "KIAFavorite.h"
 
 @implementation KIAUpdater
 
@@ -99,7 +100,7 @@
 
 #pragma mark ***** item data *****
 
-- (void)addItemFromKitchInWihtId:(NSInteger)theId name:(NSString *)name categoryId:(NSInteger)catId shortName:(NSString *)shortName count:(NSInteger)count value:(NSString *)value
+- (void)addItemFromKitchInWihtId:(NSInteger)theId name:(NSString *)name categoryId:(NSInteger)catId shortName:(NSString *)shortName count:(NSInteger)count value:(NSString *)value yummly:(NSString *)yummly
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -130,6 +131,7 @@
         [newItem setReduction:shortName];
         [newItem setCount:[NSNumber numberWithInteger:count]];
         [newItem setValue:value];
+        [newItem setYummlyName:yummly];
         
         NSError *error = nil;
         
@@ -162,11 +164,61 @@
     return itemArr;
 }
 
+- (NSArray *)findItemForText:(NSString *)text
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"yummlyName contains[c] %@", text];
+    [request setPredicate:predicate];
+    NSError  *error;
+    NSArray *itemArr = [context executeFetchRequest:request error:&error];
+    
+    return itemArr;
+}
+
 - (void)removeItem:(KIAItem *)item
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     [context deleteObject:item];
+}
+
+- (NSInteger)howMuchIsMissingIngredient:(NSArray *)ingredientArray
+{
+    NSInteger count = 0;
+    
+    for (int i = 0; i < [ingredientArray count]; i++)
+    {
+        if ([self whetherThereIsAnIngredient:[ingredientArray objectAtIndex:i]])
+        {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
+- (BOOL)whetherThereIsAnIngredient:(NSString *)yummlyName
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"yummlyName contains[c] %@", yummlyName];
+    [request setPredicate:predicate];
+    NSError  *error;
+    NSArray *itemArr = [context executeFetchRequest:request error:&error];
+    
+    if ([itemArr count])
+    {
+        return YES;
+    }
+    
+    return NO;
 }
 
 #pragma mark ***** user data *****
@@ -222,6 +274,72 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     
     [context deleteObject:user];
+}
+
+#pragma mark ***** favorite data *****
+
+- (void)addFavoriteWithId:(NSString *)theId name:(NSString *)recipeName url:(NSString *)recipeUrl rating:(NSInteger)rating served:(NSInteger)served time:(NSInteger)time icon:(NSString *)picture ingredients:(NSArray *)ingredients
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAFavorite" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    BOOL unique = YES;
+    NSError  *error;
+    NSArray *items = [context executeFetchRequest:request error:&error];
+    
+    if (items.count > 0)
+    {
+        for (KIAFavorite *thisItem in items)
+        {
+            if ([[thisItem recipeId] isEqualToString:theId])
+            {
+                unique = NO;
+            }
+        }
+    }
+    
+    if (unique)
+    {
+        KIAFavorite *newFav = [NSEntityDescription insertNewObjectForEntityForName:@"KIAFavorite" inManagedObjectContext:context];
+        [newFav setRecipeId:theId];
+        [newFav setRecipeName:recipeName];
+        [newFav setRecipeUrl:recipeUrl];
+        [newFav setRating:[NSNumber numberWithInteger:rating]];
+        [newFav setServed:[NSNumber numberWithInteger:served]];
+        [newFav setTime:[NSNumber numberWithInteger:time]];
+        [newFav setPicture:picture];
+        [newFav setIngredients:ingredients];
+        
+        NSError *error = nil;
+        
+        // Save the object to persistent store
+        if (![context save:&error])
+        {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+    }
+}
+
+- (NSArray *)getAllFav
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAFavorite" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSError  *error;
+    NSArray *fav = [context executeFetchRequest:request error:&error];
+    
+    return fav;
+}
+
+- (void)removeFavorite:(KIAFavorite *)fav
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    [context deleteObject:fav];
 }
 
 #pragma mark ***** core data *****

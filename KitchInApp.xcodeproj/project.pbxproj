@@ -23,6 +23,11 @@
 /* Begin PBXBuildFile section */
 		6B520969C2944D2DB36A9BD5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 934B9C312E7845A38D8175F7 /* libPods.a */; };
 		84503C8318BCA53F00191278 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84503C8218BCA53F00191278 /* MainStoryboard.storyboard */; };
+		84941CB919B46D4800E2D690 /* KIAFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 84941CB819B46D4800E2D690 /* KIAFavorite.m */; };
+		84941CBE19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.m in Sources */ = {isa = PBXBuildFile; fileRef = 84941CBD19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.m */; };
+		84941CC219B5C52D00E2D690 /* KIAYamlyMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84941CC119B5C52D00E2D690 /* KIAYamlyMapping.m */; };
+		84941CC619B85CAC00E2D690 /* KIARemoveIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84941CC519B85CAC00E2D690 /* KIARemoveIngredientsViewController.m */; };
+		84941CC919B8615100E2D690 /* KIAButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84941CC819B8615100E2D690 /* KIAButtonTableViewCell.m */; };
 		84B5B64A14C46B8F00ADE76F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B5B64914C46B8F00ADE76F /* UIKit.framework */; };
 		84CB837219910C0F00EC34A3 /* KIACreateMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB837119910C0F00EC34A3 /* KIACreateMealViewController.m */; };
 		84CB83761991195B00EC34A3 /* KIASearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB83751991195B00EC34A3 /* KIASearchViewController.m */; };
@@ -92,7 +97,6 @@
 		84DB35AB198FDCFF006029A8 /* button_suggestions_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34E2198FDCFE006029A8 /* button_suggestions_empty@2x.png */; };
 		84DB35AC198FDCFF006029A8 /* caution@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34E3198FDCFE006029A8 /* caution@2x.png */; };
 		84DB35AD198FDCFF006029A8 /* combobox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34E4198FDCFE006029A8 /* combobox@2x.png */; };
-		84DB35AE198FDCFF006029A8 /* view recipe last4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34E5198FDCFE006029A8 /* view recipe last4@2x.png */; };
 		84DB35AF198FDCFF006029A8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34E7198FDCFE006029A8 /* Default-568h@2x.png */; };
 		84DB35B0198FDCFF006029A8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34E8198FDCFE006029A8 /* Default@2x.png */; };
 		84DB35B1198FDCFF006029A8 /* bg white first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84DB34EA198FDCFE006029A8 /* bg white first@2x.png */; };
@@ -264,6 +268,15 @@
 		84E0803615299BAF00F277B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0803515299BAF00F277B5 /* AppDelegate.m */; };
 		84E0803B15299BE800F277B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0803915299BE800F277B5 /* main.m */; };
 		84E0804D15299DCE00F277B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E0805015299DCE00F277B5 /* Localizable.strings */; };
+		84EBCB2619AD279F00D97C21 /* KIARecipeInstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EBCB2519AD279E00D97C21 /* KIARecipeInstructionsViewController.m */; };
+		84EE61BF19A33F3E002B9C47 /* KIAServerGateway+Recipies.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE61BE19A33F3E002B9C47 /* KIAServerGateway+Recipies.m */; };
+		84EE61C319A33F78002B9C47 /* KIAFullRecipiesMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE61C219A33F78002B9C47 /* KIAFullRecipiesMapping.m */; };
+		84EE61CC19A3A7D3002B9C47 /* 0-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EE61C619A3A7D3002B9C47 /* 0-star@2x.png */; };
+		84EE61CD19A3A7D3002B9C47 /* 1-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EE61C719A3A7D3002B9C47 /* 1-star@2x.png */; };
+		84EE61CE19A3A7D3002B9C47 /* 2-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EE61C819A3A7D3002B9C47 /* 2-star@2x.png */; };
+		84EE61CF19A3A7D3002B9C47 /* 3-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EE61C919A3A7D3002B9C47 /* 3-star@2x.png */; };
+		84EE61D019A3A7D3002B9C47 /* 4-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EE61CA19A3A7D3002B9C47 /* 4-star@2x.png */; };
+		84EE61D119A3A7D3002B9C47 /* 5-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EE61CB19A3A7D3002B9C47 /* 5-star@2x.png */; };
 		84EEB1761995149D0028169E /* KIAFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EEB1751995149D0028169E /* KIAFavoriteViewController.m */; };
 		84EFC4441998C46000F58841 /* KIAUsersFromHouseholdAddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EFC4431998C46000F58841 /* KIAUsersFromHouseholdAddTableViewCell.m */; };
 		84EFC448199905C600F58841 /* button_item_remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EFC447199905C600F58841 /* button_item_remove@2x.png */; };
@@ -277,6 +290,19 @@
 		84EFC4591999447B00F58841 /* button_categories_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EFC4571999447B00F58841 /* button_categories_active@2x.png */; };
 		84F0048B199A0261002F1FED /* KIAServerGateway+SearchRecipies.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F0048A199A0261002F1FED /* KIAServerGateway+SearchRecipies.m */; };
 		84F00490199A039F002F1FED /* KIASearchRecipiesMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F0048F199A039F002F1FED /* KIASearchRecipiesMapping.m */; };
+		84F00498199B9135002F1FED /* KIASearchRecipiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F00497199B9135002F1FED /* KIASearchRecipiesViewController.m */; };
+		84F0049B199BB8D0002F1FED /* KIARecipiesMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F0049A199BB8D0002F1FED /* KIARecipiesMapping.m */; };
+		84F004B9199E348F002F1FED /* KIASearchRecipiesCollectionVeiwCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F004B8199E348F002F1FED /* KIASearchRecipiesCollectionVeiwCell.m */; };
+		84F004BC199E34BA002F1FED /* KIASearchRecipiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F004BB199E34BA002F1FED /* KIASearchRecipiesTableViewCell.m */; };
+		84F0208C19A74F0D00CF61FE /* radio_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F0208A19A74F0C00CF61FE /* radio_active@2x.png */; };
+		84F0208D19A74F0D00CF61FE /* radio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F0208B19A74F0D00CF61FE /* radio@2x.png */; };
+		84F0209019A74F8A00CF61FE /* KIARadioButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F0208F19A74F8A00CF61FE /* KIARadioButtonTableViewCell.m */; };
+		84F0209319A758E900CF61FE /* KIAFilterSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F0209219A758E900CF61FE /* KIAFilterSettings.m */; };
+		84F297C919A64FDE00D9FEBA /* KIACheckBoxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F297C819A64FDE00D9FEBA /* KIACheckBoxTableViewCell.m */; };
+		84F2F6AA19A4ADAB000FA708 /* KIAViewRecipiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2F6A919A4ADAB000FA708 /* KIAViewRecipiesViewController.m */; };
+		84F2F6AE19A4E455000FA708 /* KIACacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2F6AD19A4E455000FA708 /* KIACacheManager.m */; };
+		84F2F6B219A4FEA5000FA708 /* KIARecipeFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2F6B119A4FEA5000FA708 /* KIARecipeFiltersViewController.m */; };
+		84F440B119A1F9EA0050D56C /* KIASelectItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F440B019A1F9EA0050D56C /* KIASelectItemsViewController.m */; };
 		D6A8397518D2189300FA6202 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A8397418D2189300FA6202 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -456,6 +482,17 @@
 		74DD09B516C8E32500969175 /* NIXImagesValidator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NIXImagesValidator; sourceTree = "<group>"; };
 		8411D60C198A7A8900ADD72F /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = SOURCE_ROOT; };
 		84503C8218BCA53F00191278 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		84941CB719B46D4800E2D690 /* KIAFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAFavorite.h; sourceTree = "<group>"; };
+		84941CB819B46D4800E2D690 /* KIAFavorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAFavorite.m; sourceTree = "<group>"; };
+		84941CBC19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+SearchYamly.h"; sourceTree = "<group>"; };
+		84941CBD19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+SearchYamly.m"; sourceTree = "<group>"; };
+		84941CC019B5C52D00E2D690 /* KIAYamlyMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAYamlyMapping.h; sourceTree = "<group>"; };
+		84941CC119B5C52D00E2D690 /* KIAYamlyMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAYamlyMapping.m; sourceTree = "<group>"; };
+		84941CC319B5C56700E2D690 /* yamlyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yamlyProtocol.h; sourceTree = "<group>"; };
+		84941CC419B85CAC00E2D690 /* KIARemoveIngredientsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIARemoveIngredientsViewController.h; sourceTree = "<group>"; };
+		84941CC519B85CAC00E2D690 /* KIARemoveIngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIARemoveIngredientsViewController.m; sourceTree = "<group>"; };
+		84941CC719B8615100E2D690 /* KIAButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAButtonTableViewCell.h; sourceTree = "<group>"; };
+		84941CC819B8615100E2D690 /* KIAButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAButtonTableViewCell.m; sourceTree = "<group>"; };
 		84B5B64514C46B8F00ADE76F /* KitchInApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchInApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B5B64914C46B8F00ADE76F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84CB837019910C0F00EC34A3 /* KIACreateMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACreateMealViewController.h; sourceTree = "<group>"; };
@@ -532,7 +569,6 @@
 		84DB34E2198FDCFE006029A8 /* button_suggestions_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_suggestions_empty@2x.png"; sourceTree = "<group>"; };
 		84DB34E3198FDCFE006029A8 /* caution@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caution@2x.png"; sourceTree = "<group>"; };
 		84DB34E4198FDCFE006029A8 /* combobox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combobox@2x.png"; sourceTree = "<group>"; };
-		84DB34E5198FDCFE006029A8 /* view recipe last4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "view recipe last4@2x.png"; sourceTree = "<group>"; };
 		84DB34E7198FDCFE006029A8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		84DB34E8198FDCFE006029A8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		84DB34EA198FDCFE006029A8 /* bg white first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg white first@2x.png"; sourceTree = "<group>"; };
@@ -723,7 +759,6 @@
 		84DB3686198FDE17006029A8 /* KIASelectItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASelectItemViewController.m; sourceTree = "<group>"; };
 		84DB3689198FDE17006029A8 /* CategoryItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryItemCell.h; sourceTree = "<group>"; };
 		84DB368A198FDE17006029A8 /* CategoryItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryItemCell.m; sourceTree = "<group>"; };
-		84DB368B198FDE17006029A8 /* CategoryItemCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryItemCellProtocol.h; sourceTree = "<group>"; };
 		84DB368D198FDE17006029A8 /* EditRecognizedItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecognizedItemCell.h; sourceTree = "<group>"; };
 		84DB368E198FDE17006029A8 /* EditRecognizedItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRecognizedItemCell.m; sourceTree = "<group>"; };
 		84DB368F198FDE17006029A8 /* EditRecognizedItemCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRecognizedItemCellDelegate.h; sourceTree = "<group>"; };
@@ -766,6 +801,19 @@
 		84E0804F15299DCE00F277B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84E0807915299ED700F277B5 /* NIXBuildAutomationScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NIXBuildAutomationScripts; sourceTree = "<group>"; };
 		84E080861529BE5100F277B5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		84EBCB2419AD279E00D97C21 /* KIARecipeInstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIARecipeInstructionsViewController.h; sourceTree = "<group>"; };
+		84EBCB2519AD279E00D97C21 /* KIARecipeInstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIARecipeInstructionsViewController.m; sourceTree = "<group>"; };
+		84EE61BD19A33F3E002B9C47 /* KIAServerGateway+Recipies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+Recipies.h"; sourceTree = "<group>"; };
+		84EE61BE19A33F3E002B9C47 /* KIAServerGateway+Recipies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+Recipies.m"; sourceTree = "<group>"; };
+		84EE61C119A33F78002B9C47 /* KIAFullRecipiesMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAFullRecipiesMapping.h; sourceTree = "<group>"; };
+		84EE61C219A33F78002B9C47 /* KIAFullRecipiesMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAFullRecipiesMapping.m; sourceTree = "<group>"; };
+		84EE61C419A33F9C002B9C47 /* recipiesProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = recipiesProtocol.h; sourceTree = "<group>"; };
+		84EE61C619A3A7D3002B9C47 /* 0-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-star@2x.png"; sourceTree = "<group>"; };
+		84EE61C719A3A7D3002B9C47 /* 1-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-star@2x.png"; sourceTree = "<group>"; };
+		84EE61C819A3A7D3002B9C47 /* 2-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-star@2x.png"; sourceTree = "<group>"; };
+		84EE61C919A3A7D3002B9C47 /* 3-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3-star@2x.png"; sourceTree = "<group>"; };
+		84EE61CA19A3A7D3002B9C47 /* 4-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4-star@2x.png"; sourceTree = "<group>"; };
+		84EE61CB19A3A7D3002B9C47 /* 5-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-star@2x.png"; sourceTree = "<group>"; };
 		84EEB1741995149D0028169E /* KIAFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAFavoriteViewController.h; sourceTree = "<group>"; };
 		84EEB1751995149D0028169E /* KIAFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAFavoriteViewController.m; sourceTree = "<group>"; };
 		84EFC4421998C46000F58841 /* KIAUsersFromHouseholdAddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAUsersFromHouseholdAddTableViewCell.h; sourceTree = "<group>"; };
@@ -786,6 +834,32 @@
 		84F0048C199A0283002F1FED /* SearchRecipiesProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchRecipiesProtocol.h; sourceTree = "<group>"; };
 		84F0048E199A039F002F1FED /* KIASearchRecipiesMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASearchRecipiesMapping.h; sourceTree = "<group>"; };
 		84F0048F199A039F002F1FED /* KIASearchRecipiesMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASearchRecipiesMapping.m; sourceTree = "<group>"; };
+		84F00494199B7C8E002F1FED /* KIASearchDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KIASearchDefines.h; sourceTree = "<group>"; };
+		84F00496199B9135002F1FED /* KIASearchRecipiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASearchRecipiesViewController.h; sourceTree = "<group>"; };
+		84F00497199B9135002F1FED /* KIASearchRecipiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASearchRecipiesViewController.m; sourceTree = "<group>"; };
+		84F00499199BB8D0002F1FED /* KIARecipiesMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIARecipiesMapping.h; sourceTree = "<group>"; };
+		84F0049A199BB8D0002F1FED /* KIARecipiesMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIARecipiesMapping.m; sourceTree = "<group>"; };
+		84F004B7199E348F002F1FED /* KIASearchRecipiesCollectionVeiwCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASearchRecipiesCollectionVeiwCell.h; sourceTree = "<group>"; };
+		84F004B8199E348F002F1FED /* KIASearchRecipiesCollectionVeiwCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASearchRecipiesCollectionVeiwCell.m; sourceTree = "<group>"; };
+		84F004BA199E34BA002F1FED /* KIASearchRecipiesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASearchRecipiesTableViewCell.h; sourceTree = "<group>"; };
+		84F004BB199E34BA002F1FED /* KIASearchRecipiesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASearchRecipiesTableViewCell.m; sourceTree = "<group>"; };
+		84F0208A19A74F0C00CF61FE /* radio_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio_active@2x.png"; sourceTree = "<group>"; };
+		84F0208B19A74F0D00CF61FE /* radio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio@2x.png"; sourceTree = "<group>"; };
+		84F0208E19A74F8A00CF61FE /* KIARadioButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIARadioButtonTableViewCell.h; sourceTree = "<group>"; };
+		84F0208F19A74F8A00CF61FE /* KIARadioButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIARadioButtonTableViewCell.m; sourceTree = "<group>"; };
+		84F0209119A758E900CF61FE /* KIAFilterSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAFilterSettings.h; sourceTree = "<group>"; };
+		84F0209219A758E900CF61FE /* KIAFilterSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAFilterSettings.m; sourceTree = "<group>"; };
+		84F297C719A64FDE00D9FEBA /* KIACheckBoxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACheckBoxTableViewCell.h; sourceTree = "<group>"; };
+		84F297C819A64FDE00D9FEBA /* KIACheckBoxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACheckBoxTableViewCell.m; sourceTree = "<group>"; };
+		84F2F6A819A4ADAB000FA708 /* KIAViewRecipiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAViewRecipiesViewController.h; sourceTree = "<group>"; };
+		84F2F6A919A4ADAB000FA708 /* KIAViewRecipiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAViewRecipiesViewController.m; sourceTree = "<group>"; };
+		84F2F6AC19A4E455000FA708 /* KIACacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACacheManager.h; sourceTree = "<group>"; };
+		84F2F6AD19A4E455000FA708 /* KIACacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACacheManager.m; sourceTree = "<group>"; };
+		84F2F6B019A4FEA5000FA708 /* KIARecipeFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIARecipeFiltersViewController.h; sourceTree = "<group>"; };
+		84F2F6B119A4FEA5000FA708 /* KIARecipeFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIARecipeFiltersViewController.m; sourceTree = "<group>"; };
+		84F440AF19A1F9EA0050D56C /* KIASelectItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASelectItemsViewController.h; sourceTree = "<group>"; };
+		84F440B019A1F9EA0050D56C /* KIASelectItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASelectItemsViewController.m; sourceTree = "<group>"; };
+		84F440B219A258C50050D56C /* KIASelectedItemsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KIASelectedItemsProtocol.h; sourceTree = "<group>"; };
 		84F4B6B61993D71C0059CF18 /* KIAMealSettingsTableViewCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KIAMealSettingsTableViewCellProtocol.h; sourceTree = "<group>"; };
 		8AA137DB18D7612400D755A6 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		934B9C312E7845A38D8175F7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -871,6 +945,46 @@
 			name = Staff;
 			sourceTree = "<group>";
 		};
+		84941CB619B46CDD00E2D690 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				84941CB719B46D4800E2D690 /* KIAFavorite.h */,
+				84941CB819B46D4800E2D690 /* KIAFavorite.m */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		84941CBA19B5A98600E2D690 /* Remove Ingredient */ = {
+			isa = PBXGroup;
+			children = (
+				84941CC419B85CAC00E2D690 /* KIARemoveIngredientsViewController.h */,
+				84941CC519B85CAC00E2D690 /* KIARemoveIngredientsViewController.m */,
+				84941CC719B8615100E2D690 /* KIAButtonTableViewCell.h */,
+				84941CC819B8615100E2D690 /* KIAButtonTableViewCell.m */,
+			);
+			path = "Remove Ingredient";
+			sourceTree = "<group>";
+		};
+		84941CBB19B5B70900E2D690 /* Search yamly */ = {
+			isa = PBXGroup;
+			children = (
+				84941CC319B5C56700E2D690 /* yamlyProtocol.h */,
+				84941CBC19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.h */,
+				84941CBD19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.m */,
+				84941CBF19B5C47F00E2D690 /* Mapping */,
+			);
+			path = "Search yamly";
+			sourceTree = "<group>";
+		};
+		84941CBF19B5C47F00E2D690 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				84941CC019B5C52D00E2D690 /* KIAYamlyMapping.h */,
+				84941CC119B5C52D00E2D690 /* KIAYamlyMapping.m */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
 		84B5B63A14C46B8F00ADE76F = {
 			isa = PBXGroup;
 			children = (
@@ -937,8 +1051,10 @@
 		84CB83731991194B00EC34A3 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				84F00494199B7C8E002F1FED /* KIASearchDefines.h */,
 				84CB83741991195B00EC34A3 /* KIASearchViewController.h */,
 				84CB83751991195B00EC34A3 /* KIASearchViewController.m */,
+				84F00495199B9117002F1FED /* Search Recipies */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1083,7 +1199,6 @@
 				84DB34E2198FDCFE006029A8 /* button_suggestions_empty@2x.png */,
 				84DB34E3198FDCFE006029A8 /* caution@2x.png */,
 				84DB34E4198FDCFE006029A8 /* combobox@2x.png */,
-				84DB34E5198FDCFE006029A8 /* view recipe last4@2x.png */,
 			);
 			path = "Create Meal";
 			sourceTree = "<group>";
@@ -1291,6 +1406,8 @@
 				84DB355C198FDCFE006029A8 /* ceckbox_active@2x.png */,
 				84DB355D198FDCFE006029A8 /* title_bg@2x.png */,
 				84CE255419925FED0012D1FF /* remove_btn@2x.png */,
+				84F0208A19A74F0C00CF61FE /* radio_active@2x.png */,
+				84F0208B19A74F0D00CF61FE /* radio@2x.png */,
 			);
 			path = "settings - Restrictions";
 			sourceTree = "<group>";
@@ -1329,6 +1446,7 @@
 		84DB362E198FDE17006029A8 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				84F2F6AB19A4E455000FA708 /* CacheManager */,
 				84DB362F198FDE17006029A8 /* Add New Item */,
 				84DB3638198FDE17006029A8 /* baseServerGatewayProtocol.h */,
 				84DB3639198FDE17006029A8 /* Database */,
@@ -1343,6 +1461,9 @@
 				84DB3670198FDE17006029A8 /* Send check */,
 				84CE255619927BFE0012D1FF /* User */,
 				84F004881999FFE9002F1FED /* Search */,
+				84F440B319A276C80050D56C /* Recipies */,
+				84941CB619B46CDD00E2D690 /* Favorite */,
+				84941CBB19B5B70900E2D690 /* Search yamly */,
 				84DB3679198FDE17006029A8 /* serverGatewayDelegate.h */,
 			);
 			path = Logic;
@@ -1567,9 +1688,11 @@
 		84DB3681198FDE17006029A8 /* Category Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84F440B219A258C50050D56C /* KIASelectedItemsProtocol.h */,
 				84DB3682198FDE17006029A8 /* KIASelectCategoryViewController.h */,
 				84DB3683198FDE17006029A8 /* KIASelectCategoryViewController.m */,
 				84DB3684198FDE17006029A8 /* Select Item */,
+				84F440AE19A1F9CA0050D56C /* Select Items */,
 			);
 			path = "Category Controller";
 			sourceTree = "<group>";
@@ -1598,7 +1721,6 @@
 			children = (
 				84DB3689198FDE17006029A8 /* CategoryItemCell.h */,
 				84DB368A198FDE17006029A8 /* CategoryItemCell.m */,
-				84DB368B198FDE17006029A8 /* CategoryItemCellProtocol.h */,
 			);
 			path = "Category Item Cell";
 			sourceTree = "<group>";
@@ -1716,9 +1838,9 @@
 		84DB36AE198FDE17006029A8 /* My Kitchen */ = {
 			isa = PBXGroup;
 			children = (
-				84DB36AF198FDE17006029A8 /* Category Content */,
 				84DB36BB198FDE17006029A8 /* KIAMyKitchenViewController.h */,
 				84DB36BC198FDE17006029A8 /* KIAMyKitchenViewController.m */,
+				84DB36AF198FDE17006029A8 /* Category Content */,
 			);
 			path = "My Kitchen";
 			sourceTree = "<group>";
@@ -1726,9 +1848,9 @@
 		84DB36AF198FDE17006029A8 /* Category Content */ = {
 			isa = PBXGroup;
 			children = (
-				84DB36B0198FDE17006029A8 /* Add New Item */,
 				84DB36B9198FDE17006029A8 /* KIACategoryContentViewController.h */,
 				84DB36BA198FDE17006029A8 /* KIACategoryContentViewController.m */,
+				84DB36B0198FDE17006029A8 /* Add New Item */,
 			);
 			path = "Category Content";
 			sourceTree = "<group>";
@@ -1827,6 +1949,38 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		84EBCB2319AD277B00D97C21 /* Recipe instructions */ = {
+			isa = PBXGroup;
+			children = (
+				84EBCB2419AD279E00D97C21 /* KIARecipeInstructionsViewController.h */,
+				84EBCB2519AD279E00D97C21 /* KIARecipeInstructionsViewController.m */,
+				84941CBA19B5A98600E2D690 /* Remove Ingredient */,
+			);
+			path = "Recipe instructions";
+			sourceTree = "<group>";
+		};
+		84EE61C019A33F4E002B9C47 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				84EE61C119A33F78002B9C47 /* KIAFullRecipiesMapping.h */,
+				84EE61C219A33F78002B9C47 /* KIAFullRecipiesMapping.m */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		84EE61C519A3A7D3002B9C47 /* stars */ = {
+			isa = PBXGroup;
+			children = (
+				84EE61C619A3A7D3002B9C47 /* 0-star@2x.png */,
+				84EE61C719A3A7D3002B9C47 /* 1-star@2x.png */,
+				84EE61C819A3A7D3002B9C47 /* 2-star@2x.png */,
+				84EE61C919A3A7D3002B9C47 /* 3-star@2x.png */,
+				84EE61CA19A3A7D3002B9C47 /* 4-star@2x.png */,
+				84EE61CB19A3A7D3002B9C47 /* 5-star@2x.png */,
+			);
+			path = stars;
+			sourceTree = "<group>";
+		};
 		84EEB173199514800028169E /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -1856,6 +2010,7 @@
 				84EFC44D19991F0700F58841 /* picture_icon@2x.png */,
 				84EFC4561999447B00F58841 /* button_categories@2x.png */,
 				84EFC4571999447B00F58841 /* button_categories_active@2x.png */,
+				84EE61C519A3A7D3002B9C47 /* stars */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1876,8 +2031,111 @@
 			children = (
 				84F0048E199A039F002F1FED /* KIASearchRecipiesMapping.h */,
 				84F0048F199A039F002F1FED /* KIASearchRecipiesMapping.m */,
+				84F00499199BB8D0002F1FED /* KIARecipiesMapping.h */,
+				84F0049A199BB8D0002F1FED /* KIARecipiesMapping.m */,
 			);
 			path = Mapping;
+			sourceTree = "<group>";
+		};
+		84F00495199B9117002F1FED /* Search Recipies */ = {
+			isa = PBXGroup;
+			children = (
+				84F00496199B9135002F1FED /* KIASearchRecipiesViewController.h */,
+				84F00497199B9135002F1FED /* KIASearchRecipiesViewController.m */,
+				84F2F6A719A4AD82000FA708 /* View recipies */,
+				84F2F6AF19A4FE91000FA708 /* Recipe filters */,
+				84F004B5199E3451002F1FED /* cell for collections */,
+				84F004B6199E3451002F1FED /* cell for table */,
+			);
+			path = "Search Recipies";
+			sourceTree = "<group>";
+		};
+		84F004B5199E3451002F1FED /* cell for collections */ = {
+			isa = PBXGroup;
+			children = (
+				84F004B7199E348F002F1FED /* KIASearchRecipiesCollectionVeiwCell.h */,
+				84F004B8199E348F002F1FED /* KIASearchRecipiesCollectionVeiwCell.m */,
+			);
+			path = "cell for collections";
+			sourceTree = "<group>";
+		};
+		84F004B6199E3451002F1FED /* cell for table */ = {
+			isa = PBXGroup;
+			children = (
+				84F004BA199E34BA002F1FED /* KIASearchRecipiesTableViewCell.h */,
+				84F004BB199E34BA002F1FED /* KIASearchRecipiesTableViewCell.m */,
+			);
+			path = "cell for table";
+			sourceTree = "<group>";
+		};
+		84F297C519A64FAD00D9FEBA /* Check box cell */ = {
+			isa = PBXGroup;
+			children = (
+				84F297C719A64FDE00D9FEBA /* KIACheckBoxTableViewCell.h */,
+				84F297C819A64FDE00D9FEBA /* KIACheckBoxTableViewCell.m */,
+			);
+			path = "Check box cell";
+			sourceTree = "<group>";
+		};
+		84F297C619A64FC200D9FEBA /* Radio box cell */ = {
+			isa = PBXGroup;
+			children = (
+				84F0208E19A74F8A00CF61FE /* KIARadioButtonTableViewCell.h */,
+				84F0208F19A74F8A00CF61FE /* KIARadioButtonTableViewCell.m */,
+			);
+			path = "Radio box cell";
+			sourceTree = "<group>";
+		};
+		84F2F6A719A4AD82000FA708 /* View recipies */ = {
+			isa = PBXGroup;
+			children = (
+				84F2F6A819A4ADAB000FA708 /* KIAViewRecipiesViewController.h */,
+				84F2F6A919A4ADAB000FA708 /* KIAViewRecipiesViewController.m */,
+				84EBCB2319AD277B00D97C21 /* Recipe instructions */,
+			);
+			path = "View recipies";
+			sourceTree = "<group>";
+		};
+		84F2F6AB19A4E455000FA708 /* CacheManager */ = {
+			isa = PBXGroup;
+			children = (
+				84F2F6AC19A4E455000FA708 /* KIACacheManager.h */,
+				84F2F6AD19A4E455000FA708 /* KIACacheManager.m */,
+			);
+			path = CacheManager;
+			sourceTree = "<group>";
+		};
+		84F2F6AF19A4FE91000FA708 /* Recipe filters */ = {
+			isa = PBXGroup;
+			children = (
+				84F0209119A758E900CF61FE /* KIAFilterSettings.h */,
+				84F0209219A758E900CF61FE /* KIAFilterSettings.m */,
+				84F2F6B019A4FEA5000FA708 /* KIARecipeFiltersViewController.h */,
+				84F2F6B119A4FEA5000FA708 /* KIARecipeFiltersViewController.m */,
+				84F297C519A64FAD00D9FEBA /* Check box cell */,
+				84F297C619A64FC200D9FEBA /* Radio box cell */,
+			);
+			path = "Recipe filters";
+			sourceTree = "<group>";
+		};
+		84F440AE19A1F9CA0050D56C /* Select Items */ = {
+			isa = PBXGroup;
+			children = (
+				84F440AF19A1F9EA0050D56C /* KIASelectItemsViewController.h */,
+				84F440B019A1F9EA0050D56C /* KIASelectItemsViewController.m */,
+			);
+			path = "Select Items";
+			sourceTree = "<group>";
+		};
+		84F440B319A276C80050D56C /* Recipies */ = {
+			isa = PBXGroup;
+			children = (
+				84EE61C419A33F9C002B9C47 /* recipiesProtocol.h */,
+				84EE61BD19A33F3E002B9C47 /* KIAServerGateway+Recipies.h */,
+				84EE61BE19A33F3E002B9C47 /* KIAServerGateway+Recipies.m */,
+				84EE61C019A33F4E002B9C47 /* Mapping */,
+			);
+			path = Recipies;
 			sourceTree = "<group>";
 		};
 		8AA137DC18D7613300D755A6 /* Configuration Files */ = {
@@ -2081,6 +2339,7 @@
 				84DB35A2198FDCFE006029A8 /* Sweets@2x.png in Resources */,
 				84DB360C198FDCFF006029A8 /* tweet@2x.png in Resources */,
 				84EFC44E19991F0700F58841 /* list_icon@2x.png in Resources */,
+				84EE61CE19A3A7D3002B9C47 /* 2-star@2x.png in Resources */,
 				84DB358B198FDCFE006029A8 /* Dairy_category@2x.png in Resources */,
 				84DB35EB198FDCFF006029A8 /* 8.png in Resources */,
 				84DB35B5198FDCFF006029A8 /* button add@2x.png in Resources */,
@@ -2107,6 +2366,7 @@
 				84DB3591198FDCFE006029A8 /* Frozen_category@2x.png in Resources */,
 				84DB360B198FDCFF006029A8 /* top_menu_button_active@2x.png in Resources */,
 				84DB35D1198FDCFF006029A8 /* 13.png in Resources */,
+				84EE61CD19A3A7D3002B9C47 /* 1-star@2x.png in Resources */,
 				84DB3588198FDCFE006029A8 /* Condiments, Sauces, Oils@2x.png in Resources */,
 				84EFC4581999447B00F58841 /* button_categories@2x.png in Resources */,
 				84DB3582198FDCFE006029A8 /* Breads & Bakery@2x.png in Resources */,
@@ -2118,6 +2378,7 @@
 				84DB35B6198FDCFF006029A8 /* button min active@2x.png in Resources */,
 				84DB3606198FDCFF006029A8 /* face_active@2x.png in Resources */,
 				84DB3589198FDCFE006029A8 /* Condiments, Sauces, Oils_category@2x.png in Resources */,
+				84EE61CC19A3A7D3002B9C47 /* 0-star@2x.png in Resources */,
 				84DB359D198FDCFE006029A8 /* Seafood_category@2x.png in Resources */,
 				84DB3572198FDCFE006029A8 /* picker_indicator@2x.png in Resources */,
 				84DB3616198FDCFF006029A8 /* ceckbox@2x.png in Resources */,
@@ -2133,6 +2394,7 @@
 				84DB35D8198FDCFF006029A8 /* 2.png in Resources */,
 				84DB35F3198FDCFF006029A8 /* history@2x.png in Resources */,
 				84DB3617198FDCFF006029A8 /* ceckbox_active@2x.png in Resources */,
+				84F0208C19A74F0D00CF61FE /* radio_active@2x.png in Resources */,
 				84DB3577198FDCFE006029A8 /* img2@2x.png in Resources */,
 				84DB35D7198FDCFF006029A8 /* 19.png in Resources */,
 				84DB3584198FDCFE006029A8 /* Canned Foods, Soups, Broths@2x.png in Resources */,
@@ -2140,6 +2402,7 @@
 				84DB35AC198FDCFF006029A8 /* caution@2x.png in Resources */,
 				84DB3593198FDCFE006029A8 /* Meats & Deli_category@2x.png in Resources */,
 				84DB360E198FDCFF006029A8 /* button_@2x.png in Resources */,
+				84EE61CF19A3A7D3002B9C47 /* 3-star@2x.png in Resources */,
 				84DB35B8198FDCFF006029A8 /* button_cancel@2x.png in Resources */,
 				84DB35F1198FDCFF006029A8 /* capture_top@2x.png in Resources */,
 				84DB35A5198FDCFF006029A8 /* button_course_active@2x.png in Resources */,
@@ -2154,6 +2417,8 @@
 				84DB35A0198FDCFE006029A8 /* Spices & Herbs@2x.png in Resources */,
 				84DB35C8198FDCFF006029A8 /* submit_btn@2x.png in Resources */,
 				84DB361B198FDCFF006029A8 /* capture_active@2x.png in Resources */,
+				84EE61D019A3A7D3002B9C47 /* 4-star@2x.png in Resources */,
+				84EE61D119A3A7D3002B9C47 /* 5-star@2x.png in Resources */,
 				84DB357E198FDCFE006029A8 /* button_more@2x.png in Resources */,
 				84DB35D3198FDCFF006029A8 /* 15.png in Resources */,
 				84DB3583198FDCFE006029A8 /* Breads & Bakery_category@2x.png in Resources */,
@@ -2219,7 +2484,6 @@
 				84DB35E8198FDCFF006029A8 /* 5.png in Resources */,
 				84DB35D5198FDCFF006029A8 /* 17.png in Resources */,
 				84DB3597198FDCFE006029A8 /* Pasta_category@2x.png in Resources */,
-				84DB35AE198FDCFF006029A8 /* view recipe last4@2x.png in Resources */,
 				84DB35FE198FDCFF006029A8 /* my_kitchen_collection_bg@2x.png in Resources */,
 				84EFC448199905C600F58841 /* button_item_remove@2x.png in Resources */,
 				84DB35B7198FDCFF006029A8 /* button min@2x.png in Resources */,
@@ -2249,6 +2513,7 @@
 				84DB3586198FDCFE006029A8 /* Cereal & Grains@2x.png in Resources */,
 				84DB3596198FDCFE006029A8 /* Pasta@2x.png in Resources */,
 				84DB35FA198FDCFF006029A8 /* tools@2x.png in Resources */,
+				84F0208D19A74F0D00CF61FE /* radio@2x.png in Resources */,
 				84DB35DC198FDCFF006029A8 /* 23.png in Resources */,
 				84DB35E5198FDCFF006029A8 /* 31.png in Resources */,
 				84DB3587198FDCFE006029A8 /* Cereal & Grains_category@2x.png in Resources */,
@@ -2401,13 +2666,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EFC4441998C46000F58841 /* KIAUsersFromHouseholdAddTableViewCell.m in Sources */,
+				84941CB919B46D4800E2D690 /* KIAFavorite.m in Sources */,
+				84EE61C319A33F78002B9C47 /* KIAFullRecipiesMapping.m in Sources */,
 				84DB36D0198FDE17006029A8 /* KIAServerGateway+Register.m in Sources */,
 				84DB36D5198FDE17006029A8 /* KIAServerGateway+SendCheck.m in Sources */,
 				84DB36DB198FDE17006029A8 /* KIASelectItemViewController.m in Sources */,
 				84DB36D9198FDE17006029A8 /* KIACameraViewController.m in Sources */,
 				84DB36C7198FDE17006029A8 /* KIACategory.m in Sources */,
 				84DB36DA198FDE17006029A8 /* KIASelectCategoryViewController.m in Sources */,
+				84F0049B199BB8D0002F1FED /* KIARecipiesMapping.m in Sources */,
 				84DB36C2198FDE17006029A8 /* KIAAddItemResultMapping.m in Sources */,
+				84F0209319A758E900CF61FE /* KIAFilterSettings.m in Sources */,
 				84DB36EC198FDE17006029A8 /* KIAMyKitchenViewController.m in Sources */,
 				84F00490199A039F002F1FED /* KIASearchRecipiesMapping.m in Sources */,
 				84DB36E9198FDE17006029A8 /* KIANewItemWithOtherViewController.m in Sources */,
@@ -2415,13 +2684,18 @@
 				84DB36D8198FDE17006029A8 /* KIACapturedReceiptViewController.m in Sources */,
 				84DB36E0198FDE17006029A8 /* KIAAddReceiptViewController.m in Sources */,
 				84DB36DD198FDE17006029A8 /* EditRecognizedItemCell.m in Sources */,
+				84F2F6AA19A4ADAB000FA708 /* KIAViewRecipiesViewController.m in Sources */,
 				84E0803615299BAF00F277B5 /* AppDelegate.m in Sources */,
 				84DB36EA198FDE17006029A8 /* KIAAddItemViewController.m in Sources */,
+				84941CC619B85CAC00E2D690 /* KIARemoveIngredientsViewController.m in Sources */,
 				84DB36E8198FDE17006029A8 /* KIANewItemWithStoreViewController.m in Sources */,
+				84F00498199B9135002F1FED /* KIASearchRecipiesViewController.m in Sources */,
 				84F0048B199A0261002F1FED /* KIAServerGateway+SearchRecipies.m in Sources */,
 				84CE255919927C270012D1FF /* KIAUser.m in Sources */,
 				84DB36D6198FDE17006029A8 /* KIAImageMapping.m in Sources */,
+				84F2F6AE19A4E455000FA708 /* KIACacheManager.m in Sources */,
 				84DB36DE198FDE17006029A8 /* MyKitchInCell.m in Sources */,
+				84F2F6B219A4FEA5000FA708 /* KIARecipeFiltersViewController.m in Sources */,
 				84DB36C5198FDE17006029A8 /* KIAForgotMapping.m in Sources */,
 				84E0803B15299BE800F277B5 /* main.m in Sources */,
 				84CB83761991195B00EC34A3 /* KIASearchViewController.m in Sources */,
@@ -2429,11 +2703,14 @@
 				84DB36CB198FDE17006029A8 /* KIAServerGateway+Login.m in Sources */,
 				84DB36CE198FDE17006029A8 /* KIAServerGateway+Logout.m in Sources */,
 				84CB83821992392200EC34A3 /* KIAMealSettingsViewController.m in Sources */,
+				84EE61BF19A33F3E002B9C47 /* KIAServerGateway+Recipies.m in Sources */,
 				84EEB1761995149D0028169E /* KIAFavoriteViewController.m in Sources */,
 				84DB36E4198FDE17006029A8 /* KIAMainViewController.m in Sources */,
 				84DB36D2198FDE17006029A8 /* KIARegisterMapping.m in Sources */,
 				84DB36C3198FDE17006029A8 /* KIAUpdater.m in Sources */,
+				84F004BC199E34BA002F1FED /* KIASearchRecipiesTableViewCell.m in Sources */,
 				84DB36C9198FDE17006029A8 /* KIAItem.m in Sources */,
+				84F004B9199E348F002F1FED /* KIASearchRecipiesCollectionVeiwCell.m in Sources */,
 				84DB36CF198FDE17006029A8 /* KIALogoutMapping.m in Sources */,
 				84DB36C8198FDE17006029A8 /* KIAItem+Mapping.m in Sources */,
 				84DB36D7198FDE17006029A8 /* KIASendCheckMapping.m in Sources */,
@@ -2441,8 +2718,12 @@
 				84DB36C6198FDE17006029A8 /* KIAServerGateway+getItemOfCategory.m in Sources */,
 				84DB36C1198FDE17006029A8 /* KIAAddItemMapping.m in Sources */,
 				84DB36C4198FDE17006029A8 /* KIAServerGateway+Forgot.m in Sources */,
+				84F0209019A74F8A00CF61FE /* KIARadioButtonTableViewCell.m in Sources */,
 				84DB36ED198FDE17006029A8 /* KIATabBarViewController.m in Sources */,
 				84DB36D1198FDE17006029A8 /* KIAAutorization.m in Sources */,
+				84F440B119A1F9EA0050D56C /* KIASelectItemsViewController.m in Sources */,
+				84941CBE19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.m in Sources */,
+				84941CC219B5C52D00E2D690 /* KIAYamlyMapping.m in Sources */,
 				84CB837A1991345400EC34A3 /* KIAUsersFromHouseholdViewController.m in Sources */,
 				84DB36E2198FDE17006029A8 /* KIAForgotViewController.m in Sources */,
 				84DB36E6198FDE17006029A8 /* KIARegisterViewController.m in Sources */,
@@ -2451,6 +2732,7 @@
 				84DB36C0198FDE17006029A8 /* KIAServerGateway+Add.m in Sources */,
 				84DB36CC198FDE17006029A8 /* KIACredentials.m in Sources */,
 				84DB36D3198FDE17006029A8 /* KIAServerGateway+Search.m in Sources */,
+				84941CC919B8615100E2D690 /* KIAButtonTableViewCell.m in Sources */,
 				84DB36CA198FDE17006029A8 /* KIAServerGateway.m in Sources */,
 				84DB36E3198FDE17006029A8 /* KIAHistoryViewController.m in Sources */,
 				84DB36E5198FDE17006029A8 /* KIALoginViewController.m in Sources */,
@@ -2458,6 +2740,8 @@
 				84DB36DF198FDE17006029A8 /* KIALoaderView.m in Sources */,
 				84CB837E1992189500EC34A3 /* KIAMealSettingsTableViewCell.m in Sources */,
 				84DB36E7198FDE17006029A8 /* KIASettingViewController.m in Sources */,
+				84F297C919A64FDE00D9FEBA /* KIACheckBoxTableViewCell.m in Sources */,
+				84EBCB2619AD279F00D97C21 /* KIARecipeInstructionsViewController.m in Sources */,
 				84CB837219910C0F00EC34A3 /* KIACreateMealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

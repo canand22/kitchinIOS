@@ -67,7 +67,8 @@
                                                   categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
                                                    shortName:nil
                                                        count:1
-                                                       value:nil];
+                                                       value:nil
+                                                      yummly:nil];
     
         [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }

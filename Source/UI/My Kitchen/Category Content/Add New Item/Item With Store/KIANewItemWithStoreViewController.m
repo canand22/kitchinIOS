@@ -81,7 +81,8 @@
                                                   categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
                                                    shortName:[_itemText text]
                                                        count:1
-                                                       value:nil];
+                                                       value:nil
+                                                      yummly:nil];
     }
 }
 

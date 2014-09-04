@@ -1,0 +1,294 @@
+//
+//  KIASearchRecipiesViewController.m
+//  KitchInApp
+//
+//  Created by DeMoN on 8/13/14.
+//  Copyright (c) 2014 NIX. All rights reserved.
+//
+
+#import "KIASearchRecipiesViewController.h"
+
+#import "KIAServerGateway.h"
+#import "KIARecipiesMapping.h"
+
+#import "KIASearchRecipiesCollectionVeiwCell.h"
+#import "KIASearchRecipiesTableViewCell.h"
+
+#import "KIAViewRecipiesViewController.h"
+
+#import "KIACacheManager.h"
+#import "KIAUpdater.h"
+
+#define BUTTON_ACTIVE   @"button_filter_active.png"
+#define BUTTON_INACTIVE @"button_filter.png"
+
+@interface KIASearchRecipiesViewController ()
+
+@end
+
+@implementation KIASearchRecipiesViewController
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    if (self)
+    {
+        // Custom initialization
+        _searchGateway = [KIAServerGateway gateway];
+        
+        _sortOptions = @[@"Missing ingredients", @"Rating"];
+        _countRecipiesArray = [[NSMutableArray alloc] init];
+    }
+    
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // Do any additional setup after loading the view.
+    [_searchGateway sendSearchRecipiesForItem:_itemForQuery delegate:self];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)back:(id)sender
+{
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+- (void)showData:(NSArray *)itemArray
+{
+    _recipiesArray = itemArray;
+    
+    for (int i = 0; i < [_recipiesArray count]; i++)
+    {
+        [_countRecipiesArray addObject:[NSNumber numberWithInteger:[[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[[_recipiesArray objectAtIndex:i] Ingredients]]]];
+    }
+    
+    [self sortForMissingIngredients];
+    
+    [_collection reloadData];
+    [_table reloadData];
+}
+
+- (IBAction)showCollectionView:(id)sender
+{
+    [_collectionView setHidden:NO];
+    [_tableView setHidden:YES];
+    
+    [_showCollection setBackgroundImage:[UIImage imageNamed:BUTTON_ACTIVE] forState:UIControlStateNormal];
+    [_showCollection setBackgroundImage:[UIImage imageNamed:BUTTON_ACTIVE] forState:UIControlStateHighlighted];
+    [_showTable setBackgroundImage:[UIImage imageNamed:BUTTON_INACTIVE] forState:UIControlStateNormal];
+    [_showTable setBackgroundImage:[UIImage imageNamed:BUTTON_INACTIVE] forState:UIControlStateHighlighted];
+}
+
+- (IBAction)showTableView:(id)sender
+{
+    [_collectionView setHidden:YES];
+    [_tableView setHidden:NO];
+    
+    [_showCollection setBackgroundImage:[UIImage imageNamed:BUTTON_INACTIVE] forState:UIControlStateNormal];
+    [_showCollection setBackgroundImage:[UIImage imageNamed:BUTTON_INACTIVE] forState:UIControlStateHighlighted];
+    [_showTable setBackgroundImage:[UIImage imageNamed:BUTTON_ACTIVE] forState:UIControlStateNormal];
+    [_showTable setBackgroundImage:[UIImage imageNamed:BUTTON_ACTIVE] forState:UIControlStateHighlighted];
+}
+
+- (IBAction)sortOptionsAction:(id)sender
+{
+    [_pickerSort setHidden:![_pickerSort isHidden]];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+    {
+        [_pickerFonSort setHidden:![_pickerFonSort isHidden]];
+        [_pickerIndicatorSort setHidden:![_pickerIndicatorSort isHidden]];
+    }
+}
+
+#pragma mark ***** sort metod *****
+
+- (void)sortForMissingIngredients
+{
+    // NSPredicate *predicate = [NSPredicate predicateWithFormat:@""];
+}
+
+- (void)sortForRating
+{
+    // NSPredicate *predicate = [NSPredicate predicateWithFormat:@""];
+}
+
+#pragma mark ***** picker controller *****
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [_sortOptions count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [_sortOptions objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    [_sortButton setTitle:[_sortOptions objectAtIndex:row] forState:UIControlStateNormal];
+            
+    [_pickerSort setHidden:![_pickerSort isHidden]];
+            
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+    {
+        [_pickerFonSort setHidden:![_pickerFonSort isHidden]];
+        [_pickerIndicatorSort setHidden:![_pickerIndicatorSort isHidden]];
+    }
+    
+    switch (row)
+    {
+        case 0:
+            [self sortForMissingIngredients];
+            break;
+        case 1:
+            [self sortForRating];
+            break;
+        default:
+            [self sortForMissingIngredients];
+            break;
+    }
+}
+
+#pragma mark ***** collection view *****
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [_recipiesArray count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    KIASearchRecipiesCollectionVeiwCell *cell = (KIASearchRecipiesCollectionVeiwCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    KIARecipiesMapping *item = [_recipiesArray objectAtIndex:[indexPath row]];
+    NSURL *url = [NSURL URLWithString:[[item PhotoUrl] objectAtIndex:0]];
+    
+    if ([[KIACacheManager sharedCacheManager] checkImageForCacheWithIdentifier:[item ResipiesID]])
+    {
+        [[cell image] setImage:[[KIACacheManager sharedCacheManager] fetchCacheImageForIdentifier:[item ResipiesID]]];
+    }
+    else
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
+        {
+            NSData *temp = [NSData dataWithContentsOfURL:url];
+        
+            [[KIACacheManager sharedCacheManager] saveCacheImage:[UIImage imageWithData:temp] forIdentifier:[item ResipiesID]];
+        
+            dispatch_async(dispatch_get_main_queue(), ^
+            {
+                [[cell image] setImage:[UIImage imageWithData:temp]];
+            });
+        });
+    }
+        
+    [[cell title] setText:[item Title]];
+    
+    [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[item Ingredients] count]]];
+    [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
+    [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d-star.png", [item Rating]]]];
+    [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %d min", [item TotalTime] / 3600, [item TotalTime] / 60] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    _selectedItem = [indexPath row];
+    
+    [self performSegueWithIdentifier:@"viewRecipeIdentifier" sender:self];
+}
+
+#pragma mark ***** table view *****
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_recipiesArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    KIASearchRecipiesTableViewCell *cell = (KIASearchRecipiesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    KIARecipiesMapping *item = [_recipiesArray objectAtIndex:[indexPath row]];
+    NSURL *url = [NSURL URLWithString:[[item PhotoUrl] objectAtIndex:0]];
+    
+    if ([[KIACacheManager sharedCacheManager] checkImageForCacheWithIdentifier:[item ResipiesID]])
+    {
+        [[cell image] setImage:[[KIACacheManager sharedCacheManager] fetchCacheImageForIdentifier:[item ResipiesID]]];
+    }
+    else
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
+        {
+            NSData *temp = [NSData dataWithContentsOfURL:url];
+                           
+            [[KIACacheManager sharedCacheManager] saveCacheImage:[UIImage imageWithData:temp] forIdentifier:[item ResipiesID]];
+                           
+            dispatch_async(dispatch_get_main_queue(), ^
+            {
+                [[cell image] setImage:[UIImage imageWithData:temp]];
+            });
+        });
+    }
+    
+    [[cell title] setText:[item Title]];
+    
+    [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[item Ingredients] count]]];
+    [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
+    [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d-star.png", [item Rating]]]];
+    [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %d min", [item TotalTime] / 3600, [item TotalTime] / 60] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _selectedItem = [indexPath row];
+    
+    [self performSegueWithIdentifier:@"viewRecipeIdentifier" sender:self];
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"viewRecipeIdentifier"])
+    {
+        KIAViewRecipiesViewController *viewController = (KIAViewRecipiesViewController *)[segue destinationViewController];
+        [viewController setRecipiesIdentification:[[_recipiesArray objectAtIndex:_selectedItem] ResipiesID]];
+    }
+}
+
+@end

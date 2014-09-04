@@ -85,19 +85,32 @@
     
     [[cell itemName] setText:[temp name]];
     
-    [cell setDelegate:self];
-    [[cell removeButton] setTag:[indexPath row] + CELL_TAG];
-    
     return cell;
+}
+
+// Override to support conditional editing of the table view.
+// This only needs to be implemented if you are going to be returning NO
+// for some items. By default, all items are editable.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [self deleteItemFromIndex:[indexPath row]];
+    }
 }
 
 - (void)deleteItemFromIndex:(NSInteger)index
 {
-    [[KIAUpdater sharedUpdater] removeItem:[_categoryItems objectAtIndex:index - CELL_TAG]];
+    [[KIAUpdater sharedUpdater] removeItem:[_categoryItems objectAtIndex:index]];
     
     [self reloadDataFromTable];
-    
-    [_table reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

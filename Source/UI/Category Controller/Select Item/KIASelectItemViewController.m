@@ -9,6 +9,7 @@
 #import "KIASelectItemViewController.h"
 
 #import "KIAEditRecognizeItemsViewController.h"
+#import "KIATabBarViewController.h"
 
 #import "KIASendCheckMapping.h"
 #import "KIAItem.h"
@@ -74,25 +75,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KIAEditRecognizeItemsViewController *editVC = (KIAEditRecognizeItemsViewController *)[[self presentingViewController] presentingViewController];
+    UIViewController *editVC = [[self presentingViewController] presentingViewController];
     
-    for (int i = 0; i < [[editVC itemArray] count]; i++)
+    if ([editVC isKindOfClass:[KIAEditRecognizeItemsViewController class]])
     {
-        if (![(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] IsSuccessMatching])
+        for (int i = 0; i < [[(KIAEditRecognizeItemsViewController *)editVC itemArray] count]; i++)
         {
-            KIAItem *temp = [_categoryItems objectAtIndex:[indexPath row]];
+            if (![(KIASendCheckMapping *)[[(KIAEditRecognizeItemsViewController *)editVC itemArray] objectAtIndex:i] IsSuccessMatching])
+            {
+                KIAItem *temp = [_categoryItems objectAtIndex:[indexPath row]];
             
-            [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setId:[temp idItem].integerValue];
-            [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemName:[temp name]];
-            [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setCategory:_categoryName];
-            [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemShortName:[temp reduction]];
-            [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setIsSuccessMatching:YES];
+                [(KIASendCheckMapping *)[[(KIAEditRecognizeItemsViewController *)editVC itemArray] objectAtIndex:i] setId:[temp idItem].integerValue];
+                [(KIASendCheckMapping *)[[(KIAEditRecognizeItemsViewController *)editVC itemArray] objectAtIndex:i] setItemName:[temp name]];
+                [(KIASendCheckMapping *)[[(KIAEditRecognizeItemsViewController *)editVC itemArray] objectAtIndex:i] setCategory:_categoryName];
+                [(KIASendCheckMapping *)[[(KIAEditRecognizeItemsViewController *)editVC itemArray] objectAtIndex:i] setItemShortName:[temp reduction]];
+                [(KIASendCheckMapping *)[[(KIAEditRecognizeItemsViewController *)editVC itemArray] objectAtIndex:i] setIsSuccessMatching:YES];
             
-            break;
+                break;
+            }
         }
+    
+        [editVC dismissViewControllerAnimated:YES completion:nil];
     }
     
-    [editVC dismissViewControllerAnimated:YES completion:nil];
+    if ([editVC isKindOfClass:[KIATabBarViewController class]])
+    {
+        NSLog(@"aeglkiowrg");
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

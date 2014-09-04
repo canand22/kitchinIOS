@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface KIAFavoriteViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+{
+    NSMutableArray *_favoriteRecipe;
+    
+    NSInteger _selectedItem;
+}
+
+@property(nonatomic, strong) IBOutlet UITableView *table;
 
 @end

@@ -170,7 +170,8 @@
                                                       categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
                                                        shortName:[item itemShortName]
                                                            count:0
-                                                           value:@""];
+                                                           value:@""
+                                                          yummly:[item yummlyName]];
     
             [self dismissViewControllerAnimated:YES completion:nil];
         }

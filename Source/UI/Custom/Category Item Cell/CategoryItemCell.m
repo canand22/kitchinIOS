@@ -22,11 +22,6 @@
     return self;
 }
 
-- (IBAction)deleteItem:(id)sender
-{
-    [_delegate deleteItemFromIndex:[sender tag]];
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

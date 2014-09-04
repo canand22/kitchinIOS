@@ -10,6 +10,7 @@
 
 #import "KIAAddItemViewController.h"
 #import "KIASelectItemViewController.h"
+#import "KIASelectItemsViewController.h"
 
 #import "MyKitchInCell.h"
 
@@ -39,6 +40,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -96,10 +98,29 @@
         
         [self performSegueWithIdentifier:@"SelectItemVC" sender:self];
     }
+    
+    if (_mode == selectItems)
+    {
+        _categoryName = [_categoriesArray objectAtIndex:[indexPath row]];
+        
+        [self performSegueWithIdentifier:@"SelectItemsVC" sender:self];
+    }
+}
+
+- (void)itemChecked:(NSArray *)items
+{
+    [_selectedItems addObjectsFromArray:items];
+    
+    _selectedItems = [[[NSSet setWithArray:_selectedItems] allObjects] mutableCopy];
 }
 
 - (IBAction)back:(id)sender
 {
+    if (_mode == selectItems)
+    {
+        // TODO:
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -116,6 +137,14 @@
         KIASelectItemViewController *categoryContent = (KIASelectItemViewController *)[segue destinationViewController];
         
         [categoryContent setCategoryName:_categoryName];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SelectItemsVC"])
+    {
+        KIASelectItemsViewController *categoryContent = (KIASelectItemsViewController *)[segue destinationViewController];
+        
+        [categoryContent setCategoryName:_categoryName];
+        [categoryContent setDelegate:self];
     }
 }
 

@@ -17,6 +17,7 @@
     BOOL _isSuccessMatching;
     NSString *_itemName;
     NSString *_itemShortName;
+    NSString *_yummlyName;
 }
 
 @property(nonatomic, strong) NSString *category;
@@ -24,6 +25,7 @@
 @property(nonatomic, assign) BOOL isSuccessMatching;
 @property(nonatomic, strong) NSString *itemName;
 @property(nonatomic, strong) NSString *itemShortName;
+@property(nonatomic, strong) NSString *yummlyName;
 
 + (RKObjectMapping *)mapping;
 

@@ -10,14 +10,16 @@
 
 #import "RKObjectMapping.h"
 
+#import "KIARecipiesMapping.h"
+
 @implementation KIASearchRecipiesMapping
 
 + (RKObjectMapping *)mapping
 {
     // create mapping
-    RKObjectMapping *searchRecipiesMapping = [RKObjectMapping mappingForClass:[KIASearchRecipiesMapping class]];
+    RKObjectMapping *searchRecipiesMapping = [RKObjectMapping mappingForClass:[KIARecipiesMapping class]];
     
-    [searchRecipiesMapping addAttributeMappingsFromDictionary:@{@"Id" : @"ResipiesID", @"Title" : @"Title", @"PhotoUrl" : @"PhotoUrl", @"TotalTime" : @"TotalTime", @"Kalories" : @"Kalories", @"Ingredients" : @"Ingredients"}];
+    [searchRecipiesMapping addAttributeMappingsFromDictionary:@{@"Id" : @"_resipiesID", @"Ingredients" : @"Ingredients", @"Kalories" : @"_kalories", @"PhotoUrl" : @"_photoUrl", @"Title" : @"_title", @"TotalTime" : @"_totalTime", @"Rating" : @"_rating"}];
     
     return searchRecipiesMapping;
 }

@@ -16,5 +16,6 @@
 @dynamic name;
 @dynamic reduction;
 @dynamic value;
+@dynamic yummlyName;
 
 @end
