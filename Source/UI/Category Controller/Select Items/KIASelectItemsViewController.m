@@ -96,7 +96,7 @@
     
         KIAItem *temp = [_categoryItems objectAtIndex:[indexPath row]];
         
-        [[cell textLabel] setText:[temp name]];
+        [[cell textLabel] setText:[temp yummlyName]];
     
         if ([(NSNumber *)[_categoryItemsCheck objectAtIndex:[indexPath row]] boolValue])
         {

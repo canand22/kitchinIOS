@@ -89,6 +89,8 @@
     {
         _autocompleteArray = [[KIAUpdater sharedUpdater] findItemForText:[[textField text] stringByAppendingString:string]];
         
+        _autocompleteArray = [[NSSet setWithArray:_autocompleteArray] allObjects];
+        
         [_autocompleteTable reloadData];
     }
     
@@ -212,8 +214,15 @@
     {
         KIASearchRecipiesViewController *viewController = (KIASearchRecipiesViewController *)[segue destinationViewController];
         
+        NSMutableArray *temp = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < [_ingredientArray count]; i++)
+        {
+            [temp addObject:[[_ingredientArray objectAtIndex:i] yummlyName]];
+        }
+        
         NSMutableArray *items = [[NSMutableArray alloc] init];
-        [items addObject:[_ingredientArray componentsJoinedByString:@","]];
+        [items addObject:[temp componentsJoinedByString:@","]];
         [items addObject:@""];
         [items addObject:@""];
         [items addObject:@""];
