@@ -15,5 +15,6 @@
 @optional
 - (void)showActionSheet:(NSInteger)numberOfCellRow;
 - (void)deleteItemFromIndex:(NSInteger)index;
+- (void)updateItemFromIndex:(NSInteger)index count:(CGFloat)count;
 
 @end

@@ -221,6 +221,19 @@
     return NO;
 }
 
+- (void)updateItemInfo:(KIAItem *)item
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSError *error = nil;
+    
+    // Save the object to persistent store
+    if (![context save:&error])
+    {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+}
+
 #pragma mark ***** user data *****
 
 - (void)addUserWithId:(NSInteger)idUser name:(NSString *)userName

@@ -26,6 +26,8 @@
 {
     [_countIngredient resignFirstResponder];
     
+    [_delegate updateItemFromIndex:[self tag] count:[_countIngredient text].floatValue];
+    
     return YES;
 }
 

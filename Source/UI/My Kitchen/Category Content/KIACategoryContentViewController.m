@@ -122,6 +122,13 @@
     [self reloadDataFromTable];
 }
 
+- (void)updateItemFromIndex:(NSInteger)index count:(CGFloat)count
+{
+    KIAItem *temp = [_categoryItems objectAtIndex:index];
+    [temp setCount:[NSNumber numberWithDouble:count]];
+    [[KIAUpdater sharedUpdater] updateItemInfo:temp];
+}
+
 #pragma mark ***** picker view *****
 
 - (void)showPickerView:(NSInteger)numberOfCellRow
@@ -169,6 +176,10 @@
     CategoryItemCell *cell = (CategoryItemCell *)[_table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[pickerView tag] - CELL_TAG inSection:0]];
     
     [[(CategoryItemCell *)cell valueBtn] setTitle:[_unitReductionArray objectAtIndex:row] forState:UIControlStateNormal];
+    
+    KIAItem *temp = [_categoryItems objectAtIndex:[pickerView tag] - CELL_TAG];
+    [temp setValue:[_unitReductionArray objectAtIndex:row]];
+    [[KIAUpdater sharedUpdater] updateItemInfo:temp];
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.5f];

@@ -28,6 +28,7 @@
 - (void)removeItem:(KIAItem *)item;
 - (NSInteger)howMuchIsMissingIngredient:(NSArray *)ingredientArray;
 - (BOOL)whetherThereIsAnIngredient:(NSString *)yummlyName;
+- (void)updateItemInfo:(KIAItem *)item;
 
 // metods for user data work
 - (void)addUserWithId:(NSInteger)idUser name:(NSString *)userName;

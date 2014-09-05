@@ -11,7 +11,7 @@
 
 @interface KIAItem : NSManagedObject
 
-@property(nonatomic, strong) NSNumber *count;
+@property(nonatomic, strong) NSNuamber *count;
 @property(nonatomic, strong) NSNumber *idCategory;
 @property(nonatomic, strong) NSNumber *idItem;
 @property(nonatomic, strong) NSString *name;
