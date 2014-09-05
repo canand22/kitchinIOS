@@ -32,6 +32,12 @@
 
 @property(nonatomic, strong) id<logoutProtocol> logoutGateway;
 
+@property(nonatomic, strong) IBOutlet UIButton *loginBtn;
+@property(nonatomic, strong) IBOutlet UIButton *logoutBtn;
+
+@property(nonatomic, strong) IBOutlet UITextField *firstName;
+@property(nonatomic, strong) IBOutlet UITextField *lastName;
+
 - (IBAction)back:(id)sender;
 
 - (IBAction)myAccount:(id)sender;

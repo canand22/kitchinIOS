@@ -58,6 +58,25 @@
     [_table reloadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"])
+    {
+        [_loginBtn setEnabled:NO];
+        [_logoutBtn setEnabled:YES];
+        
+        [_firstName setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"]];
+        [_lastName setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]];
+    }
+    else
+    {
+        [_loginBtn setEnabled:YES];
+        [_logoutBtn setEnabled:NO];
+    }
+}
+
 - (IBAction)back:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -192,6 +211,17 @@
 
 - (void)loginSuccess:(BOOL)success
 {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"])
+    {
+        [_loginBtn setEnabled:NO];
+        [_logoutBtn setEnabled:YES];
+    }
+    else
+    {
+        [_loginBtn setEnabled:YES];
+        [_logoutBtn setEnabled:NO];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

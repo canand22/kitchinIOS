@@ -78,6 +78,9 @@
                                     {
                                         if ([[result objectAtIndex:0] IsUserRegistered])
                                         {
+                                            [[NSUserDefaults standardUserDefaults] setObject:firstName forKey:@"firstName"];
+                                            [[NSUserDefaults standardUserDefaults] setObject:lastName forKey:@"lastName"];
+                                            [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"email"];
                                             [[NSUserDefaults standardUserDefaults] setObject:[[result objectAtIndex:0] SessionId] forKey:@"sessionId"];
                                             [[NSUserDefaults standardUserDefaults] synchronize];
                                             

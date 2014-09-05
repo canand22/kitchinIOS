@@ -79,6 +79,7 @@
                                         {
                                             [[NSUserDefaults standardUserDefaults] setObject:[[result objectAtIndex:0] firstName] forKey:@"firstName"];
                                             [[NSUserDefaults standardUserDefaults] setObject:[[result objectAtIndex:0] lastName] forKey:@"lastName"];
+                                            [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"email"];
                                             [[NSUserDefaults standardUserDefaults] setObject:[[result objectAtIndex:0] SessionId] forKey:@"sessionId"];
                                             [[NSUserDefaults standardUserDefaults] synchronize];
                                          

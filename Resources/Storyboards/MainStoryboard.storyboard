@@ -2936,14 +2936,22 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="376"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="textfield.png" id="eH2-pW-aDY">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield.png" id="fim-OD-dt6">
                                         <rect key="frame" x="125" y="32" width="170" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="eH2-pW-aDY">
+                                        <rect key="frame" x="130" y="32" width="160" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="textfield.png" id="VcF-Ac-7wq">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield.png" id="fSn-La-3gR">
                                         <rect key="frame" x="125" y="62" width="170" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="VcF-Ac-7wq">
+                                        <rect key="frame" x="130" y="62" width="160" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -3308,6 +3316,10 @@
                     </view>
                     <connections>
                         <outlet property="facebookImage" destination="PUC-XQ-S3r" id="DXd-Wz-exv"/>
+                        <outlet property="firstName" destination="eH2-pW-aDY" id="ao6-lL-71p"/>
+                        <outlet property="lastName" destination="VcF-Ac-7wq" id="9TZ-Ol-4lA"/>
+                        <outlet property="loginBtn" destination="uQG-RB-Fu2" id="HsD-mg-oEF"/>
+                        <outlet property="logoutBtn" destination="b4u-2E-7BP" id="yxO-z7-5WM"/>
                         <outlet property="printerestImage" destination="G5U-Fl-QiC" id="X69-Z6-t5d"/>
                         <outlet property="table" destination="3Na-3m-05O" id="gUO-oZ-gGq"/>
                         <outlet property="twitterImage" destination="RgZ-tL-rIW" id="xQu-TY-vCp"/>
