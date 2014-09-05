@@ -10,10 +10,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KIACategoryContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+#import "EditRecognizedItemCellDelegate.h"
+
+@interface KIACategoryContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, EditRecognizedItemCellDelegate>
 {
     NSArray *_categoryItems;
 }
+
+@property(nonatomic, strong) NSArray *unitArray;
+@property(nonatomic, strong) NSArray *unitReductionArray;
 
 @property(nonatomic, strong) NSString *categoryName;
 

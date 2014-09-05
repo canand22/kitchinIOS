@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoryItemCell : UITableViewCell
+#import "EditRecognizedItemCellDelegate.h"
+
+@interface CategoryItemCell : UITableViewCell<UITextFieldDelegate>
+
+@property(nonatomic, weak) id<EditRecognizedItemCellDelegate> delegate;
 
 @property(nonatomic, strong) IBOutlet UILabel *itemName;
+
+@property(nonatomic, strong) IBOutlet UITextField *countIngredient;
+@property(nonatomic, strong) IBOutlet UIButton *valueBtn;
+
+- (IBAction)unitAction:(id)sender;
 
 @end

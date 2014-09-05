@@ -22,6 +22,18 @@
     return self;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [_countIngredient resignFirstResponder];
+    
+    return YES;
+}
+
+- (IBAction)unitAction:(id)sender
+{
+    [_delegate showPickerView:[self tag]];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

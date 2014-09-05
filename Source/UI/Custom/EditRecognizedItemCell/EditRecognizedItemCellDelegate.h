@@ -10,8 +10,10 @@
 
 @protocol EditRecognizedItemCellDelegate<NSObject>
 
-- (void)showActionSheet:(NSInteger)numberOfCellRow;
 - (void)showPickerView:(NSInteger)numberOfCellRow;
+
+@optional
+- (void)showActionSheet:(NSInteger)numberOfCellRow;
 - (void)deleteItemFromIndex:(NSInteger)index;
 
 @end

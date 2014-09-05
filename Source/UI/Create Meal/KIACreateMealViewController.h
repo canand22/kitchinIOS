@@ -22,6 +22,8 @@
     NSMutableArray *_cookWithout;
 }
 
+@property(nonatomic, strong) IBOutlet UIScrollView *scroll;
+
 @property(nonatomic, strong) IBOutlet UIButton *mealButton;
 @property(nonatomic, strong) IBOutlet UIButton *dishTypeButton;
 @property(nonatomic, strong) IBOutlet UIButton *cookWithButton;

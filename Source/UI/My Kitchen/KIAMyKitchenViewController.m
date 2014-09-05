@@ -15,6 +15,8 @@
 
 #import "MyKitchInCell.h"
 
+#define CELL_TAG 100
+
 @interface KIAMyKitchenViewController ()
 
 @end

@@ -315,7 +315,7 @@
 - (void)secondTagsReloadFrameWithHeight:(CGFloat)height
 {
     CGRect frame = [_ingredientWithTagFoneView frame];
-    frame.origin.y = [_userTagFoneView frame].origin.y + height + 120;
+    frame.origin.y = [_firstSectionView frame].origin.y + [_firstSectionView frame].size.height + 5;
     [_ingredientWithTagFoneView setFrame:frame];
     
     frame = [_secondSectionView frame];
@@ -332,6 +332,8 @@
     CGRect frame = [_ingredientWithoutTagFoneView frame];
     frame.origin.y = [_secondSectionView frame].origin.y + [_secondSectionView frame].size.height + 5;
     [_ingredientWithoutTagFoneView setFrame:frame];
+    
+    [_scroll setContentSize:CGSizeMake(320, [_ingredientWithoutTagFoneView frame].origin.y + [_ingredientWithoutTagFoneView frame].size.height + 10)];
 }
 
 #pragma mark *****

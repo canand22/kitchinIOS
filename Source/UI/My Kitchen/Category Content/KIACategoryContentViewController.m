@@ -32,6 +32,8 @@
     if (self)
     {
         // Custom initialization
+        _unitArray = @[@"teaspoon", @"tablespoon", @"fluid ounce", @"cups", @"pint", @"quart", @"gallon", @"milliliter", @"liter, litre", @"deciliter", @"pound", @"ounce", @"mcg", @"milligram", @"gram", @"kilogram"];
+        _unitReductionArray = @[@"tsp", @"tbsp", @"fl oz", @"cup(s)", @"pt", @"qt", @"gal", @"ml", @"l", @"dl", @"lb", @"oz", @"μg", @"mg", @"g", @"kg"];
     }
     
     return self;
@@ -85,6 +87,13 @@
     
     [[cell itemName] setText:[temp name]];
     
+    [[cell countIngredient] setText:[NSString stringWithFormat:@"%@", [temp count]]];
+    [[cell valueBtn] setTitle:[temp value] forState:UIControlStateNormal];
+    [[cell valueBtn] setTag:[indexPath row] + CELL_TAG];
+    
+    [cell setDelegate:self];
+    [cell setTag:[indexPath row] + CELL_TAG];
+    
     return cell;
 }
 
@@ -112,6 +121,69 @@
     
     [self reloadDataFromTable];
 }
+
+#pragma mark ***** picker view *****
+
+- (void)showPickerView:(NSInteger)numberOfCellRow
+{
+    UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, [[self view] frame].size.height, 320, 162)];
+    [picker setShowsSelectionIndicator:YES];
+    [picker setDataSource:self];
+    [picker setDelegate:self];
+    [picker setTag:numberOfCellRow];
+    [[self view] addSubview:picker];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.5f];
+    
+    CGRect frame = [_table frame];
+    frame.size.height = [[self view] frame].size.height - [picker frame].size.height - 250;
+    [picker setFrame:CGRectMake(0, [[self view] frame].size.height - 210, 320, 162)];
+    [_table setFrame:frame];
+    
+    [UIView commitAnimations];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [_unitArray count];
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
+{
+    return 30.0f;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [_unitArray objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    CategoryItemCell *cell = (CategoryItemCell *)[_table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[pickerView tag] - CELL_TAG inSection:0]];
+    
+    [[(CategoryItemCell *)cell valueBtn] setTitle:[_unitReductionArray objectAtIndex:row] forState:UIControlStateNormal];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.5f];
+    
+    CGRect frame = [_table frame];
+    frame.size.height += [pickerView frame].size.height;
+    [pickerView setFrame:CGRectMake(0, [[self view] frame].size.height, 320, 162)];
+    [_table setFrame:frame];
+    
+    [UIView commitAnimations];
+    
+    [pickerView performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:.5f];
+}
+
+#pragma mark *****
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

@@ -1994,6 +1994,7 @@
                         <outlet property="pickerIndicatorDishType" destination="1bq-Ym-wQW" id="1TZ-sg-bNR"/>
                         <outlet property="pickerIndicatorMeal" destination="e3t-8L-XVG" id="CwT-al-wYB"/>
                         <outlet property="pickerMeal" destination="kwa-Rf-LgC" id="iT4-mw-Exp"/>
+                        <outlet property="scroll" destination="elx-ba-bdu" id="cOw-rT-h8N"/>
                         <outlet property="searchResipiesButton" destination="8Bn-tg-nzn" id="KjY-68-dlq"/>
                         <outlet property="secondSectionView" destination="JxE-XM-Apz" id="GNR-Ji-ZzZ"/>
                         <outlet property="userTagFoneView" destination="N3g-E6-HCE" id="fbk-lJ-oVy"/>
@@ -3949,15 +3950,12 @@
                                                     <rect key="frame" x="110" y="29" width="200" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="button_quality_right.png">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xcF-3V-Jou">
-                                                    <rect key="frame" x="10" y="29" width="100" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="button_quality_left_active.png">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <connections>
+                                                        <action selector="unitAction:" destination="cy3-kr-F0e" eventType="touchUpInside" id="5Hc-Ba-np1"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orange" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hca-4h-xOm">
                                                     <rect key="frame" x="10" y="4" width="300" height="21"/>
@@ -3966,10 +3964,21 @@
                                                     <color key="textColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="button_quality_left_active.png" id="HyR-F5-Csd">
+                                                    <rect key="frame" x="10" y="29" width="100" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="cy3-kr-F0e" id="zhI-VC-OnX"/>
+                                                    </connections>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="countIngredient" destination="HyR-F5-Csd" id="h30-xN-Cmg"/>
                                             <outlet property="itemName" destination="hca-4h-xOm" id="DNR-jG-aDk"/>
+                                            <outlet property="valueBtn" destination="ICa-fC-SM7" id="03m-dL-8xe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
