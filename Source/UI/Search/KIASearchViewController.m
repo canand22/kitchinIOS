@@ -234,6 +234,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         [_ingredientArray removeObjectAtIndex:[indexPath row]];
+        
+        [_ingreditntsTable reloadData];
     }
 }
 
