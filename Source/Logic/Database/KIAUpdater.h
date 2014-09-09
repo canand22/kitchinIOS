@@ -29,6 +29,7 @@
 - (NSInteger)howMuchIsMissingIngredient:(NSArray *)ingredientArray;
 - (BOOL)whetherThereIsAnIngredient:(NSString *)yummlyName;
 - (void)updateItemInfo:(KIAItem *)item;
+- (NSArray *)getAllItems;
 
 // metods for user data work
 - (void)addUserWithId:(NSInteger)idUser name:(NSString *)userName;

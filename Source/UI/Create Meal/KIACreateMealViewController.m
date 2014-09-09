@@ -14,6 +14,10 @@
 
 #import "KIASearchDefines.h"
 
+#import "KIAUpdater.h"
+
+#import "KIATabBarViewController.h"
+
 @interface KIACreateMealViewController ()
 
 @end
@@ -104,6 +108,57 @@
     [_userTagFoneView setFrame:frame];
     
     [self firstTagsReloadFrameWithHeight:[_userTagView fittedSize].height];
+}
+
+- (IBAction)cookWithAction:(id)sender
+{
+    if ([[[KIAUpdater sharedUpdater] getAllItems] count] > 0)
+    {
+        [self performSegueWithIdentifier:@"categoryItemCookWith" sender:self];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"There are no ingredients in your KitchIn!"
+                                                        message:@"Would you like to add ingredients to your KitchIn now?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"OK", nil];
+        
+        [alert show];
+    }
+}
+
+- (IBAction)cookWithoutAction:(id)sender
+{
+    if ([[[KIAUpdater sharedUpdater] getAllItems] count] > 0)
+    {
+        [self performSegueWithIdentifier:@"categoryItemCookWithout" sender:self];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"There are no ingredients in your KitchIn!"
+                                                        message:@"Would you like to add ingredients to your KitchIn now?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"OK", nil];
+        
+        [alert show];
+    }
+}
+
+#pragma mark ***** alert view *****
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self tabBarController];
+        
+        [tabBarVC setSelectedIndex:3];
+        [[[tabBarVC viewControllers] objectAtIndex:3] popToRootViewControllerAnimated:NO];
+        
+        [tabBarVC reloadButtonImageWithIndex:5];
+    }
 }
 
 #pragma mark ***** DWTagList delegate *****
@@ -256,7 +311,7 @@
         [viewController setDelegate:self];
         [viewController setCurrentUsers:_usersCooking];
     }
-    
+
     if ([[segue identifier] isEqualToString:@"categoryItemCookWithout"])
     {
         KIASelectCategoryViewController *viewController = (KIASelectCategoryViewController *)[segue destinationViewController];
@@ -270,7 +325,7 @@
         [viewController setMode:selectItems];
         [viewController setSelectedItems:_cookWith];
     }
-    
+        
     if ([[segue identifier] isEqualToString:@"SearchRecepies"])
     {
         KIASearchRecipiesViewController *viewController = (KIASearchRecipiesViewController *)[segue destinationViewController];

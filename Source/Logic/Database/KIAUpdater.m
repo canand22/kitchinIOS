@@ -234,6 +234,19 @@
     }
 }
 
+- (NSArray *)getAllItems
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSError  *error;
+    NSArray *items = [context executeFetchRequest:request error:&error];
+    
+    return items;
+}
+
 #pragma mark ***** user data *****
 
 - (void)addUserWithId:(NSInteger)idUser name:(NSString *)userName

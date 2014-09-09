@@ -1833,7 +1833,7 @@
                                                 </state>
                                                 <state key="highlighted" backgroundImage="button_course_active.png"/>
                                                 <connections>
-                                                    <segue destination="GkU-uc-cka" kind="modal" identifier="categoryItemCookWithout" id="Zyl-qW-Ksl"/>
+                                                    <action selector="cookWithoutAction:" destination="maB-8B-TuY" eventType="touchUpInside" id="wYT-NA-NcP"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1899,7 +1899,7 @@
                                                 </state>
                                                 <state key="highlighted" backgroundImage="button_course_active.png"/>
                                                 <connections>
-                                                    <segue destination="GkU-uc-cka" kind="modal" identifier="categoryItemCookWith" id="2ff-oU-GV5"/>
+                                                    <action selector="cookWithAction:" destination="maB-8B-TuY" eventType="touchUpInside" id="Qg4-t4-POo"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1999,6 +1999,8 @@
                         <outlet property="secondSectionView" destination="JxE-XM-Apz" id="GNR-Ji-ZzZ"/>
                         <outlet property="userTagFoneView" destination="N3g-E6-HCE" id="fbk-lJ-oVy"/>
                         <outlet property="userTagView" destination="CTm-42-Xx9" id="v9e-HX-NFQ"/>
+                        <segue destination="GkU-uc-cka" kind="modal" identifier="categoryItemCookWith" id="DvA-WN-8Vs"/>
+                        <segue destination="GkU-uc-cka" kind="modal" identifier="categoryItemCookWithout" id="7mK-VA-C4z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E6P-vc-S53" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4982,6 +4984,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="cYE-u7-Oty"/>
         <segue reference="bNs-Zq-nnk"/>
-        <segue reference="Zyl-qW-Ksl"/>
+        <segue reference="7mK-VA-C4z"/>
     </inferredMetricsTieBreakers>
 </document>

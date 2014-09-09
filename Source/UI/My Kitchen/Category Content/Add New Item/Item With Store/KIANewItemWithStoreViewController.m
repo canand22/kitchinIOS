@@ -66,6 +66,7 @@
                 [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemName:[_foodType text]];
                 [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setCategory:_categoryName];
                 [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemShortName:[_itemText text]];
+                [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setYummlyName:[_foodType text]];
                 [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setIsSuccessMatching:YES];
                 
                 break;
@@ -82,7 +83,7 @@
                                                    shortName:[_itemText text]
                                                        count:1
                                                        value:nil
-                                                      yummly:nil];
+                                                      yummly:[_foodType text]];
     }
 }
 

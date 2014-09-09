@@ -12,7 +12,7 @@
 
 #import <DWTagList/DWTagList.h>
 
-@interface KIACreateMealViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, KIAUsersFromHouseholdProtocol, DWTagListDelegate, DWTagViewDelegate, UIScrollViewDelegate>
+@interface KIACreateMealViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, KIAUsersFromHouseholdProtocol, DWTagListDelegate, DWTagViewDelegate, UIScrollViewDelegate, UIAlertViewDelegate>
 {
     NSArray *_mealArray;
     NSArray *_dishTypeArray;

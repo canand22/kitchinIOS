@@ -52,6 +52,7 @@
                 [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemName:[_foodType text]];
                 [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setCategory:_categoryName];
                 [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemShortName:nil];
+                [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setYummlyName:[_foodType text]];
                 [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setIsSuccessMatching:YES];
                 
                 break;
@@ -68,7 +69,7 @@
                                                    shortName:nil
                                                        count:1
                                                        value:nil
-                                                      yummly:nil];
+                                                      yummly:[_foodType text]];
     
         [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }
