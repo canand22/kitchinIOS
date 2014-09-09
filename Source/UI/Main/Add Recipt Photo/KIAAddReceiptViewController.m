@@ -77,14 +77,14 @@
     [tabBarVC setSelectedIndex:0];
     [[[tabBarVC viewControllers] objectAtIndex:0] popToRootViewControllerAnimated:NO];
     
+    [tabBarVC reloadButtonImageWithIndex:3];
+    
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         KIACameraViewController *cameraViewController = (KIACameraViewController *)[storyboard instantiateViewControllerWithIdentifier:@"cameraViewViewController"];
-        [self presentViewController:cameraViewController animated:YES completion:nil];
+        [tabBarVC presentViewController:cameraViewController animated:YES completion:nil];
     }
-    
-    [tabBarVC reloadButtonImageWithIndex:3];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

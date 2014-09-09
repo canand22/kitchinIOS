@@ -15,6 +15,7 @@
 
 #import "KIAMealSettingsTableViewCell.h"
 #import "KIAMealSettingsViewController.h"
+#import "KIAFindIngrediensViewController.h"
 
 #import "KIAUpdater.h"
 #import "KIAUser.h"
@@ -46,7 +47,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
+    [_table endUpdates];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -67,7 +70,7 @@
         [_loginBtn setEnabled:NO];
         [_logoutBtn setEnabled:YES];
         
-        [_firstName setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"]];
+        [_firstName setText:[NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"], [[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"]]];
         [_lastName setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]];
     }
     else
@@ -225,7 +228,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark *****
 #pragma mark ***** table view *****
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -248,8 +250,29 @@
     [[cell nameField] setText:[[_users objectAtIndex:[indexPath row]] name]];
     [cell setIsActive:[[_users objectAtIndex:[indexPath row]] isActiveState].boolValue];
     [[cell dietaryRestrictionsBtn] setTitle:([[[_users objectAtIndex:[indexPath row]] dietaryRestrictions] count] > 0 ? [NSString stringWithFormat:@"%d", (int)[[[_users objectAtIndex:[indexPath row]] dietaryRestrictions] count]] : @"NONE") forState:UIControlStateNormal];
+    [cell setDislikeArray:[[_users objectAtIndex:[indexPath row]] dislikeIngredients]];
+    
+    if ([indexPath row] == 0)
+    {
+        [[cell removeBtn] setHidden:YES];
+    }
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[[_users objectAtIndex:[indexPath row]] dislikeIngredients] count] > 0)
+    {
+        DWTagList *temp = [[DWTagList alloc] initWithFrame:CGRectMake(0, 0, 274, 29)];
+        [temp setTags:[[_users objectAtIndex:[indexPath row]] dislikeIngredients]];
+        
+        CGFloat height = 145 + ([temp fittedSize].height + 6 < 35 ? 35 : [temp fittedSize].height + 6);
+        
+        return height;
+    }
+    
+    return 180;
 }
 
 - (void)updateObjectAtIndex:(NSInteger)index
@@ -286,6 +309,11 @@
     [[KIAUpdater sharedUpdater] updateUsersInfo:user];
 }
 
+- (void)updateTableForIndex:(NSInteger)index
+{
+    [_table reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 #pragma mark *****
 
 - (IBAction)addUserAction:(id)sender
@@ -306,15 +334,21 @@
  #pragma mark ***** Navigation *****
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"mealSettingSegue"])
     {
         KIAMealSettingsViewController *viewController = (KIAMealSettingsViewController *)[segue destinationViewController];
         [viewController setUser:[_users objectAtIndex:_index]];
     }
- }
+    
+    if ([[segue identifier] isEqualToString:@"dislikeIngredients"])
+    {
+        KIAFindIngrediensViewController *viewController = (KIAFindIngrediensViewController *)[segue destinationViewController];
+        [viewController setIngredients:[[_users objectAtIndex:_index] dislikeIngredients]];
+    }
+}
 
 @end

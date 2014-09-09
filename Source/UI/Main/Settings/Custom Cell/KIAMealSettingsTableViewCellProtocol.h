@@ -14,5 +14,6 @@
 - (void)removeObjectAtIndex:(NSInteger)index;
 - (void)dietaryRestrictionsAtIndex:(NSInteger)index;
 - (void)activeAtIndex:(NSInteger)index;
+- (void)updateTableForIndex:(NSInteger)index;
 
 @end

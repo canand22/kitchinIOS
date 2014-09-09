@@ -10,6 +10,8 @@
 
 #import "KIAServerGateway.h"
 
+#import "KIAUpdater.h"
+
 @interface KIARegisterViewController ()
 
 @end
@@ -153,6 +155,8 @@
 {
     if (success)
     {
+        [[KIAUpdater sharedUpdater] addUserWithId:0 name:[_firstName text]];
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                         message:@"Congratulations, you are registered. Enjoy your digital kitchen"
                                                        delegate:self

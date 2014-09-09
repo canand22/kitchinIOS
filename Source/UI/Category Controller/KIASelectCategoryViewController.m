@@ -109,9 +109,18 @@
 
 - (void)itemChecked:(NSArray *)items
 {
-    [_selectedItems addObjectsFromArray:items];
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    [temp addObjectsFromArray:items];
+    [temp addObjectsFromArray:_selectedItems];
     
-    _selectedItems = [[[NSSet setWithArray:_selectedItems] allObjects] mutableCopy];
+    temp = [[[NSSet setWithArray:temp] allObjects] mutableCopy];
+    
+    [_selectedItems removeAllObjects];
+    [_selectedItems addObjectsFromArray:temp];
+    
+    // [_selectedItems addObjectsFromArray:items];
+    
+    // _selectedItems = [[[NSSet setWithArray:_selectedItems] allObjects] mutableCopy];
 }
 
 - (IBAction)back:(id)sender

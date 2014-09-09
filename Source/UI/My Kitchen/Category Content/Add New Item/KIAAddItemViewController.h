@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "searchItemProtocol.h"
+#import "yamlyProtocol.h"
 #import "serverGatewayDelegate.h"
 
 @interface KIAAddItemViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, serverGatewayDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     id<searchItemProtocol> _searchItemGateway;
+    id<yamlyProtocol> _yummlySearchItemGateway;
     
     NSArray *_storeArray;
     
@@ -28,6 +30,7 @@
 }
 
 @property(nonatomic, strong) id<searchItemProtocol> searchItemGateway;
+@property(nonatomic, strong) id<yamlyProtocol> yummlySearchItemGateway;
 
 @property(nonatomic, strong) IBOutlet UIImageView *pickerFon;
 @property(nonatomic, strong) IBOutlet UIPickerView *picker;

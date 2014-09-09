@@ -35,6 +35,7 @@
     {
         // Custom initialization
         _searchItemGateway = [KIAServerGateway gateway];
+        _yummlySearchItemGateway = [KIAServerGateway gateway];
         
         _storeArray = @[@"Potash store", @"Other"];
         
@@ -79,20 +80,10 @@
         [_pickerIndicator setHidden:![_pickerIndicator isHidden]];
     }
     
-    if ([[_storeArray objectAtIndex:row] isEqualToString:@"Other"])
-    {
-        [_addNewItem setHidden:NO];
-        [_addKitchInItem setHidden:YES];
+    [_addKitchInItem setHidden:NO];
+    [_addNewItem setHidden:NO];
         
-        [_addNewItem setFrame:CGRectMake(0, 180, 320, 55)];
-    }
-    else
-    {
-        [_addKitchInItem setHidden:NO];
-        [_addNewItem setHidden:NO];
-        
-        [_addNewItem setFrame:CGRectMake(0, [[self view] frame].size.height - 55, 320, 55)];
-    }
+    [_addNewItem setFrame:CGRectMake(0, [[self view] frame].size.height - 55, 320, 55)];
 }
 
 #pragma mark *****
@@ -153,6 +144,7 @@
                     [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemName:[item itemName]];
                     [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setCategory:_categoryName];
                     [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setItemShortName:[item itemShortName]];
+                    [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setYummlyName:[item yummlyName]];
                     [(KIASendCheckMapping *)[[editVC itemArray] objectAtIndex:i] setIsSuccessMatching:YES];
                     
                     break;
@@ -169,7 +161,7 @@
                                                             name:[item itemName]
                                                       categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
                                                        shortName:[item itemShortName]
-                                                           count:0
+                                                           count:1
                                                            value:@""
                                                           yummly:[item yummlyName]];
     
@@ -191,7 +183,14 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    [_searchItemGateway searchItemWithText:[[textField text] stringByAppendingString:string] categoyId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName] storeId:1 delegate:self];
+    if ([[_selectStoreTextFild text] isEqualToString:@"Other"])
+    {
+        [_yummlySearchItemGateway searchWithString:[[textField text] stringByAppendingString:string] delegate:self];
+    }
+    else
+    {
+        [_searchItemGateway searchItemWithText:[[textField text] stringByAppendingString:string] categoyId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName] storeId:1 delegate:self];
+    }
     
     isBlock = YES;
     
@@ -223,14 +222,29 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     [[cell textLabel] setFont:[UIFont systemFontOfSize:12.0f]];
-    [[cell textLabel] setText:[[_itemArray objectAtIndex:[indexPath row]] itemName]];
+    
+    if ([[_selectStoreTextFild text] isEqualToString:@"Other"])
+    {
+        [[cell textLabel] setText:[[_itemArray objectAtIndex:[indexPath row]] yummlyName]];
+    }
+    else
+    {
+        [[cell textLabel] setText:[[_itemArray objectAtIndex:[indexPath row]] itemName]];
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [_itemTextField setText:[[_itemArray objectAtIndex:[indexPath row]] itemName]];
+    if ([[_selectStoreTextFild text] isEqualToString:@"Other"])
+    {
+        [_itemTextField setText:[[_itemArray objectAtIndex:[indexPath row]] yummlyName]];
+    }
+    else
+    {
+        [_itemTextField setText:[[_itemArray objectAtIndex:[indexPath row]] itemName]];
+    }
     
     indexOfItem = [indexPath row];
     

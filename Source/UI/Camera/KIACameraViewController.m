@@ -101,6 +101,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     KIACapturedReceiptViewController *capturedReceiptViewController = (KIACapturedReceiptViewController *)[storyboard instantiateViewControllerWithIdentifier:@"capturedReceipt"];
     [capturedReceiptViewController setPhoto:originalImage];
+    [capturedReceiptViewController setTitleText:@"Captured Receipt"];
     [self presentViewController:capturedReceiptViewController animated:YES completion:nil];
 }
 

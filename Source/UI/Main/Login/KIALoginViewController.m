@@ -12,6 +12,8 @@
 
 #import "KIAServerGateway.h"
 
+#import "KIAUpdater.h"
+
 @interface KIALoginViewController ()
 
 @end
@@ -126,6 +128,13 @@
 {
     if (success)
     {
+        NSArray *temp = [[KIAUpdater sharedUpdater] getAllUsers];
+        
+        if ([temp count] == 0)
+        {
+            [[KIAUpdater sharedUpdater] addUserWithId:0 name:[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"]];
+        }
+        
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     else

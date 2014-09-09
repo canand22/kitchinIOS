@@ -10,12 +10,15 @@
 
 @implementation KIAButtonTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
+    self = [super initWithCoder:aDecoder];
+    
+    if (self)
+    {
         // Initialization code
     }
+    
     return self;
 }
 

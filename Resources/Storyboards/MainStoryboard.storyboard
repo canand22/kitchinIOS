@@ -3176,8 +3176,8 @@
                                 <rect key="frame" x="0.0" y="84" width="320" height="484"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Houshold Meal Settings:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rb8-st-wyA">
-                                        <rect key="frame" x="20" y="4" width="192" height="24"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Household Meal Settings:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rb8-st-wyA">
+                                        <rect key="frame" x="20" y="4" width="200" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <color key="textColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -3216,11 +3216,11 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_field.png" id="RIg-Ld-QzR">
-                                                            <rect key="frame" x="111" y="7" width="180" height="30"/>
+                                                            <rect key="frame" x="98" y="7" width="180" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter name" minimumFontSize="17" id="0PZ-IC-xds">
-                                                            <rect key="frame" x="117" y="7" width="168" height="30"/>
+                                                            <rect key="frame" x="103" y="7" width="168" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -3238,18 +3238,8 @@
                                                                 <action selector="activeAction:" destination="IDW-fQ-b7f" eventType="touchUpInside" id="4RK-nQ-yXu"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_field.png" id="xzS-sO-Txd">
-                                                            <rect key="frame" x="148" y="69" width="160" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find ingredients" minimumFontSize="17" id="9zF-dL-be8">
-                                                            <rect key="frame" x="153" y="69" width="150" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KLn-y2-X7B">
-                                                            <rect key="frame" x="209" y="134" width="91" height="25"/>
+                                                            <rect key="frame" x="209" y="141" width="91" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                                             <state key="normal" title="NONE" backgroundImage="button_.png">
@@ -3261,13 +3251,13 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dietary Restrictions:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MEj-57-C5f">
-                                                            <rect key="frame" x="46" y="136" width="155" height="21"/>
+                                                            <rect key="frame" x="46" y="141" width="155" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W9E-5r-aSK">
-                                                            <rect key="frame" x="293" y="14" width="15" height="15"/>
+                                                            <rect key="frame" x="285" y="14" width="15" height="15"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" backgroundImage="remove_btn.png">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3276,12 +3266,44 @@
                                                                 <action selector="deleteAction:" destination="IDW-fQ-b7f" eventType="touchUpInside" id="bNL-In-G3a"/>
                                                             </connections>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9bo-Qb-6Pg">
+                                                            <rect key="frame" x="145" y="69" width="155" height="25"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <inset key="contentEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            <state key="normal" title="Find ingredients" backgroundImage="text_field.png">
+                                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="dislikeAction:" destination="IDW-fQ-b7f" eventType="touchUpInside" id="bGU-yU-YFb"/>
+                                                                <segue destination="L50-VH-aYZ" kind="modal" identifier="dislikeIngredients" id="fab-FX-vcg"/>
+                                                            </connections>
+                                                        </button>
+                                                        <view contentMode="scaleToFill" id="p20-IV-tjY">
+                                                            <rect key="frame" x="20" y="100" width="280" height="35"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="G2X-Ua-LSa" customClass="DWTagList">
+                                                                    <rect key="frame" x="3" y="3" width="274" height="29"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <connections>
+                                                                        <outlet property="delegate" destination="IDW-fQ-b7f" id="Xcw-7w-tNX"/>
+                                                                    </connections>
+                                                                </scrollView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <outlet property="activeBtn" destination="Wbe-7F-wUg" id="MGb-Zc-Rsn"/>
                                                     <outlet property="dietaryRestrictionsBtn" destination="KLn-y2-X7B" id="OpQ-90-iOf"/>
+                                                    <outlet property="dietaryRestrictionsLbl" destination="MEj-57-C5f" id="1Zd-vW-39c"/>
+                                                    <outlet property="dislikeList" destination="G2X-Ua-LSa" id="fHR-Oy-dR1"/>
+                                                    <outlet property="dislikeView" destination="p20-IV-tjY" id="Dpf-3b-KpX"/>
                                                     <outlet property="nameField" destination="0PZ-IC-xds" id="7aZ-rG-HMb"/>
                                                     <outlet property="removeBtn" destination="W9E-5r-aSK" id="itO-hD-Hu1"/>
                                                     <outlet property="setLabel" destination="8ls-9g-NbI" id="eDr-Te-1al"/>
@@ -4675,6 +4697,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ub-Gi-6Y1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2406" y="-2725"/>
+        </scene>
+        <!--Find Ingrediens View Controller-->
+        <scene sceneID="LxJ-eL-bsp">
+            <objects>
+                <viewController id="L50-VH-aYZ" customClass="KIAFindIngrediensViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8g7-Ou-NaH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top.png" highlightedImage="top.png" id="0bk-SZ-M81">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Find ingredients" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wgD-Jg-I0T">
+                                <rect key="frame" x="0.0" y="21" width="320" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="I5b-vF-2L8">
+                                <rect key="frame" x="10" y="19" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="10" maxX="0.0" maxY="-10"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Back" backgroundImage="back_empty.png">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="back_active.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="L50-VH-aYZ" eventType="touchUpInside" id="IGh-hc-xhv"/>
+                                    <action selector="back:" destination="ZYQ-X2-dBl" eventType="touchUpInside" id="UkG-WJ-gjh"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="22" sectionFooterHeight="22" id="fkv-0l-hDB">
+                                <rect key="frame" x="0.0" y="59" width="320" height="509"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Enter text for search ingredients" showsCancelButton="YES" id="E8e-YS-Wtk">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="L50-VH-aYZ" id="OVK-uh-Cch"/>
+                                    </connections>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="rVc-SD-oWC">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rVc-SD-oWC" id="fcN-dx-GW7">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="L50-VH-aYZ" id="RBR-0o-uwY"/>
+                                    <outlet property="delegate" destination="L50-VH-aYZ" id="Paj-oy-P6q"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Cre-Vv-jHN" id="7fi-qU-Dwy"/>
+                        <outlet property="table" destination="fkv-0l-hDB" id="xjd-Zo-9kS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOr-VE-Dnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Cre-Vv-jHN">
+                    <connections>
+                        <outlet property="delegate" destination="L50-VH-aYZ" id="vay-x3-dTr"/>
+                        <outlet property="searchContentsController" destination="L50-VH-aYZ" id="fsx-lk-xke"/>
+                        <outlet property="searchResultsDataSource" destination="L50-VH-aYZ" id="C8J-gU-1go"/>
+                        <outlet property="searchResultsDelegate" destination="L50-VH-aYZ" id="cyr-2e-LOH"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2793" y="-2302"/>
         </scene>
         <!--Select Category View Controller-->
         <scene sceneID="5E4-kQ-oS1">

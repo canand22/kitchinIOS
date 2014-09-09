@@ -303,6 +303,7 @@
 		84F2F6AE19A4E455000FA708 /* KIACacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2F6AD19A4E455000FA708 /* KIACacheManager.m */; };
 		84F2F6B219A4FEA5000FA708 /* KIARecipeFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2F6B119A4FEA5000FA708 /* KIARecipeFiltersViewController.m */; };
 		84F440B119A1F9EA0050D56C /* KIASelectItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F440B019A1F9EA0050D56C /* KIASelectItemsViewController.m */; };
+		84F74A9019BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F74A8F19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m */; };
 		D6A8397518D2189300FA6202 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A8397418D2189300FA6202 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -861,6 +862,8 @@
 		84F440B019A1F9EA0050D56C /* KIASelectItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASelectItemsViewController.m; sourceTree = "<group>"; };
 		84F440B219A258C50050D56C /* KIASelectedItemsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KIASelectedItemsProtocol.h; sourceTree = "<group>"; };
 		84F4B6B61993D71C0059CF18 /* KIAMealSettingsTableViewCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KIAMealSettingsTableViewCellProtocol.h; sourceTree = "<group>"; };
+		84F74A8E19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAFindIngrediensViewController.h; sourceTree = "<group>"; };
+		84F74A8F19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAFindIngrediensViewController.m; sourceTree = "<group>"; };
 		8AA137DB18D7612400D755A6 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		934B9C312E7845A38D8175F7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA46D2A41573A50A00572A4D /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = SOURCE_ROOT; };
@@ -1085,6 +1088,7 @@
 			children = (
 				84CB83801992392200EC34A3 /* KIAMealSettingsViewController.h */,
 				84CB83811992392200EC34A3 /* KIAMealSettingsViewController.m */,
+				84F74A8D19BD9EEC00F0CD79 /* Find Ingrediens */,
 			);
 			path = "Meal Settings";
 			sourceTree = "<group>";
@@ -1858,10 +1862,10 @@
 		84DB36B0198FDE17006029A8 /* Add New Item */ = {
 			isa = PBXGroup;
 			children = (
-				84DB36B1198FDE17006029A8 /* Item With Store */,
-				84DB36B4198FDE17006029A8 /* Item Without Store */,
 				84DB36B7198FDE17006029A8 /* KIAAddItemViewController.h */,
 				84DB36B8198FDE17006029A8 /* KIAAddItemViewController.m */,
+				84DB36B1198FDE17006029A8 /* Item With Store */,
+				84DB36B4198FDE17006029A8 /* Item Without Store */,
 			);
 			path = "Add New Item";
 			sourceTree = "<group>";
@@ -2136,6 +2140,15 @@
 				84EE61C019A33F4E002B9C47 /* Mapping */,
 			);
 			path = Recipies;
+			sourceTree = "<group>";
+		};
+		84F74A8D19BD9EEC00F0CD79 /* Find Ingrediens */ = {
+			isa = PBXGroup;
+			children = (
+				84F74A8E19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.h */,
+				84F74A8F19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m */,
+			);
+			path = "Find Ingrediens";
 			sourceTree = "<group>";
 		};
 		8AA137DC18D7613300D755A6 /* Configuration Files */ = {
@@ -2693,6 +2706,7 @@
 				84F0048B199A0261002F1FED /* KIAServerGateway+SearchRecipies.m in Sources */,
 				84CE255919927C270012D1FF /* KIAUser.m in Sources */,
 				84DB36D6198FDE17006029A8 /* KIAImageMapping.m in Sources */,
+				84F74A9019BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m in Sources */,
 				84F2F6AE19A4E455000FA708 /* KIACacheManager.m in Sources */,
 				84DB36DE198FDE17006029A8 /* MyKitchInCell.m in Sources */,
 				84F2F6B219A4FEA5000FA708 /* KIARecipeFiltersViewController.m in Sources */,
