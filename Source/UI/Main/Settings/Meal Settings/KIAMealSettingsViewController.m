@@ -28,7 +28,6 @@
     if (self)
     {
         // Custom initialization
-        _avaibleItem = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -41,9 +40,13 @@
     // Do any additional setup after loading the view.
     if ([_user dietaryRestrictions])
     {
-        _avaibleItem = [_user dietaryRestrictions];
+        _avaibleItem = [[NSMutableArray alloc] initWithArray:[_user dietaryRestrictions]];
         
         [self updateCheckBoxButton];
+    }
+    else
+    {
+        _avaibleItem = [[NSMutableArray alloc] init];
     }
 }
 

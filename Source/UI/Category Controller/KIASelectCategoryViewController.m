@@ -117,10 +117,6 @@
     
     [_selectedItems removeAllObjects];
     [_selectedItems addObjectsFromArray:temp];
-    
-    // [_selectedItems addObjectsFromArray:items];
-    
-    // _selectedItems = [[[NSSet setWithArray:_selectedItems] allObjects] mutableCopy];
 }
 
 - (IBAction)back:(id)sender

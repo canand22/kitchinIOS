@@ -38,6 +38,14 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
+    if ([_user dietaryRestrictions])
+    {
+        _ingredients = [[NSMutableArray alloc] initWithArray:[_user dislikeIngredients]];
+    }
+    else
+    {
+        _ingredients = [[NSMutableArray alloc] init];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,6 +105,10 @@
     {
         [_ingredients addObject:[[_ingredientSearch objectAtIndex:[indexPath row]] yummlyName]];
     }
+    
+    [_user setDislikeIngredients:_ingredients];
+    
+    [[KIAUpdater sharedUpdater] updateUsersInfo:_user];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

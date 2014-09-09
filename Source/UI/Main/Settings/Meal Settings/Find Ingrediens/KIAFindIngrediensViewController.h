@@ -11,6 +11,8 @@
 #import "yamlyProtocol.h"
 #import "serverGatewayDelegate.h"
 
+#import "KIAUser.h"
+
 @interface KIAFindIngrediensViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, serverGatewayDelegate>
 {
     BOOL _isSearch;
@@ -20,6 +22,7 @@
     id<yamlyProtocol> _yummlyGateway;
 }
 
+@property(nonatomic, assign) KIAUser *user;
 @property(nonatomic, strong) NSMutableArray *ingredients;
 
 @property(nonatomic, strong) IBOutlet UITableView *table;

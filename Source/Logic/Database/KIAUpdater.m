@@ -249,7 +249,7 @@
 
 #pragma mark ***** user data *****
 
-- (void)addUserWithId:(NSInteger)idUser name:(NSString *)userName
+- (KIAUser *)addUserWithId:(NSInteger)idUser name:(NSString *)userName
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -267,6 +267,8 @@
     {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
+    
+    return newUser;
 }
 
 - (void)updateUsersInfo:(KIAUser *)user

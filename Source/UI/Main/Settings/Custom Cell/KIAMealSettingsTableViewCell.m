@@ -14,6 +14,8 @@
 
 @implementation KIAMealSettingsTableViewCell
 
+@synthesize dislikeArray = _dislikeArray;
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -21,7 +23,6 @@
     if (self)
     {
         // Initialization code
-        // _height = 180;
         [self setHeight:180];
     }
     
@@ -64,7 +65,7 @@
 
 - (void)setDislikeArray:(NSMutableArray *)dislikeArray
 {
-    _dislikeArray = dislikeArray;
+    _dislikeArray = [[NSMutableArray alloc] initWithArray:dislikeArray];
     
     [_dislikeList setTags:_dislikeArray];
     
@@ -143,7 +144,7 @@
         
         [self reloadFrameWithHeight:[_dislikeView frame].size.height + [_dislikeView frame].origin.y];
         
-        [_delegate updateTableForIndex:[_removeBtn tag] - BUTTON_TAG];
+        [_delegate updateTableForIndex:[_removeBtn tag] - BUTTON_TAG dislike:_dislikeArray];
     }
 }
 

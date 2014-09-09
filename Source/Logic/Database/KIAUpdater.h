@@ -32,7 +32,7 @@
 - (NSArray *)getAllItems;
 
 // metods for user data work
-- (void)addUserWithId:(NSInteger)idUser name:(NSString *)userName;
+- (KIAUser *)addUserWithId:(NSInteger)idUser name:(NSString *)userName;
 - (void)updateUsersInfo:(KIAUser *)user;
 - (NSArray *)getAllUsers;
 - (void)removeUser:(KIAUser *)user;

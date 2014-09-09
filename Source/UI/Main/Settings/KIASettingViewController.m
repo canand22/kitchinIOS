@@ -49,21 +49,44 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    [_table endUpdates];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
     _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+    [_users sortUsingComparator:^NSComparisonResult (id obj1, id obj2)
+    {
+        NSInteger firstID = [[obj1 idUser] integerValue];
+        NSInteger secondID = [[obj2 idUser] integerValue];
+        
+        if (firstID < secondID)
+        {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        else if (firstID > secondID)
+        {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else
+        {
+            return (NSComparisonResult)NSOrderedSame;
+        }
+    }];
     
-    [_table reloadData];
+    if ([_users count] > 0)
+    {
+        if (![[[_users objectAtIndex:[_users count] - 1] name] isEqualToString:@""])
+        {
+            [_users addObject:[[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@""]];
+        
+            [_table reloadData];
+        }
+    }
+    
+    _index = -1;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    [_table reloadData];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"])
     {
@@ -245,16 +268,24 @@
     KIAMealSettingsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     [cell setDelegate:self];
     
+    KIAUser *temp = [_users objectAtIndex:[indexPath row]];
+    
     [[cell removeBtn] setTag:[indexPath row] + BUTTON_TAG];
     [[cell setLabel] setText:[NSString stringWithFormat:@"Set %d:", (int)[indexPath row] + 1]];
-    [[cell nameField] setText:[[_users objectAtIndex:[indexPath row]] name]];
-    [cell setIsActive:[[_users objectAtIndex:[indexPath row]] isActiveState].boolValue];
-    [[cell dietaryRestrictionsBtn] setTitle:([[[_users objectAtIndex:[indexPath row]] dietaryRestrictions] count] > 0 ? [NSString stringWithFormat:@"%d", (int)[[[_users objectAtIndex:[indexPath row]] dietaryRestrictions] count]] : @"NONE") forState:UIControlStateNormal];
-    [cell setDislikeArray:[[_users objectAtIndex:[indexPath row]] dislikeIngredients]];
+    [[cell nameField] setText:[temp name]];
+    [cell setIsActive:[temp isActiveState].boolValue];
+    [[cell dietaryRestrictionsBtn] setTitle:([[temp dietaryRestrictions] count] > 0 ? [NSString stringWithFormat:@"%d", (int)[[temp dietaryRestrictions] count]] : @"NONE") forState:UIControlStateNormal];
+    [cell setDislikeArray:[temp dislikeIngredients]];
     
     if ([indexPath row] == 0)
     {
-        [[cell removeBtn] setHidden:YES];
+        [[cell removeBtn] setEnabled:NO];
+        [[cell nameField] setUserInteractionEnabled:NO];
+    }
+    else
+    {
+        [[cell removeBtn] setEnabled:YES];
+        [[cell nameField] setUserInteractionEnabled:YES];
     }
     
     return cell;
@@ -283,13 +314,15 @@
     [user setName:[[cell nameField] text]];
     
     [[KIAUpdater sharedUpdater] updateUsersInfo:user];
+    
+    [_table reloadData];
 }
 
 - (void)removeObjectAtIndex:(NSInteger)index
 {
     [[KIAUpdater sharedUpdater] removeUser:[_users objectAtIndex:index]];
     
-    _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+    [_users removeObjectAtIndex:index];
     
     [_table reloadData];
 }
@@ -309,8 +342,13 @@
     [[KIAUpdater sharedUpdater] updateUsersInfo:user];
 }
 
-- (void)updateTableForIndex:(NSInteger)index
+- (void)updateTableForIndex:(NSInteger)index dislike:(NSArray *)dislike
 {
+    KIAUser *temp = [_users objectAtIndex:index];
+    [temp setDislikeIngredients:[dislike mutableCopy]];
+    
+    [[KIAUpdater sharedUpdater] updateUsersInfo:temp];
+    
     [_table reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
@@ -318,11 +356,14 @@
 
 - (IBAction)addUserAction:(id)sender
 {
-    [[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@""];
+    if (![[[_users objectAtIndex:[_users count] - 1] name] isEqualToString:@""])
+    {
+        [[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@""];
     
-    _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+        _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
     
-    [_table reloadData];
+        [_table reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -347,7 +388,7 @@
     if ([[segue identifier] isEqualToString:@"dislikeIngredients"])
     {
         KIAFindIngrediensViewController *viewController = (KIAFindIngrediensViewController *)[segue destinationViewController];
-        [viewController setIngredients:[[_users objectAtIndex:_index] dislikeIngredients]];
+        [viewController setUser:[_users objectAtIndex:_index]];
     }
 }
 

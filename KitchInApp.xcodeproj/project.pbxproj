@@ -1088,7 +1088,6 @@
 			children = (
 				84CB83801992392200EC34A3 /* KIAMealSettingsViewController.h */,
 				84CB83811992392200EC34A3 /* KIAMealSettingsViewController.m */,
-				84F74A8D19BD9EEC00F0CD79 /* Find Ingrediens */,
 			);
 			path = "Meal Settings";
 			sourceTree = "<group>";
@@ -1833,6 +1832,7 @@
 			children = (
 				84DB36AC198FDE17006029A8 /* KIASettingViewController.h */,
 				84DB36AD198FDE17006029A8 /* KIASettingViewController.m */,
+				84F74A8D19BD9EEC00F0CD79 /* Find Ingrediens */,
 				84CB837F1992390700EC34A3 /* Meal Settings */,
 				84CB837B1992186900EC34A3 /* Custom Cell */,
 			);
@@ -2148,7 +2148,8 @@
 				84F74A8E19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.h */,
 				84F74A8F19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m */,
 			);
-			path = "Find Ingrediens";
+			name = "Find Ingrediens";
+			path = "Meal Settings/Find Ingrediens";
 			sourceTree = "<group>";
 		};
 		8AA137DC18D7613300D755A6 /* Configuration Files */ = {
