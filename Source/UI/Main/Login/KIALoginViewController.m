@@ -132,7 +132,7 @@
         
         if ([temp count] == 0)
         {
-            [[KIAUpdater sharedUpdater] addUserWithId:0 name:[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"]];
+            [[KIAUpdater sharedUpdater] addUserWithId:0 name:[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"] state:@YES];
         }
         
         [self dismissViewControllerAnimated:YES completion:nil];

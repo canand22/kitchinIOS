@@ -20,7 +20,7 @@
     NSArray *_storeArray;
     
     IBOutlet UITableView *_table;
-    NSArray *_itemArray;
+    NSMutableArray *_itemArray;
     
     IBOutlet UITextField *_itemTextField;
     

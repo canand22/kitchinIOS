@@ -155,7 +155,7 @@
 {
     if (success)
     {
-        [[KIAUpdater sharedUpdater] addUserWithId:0 name:[_firstName text]];
+        [[KIAUpdater sharedUpdater] addUserWithId:0 name:[_firstName text] state:@YES];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                         message:@"Congratulations, you are registered. Enjoy your digital kitchen"

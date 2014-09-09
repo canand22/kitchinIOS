@@ -40,6 +40,8 @@
         _storeArray = @[@"Potash store", @"Other"];
         
         isBlock = YES;
+        
+        _itemArray = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -257,7 +259,19 @@
 
 - (void)showData:(NSArray *)data
 {
-    _itemArray = data;
+    [_itemArray removeAllObjects];
+    NSMutableSet *names = [NSMutableSet set];
+    
+    for (id obj in data)
+    {
+        NSString *yummlyName = [obj yummlyName];
+        
+        if (![names containsObject:yummlyName])
+        {
+            [_itemArray addObject:obj];
+            [names addObject:yummlyName];
+        }
+    }
     
     [_table reloadData];
 }

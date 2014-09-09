@@ -3036,6 +3036,9 @@
                                             <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="logout:" destination="R33-ZW-u9A" eventType="touchUpInside" id="u4b-aB-kfw"/>
                                         </connections>
@@ -3047,6 +3050,9 @@
                                         <state key="normal" title="Login" backgroundImage="change_password_and_purchase_button.png">
                                             <color key="titleColor" red="0.8980392157" green="0.38823529410000002" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="login:" destination="R33-ZW-u9A" eventType="touchUpInside" id="4Yw-i7-w9M"/>

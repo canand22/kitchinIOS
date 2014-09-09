@@ -249,14 +249,14 @@
 
 #pragma mark ***** user data *****
 
-- (KIAUser *)addUserWithId:(NSInteger)idUser name:(NSString *)userName
+- (KIAUser *)addUserWithId:(NSInteger)idUser name:(NSString *)userName state:(NSNumber *)state
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     KIAUser *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"KIAUser" inManagedObjectContext:context];
     [newUser setIdUser:[NSNumber numberWithInteger:idUser]];
     [newUser setName:userName];
-    [newUser setIsActiveState:@NO];
+    [newUser setIsActiveState:state];
     [newUser setDislikeIngredients:[NSMutableArray arrayWithObjects:nil]];
     [newUser setDietaryRestrictions:[NSMutableArray arrayWithObjects:nil]];
         

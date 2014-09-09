@@ -49,7 +49,7 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+    /*_users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
     [_users sortUsingComparator:^NSComparisonResult (id obj1, id obj2)
     {
         NSInteger firstID = [[obj1 idUser] integerValue];
@@ -77,7 +77,7 @@
         
             [_table reloadData];
         }
-    }
+    }*/
     
     _index = -1;
 }
@@ -165,6 +165,36 @@
             
             [[[self view] viewWithTag:VIEW_TAG + i] setAlpha:1.0f];
         }
+    }
+    
+    _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+    [_users sortUsingComparator:^NSComparisonResult (id obj1, id obj2)
+    {
+        NSInteger firstID = [[obj1 idUser] integerValue];
+        NSInteger secondID = [[obj2 idUser] integerValue];
+         
+        if (firstID < secondID)
+        {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        else if (firstID > secondID)
+        {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else
+        {
+            return (NSComparisonResult)NSOrderedSame;
+        }
+    }];
+    
+    if ([_users count] > 0)
+    {
+        if (![[[_users objectAtIndex:[_users count] - 1] name] isEqualToString:@""])
+        {
+            [_users addObject:[[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@"" state:@NO]];
+        }
+        
+        [_table reloadData];
     }
 }
 
@@ -358,7 +388,7 @@
 {
     if (![[[_users objectAtIndex:[_users count] - 1] name] isEqualToString:@""])
     {
-        [[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@""];
+        [[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@"" state:@NO];
     
         _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
     
