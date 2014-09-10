@@ -84,7 +84,7 @@
             
             if ([item IsSuccessMatching])
             {
-                [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[[item Category] uppercaseString]] integerValue] shortName:[item ItemShortName] count:1 value:@"1" yummly:[item YummlyName]];
+                [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[[item Category] uppercaseString]] integerValue] shortName:[item ItemShortName] count:1 value:@"" yummly:[item YummlyName]];
                 
                 UIViewController *temp = [[self presentingViewController] presentingViewController];
                 
