@@ -20,6 +20,7 @@
     NSMutableArray *_usersCooking;
     NSMutableArray *_cookWith;
     NSMutableArray *_cookWithout;
+    NSMutableArray *_cookWithoutTemp;
     
     NSMutableArray *_users;
 }

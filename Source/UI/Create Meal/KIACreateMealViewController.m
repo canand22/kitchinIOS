@@ -39,6 +39,7 @@
         
         _cookWith = [[NSMutableArray alloc] init];
         _cookWithout = [[NSMutableArray alloc] init];
+        _cookWithoutTemp = [[NSMutableArray alloc] init];
         
         _usersCooking = [[NSMutableArray alloc] init];
     }
@@ -98,10 +99,14 @@
     
     [self secondTagsReloadFrameWithHeight:[_ingredientWithTagFoneView frame].size.height];
     
+    [_cookWithout removeAllObjects];
+    
     for (KIAUser *user in _users)
     {
         [_cookWithout addObjectsFromArray:[user dislikeIngredients]];
     }
+    
+    [_cookWithout addObjectsFromArray:_cookWithoutTemp];
     
     _cookWithout = [[[NSSet setWithArray:_cookWithout] allObjects] mutableCopy];
     
@@ -252,6 +257,7 @@
     if ([_cookWithout containsObject:tagName])
     {
         [_cookWithout removeObject:tagName];
+        [_cookWithoutTemp removeObject:tagName];
         
         [_ingredientWithoutTagView setTags:_cookWithout];
         
@@ -366,7 +372,7 @@
     {
         KIASelectCategoryViewController *viewController = (KIASelectCategoryViewController *)[segue destinationViewController];
         [viewController setMode:selectItems];
-        [viewController setSelectedItems:_cookWithout];
+        [viewController setSelectedItems:_cookWithoutTemp];
     }
     
     if ([[segue identifier] isEqualToString:@"categoryItemCookWith"])
