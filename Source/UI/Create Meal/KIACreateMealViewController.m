@@ -85,7 +85,7 @@
     frame.size.height = [_userTagView fittedSize].height + 6;
     [_userTagFoneView setFrame:frame];
     
-    [self firstTagsReloadFrameWithHeight:[_userTagView fittedSize].height];
+    [self firstTagsReloadFrameWithHeight:([_userTagView fittedSize].height + 6 < 35 ? 35 : [_userTagView fittedSize].height + 6)];
     
     [_ingredientWithTagView setTags:_cookWith];
     
@@ -95,6 +95,13 @@
     [_ingredientWithTagFoneView setFrame:frame];
     
     [self secondTagsReloadFrameWithHeight:[_ingredientWithTagFoneView frame].size.height];
+    
+    for (KIAUser *user in _users)
+    {
+        [_cookWithout addObjectsFromArray:[user dislikeIngredients]];
+    }
+    
+    _cookWithout = [[[NSSet setWithArray:_cookWithout] allObjects] mutableCopy];
     
     [_ingredientWithoutTagView setTags:_cookWithout];
     
@@ -207,6 +214,15 @@
 {
     if ([_usersCooking containsObject:tagName])
     {
+        for (KIAUser *user in _users)
+        {
+            if ([[user name] isEqualToString:tagName])
+            {
+                [user setIsActiveState:@NO];
+                [[KIAUpdater sharedUpdater] updateUsersInfo:user];
+            }
+        }
+        
         [_usersCooking removeObject:tagName];
         
         [_userTagView setTags:_usersCooking];

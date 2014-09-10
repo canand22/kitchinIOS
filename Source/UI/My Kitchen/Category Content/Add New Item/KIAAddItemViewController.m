@@ -20,6 +20,7 @@
 
 #import "KIAItem.h"
 #import "KIASendCheckMapping.h"
+#import "KIAYamlyMapping.h"
 
 @interface KIAAddItemViewController ()
 
@@ -157,15 +158,30 @@
         }
         else
         {
-            KIASearchItemMapping *item = [_itemArray objectAtIndex:indexOfItem];
-    
-            [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item itemId]
-                                                            name:[item itemName]
-                                                      categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
-                                                       shortName:[item itemShortName]
-                                                           count:1
-                                                           value:@""
-                                                          yummly:[item yummlyName]];
+            if ([[_selectStoreTextFild text] isEqualToString:@"Other"])
+            {
+                KIAYamlyMapping *item = [_itemArray objectAtIndex:indexOfItem];
+                
+                [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[[item itemId] integerValue]
+                                                                name:[item name]
+                                                          categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
+                                                           shortName:[item shotName]
+                                                               count:1
+                                                               value:@""
+                                                              yummly:[item yummlyName]];
+            }
+            else
+            {
+                KIASearchItemMapping *item = [_itemArray objectAtIndex:indexOfItem];
+                
+                [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item itemId]
+                                                                name:[item itemName]
+                                                          categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName]
+                                                           shortName:[item itemShortName]
+                                                               count:1
+                                                               value:@""
+                                                              yummly:[item yummlyName]];
+            }
     
             [self dismissViewControllerAnimated:YES completion:nil];
         }

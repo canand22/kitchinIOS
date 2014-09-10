@@ -152,6 +152,10 @@
         if ([[_usersCheck objectAtIndex:i] isEqualToNumber:@YES])
         {
             [temp addObject:[[_users objectAtIndex:i] name]];
+            
+            KIAUser *user = [_users objectAtIndex:i];
+            [user setIsActiveState:@YES];
+            [[KIAUpdater sharedUpdater] updateUsersInfo:user];
         }
     }
     

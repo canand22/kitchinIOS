@@ -124,7 +124,7 @@
 
 - (void)updateItemFromIndex:(NSInteger)index count:(CGFloat)count
 {
-    KIAItem *temp = [_categoryItems objectAtIndex:index];
+    KIAItem *temp = [_categoryItems objectAtIndex:index - CELL_TAG];
     [temp setCount:[NSNumber numberWithDouble:count]];
     [[KIAUpdater sharedUpdater] updateItemInfo:temp];
 }
