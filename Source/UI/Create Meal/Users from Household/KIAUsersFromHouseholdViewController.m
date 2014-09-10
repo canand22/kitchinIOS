@@ -35,7 +35,7 @@
         {
             KIAUser *item = [_users objectAtIndex:i];
             
-            if ([[item isActiveState] isEqual:@NO])
+            if ([[item isActiveState] isEqual:@YES] || [[item name] isEqualToString:@""])
             {
                 [_users removeObject:item];
             }
@@ -155,9 +155,22 @@
         }
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([temp count] > 0)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
     
-    [_delegate usersForCooking:temp];
+        [_delegate usersForCooking:temp];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Please, select at least one user from Household to add."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 #pragma mark *****

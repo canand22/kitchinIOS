@@ -15,6 +15,7 @@
 #import "KIASearchDefines.h"
 
 #import "KIAUpdater.h"
+#import "KIAUser.h"
 
 #import "KIATabBarViewController.h"
 
@@ -34,10 +35,12 @@
         _mealArray = @[@"Any", @"Breakfast & Brunch", @"Dinner", @"Lunch & Snack"];
         _dishTypeArray = @[@"Any", @"Beverage", @"Bread", @"Dessert", @"Main Dish", @"Salad", @"Side Dish", @"Soup"];
         
-        _usersCooking = [[NSMutableArray alloc] init];
+        // _usersCooking = [[NSMutableArray alloc] init];
         
         _cookWith = [[NSMutableArray alloc] init];
         _cookWithout = [[NSMutableArray alloc] init];
+        
+        _usersCooking = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -51,6 +54,30 @@
     [_userTagView setTagDelegate:self];
     [_ingredientWithTagView setTagDelegate:self];
     [_ingredientWithoutTagView setTagDelegate:self];
+    
+    _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+    
+    for (int i = (int)[_users count] - 1; i > -1; i--)
+    {
+        KIAUser *item = [_users objectAtIndex:i];
+        
+        if ([[item isActiveState] isEqual:@NO] || [[item name] isEqualToString:@""])
+        {
+            [_users removeObject:item];
+        }
+        else
+        {
+            [_usersCooking addObject:[item name]];
+        }
+    }
+    
+    [_userTagView setTags:_usersCooking];
+    
+    CGRect frame = [_userTagFoneView frame];
+    frame.size.height = [_userTagView fittedSize].height + 6;
+    [_userTagFoneView setFrame:frame];
+    
+    [self firstTagsReloadFrameWithHeight:[_userTagView fittedSize].height];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -99,7 +126,7 @@
 
 - (void)usersForCooking:(NSArray *)users
 {
-    _usersCooking = [users mutableCopy];
+    [_usersCooking addObjectsFromArray:[users mutableCopy]];
 
     [_userTagView setTags:_usersCooking];
     

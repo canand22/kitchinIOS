@@ -20,6 +20,8 @@
     NSMutableArray *_usersCooking;
     NSMutableArray *_cookWith;
     NSMutableArray *_cookWithout;
+    
+    NSMutableArray *_users;
 }
 
 @property(nonatomic, strong) IBOutlet UIScrollView *scroll;

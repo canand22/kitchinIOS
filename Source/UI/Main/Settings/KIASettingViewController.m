@@ -394,6 +394,16 @@
     
         [_table reloadData];
     }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:@"Please complete previous user info to continue..."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 - (void)didReceiveMemoryWarning
