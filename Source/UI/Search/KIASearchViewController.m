@@ -16,6 +16,8 @@
 
 #import "KIASearchDefines.h"
 
+#import "KIARemoveOrAddTableViewCell.h"
+
 @interface KIASearchViewController ()
 
 @end
@@ -152,6 +154,12 @@
         [_pickerFon setHidden:![_pickerFon isHidden]];
         [_pickerIndicator setHidden:![_pickerIndicator isHidden]];
     }
+    
+    [_ingredientArray removeAllObjects];
+    [_autocompleteArray removeAllObjects];
+    
+    [_autocompleteTable reloadData];
+    [_ingreditntsTable reloadData];
 }
 
 #pragma mark ***** table view *****
@@ -189,9 +197,19 @@
     
     if ([tableView isEqual:_ingreditntsTable])
     {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ingredientCell"];
+        KIARemoveOrAddTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ingredientCell"];
         
         [[cell textLabel] setText:[[_ingredientArray objectAtIndex:[indexPath row]] yummlyName]];
+        
+        if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In my Kitchin"])
+        {
+            [cell setIsRemoveCell:YES];
+        }
+        
+        if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In the store"])
+        {
+            [cell setIsRemoveCell:NO];
+        }
         
         return cell;
     }
@@ -233,9 +251,25 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [_ingredientArray removeObjectAtIndex:[indexPath row]];
+        if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In my Kitchin"])
+        {
+            [[KIAUpdater sharedUpdater] removeItem:[_ingredientArray objectAtIndex:[indexPath row]]];
+            
+            [_ingredientArray removeObjectAtIndex:[indexPath row]];
+            
+            [_ingreditntsTable reloadData];
+        }
         
-        [_ingreditntsTable reloadData];
+        if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In the store"])
+        {
+            [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[[[_ingredientArray objectAtIndex:[indexPath row]] itemId] integerValue]
+                                                            name:[[_ingredientArray objectAtIndex:[indexPath row]] name]
+                                                      categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:[[_ingredientArray objectAtIndex:[indexPath row]] categoryName]]
+                                                       shortName:[[_ingredientArray objectAtIndex:[indexPath row]] shotName]
+                                                           count:1
+                                                           value:@""
+                                                          yummly:[[_ingredientArray objectAtIndex:[indexPath row]] yummlyName]];
+        }
     }
 }
 
@@ -243,12 +277,12 @@
 {
     if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In the store"])
     {
-        return @"Delete";
+        return @"Add";
     }
     
     if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In my Kitchin"])
     {
-        return @"Add";
+        return @"Delete";
     }
     
     return @"";

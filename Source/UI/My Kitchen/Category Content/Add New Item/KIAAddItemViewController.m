@@ -264,12 +264,15 @@
     
     for (id obj in data)
     {
-        NSString *yummlyName = [obj yummlyName];
-        
-        if (![names containsObject:yummlyName])
+        if ([obj yummlyName])
         {
-            [_itemArray addObject:obj];
-            [names addObject:yummlyName];
+            NSString *yummlyName = [obj yummlyName];
+        
+            if (![names containsObject:yummlyName])
+            {
+                [_itemArray addObject:obj];
+                [names addObject:yummlyName];
+            }
         }
     }
     

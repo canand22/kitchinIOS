@@ -54,6 +54,11 @@
     [_userTagView setTagDelegate:self];
     [_ingredientWithTagView setTagDelegate:self];
     [_ingredientWithoutTagView setTagDelegate:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
     _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
     
@@ -67,7 +72,10 @@
         }
         else
         {
-            [_usersCooking addObject:[item name]];
+            if (![_usersCooking containsObject:[item name]])
+            {
+                [_usersCooking addObject:[item name]];
+            }
         }
     }
     
@@ -78,15 +86,10 @@
     [_userTagFoneView setFrame:frame];
     
     [self firstTagsReloadFrameWithHeight:[_userTagView fittedSize].height];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
     
     [_ingredientWithTagView setTags:_cookWith];
     
-    CGRect frame = [_ingredientWithTagFoneView frame];
+    frame = [_ingredientWithTagFoneView frame];
     frame.origin.y = [_firstSectionView frame].origin.y + [_firstSectionView frame].size.height + 11;
     frame.size.height = ([_ingredientWithTagView fittedSize].height + 6 < 35 ? 35 : [_ingredientWithTagView fittedSize].height + 6);
     [_ingredientWithTagFoneView setFrame:frame];
@@ -128,6 +131,8 @@
 {
     [_usersCooking addObjectsFromArray:[users mutableCopy]];
 
+    _usersCooking = [[[NSSet setWithArray:_usersCooking] allObjects] mutableCopy];
+    
     [_userTagView setTags:_usersCooking];
     
     CGRect frame = [_userTagFoneView frame];
