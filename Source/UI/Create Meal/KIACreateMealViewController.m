@@ -62,6 +62,8 @@
     
     _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
     
+    [_usersCooking removeAllObjects];
+    
     for (int i = (int)[_users count] - 1; i > -1; i--)
     {
         KIAUser *item = [_users objectAtIndex:i];
@@ -82,10 +84,10 @@
     [_userTagView setTags:_usersCooking];
     
     CGRect frame = [_userTagFoneView frame];
-    frame.size.height = [_userTagView fittedSize].height + 6;
+    frame.size.height = ([_userTagView fittedSize].height + 6 < 35 ? 35 : [_userTagView fittedSize].height + 6);
     [_userTagFoneView setFrame:frame];
     
-    [self firstTagsReloadFrameWithHeight:([_userTagView fittedSize].height + 6 < 35 ? 35 : [_userTagView fittedSize].height + 6)];
+    [self firstTagsReloadFrameWithHeight:[_userTagFoneView frame].size.height];
     
     [_ingredientWithTagView setTags:_cookWith];
     
