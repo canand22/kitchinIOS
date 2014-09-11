@@ -131,8 +131,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // UITableViewCell *cell;
-    
     switch ([indexPath section])
     {
         case 0:

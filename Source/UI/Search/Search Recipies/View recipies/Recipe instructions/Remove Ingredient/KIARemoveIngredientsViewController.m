@@ -153,7 +153,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([indexPath row] < [_receptIngredient count])
+    if ([indexPath row] < [_ingredientsInMyKitchIn count])
     {
         [_skip setHidden:YES];
         
