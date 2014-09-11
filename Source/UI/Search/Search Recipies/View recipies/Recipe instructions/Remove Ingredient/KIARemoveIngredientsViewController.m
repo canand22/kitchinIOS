@@ -39,7 +39,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    _ingredientsInMyKitchIn = [[NSMutableArray alloc] initWithArray:_receptIngredient];
+    
+    for (int i = 0; i < [_receptIngredient count]; i++)
+    {
+        if (![[KIAUpdater sharedUpdater] whetherThereIsAnIngredient:[[_receptIngredient objectAtIndex:i] objectForKey:@"name"]])
+        {
+            [_ingredientsInMyKitchIn removeObject:[_receptIngredient objectAtIndex:i]];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,9 +68,27 @@
     [tabBarVC reloadButtonImageWithIndex:2];
 }
 
-- (IBAction)removeIngredients:(id)sender
+- (void)removeIngredients
 {
-    // [[KIAUpdater sharedUpdater] removeItemWithNames:_removeArray];
+    for (int j = 0; j < [_removeArray count]; j++)
+    {
+        for (int i = 0; i < [_ingredientsInMyKitchIn count]; i++)
+        {
+            if ([[[_ingredientsInMyKitchIn objectAtIndex:i] objectForKey:@"name"] isEqualToString:[_removeArray objectAtIndex:j]])
+            {
+                [_ingredientsInMyKitchIn removeObjectAtIndex:i];
+            }
+        }
+    }
+    
+    [[KIAUpdater sharedUpdater] removeItemWithNames:_removeArray];
+    
+    [_table reloadData];
+}
+
+- (IBAction)back:(id)sender
+{
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 #pragma mark ***** table view *****
@@ -72,16 +100,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_receptIngredient count] + 1;
+    return [_ingredientsInMyKitchIn count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([indexPath row] < [_receptIngredient count])
+    if ([indexPath row] < [_ingredientsInMyKitchIn count])
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         
-        [[cell textLabel] setText:[_receptIngredient objectAtIndex:[indexPath row]]];
+        [[cell textLabel] setText:[[_ingredientsInMyKitchIn objectAtIndex:[indexPath row]] objectForKey:@"ingredient"]];
         
         return cell;
     }
@@ -89,30 +117,37 @@
     {
         KIAButtonTableViewCell *cell = (KIAButtonTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"buttonCell"];
         
+        [cell setDelegate:self];
+        
         return cell;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_removeArray containsObject:[_receptIngredient objectAtIndex:[indexPath row]]])
+    if ([indexPath row] < [_receptIngredient count])
     {
-        [_removeArray removeObject:[_receptIngredient objectAtIndex:[indexPath row]]];
+        [_skip setHidden:YES];
         
-        [[[tableView cellForRowAtIndexPath:indexPath] imageView] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE]];
-        
-        if ([_removeArray count] == 0)
+        if ([_removeArray containsObject:[[_ingredientsInMyKitchIn objectAtIndex:[indexPath row]] objectForKey:@"name"]])
         {
-            [[(KIAButtonTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[_receptIngredient count] inSection:0]] removeBtn] setEnabled:NO];
+            [_removeArray removeObject:[[_ingredientsInMyKitchIn objectAtIndex:[indexPath row]] objectForKey:@"name"]];
+        
+            [[[tableView cellForRowAtIndexPath:indexPath] imageView] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE]];
+        
+            if ([_removeArray count] == 0)
+            {
+                [[(KIAButtonTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[_ingredientsInMyKitchIn count] inSection:0]] removeBtn] setEnabled:NO];
+            }
         }
-    }
-    else
-    {
-        [_removeArray addObject:[_receptIngredient objectAtIndex:[indexPath row]]];
+        else
+        {
+            [_removeArray addObject:[[_ingredientsInMyKitchIn objectAtIndex:[indexPath row]] objectForKey:@"name"]];
         
-        [[[tableView cellForRowAtIndexPath:indexPath] imageView] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE]];
+            [[[tableView cellForRowAtIndexPath:indexPath] imageView] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE]];
         
-        [[(KIAButtonTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[_receptIngredient count] inSection:0]] removeBtn] setEnabled:YES];
+            [[(KIAButtonTableViewCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[_ingredientsInMyKitchIn count] inSection:0]] removeBtn] setEnabled:YES];
+        }
     }
 }
 

@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KIARemoveIngredientsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+#import "KIARemoveProtocol.h"
+
+@interface KIARemoveIngredientsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, KIARemoveProtocol>
 {
     NSMutableArray *_removeArray;
+    NSMutableArray *_ingredientsInMyKitchIn;
 }
 
 @property(nonatomic, strong) IBOutlet UITableView *table;
 
 @property(nonatomic, strong) NSMutableArray *receptIngredient;
+
+@property(nonatomic, strong) IBOutlet UIButton *skip;
 
 @end

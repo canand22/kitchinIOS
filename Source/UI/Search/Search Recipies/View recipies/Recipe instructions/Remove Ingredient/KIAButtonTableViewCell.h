@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "KIARemoveProtocol.h"
+
 @interface KIAButtonTableViewCell : UITableViewCell
 
 @property(nonatomic, strong) IBOutlet UIButton *removeBtn;
+
+@property(nonatomic, weak) id<KIARemoveProtocol> delegate;
 
 @end

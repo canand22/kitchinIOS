@@ -27,6 +27,11 @@
     // Initialization code
 }
 
+- (IBAction)removeIngredients:(id)sender
+{
+    [_delegate removeIngredients];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

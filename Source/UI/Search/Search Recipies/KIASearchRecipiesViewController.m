@@ -328,6 +328,7 @@
     {
         KIAViewRecipiesViewController *viewController = (KIAViewRecipiesViewController *)[segue destinationViewController];
         [viewController setRecipiesIdentification:[[_recipiesArray objectAtIndex:_selectedItem] ResipiesID]];
+        [viewController setIngredientsArray:[[_recipiesArray objectAtIndex:_selectedItem] Ingredients]];
     }
 }
 

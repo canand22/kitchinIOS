@@ -41,7 +41,28 @@
 {
     [super viewDidLoad];
     
+    isMatching = NO;
+    
     // Do any additional setup after loading the view.
+    _ingredientsArray = [_ingredientsArray sortedArrayUsingComparator:^NSComparisonResult (id obj1, id obj2)
+    {
+        NSUInteger firstLenght = [obj1 length];
+        NSUInteger secondLenght = [obj2 length];
+        
+        if (firstLenght > secondLenght)
+        {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        else if (firstLenght < secondLenght)
+        {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else
+        {
+            return (NSComparisonResult)NSOrderedSame;
+        }
+    }];
+    
     [_recipeGateway sendRecipiesWithId:_recipiesIdentification delegate:self];
 }
 
@@ -68,6 +89,11 @@
     
     [_table reloadData];
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
+    {
+        [self checkCompliance];
+    });
+    
     CGRect frame = [_table frame];
     frame.size.height = _tableHeight + 80;
     [_table setFrame:frame];
@@ -77,6 +103,97 @@
     frame = [_buttonPanel frame];
     frame.origin.y = [_table frame].origin.y + [_table frame].size.height + 15;
     [_buttonPanel setFrame:frame];
+}
+
+- (void)checkCompliance
+{
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    NSMutableArray *ingTemp = [[NSMutableArray alloc] initWithArray:[_recipe Ingredients]];
+    NSMutableArray *componentTemp = [[NSMutableArray alloc] initWithArray:_ingredientsArray];
+    
+    for (NSString *str in _ingredientsArray)
+    {
+        for (int i = 0; i < [ingTemp count]; i++)
+        {
+            if ([[[ingTemp objectAtIndex:i] lowercaseString] rangeOfString:[str lowercaseString]].location == NSNotFound)
+            {
+                NSLog(@"string does not contain ingredient");
+            }
+            else
+            {
+                NSDictionary *dic = @{@"name" : str, @"ingredient" : [ingTemp objectAtIndex:i]};
+            
+                [temp addObject:dic];
+        
+                [ingTemp removeObjectAtIndex:i];
+            
+                break;
+            }
+        }
+    }
+    
+    for (NSDictionary *dic in temp)
+    {
+        if ([componentTemp containsObject:[dic objectForKey:@"name"]])
+        {
+            [componentTemp removeObject:[dic objectForKey:@"name"]];
+        }
+    }
+    
+    if ([ingTemp count] > 0)
+    {
+        for (NSString *str in componentTemp)
+        {
+            NSArray *ingComp = [str componentsSeparatedByString:@" "];
+        
+            NSMutableArray *countArray = [[NSMutableArray alloc] init];
+        
+            for (int i = 0; i < [ingTemp count]; i++)
+            {
+                [countArray addObject:[NSNumber numberWithInteger:0]];
+            }
+        
+            for (NSString *comp in ingComp)
+            {
+                for (int i = 0; i < [ingTemp count]; i++)
+                {
+                    if ([[[ingTemp objectAtIndex:i] lowercaseString] rangeOfString:[comp lowercaseString]].location == NSNotFound)
+                    {
+                        NSLog(@"string does not contain ingredient");
+                    }
+                    else
+                    {
+                        [countArray replaceObjectAtIndex:i withObject:[NSNumber numberWithInteger:[[countArray objectAtIndex:i] integerValue] + 1]];
+                    }
+                }
+            }
+        
+            int count = 0;
+            int index = 0;
+        
+            for (int i = 0; i < [countArray count]; i++)
+            {
+                if ([countArray count] > count)
+                {
+                    count = [[countArray objectAtIndex:i] integerValue];
+                    index = i;
+                }
+            }
+        
+            NSDictionary *dic = @{@"name" : str, @"ingredient" : [ingTemp objectAtIndex:index]};
+        
+            [temp addObject:dic];
+        }
+    }
+    
+    _ingredientsArray = temp;
+    
+    isMatching = YES;
+    
+    dispatch_async(dispatch_get_main_queue(), ^
+    {
+        [_table reloadData];
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,6 +207,36 @@
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
+- (IBAction)cookItAction:(id)sender
+{
+    BOOL cookOrNot = YES;
+    
+    for (int i = 0; i < [_ingredientsArray count]; i++)
+    {
+        if (![[KIAUpdater sharedUpdater] whetherThereIsAnIngredient:[[_ingredientsArray objectAtIndex:i] objectForKey:@"name"]])
+        {
+            cookOrNot = NO;
+            
+            break;
+        }
+    }
+    
+    if (cookOrNot)
+    {
+        [self performSegueWithIdentifier:@"recipeInstructionVC" sender:self];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"It seems you are missing some ingredients."
+                                                        message:@"What would you like to do?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Continue"
+                                              otherButtonTitles:@"View missing ingredients", nil];
+        
+        [alert show];
+    }
+}
+
 - (IBAction)favorite:(id)sender
 {
     [[KIAUpdater sharedUpdater] addFavoriteWithId:_recipiesIdentification
@@ -100,6 +247,21 @@
                                              time:[_recipe Time]
                                              icon:[_recipe Picture]
                                       ingredients:[_recipe Ingredients]];
+}
+
+#pragma mark ***** alert view *****
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        [self performSegueWithIdentifier:@"recipeInstructionVC" sender:self];
+    }
+    
+    if (buttonIndex == 1)
+    {
+        [self performSegueWithIdentifier:@"" sender:self];
+    }
 }
 
 #pragma mark ***** table view *****
@@ -160,7 +322,7 @@
     switch ([indexPath section])
     {
         case 0:
-            rect = [[[_recipe Ingredients] objectAtIndex:[indexPath row]] boundingRectWithSize:CGSizeMake(300, MAXFLOAT)
+            rect = [[[_recipe Ingredients] objectAtIndex:[indexPath row]] boundingRectWithSize:CGSizeMake(240, MAXFLOAT)
                                                                                        options:NSStringDrawingUsesLineFragmentOrigin
                                                                                     attributes:@{NSFontAttributeName : font}
                                                                                        context:nil];
@@ -186,13 +348,22 @@
         {
             [[cell textLabel] setText:[NSString stringWithFormat:@"• %@", [[_recipe Ingredients] objectAtIndex:[indexPath row]]]];
             
-            if ([[KIAUpdater sharedUpdater] whetherThereIsAnIngredient:[[_recipe Ingredients] objectAtIndex:[indexPath row]]])
+            if (isMatching)
             {
-                //[cell setAccessoryView:[UIImage imageNamed:@""]];
-            }
-            else
-            {
-                //[cell setAccessoryView:[UIImage imageNamed:@""]];
+                for (int i = 0; i < [_ingredientsArray count]; i++)
+                {
+                    if ([[[_ingredientsArray objectAtIndex:i] objectForKey:@"ingredient"] isEqualToString:[[_recipe Ingredients] objectAtIndex:[indexPath row]]])
+                    {
+                        if ([[KIAUpdater sharedUpdater] whetherThereIsAnIngredient:[[_ingredientsArray objectAtIndex:i] objectForKey:@"name"]])
+                        {
+                            [cell setAccessoryView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ok.png"]]];
+                        }
+                        else
+                        {
+                            [cell setAccessoryView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"caution.png"]]];
+                        }
+                    }
+                }
             }
             
             break;
@@ -215,7 +386,7 @@
     {
         KIARecipeInstructionsViewController *viewController = (KIARecipeInstructionsViewController *)[segue destinationViewController];
         [viewController setUrl:[_recipe RecipeUrl]];
-        [viewController setReceptIngredient:[[_recipe Ingredients] mutableCopy]];
+        [viewController setReceptIngredient:[_ingredientsArray mutableCopy]];
     }
 }
 

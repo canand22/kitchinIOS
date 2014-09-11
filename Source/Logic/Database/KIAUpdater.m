@@ -247,6 +247,27 @@
     return items;
 }
 
+- (void)removeItemWithNames:(NSArray *)items
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    for (int i = 0; i < [items count]; i++)
+    {
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAItem" inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"yummlyName contains[c] %@", [items objectAtIndex:i]];
+        [request setPredicate:predicate];
+        NSError  *error;
+        NSArray *itemArr = [context executeFetchRequest:request error:&error];
+        
+        if ([itemArr count] > 0)
+        {
+            [context deleteObject:[itemArr objectAtIndex:0]];
+        }
+    }
+}
+
 #pragma mark ***** user data *****
 
 - (KIAUser *)addUserWithId:(NSInteger)idUser name:(NSString *)userName state:(NSNumber *)state

@@ -13,7 +13,7 @@
 
 @class KIAFullRecipiesMapping;
 
-@interface KIAViewRecipiesViewController : UIViewController<serverGatewayDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface KIAViewRecipiesViewController : UIViewController<serverGatewayDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 {
     id<recipiesProtocol> _recipeGateway;
     
@@ -24,9 +24,12 @@
     NSString *_url;
     
     KIAFullRecipiesMapping *_recipe;
+    
+    BOOL isMatching;
 }
 
 @property(nonatomic, strong) NSString *recipiesIdentification;
+@property(nonatomic, strong) NSArray *ingredientsArray;
 
 @property(nonatomic, strong) IBOutlet UIScrollView *scroll;
 

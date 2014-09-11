@@ -30,6 +30,7 @@
 - (BOOL)whetherThereIsAnIngredient:(NSString *)yummlyName;
 - (void)updateItemInfo:(KIAItem *)item;
 - (NSArray *)getAllItems;
+- (void)removeItemWithNames:(NSArray *)items;
 
 // metods for user data work
 - (KIAUser *)addUserWithId:(NSInteger)idUser name:(NSString *)userName state:(NSNumber *)state;

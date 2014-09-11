@@ -1150,7 +1150,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="U1K-b3-sMt" kind="push" identifier="recipeInstructionVC" id="ba7-RM-5uL"/>
+                                    <action selector="cookItAction:" destination="cRg-OK-qdT" eventType="touchUpInside" id="jfH-wK-yJZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="m0a-3u-15X">
@@ -1266,30 +1266,75 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" id="GmR-Ah-YhM">
-                                        <rect key="frame" x="0.0" y="387" width="320" height="36"/>
+                                        <rect key="frame" x="0.0" y="382" width="320" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iK8-5U-38y">
-                                                <rect key="frame" x="263" y="3" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ew7-1j-Y7J">
+                                                <rect key="frame" x="113" y="0.0" width="95" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="-8" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Modify Recipe" backgroundImage="button_more.png">
+                                                    <color key="titleColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lGq-Y2-gFM">
-                                                <rect key="frame" x="137" y="3" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="coming soon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f4O-BT-i2Y">
+                                                <rect key="frame" x="113" y="17" width="95" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <color key="textColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bNt-BF-B5N">
+                                                <rect key="frame" x="215" y="0.0" width="95" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="-8" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Rate it" backgroundImage="button_more.png">
+                                                    <color key="titleColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X7Y-Kc-kl9">
-                                                <rect key="frame" x="11" y="3" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="coming soon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lSU-hc-3Ky">
+                                                <rect key="frame" x="215" y="17" width="95" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <color key="textColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jCY-aq-abb">
+                                                <rect key="frame" x="10" y="0.0" width="95" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="-8" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Share" backgroundImage="button_more.png">
+                                                    <color key="titleColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="coming soon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cl1-lp-EVD">
+                                                <rect key="frame" x="10" y="17" width="95" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <color key="textColor" red="1" green="0.36078431370000003" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -1310,6 +1355,8 @@
                         <outlet property="stars" destination="eSP-dz-7ov" id="AuL-1g-Zte"/>
                         <outlet property="table" destination="RoS-Lr-uzh" id="ybI-UW-hga"/>
                         <outlet property="totalTime" destination="Hur-10-SKV" id="cN0-nh-U0c"/>
+                        <segue destination="U1K-b3-sMt" kind="push" identifier="recipeInstructionVC" id="bcj-zX-9ih"/>
+                        <segue destination="g7S-aU-NZw" kind="push" identifier="missingIngredientVC" id="yta-P6-P3w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWe-gK-OAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1506,7 +1553,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fe8-ZO-60y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="-132"/>
+            <point key="canvasLocation" x="1783" y="-215"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="RnX-VJ-fvS">
+            <objects>
+                <viewController id="g7S-aU-NZw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RsQ-TS-teP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top.png" highlightedImage="top.png" id="bNn-iJ-VSG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="View missing ingredients" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sen-ZR-B10">
+                                <rect key="frame" x="53" y="33" width="267" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uSj-qM-eFh">
+                                <rect key="frame" x="10" y="29" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Back" backgroundImage="back_empty.png">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="back_active.png">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="xeP-tx-PqT" eventType="touchUpInside" id="aXJ-3f-tHa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="L5i-0F-mxf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ixz-6k-jLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="506"/>
         </scene>
         <!--Recipe Instructions View Controller-->
         <scene sceneID="ra3-8H-AhH">
@@ -1634,6 +1729,9 @@
                                 <state key="highlighted" backgroundImage="back_active.png">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="back:" destination="2QL-HC-Xzl" eventType="touchUpInside" id="ODq-iU-G0p"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7nX-Cc-rAw">
                                 <rect key="frame" x="0.0" y="67" width="320" height="430"/>
@@ -1677,7 +1775,7 @@
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="removeIngredients:" destination="2QL-HC-Xzl" eventType="touchUpInside" id="8bj-C2-dl4"/>
+                                                        <action selector="removeIngredients:" destination="sgS-ig-YC7" eventType="touchUpInside" id="oeb-xi-gdO"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mx3-He-J6m">
@@ -1695,7 +1793,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="removeBtn" destination="HzM-QO-ZjT" id="M04-iy-R9t"/>
+                                            <outlet property="removeBtn" destination="HzM-QO-ZjT" id="vLL-dR-VRq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1709,6 +1807,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="W92-o4-3f0"/>
                     <connections>
+                        <outlet property="skip" destination="zKJ-Zz-QlG" id="vSm-qY-RxL"/>
                         <outlet property="table" destination="7nX-Cc-rAw" id="6yu-22-a2I"/>
                     </connections>
                 </viewController>
