@@ -8,7 +8,11 @@
 
 #import "KIARecipeInstructionsViewController.h"
 
+#import "KIATabBarViewController.h"
+
 #import "KIARemoveIngredientsViewController.h"
+
+#import "KIAUpdater.h"
 
 @interface KIARecipeInstructionsViewController ()
 
@@ -44,6 +48,33 @@
     [super didReceiveMemoryWarning];
     
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)compleateAction:(id)sender
+{
+    NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:_receptIngredient];
+    
+    for (int i = 0; i < [_receptIngredient count]; i++)
+    {
+        if (![[KIAUpdater sharedUpdater] whetherThereIsAnIngredient:[[_receptIngredient objectAtIndex:i] objectForKey:@"name"]])
+        {
+            [temp removeObject:[_receptIngredient objectAtIndex:i]];
+        }
+    }
+    
+    if ([temp count])
+    {
+        [self performSegueWithIdentifier:@"removeIdentifier" sender:self];
+    }
+    else
+    {
+        KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self tabBarController];
+        
+        [tabBarVC setSelectedIndex:1];
+        [[[tabBarVC viewControllers] objectAtIndex:1] popToRootViewControllerAnimated:NO];
+        
+        [tabBarVC reloadButtonImageWithIndex:2];
+    }
 }
 
 #pragma mark ***** web view *****

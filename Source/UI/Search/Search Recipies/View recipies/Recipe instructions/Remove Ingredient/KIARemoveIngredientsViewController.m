@@ -99,7 +99,19 @@
     
     [[KIAUpdater sharedUpdater] removeItemWithNames:_removeArray];
     
-    [_table reloadData];
+    if ([_ingredientsInMyKitchIn count])
+    {
+        [_table reloadData];
+    }
+    else
+    {
+        KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self tabBarController];
+        
+        [tabBarVC setSelectedIndex:1];
+        [[[tabBarVC viewControllers] objectAtIndex:1] popToRootViewControllerAnimated:NO];
+        
+        [tabBarVC reloadButtonImageWithIndex:2];
+    }
 }
 
 - (IBAction)back:(id)sender

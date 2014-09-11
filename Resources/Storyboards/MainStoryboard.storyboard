@@ -1701,9 +1701,6 @@
                                 <state key="highlighted" backgroundImage="button_create_active.png">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
-                                <connections>
-                                    <segue destination="2QL-HC-Xzl" kind="push" identifier="removeIdentifier" id="Ukt-zH-4uY"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dis-Je-Tfx">
                                 <rect key="frame" x="10" y="29" width="50" height="30"/>
@@ -1736,6 +1733,7 @@
                     <navigationItem key="navigationItem" id="49m-Yl-LsM"/>
                     <connections>
                         <outlet property="web" destination="QX5-2S-MAB" id="Rbe-zx-Kiw"/>
+                        <segue destination="2QL-HC-Xzl" kind="push" identifier="removeIdentifier" id="JAs-Uu-NXx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFa-QG-jDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
