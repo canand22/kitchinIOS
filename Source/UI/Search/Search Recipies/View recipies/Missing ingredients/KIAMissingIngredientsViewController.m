@@ -91,7 +91,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([indexPath row] < [_receptIngredient count])
+    if ([indexPath row] < [_ingredientsMissingInMyKitchIn count])
     {
         if ([_addArray containsObject:[[_ingredientsMissingInMyKitchIn objectAtIndex:[indexPath row]] objectForKey:@"name"]])
         {
