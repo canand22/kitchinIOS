@@ -60,6 +60,14 @@
 
 - (IBAction)skipAction:(id)sender
 {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:@"Selected ingredients will be kept in your Kitchin."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+    
     KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self tabBarController];
     
     [tabBarVC setSelectedIndex:1];
@@ -70,6 +78,14 @@
 
 - (void)removeIngredients
 {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:@"Selected ingredients have been removed from your Kitchin."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+    
     for (int j = 0; j < [_removeArray count]; j++)
     {
         for (int i = 0; i < [_ingredientsInMyKitchIn count]; i++)
