@@ -15,6 +15,7 @@
 #import "KIACacheManager.h"
 
 #import "KIARecipeInstructionsViewController.h"
+#import "KIAMissingIngredientsViewController.h"
 
 @interface KIAViewRecipiesViewController ()
 
@@ -260,7 +261,7 @@
     
     if (buttonIndex == 1)
     {
-        [self performSegueWithIdentifier:@"" sender:self];
+        [self performSegueWithIdentifier:@"missingIngredientVC" sender:self];
     }
 }
 
@@ -386,6 +387,12 @@
     {
         KIARecipeInstructionsViewController *viewController = (KIARecipeInstructionsViewController *)[segue destinationViewController];
         [viewController setUrl:[_recipe RecipeUrl]];
+        [viewController setReceptIngredient:[_ingredientsArray mutableCopy]];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"missingIngredientVC"])
+    {
+        KIAMissingIngredientsViewController *viewController = (KIAMissingIngredientsViewController *)[segue destinationViewController];
         [viewController setReceptIngredient:[_ingredientsArray mutableCopy]];
     }
 }

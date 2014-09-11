@@ -33,7 +33,7 @@
     
     for (UIView *subview in self.subviews)
     {
-        for(UIView *subview2 in subview.subviews)
+        for (UIView *subview2 in subview.subviews)
         {
             if ([NSStringFromClass([subview2 class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"])
             {

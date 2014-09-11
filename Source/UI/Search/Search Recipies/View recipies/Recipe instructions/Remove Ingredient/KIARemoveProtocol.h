@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol KIARemoveProtocol <NSObject>
+@protocol KIARemoveProtocol<NSObject>
 
 - (void)removeIngredients;
 
