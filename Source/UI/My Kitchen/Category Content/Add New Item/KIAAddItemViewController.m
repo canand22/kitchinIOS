@@ -247,7 +247,14 @@
     }
     else
     {
-        [[cell textLabel] setText:[[_itemArray objectAtIndex:[indexPath row]] itemName]];
+        if ([[_itemArray objectAtIndex:[indexPath row]] isKindOfClass:[KIAYamlyMapping class]])
+        {
+            [[cell textLabel] setText:[[_itemArray objectAtIndex:[indexPath row]] name]];
+        }
+        else
+        {
+            [[cell textLabel] setText:[[_itemArray objectAtIndex:[indexPath row]] itemName]];
+        }
     }
     
     return cell;

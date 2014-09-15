@@ -264,7 +264,7 @@
         {
             [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[[[_ingredientArray objectAtIndex:[indexPath row]] itemId] integerValue]
                                                             name:[[_ingredientArray objectAtIndex:[indexPath row]] name]
-                                                      categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:[[_ingredientArray objectAtIndex:[indexPath row]] categoryName]]
+                                                      categoryId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:[[[_ingredientArray objectAtIndex:[indexPath row]] categoryName] capitalizedString]]
                                                        shortName:[[_ingredientArray objectAtIndex:[indexPath row]] shotName]
                                                            count:1
                                                            value:@""
