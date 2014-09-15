@@ -37,14 +37,24 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"welcome"] boolValue])
+    {
+        NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"];
     
-    [_fio setText:(name ? [NSString stringWithFormat:@"Hi, %@!", name] : @"")];
+        [_fio setText:(name ? [NSString stringWithFormat:@"Hi, %@!", name] : @"")];
+    }
+    else
+    {
+        [_fio setText:@""];
+    }
 }
 
-- (IBAction)myKitchin:(id)sender
+- (void)viewDidDisappear:(BOOL)animated
 {
-    [[self tabBarController] setSelectedIndex:1];
+    [super viewDidDisappear:animated];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"welcome"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)didReceiveMemoryWarning

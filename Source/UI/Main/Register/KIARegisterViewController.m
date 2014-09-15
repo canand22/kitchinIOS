@@ -157,6 +157,9 @@
     {
         [[KIAUpdater sharedUpdater] addUserWithId:0 name:[_firstName text] state:@YES];
         
+        [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"welcome"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                         message:@"Congratulations, you are registered. Enjoy your digital kitchen"
                                                        delegate:self

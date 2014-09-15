@@ -135,6 +135,9 @@
             [[KIAUpdater sharedUpdater] addUserWithId:0 name:[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"] state:@YES];
         }
         
+        [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"welcome"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     else

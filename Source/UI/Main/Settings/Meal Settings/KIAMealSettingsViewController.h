@@ -15,4 +15,6 @@
 @property(nonatomic, assign) KIAUser *user;
 @property(nonatomic, strong) NSMutableArray *avaibleItem;
 
+@property(nonatomic, strong) IBOutlet UILabel *nameLbl;
+
 @end

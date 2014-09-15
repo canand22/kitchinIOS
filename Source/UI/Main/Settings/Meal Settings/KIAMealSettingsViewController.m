@@ -48,6 +48,8 @@
     {
         _avaibleItem = [[NSMutableArray alloc] init];
     }
+    
+    [_nameLbl setText:[NSString stringWithFormat:@"%@: Food Restrictions", [_user name]]];
 }
 
 - (void)updateCheckBoxButton

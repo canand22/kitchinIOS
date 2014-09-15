@@ -35,13 +35,34 @@
         _mealArray = @[@"Any", @"Breakfast & Brunch", @"Dinner", @"Lunch & Snack"];
         _dishTypeArray = @[@"Any", @"Beverage", @"Bread", @"Dessert", @"Main Dish", @"Salad", @"Side Dish", @"Soup"];
         
-        // _usersCooking = [[NSMutableArray alloc] init];
+        _dietaryAndAllergies = @{@"0" : @"Low-Calorie",
+                                 @"1" : @"Low-Fat",
+                                 @"2" : @"Low-Carbohydrate",
+                                 @"3" : @"Low-Sodium",
+                                 @"4" : @"High-Fiber",
+                                 @"5" : @"Lacto vegetarian",
+                                 @"6" : @"Ovo vegetarian",
+                                 @"7" : @"Pescetarian",
+                                 @"8" : @"Vegan",
+                                 @"9" : @"Vegetarian",
+                                 @"10" : @"Dairy-free",
+                                 @"11" : @"Egg-free",
+                                 @"12" : @"Gluten-free",
+                                 @"13" : @"Peanut-free",
+                                 @"14" : @"Seafood-free",
+                                 @"15" : @"Sesame-free",
+                                 @"16" : @"Soy-free",
+                                 @"17" : @"Sulfite-free",
+                                 @"18" : @"Tree Nut-free",
+                                 @"19" : @"Wheat-free"};
         
         _cookWith = [[NSMutableArray alloc] init];
         _cookWithout = [[NSMutableArray alloc] init];
         _cookWithoutTemp = [[NSMutableArray alloc] init];
         
         _usersCooking = [[NSMutableArray alloc] init];
+        _dietaryUser = [[NSMutableArray alloc] init];
+        _allergiesUser = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -78,6 +99,18 @@
             if (![_usersCooking containsObject:[item name]])
             {
                 [_usersCooking addObject:[item name]];
+                
+                for (NSNumber *num in [item dietaryRestrictions])
+                {
+                    if ([num integerValue] < 10)
+                    {
+                        [_dietaryUser addObject:[_dietaryAndAllergies objectForKey:[NSString stringWithFormat:@"%@", num]]];
+                    }
+                    else
+                    {
+                        [_allergiesUser addObject:[_dietaryAndAllergies objectForKey:[NSString stringWithFormat:@"%@", num]]];
+                    }
+                }
             }
         }
     }
@@ -109,6 +142,7 @@
     [_cookWithout addObjectsFromArray:_cookWithoutTemp];
     
     _cookWithout = [[[NSSet setWithArray:_cookWithout] allObjects] mutableCopy];
+    _dietaryUser = [[[NSSet setWithArray:_dietaryUser] allObjects] mutableCopy];
     
     [_ingredientWithoutTagView setTags:_cookWithout];
     
@@ -389,8 +423,8 @@
         NSMutableArray *items = [[NSMutableArray alloc] init];
         [items addObject:[_cookWith componentsJoinedByString:@","]];
         [items addObject:[_cookWithout componentsJoinedByString:@","]];
-        [items addObject:@""];
-        [items addObject:@""];
+        [items addObject:[_allergiesUser componentsJoinedByString:@","]];
+        [items addObject:[_dietaryUser componentsJoinedByString:@","]];
         [items addObject:@""];
         [items addObject:[_dishTypeButton titleForState:UIControlStateNormal]];
         [items addObject:@""];

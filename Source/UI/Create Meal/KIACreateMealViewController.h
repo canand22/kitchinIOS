@@ -17,7 +17,11 @@
     NSArray *_mealArray;
     NSArray *_dishTypeArray;
     
+    NSDictionary *_dietaryAndAllergies;
+    
     NSMutableArray *_usersCooking;
+    NSMutableArray *_dietaryUser;
+    NSMutableArray *_allergiesUser;
     NSMutableArray *_cookWith;
     NSMutableArray *_cookWithout;
     NSMutableArray *_cookWithoutTemp;

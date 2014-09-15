@@ -35,8 +35,12 @@
 @property(nonatomic, strong) IBOutlet UIButton *loginBtn;
 @property(nonatomic, strong) IBOutlet UIButton *logoutBtn;
 
+@property(nonatomic, strong) IBOutlet UIButton *changeUserInfo;
+@property(nonatomic, strong) IBOutlet UIButton *changePassword;
+
 @property(nonatomic, strong) IBOutlet UITextField *firstName;
 @property(nonatomic, strong) IBOutlet UITextField *lastName;
+@property(nonatomic, strong) IBOutlet UITextField *emailName;
 
 - (IBAction)back:(id)sender;
 

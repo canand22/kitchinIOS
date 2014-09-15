@@ -49,36 +49,6 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    /*_users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
-    [_users sortUsingComparator:^NSComparisonResult (id obj1, id obj2)
-    {
-        NSInteger firstID = [[obj1 idUser] integerValue];
-        NSInteger secondID = [[obj2 idUser] integerValue];
-        
-        if (firstID < secondID)
-        {
-            return (NSComparisonResult)NSOrderedAscending;
-        }
-        else if (firstID > secondID)
-        {
-            return (NSComparisonResult)NSOrderedDescending;
-        }
-        else
-        {
-            return (NSComparisonResult)NSOrderedSame;
-        }
-    }];
-    
-    if ([_users count] > 0)
-    {
-        if (![[[_users objectAtIndex:[_users count] - 1] name] isEqualToString:@""])
-        {
-            [_users addObject:[[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@""]];
-        
-            [_table reloadData];
-        }
-    }*/
-    
     _index = -1;
 }
 
@@ -93,13 +63,20 @@
         [_loginBtn setEnabled:NO];
         [_logoutBtn setEnabled:YES];
         
-        [_firstName setText:[NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"], [[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"]]];
-        [_lastName setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]];
+        [_changeUserInfo setEnabled:YES];
+        [_changePassword setEnabled:YES];
+        
+        [_firstName setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"]];
+        [_lastName setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"]];
+        [_emailName setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"email"]];
     }
     else
     {
         [_loginBtn setEnabled:YES];
         [_logoutBtn setEnabled:NO];
+        
+        [_changeUserInfo setEnabled:NO];
+        [_changePassword setEnabled:NO];
     }
 }
 

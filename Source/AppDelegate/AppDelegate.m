@@ -16,6 +16,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"welcome"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     return YES;
 }
 

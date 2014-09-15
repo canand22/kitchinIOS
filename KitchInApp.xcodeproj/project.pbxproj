@@ -272,6 +272,8 @@
 		84ECBD4319C0475300190D7E /* KIARemoveOrAddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECBD4219C0475300190D7E /* KIARemoveOrAddTableViewCell.m */; };
 		84ECBD4719C1AD6B00190D7E /* ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84ECBD4619C1AD6B00190D7E /* ok@2x.png */; };
 		84ECBD4E19C1D85A00190D7E /* KIAMissingIngredientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECBD4D19C1D85A00190D7E /* KIAMissingIngredientsViewController.m */; };
+		84ECBD5519C332B200190D7E /* KIAServerGateway+EditUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECBD5419C332B200190D7E /* KIAServerGateway+EditUserInfo.m */; };
+		84ECBD5819C332E400190D7E /* KIAServerGateway+EditPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ECBD5719C332E400190D7E /* KIAServerGateway+EditPassword.m */; };
 		84EE61BF19A33F3E002B9C47 /* KIAServerGateway+Recipies.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE61BE19A33F3E002B9C47 /* KIAServerGateway+Recipies.m */; };
 		84EE61C319A33F78002B9C47 /* KIAFullRecipiesMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE61C219A33F78002B9C47 /* KIAFullRecipiesMapping.m */; };
 		84EE61CC19A3A7D3002B9C47 /* 0-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EE61C619A3A7D3002B9C47 /* 0-star@2x.png */; };
@@ -306,6 +308,11 @@
 		84F2F6AE19A4E455000FA708 /* KIACacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2F6AD19A4E455000FA708 /* KIACacheManager.m */; };
 		84F2F6B219A4FEA5000FA708 /* KIARecipeFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2F6B119A4FEA5000FA708 /* KIARecipeFiltersViewController.m */; };
 		84F440B119A1F9EA0050D56C /* KIASelectItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F440B019A1F9EA0050D56C /* KIASelectItemsViewController.m */; };
+		84F5364A19C6CB2C00DF0DB9 /* KIAChangePasswordMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5364919C6CB2C00DF0DB9 /* KIAChangePasswordMapping.m */; };
+		84F5364D19C6CB4400DF0DB9 /* KIAChangeUserInfoMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5364C19C6CB4400DF0DB9 /* KIAChangeUserInfoMapping.m */; };
+		84F5365019C6D50B00DF0DB9 /* KIASuccessMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5364F19C6D50B00DF0DB9 /* KIASuccessMapping.m */; };
+		84F5365619C6DD2600DF0DB9 /* KIAChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5365519C6DD2600DF0DB9 /* KIAChangePasswordViewController.m */; };
+		84F5365919C6DD3B00DF0DB9 /* KIAChangeUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5365819C6DD3B00DF0DB9 /* KIAChangeUserInfoViewController.m */; };
 		84F74A9019BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F74A8F19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m */; };
 		D6A8397518D2189300FA6202 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A8397418D2189300FA6202 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -813,6 +820,12 @@
 		84ECBD4819C1D14B00190D7E /* KIARemoveProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KIARemoveProtocol.h; sourceTree = "<group>"; };
 		84ECBD4C19C1D85A00190D7E /* KIAMissingIngredientsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAMissingIngredientsViewController.h; sourceTree = "<group>"; };
 		84ECBD4D19C1D85A00190D7E /* KIAMissingIngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAMissingIngredientsViewController.m; sourceTree = "<group>"; };
+		84ECBD5319C332B200190D7E /* KIAServerGateway+EditUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+EditUserInfo.h"; sourceTree = "<group>"; };
+		84ECBD5419C332B200190D7E /* KIAServerGateway+EditUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+EditUserInfo.m"; sourceTree = "<group>"; };
+		84ECBD5619C332E400190D7E /* KIAServerGateway+EditPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+EditPassword.h"; sourceTree = "<group>"; };
+		84ECBD5719C332E400190D7E /* KIAServerGateway+EditPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+EditPassword.m"; sourceTree = "<group>"; };
+		84ECBD5B19C33F7300190D7E /* editUserInfoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editUserInfoProtocol.h; sourceTree = "<group>"; };
+		84ECBD5C19C33F7B00190D7E /* editPasswordProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editPasswordProtocol.h; sourceTree = "<group>"; };
 		84EE61BD19A33F3E002B9C47 /* KIAServerGateway+Recipies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIAServerGateway+Recipies.h"; sourceTree = "<group>"; };
 		84EE61BE19A33F3E002B9C47 /* KIAServerGateway+Recipies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIAServerGateway+Recipies.m"; sourceTree = "<group>"; };
 		84EE61C119A33F78002B9C47 /* KIAFullRecipiesMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAFullRecipiesMapping.h; sourceTree = "<group>"; };
@@ -871,6 +884,16 @@
 		84F440B019A1F9EA0050D56C /* KIASelectItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASelectItemsViewController.m; sourceTree = "<group>"; };
 		84F440B219A258C50050D56C /* KIASelectedItemsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KIASelectedItemsProtocol.h; sourceTree = "<group>"; };
 		84F4B6B61993D71C0059CF18 /* KIAMealSettingsTableViewCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KIAMealSettingsTableViewCellProtocol.h; sourceTree = "<group>"; };
+		84F5364819C6CB2C00DF0DB9 /* KIAChangePasswordMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAChangePasswordMapping.h; sourceTree = "<group>"; };
+		84F5364919C6CB2C00DF0DB9 /* KIAChangePasswordMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAChangePasswordMapping.m; sourceTree = "<group>"; };
+		84F5364B19C6CB4400DF0DB9 /* KIAChangeUserInfoMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAChangeUserInfoMapping.h; sourceTree = "<group>"; };
+		84F5364C19C6CB4400DF0DB9 /* KIAChangeUserInfoMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAChangeUserInfoMapping.m; sourceTree = "<group>"; };
+		84F5364E19C6D50B00DF0DB9 /* KIASuccessMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASuccessMapping.h; sourceTree = "<group>"; };
+		84F5364F19C6D50B00DF0DB9 /* KIASuccessMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASuccessMapping.m; sourceTree = "<group>"; };
+		84F5365419C6DD2600DF0DB9 /* KIAChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAChangePasswordViewController.h; sourceTree = "<group>"; };
+		84F5365519C6DD2600DF0DB9 /* KIAChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAChangePasswordViewController.m; sourceTree = "<group>"; };
+		84F5365719C6DD3B00DF0DB9 /* KIAChangeUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAChangeUserInfoViewController.h; sourceTree = "<group>"; };
+		84F5365819C6DD3B00DF0DB9 /* KIAChangeUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAChangeUserInfoViewController.m; sourceTree = "<group>"; };
 		84F74A8E19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAFindIngrediensViewController.h; sourceTree = "<group>"; };
 		84F74A8F19BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAFindIngrediensViewController.m; sourceTree = "<group>"; };
 		8AA137DB18D7612400D755A6 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -1473,6 +1496,8 @@
 				84DB3650198FDE17006029A8 /* Login */,
 				84DB3659198FDE17006029A8 /* Logout */,
 				84DB3660198FDE17006029A8 /* Register */,
+				84ECBD5119C3317600190D7E /* Edit password */,
+				84ECBD5219C3317600190D7E /* Edit user info */,
 				84DB3669198FDE17006029A8 /* Search Item */,
 				84DB3670198FDE17006029A8 /* Send check */,
 				84CE255619927BFE0012D1FF /* User */,
@@ -1585,9 +1610,9 @@
 		84DB3659198FDE17006029A8 /* Logout */ = {
 			isa = PBXGroup;
 			children = (
+				84DB365C198FDE17006029A8 /* logoutProtocol.h */,
 				84DB365A198FDE17006029A8 /* KIAServerGateway+Logout.h */,
 				84DB365B198FDE17006029A8 /* KIAServerGateway+Logout.m */,
-				84DB365C198FDE17006029A8 /* logoutProtocol.h */,
 				84DB365D198FDE17006029A8 /* Mapping */,
 			);
 			path = Logout;
@@ -1605,10 +1630,10 @@
 		84DB3660198FDE17006029A8 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				84DB3668198FDE17006029A8 /* registerProtocol.h */,
 				84DB3661198FDE17006029A8 /* KIAServerGateway+Register.h */,
 				84DB3662198FDE17006029A8 /* KIAServerGateway+Register.m */,
 				84DB3663198FDE17006029A8 /* Mapping */,
-				84DB3668198FDE17006029A8 /* registerProtocol.h */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1845,6 +1870,7 @@
 			children = (
 				84DB36AC198FDE17006029A8 /* KIASettingViewController.h */,
 				84DB36AD198FDE17006029A8 /* KIASettingViewController.m */,
+				84F5365119C6DD0500DF0DB9 /* Change */,
 				84F74A8D19BD9EEC00F0CD79 /* Find Ingrediens */,
 				84CB837F1992390700EC34A3 /* Meal Settings */,
 				84CB837B1992186900EC34A3 /* Custom Cell */,
@@ -1983,6 +2009,28 @@
 				84ECBD4D19C1D85A00190D7E /* KIAMissingIngredientsViewController.m */,
 			);
 			path = "Missing ingredients";
+			sourceTree = "<group>";
+		};
+		84ECBD5119C3317600190D7E /* Edit password */ = {
+			isa = PBXGroup;
+			children = (
+				84ECBD5C19C33F7B00190D7E /* editPasswordProtocol.h */,
+				84ECBD5619C332E400190D7E /* KIAServerGateway+EditPassword.h */,
+				84ECBD5719C332E400190D7E /* KIAServerGateway+EditPassword.m */,
+				84F5364319C6CAD700DF0DB9 /* Mapping */,
+			);
+			path = "Edit password";
+			sourceTree = "<group>";
+		};
+		84ECBD5219C3317600190D7E /* Edit user info */ = {
+			isa = PBXGroup;
+			children = (
+				84ECBD5B19C33F7300190D7E /* editUserInfoProtocol.h */,
+				84ECBD5319C332B200190D7E /* KIAServerGateway+EditUserInfo.h */,
+				84ECBD5419C332B200190D7E /* KIAServerGateway+EditUserInfo.m */,
+				84F5364419C6CAE800DF0DB9 /* Mapping */,
+			);
+			path = "Edit user info";
 			sourceTree = "<group>";
 		};
 		84EE61C019A33F4E002B9C47 /* Mapping */ = {
@@ -2163,6 +2211,53 @@
 				84EE61C019A33F4E002B9C47 /* Mapping */,
 			);
 			path = Recipies;
+			sourceTree = "<group>";
+		};
+		84F5364319C6CAD700DF0DB9 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				84F5364819C6CB2C00DF0DB9 /* KIAChangePasswordMapping.h */,
+				84F5364919C6CB2C00DF0DB9 /* KIAChangePasswordMapping.m */,
+				84F5364E19C6D50B00DF0DB9 /* KIASuccessMapping.h */,
+				84F5364F19C6D50B00DF0DB9 /* KIASuccessMapping.m */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		84F5364419C6CAE800DF0DB9 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				84F5364B19C6CB4400DF0DB9 /* KIAChangeUserInfoMapping.h */,
+				84F5364C19C6CB4400DF0DB9 /* KIAChangeUserInfoMapping.m */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		84F5365119C6DD0500DF0DB9 /* Change */ = {
+			isa = PBXGroup;
+			children = (
+				84F5365219C6DD0500DF0DB9 /* Password */,
+				84F5365319C6DD0500DF0DB9 /* User Info */,
+			);
+			path = Change;
+			sourceTree = "<group>";
+		};
+		84F5365219C6DD0500DF0DB9 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				84F5365419C6DD2600DF0DB9 /* KIAChangePasswordViewController.h */,
+				84F5365519C6DD2600DF0DB9 /* KIAChangePasswordViewController.m */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
+		84F5365319C6DD0500DF0DB9 /* User Info */ = {
+			isa = PBXGroup;
+			children = (
+				84F5365719C6DD3B00DF0DB9 /* KIAChangeUserInfoViewController.h */,
+				84F5365819C6DD3B00DF0DB9 /* KIAChangeUserInfoViewController.m */,
+			);
+			path = "User Info";
 			sourceTree = "<group>";
 		};
 		84F74A8D19BD9EEC00F0CD79 /* Find Ingrediens */ = {
@@ -2709,6 +2804,7 @@
 				84DB36D0198FDE17006029A8 /* KIAServerGateway+Register.m in Sources */,
 				84DB36D5198FDE17006029A8 /* KIAServerGateway+SendCheck.m in Sources */,
 				84DB36DB198FDE17006029A8 /* KIASelectItemViewController.m in Sources */,
+				84F5365019C6D50B00DF0DB9 /* KIASuccessMapping.m in Sources */,
 				84DB36D9198FDE17006029A8 /* KIACameraViewController.m in Sources */,
 				84DB36C7198FDE17006029A8 /* KIACategory.m in Sources */,
 				84DB36DA198FDE17006029A8 /* KIASelectCategoryViewController.m in Sources */,
@@ -2720,15 +2816,19 @@
 				84DB36E9198FDE17006029A8 /* KIANewItemWithOtherViewController.m in Sources */,
 				84DB362D198FDDB5006029A8 /* KitchInModel.xcdatamodeld in Sources */,
 				84DB36D8198FDE17006029A8 /* KIACapturedReceiptViewController.m in Sources */,
+				84F5364D19C6CB4400DF0DB9 /* KIAChangeUserInfoMapping.m in Sources */,
 				84DB36E0198FDE17006029A8 /* KIAAddReceiptViewController.m in Sources */,
 				84DB36DD198FDE17006029A8 /* EditRecognizedItemCell.m in Sources */,
 				84F2F6AA19A4ADAB000FA708 /* KIAViewRecipiesViewController.m in Sources */,
 				84E0803615299BAF00F277B5 /* AppDelegate.m in Sources */,
 				84DB36EA198FDE17006029A8 /* KIAAddItemViewController.m in Sources */,
 				84941CC619B85CAC00E2D690 /* KIARemoveIngredientsViewController.m in Sources */,
+				84F5364A19C6CB2C00DF0DB9 /* KIAChangePasswordMapping.m in Sources */,
 				84DB36E8198FDE17006029A8 /* KIANewItemWithStoreViewController.m in Sources */,
+				84F5365919C6DD3B00DF0DB9 /* KIAChangeUserInfoViewController.m in Sources */,
 				84F00498199B9135002F1FED /* KIASearchRecipiesViewController.m in Sources */,
 				84F0048B199A0261002F1FED /* KIAServerGateway+SearchRecipies.m in Sources */,
+				84ECBD5819C332E400190D7E /* KIAServerGateway+EditPassword.m in Sources */,
 				84CE255919927C270012D1FF /* KIAUser.m in Sources */,
 				84DB36D6198FDE17006029A8 /* KIAImageMapping.m in Sources */,
 				84F74A9019BD9F0B00F0CD79 /* KIAFindIngrediensViewController.m in Sources */,
@@ -2745,6 +2845,7 @@
 				84EE61BF19A33F3E002B9C47 /* KIAServerGateway+Recipies.m in Sources */,
 				84EEB1761995149D0028169E /* KIAFavoriteViewController.m in Sources */,
 				84DB36E4198FDE17006029A8 /* KIAMainViewController.m in Sources */,
+				84F5365619C6DD2600DF0DB9 /* KIAChangePasswordViewController.m in Sources */,
 				84DB36D2198FDE17006029A8 /* KIARegisterMapping.m in Sources */,
 				84DB36C3198FDE17006029A8 /* KIAUpdater.m in Sources */,
 				84F004BC199E34BA002F1FED /* KIASearchRecipiesTableViewCell.m in Sources */,
@@ -2761,6 +2862,7 @@
 				84DB36ED198FDE17006029A8 /* KIATabBarViewController.m in Sources */,
 				84DB36D1198FDE17006029A8 /* KIAAutorization.m in Sources */,
 				84F440B119A1F9EA0050D56C /* KIASelectItemsViewController.m in Sources */,
+				84ECBD5519C332B200190D7E /* KIAServerGateway+EditUserInfo.m in Sources */,
 				84941CBE19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.m in Sources */,
 				84941CC219B5C52D00E2D690 /* KIAYamlyMapping.m in Sources */,
 				84CB837A1991345400EC34A3 /* KIAUsersFromHouseholdViewController.m in Sources */,

@@ -14,6 +14,4 @@
 
 @property(nonatomic, strong) IBOutlet UILabel *fio;
 
-- (IBAction)myKitchin:(id)sender;
-
 @end
