@@ -36,7 +36,7 @@
                          @"Dish Type" : @[@"Any", @"Beverage", @"Bread", @"Dessert", @"Main Dish", @"Salad", @"Side Dish", @"Soup"],
                          @"Time" : @[@"Any", @"Less than 15 mins", @"Less than 30 mins", @"Less than 45 mins", @"Less than 1 hour", @"Less than 2 hours", @"Less than 3 hours"],
                          @"Holiday" : @[@"Christmas", @"Summer", @"Thanksgiving", @"New Year", @"Super Bowl / Game Day", @"Halloween", @"Hanukkah", @"4th of July"],
-                         @"Allergy" : @[@"Dairy", @"Egg", @"Peanut", @"Seafood", @"Sesame", @"Soy", @"Sulfite", @"Tree Nut", @"Wheat", @"Gluten"],
+                         @"Allergy" : @[@"Dairy-free", @"Egg-free", @"Peanut-free", @"Seafood-free", @"Sesame-free", @"Soy-free", @"Sulfite-free", @"Tree Nut-free", @"Wheat-free", @"Gluten-free"],
                          @"Diet" : @[@"Low-Calorie", @"Low-Fat", @"Low-Carbohydrate", @"Low-Sodium", @"High-Fiber", @"Vegan", @"Vegetarian", @"Lacto vegetarian", @"Ovo vegetarian", @"Pescetarian"]};
     }
     

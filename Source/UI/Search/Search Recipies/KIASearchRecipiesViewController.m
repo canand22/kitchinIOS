@@ -18,6 +18,8 @@
 
 #import "KIACacheManager.h"
 #import "KIAUpdater.h"
+#import "KIAFilterSettings.h"
+#import "KIASearchDefines.h"
 
 #define BUTTON_ACTIVE   @"button_filter_active.png"
 #define BUTTON_INACTIVE @"button_filter.png"
@@ -47,6 +49,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSMutableArray *tempAllergy = [[KIAFilterSettings sharedFilterManager] allergy];
+    NSMutableArray *tempDiet = [[KIAFilterSettings sharedFilterManager] diet];
+    
+    [tempAllergy addObjectsFromArray:[[_itemForQuery objectForKey:ALLERGIES] componentsSeparatedByString:@","]];
+    [tempDiet addObjectsFromArray:[[_itemForQuery objectForKey:DIETS] componentsSeparatedByString:@","]];
+    
+    [[KIAFilterSettings sharedFilterManager] setAllergy:[[[NSSet setWithArray:tempAllergy] allObjects] mutableCopy]];
+    [[KIAFilterSettings sharedFilterManager] setDiet:[[[NSSet setWithArray:tempDiet] allObjects] mutableCopy]];
+    [[KIAFilterSettings sharedFilterManager] saveSettings];
     
     // Do any additional setup after loading the view.
     [_searchGateway sendSearchRecipiesForItem:_itemForQuery delegate:self];
