@@ -44,6 +44,12 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
+    picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, [[self view] frame].size.height, 320, 162)];
+    [picker setShowsSelectionIndicator:YES];
+    [picker setDataSource:self];
+    [picker setDelegate:self];
+    [[self view] addSubview:picker];
+    
     [_categoryTitle setText:_categoryName];
     [_categoryImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_category.png", _categoryName]]];
 }
@@ -112,8 +118,6 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         [self deleteItemFromIndex:[indexPath row]];
-        
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -135,12 +139,7 @@
 
 - (void)showPickerView:(NSInteger)numberOfCellRow
 {
-    UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, [[self view] frame].size.height, 320, 162)];
-    [picker setShowsSelectionIndicator:YES];
-    [picker setDataSource:self];
-    [picker setDelegate:self];
     [picker setTag:numberOfCellRow];
-    [[self view] addSubview:picker];
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.5f];
@@ -193,7 +192,7 @@
     
     [UIView commitAnimations];
     
-    [pickerView performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:.5f];
+    // [pickerView performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:.5f];
 }
 
 #pragma mark *****

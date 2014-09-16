@@ -15,6 +15,8 @@
 @interface KIACategoryContentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, EditRecognizedItemCellDelegate>
 {
     NSArray *_categoryItems;
+    
+    UIPickerView *picker;
 }
 
 @property(nonatomic, strong) NSArray *unitArray;
