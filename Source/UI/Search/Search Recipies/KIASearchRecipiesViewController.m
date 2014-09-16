@@ -50,6 +50,7 @@
 {
     [super viewDidLoad];
     
+    // Do any additional setup after loading the view.
     NSMutableArray *tempAllergy = [[KIAFilterSettings sharedFilterManager] allergy];
     NSMutableArray *tempDiet = [[KIAFilterSettings sharedFilterManager] diet];
     
@@ -58,9 +59,39 @@
     
     [[KIAFilterSettings sharedFilterManager] setAllergy:[[[NSSet setWithArray:tempAllergy] allObjects] mutableCopy]];
     [[KIAFilterSettings sharedFilterManager] setDiet:[[[NSSet setWithArray:tempDiet] allObjects] mutableCopy]];
-    [[KIAFilterSettings sharedFilterManager] saveSettings];
     
-    // Do any additional setup after loading the view.
+    if (![[_itemForQuery objectForKey:DISH_TYPE] isEqualToString:@""])
+    {
+        [[KIAFilterSettings sharedFilterManager] setDishType:[_itemForQuery objectForKey:DISH_TYPE]];
+    }
+    
+    if (![[_itemForQuery objectForKey:MEAL] isEqualToString:@""])
+    {
+        [[KIAFilterSettings sharedFilterManager] setMeal:[_itemForQuery objectForKey:MEAL]];
+    }
+    
+    [[KIAFilterSettings sharedFilterManager] saveSettings];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // ALLERGIES, DIETS, CUISINE, DISH_TYPE, HOLIDAY, MEAL, TIME
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    [items addObject:[_itemForQuery objectForKey:COOK_WITH]];
+    [items addObject:[_itemForQuery objectForKey:COOK_WITHOUT]];
+    [items addObject:[[KIAFilterSettings sharedFilterManager] allergy]];
+    [items addObject:[[KIAFilterSettings sharedFilterManager] diet]];
+    [items addObject:[[KIAFilterSettings sharedFilterManager] cuisine]];
+    [items addObject:[[KIAFilterSettings sharedFilterManager] dishType]];
+    [items addObject:[[KIAFilterSettings sharedFilterManager] holiday]];
+    [items addObject:[[KIAFilterSettings sharedFilterManager] meal]];
+    [items addObject:[[KIAFilterSettings sharedFilterManager] time]];
+    NSArray *keys = [NSArray arrayWithObjects:COOK_WITH, COOK_WITHOUT, ALLERGIES, DIETS, CUISINE, DISH_TYPE, HOLIDAY, MEAL, TIME, nil];
+    
+    _itemForQuery = [NSDictionary dictionaryWithObjects:items forKeys:keys];
+    
     [_searchGateway sendSearchRecipiesForItem:_itemForQuery delegate:self];
 }
 

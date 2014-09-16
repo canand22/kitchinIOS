@@ -147,11 +147,11 @@
                 
                 if ([[[KIAFilterSettings sharedFilterManager] cuisine] containsObject:[temp objectAtIndex:[indexPath row] - 1]])
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE] forState:UIControlStateNormal];
                 }
                 else
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE] forState:UIControlStateNormal];
                 }
                 
                 if (ceil([temp count] / 2.0) + [indexPath row] - 1 < [temp count])
@@ -199,11 +199,11 @@
                 
                 if ([[[KIAFilterSettings sharedFilterManager] meal] isEqualToString:[temp objectAtIndex:[indexPath row] - 1]])
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:RADIO_BUTTON_ACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:RADIO_BUTTON_ACTIVE] forState:UIControlStateNormal];
                 }
                 else
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:RADIO_BUTTON_DEACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:RADIO_BUTTON_DEACTIVE] forState:UIControlStateNormal];
                 }
                 
                 if (ceil([temp count] / 2.0) + [indexPath row] - 1 < [temp count])
@@ -250,11 +250,11 @@
                 
                 if ([[[KIAFilterSettings sharedFilterManager] dishType] isEqualToString:[temp objectAtIndex:[indexPath row] - 1]])
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:RADIO_BUTTON_ACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:RADIO_BUTTON_ACTIVE] forState:UIControlStateNormal];
                 }
                 else
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:RADIO_BUTTON_DEACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:RADIO_BUTTON_DEACTIVE] forState:UIControlStateNormal];
                 }
                 
                 if (ceil([temp count] / 2.0) + [indexPath row] - 1 < [temp count])
@@ -301,11 +301,11 @@
                 
                 if ([[[KIAFilterSettings sharedFilterManager] time] isEqualToString:[temp objectAtIndex:[indexPath row] - 1]])
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:RADIO_BUTTON_ACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:RADIO_BUTTON_ACTIVE] forState:UIControlStateNormal];
                 }
                 else
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:RADIO_BUTTON_DEACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:RADIO_BUTTON_DEACTIVE] forState:UIControlStateNormal];
                 }
                 
                 if (ceil([temp count] / 2.0) + [indexPath row] - 1 < [temp count])
@@ -352,11 +352,11 @@
                 
                 if ([[[KIAFilterSettings sharedFilterManager] holiday] containsObject:[temp objectAtIndex:[indexPath row] - 1]])
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE] forState:UIControlStateNormal];
                 }
                 else
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE] forState:UIControlStateNormal];
                 }
                 
                 if (ceil([temp count] / 2.0) + [indexPath row] - 1 < [temp count])
@@ -403,11 +403,11 @@
                 
                 if ([[[KIAFilterSettings sharedFilterManager] allergy] containsObject:[temp objectAtIndex:[indexPath row] - 1]])
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE] forState:UIControlStateNormal];
                 }
                 else
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE] forState:UIControlStateNormal];
                 }
                 
                 if (ceil([temp count] / 2.0) + [indexPath row] - 1 < [temp count])
@@ -454,11 +454,11 @@
                 
                 if ([[[KIAFilterSettings sharedFilterManager] diet] containsObject:[temp objectAtIndex:[indexPath row] - 1]])
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:CHECK_BUTTON_ACTIVE] forState:UIControlStateNormal];
                 }
                 else
                 {
-                    [[cell rightButton] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE] forState:UIControlStateNormal];
+                    [[cell leftButton] setImage:[UIImage imageNamed:CHECK_BUTTON_DEACTIVE] forState:UIControlStateNormal];
                 }
                 
                 if (ceil([temp count] / 2.0) + [indexPath row] - 1 < [temp count])
