@@ -113,6 +113,17 @@
     {
         _autocompleteArray = [[[KIAUpdater sharedUpdater] findItemForText:str] mutableCopy];
         
+        if ([_autocompleteArray count] == 0)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bummer! We couldn't find any ingredient based on your selection."
+                                                            message:@"Please modify your search and try again!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        
+            [alert show];
+        }
+        
         [_autocompleteTable reloadData];
     }
 }
