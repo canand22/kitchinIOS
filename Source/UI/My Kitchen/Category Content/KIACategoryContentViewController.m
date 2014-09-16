@@ -112,6 +112,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         [self deleteItemFromIndex:[indexPath row]];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -205,6 +207,13 @@
         [categoryContent setCategoryName:_categoryName];
         [categoryContent setIsRecognition:NO];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [_table setEditing:NO];
 }
 
 #pragma mark *****

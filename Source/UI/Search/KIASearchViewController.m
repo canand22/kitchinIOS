@@ -88,24 +88,40 @@
         }
     }
     
+    if ([_autocompleteArray count] == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bummer! We couldn't find any ingredient based on your selection."
+                                                        message:@"Please modify your search and try again!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
+    
     [_autocompleteTable reloadData];
+}
+
+- (void)reloadQueryWithText:(NSString *)str
+{
+    if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In the store"])
+    {
+        [_yummlyGateway searchWithString:str delegate:self];
+    }
+    
+    if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In my Kitchin"])
+    {
+        _autocompleteArray = [[[KIAUpdater sharedUpdater] findItemForText:str] mutableCopy];
+        
+        [_autocompleteTable reloadData];
+    }
 }
 
 #pragma mark ***** text field *****
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In the store"])
-    {
-        [_yummlyGateway searchWithString:[[textField text] stringByAppendingString:string] delegate:self];
-    }
-    
-    if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In my Kitchin"])
-    {
-        _autocompleteArray = [[[KIAUpdater sharedUpdater] findItemForText:[[textField text] stringByAppendingString:string]] mutableCopy];
-        
-        [_autocompleteTable reloadData];
-    }
+    [self reloadQueryWithText:[[textField text] stringByAppendingString:string]];
     
     return YES;
 }
@@ -253,11 +269,15 @@
     {
         if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In my Kitchin"])
         {
-            [[KIAUpdater sharedUpdater] removeItem:[_ingredientArray objectAtIndex:[indexPath row]]];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selected ingredient will be deleted from your KitchIn."
+                                                            message:@"Are you sure?"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"OK", nil];
             
-            [_ingredientArray removeObjectAtIndex:[indexPath row]];
+            [alert setTag:[indexPath row]];
             
-            [_ingreditntsTable reloadData];
+            [alert show];
         }
         
         if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In the store"])
@@ -269,6 +289,18 @@
                                                            count:1
                                                            value:@""
                                                           yummly:[[_ingredientArray objectAtIndex:[indexPath row]] yummlyName]];
+            
+            [_ingredientArray removeObjectAtIndex:[indexPath row]];
+            
+            [_ingreditntsTable reloadData];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                            message:@"New ingredient is added successfully to your KitchIn"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            
+            [alert show];
         }
     }
 }
@@ -286,6 +318,20 @@
     }
     
     return @"";
+}
+
+#pragma mark ***** alert view *****
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        [[KIAUpdater sharedUpdater] removeItem:[_ingredientArray objectAtIndex:[alertView tag]]];
+        
+        [_ingredientArray removeObjectAtIndex:[alertView tag]];
+        
+        [_ingreditntsTable reloadData];
+    }
 }
 
 #pragma mark - Navigation

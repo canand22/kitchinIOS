@@ -11,7 +11,7 @@
 #import "yamlyProtocol.h"
 #import "serverGatewayDelegate.h"
 
-@interface KIASearchViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, serverGatewayDelegate, UITextFieldDelegate>
+@interface KIASearchViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, serverGatewayDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 {
     id<yamlyProtocol> _yummlyGateway;
     
