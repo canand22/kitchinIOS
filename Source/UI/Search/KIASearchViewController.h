@@ -19,6 +19,8 @@
     
     NSMutableArray *_autocompleteArray;
     NSMutableArray *_ingredientArray;
+    
+    BOOL isAlertShow;
 }
 
 @property(nonatomic, strong) IBOutlet UIImageView *pickerFon;

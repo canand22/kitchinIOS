@@ -45,7 +45,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    isAlertShow = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -74,32 +76,42 @@
 
 - (void)showData:(NSArray *)itemArray
 {
-    [_autocompleteArray removeAllObjects];
-    NSMutableSet *names = [NSMutableSet set];
-    
-    for (id obj in itemArray)
+    if ([itemArray count] > 0)
     {
-        NSString *yummlyName = [obj yummlyName];
-        
-        if (![names containsObject:yummlyName])
+        isAlertShow = NO;
+    }
+    
+    if (!isAlertShow)
+    {
+        [_autocompleteArray removeAllObjects];
+        NSMutableSet *names = [NSMutableSet set];
+    
+        for (id obj in itemArray)
         {
-            [_autocompleteArray addObject:obj];
-            [names addObject:yummlyName];
-        }
-    }
-    
-    if ([_autocompleteArray count] == 0)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bummer! We couldn't find any ingredient based on your selection."
-                                                        message:@"Please modify your search and try again!"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+            NSString *yummlyName = [obj yummlyName];
         
-        [alert show];
-    }
+            if (![names containsObject:yummlyName])
+            {
+                [_autocompleteArray addObject:obj];
+                [names addObject:yummlyName];
+            }
+        }
     
-    [_autocompleteTable reloadData];
+        if ([_autocompleteArray count] == 0)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bummer! We couldn't find any ingredient based on your selection."
+                                                            message:@"Please modify your search and try again!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        
+            [alert show];
+        
+            isAlertShow = YES;
+        }
+    
+        [_autocompleteTable reloadData];
+    }
 }
 
 - (void)reloadQueryWithText:(NSString *)str
