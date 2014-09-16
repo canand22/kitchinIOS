@@ -144,7 +144,10 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    [self reloadQueryWithText:[[textField text] stringByAppendingString:string]];
+    if (![string isEqualToString:@""])
+    {
+        [self reloadQueryWithText:[[textField text] stringByAppendingString:string]];
+    }
     
     return YES;
 }
