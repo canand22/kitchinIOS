@@ -13,7 +13,7 @@
 #import "sendCheckProtocol.h"
 #import "serverGatewayDelegate.h"
 
-@interface KIACapturedReceiptViewController : UIViewController<serverGatewayDelegate>
+@interface KIACapturedReceiptViewController : UIViewController<serverGatewayDelegate, UIAlertViewDelegate>
 {
     id<sendCheckProtocol> _sendCheckGateway;
 }

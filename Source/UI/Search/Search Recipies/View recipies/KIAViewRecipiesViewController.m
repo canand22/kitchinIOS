@@ -64,6 +64,15 @@
         }
     }];
     
+    if ([[KIAUpdater sharedUpdater] checkReceptInFavoriteWithID:_recipiesIdentification])
+    {
+        [_addFavorite setEnabled:NO];
+    }
+    else
+    {
+        [_addFavorite setEnabled:YES];
+    }
+    
     [_recipeGateway sendRecipiesWithId:_recipiesIdentification delegate:self];
 }
 
@@ -86,7 +95,7 @@
     [_stars setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d-star.png", [_recipe Rating]]]];
     
     [_numberServed setText:[NSString stringWithFormat:@"Number served: %d", [_recipe Served]]];
-    [_totalTime setText:[NSString stringWithFormat:@"Total time: %@", ([_recipe Time] > 0 ? ([_recipe Time] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %d min", [_recipe Time] / 3600, [_recipe Time] / 60] : [NSString stringWithFormat:@"%d min", [_recipe Time] / 60]) : @"N/A")]];
+    [_totalTime setText:[NSString stringWithFormat:@"Cook Time: %@", ([_recipe Time] > 0 ? ([_recipe Time] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %@", [_recipe Time] / 3600, (([_recipe Time] - [_recipe Time] / 3600 * 3600) / 60 > 0 ? [NSString stringWithFormat:@"%d min", ([_recipe Time] - [_recipe Time] / 3600 * 3600) / 60] : @"")] : [NSString stringWithFormat:@"%d min", [_recipe Time] / 60]) : @"N/A")]];
     
     [_table reloadData];
     
@@ -248,6 +257,16 @@
                                              time:[_recipe Time]
                                              icon:[_recipe Picture]
                                       ingredients:[_recipe Ingredients]];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:@"Recipe added to My Favorites"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+    
+    [_addFavorite setEnabled:NO];
 }
 
 #pragma mark ***** alert view *****

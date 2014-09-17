@@ -504,7 +504,7 @@
 		84941CC519B85CAC00E2D690 /* KIARemoveIngredientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIARemoveIngredientsViewController.m; sourceTree = "<group>"; };
 		84941CC719B8615100E2D690 /* KIAButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAButtonTableViewCell.h; sourceTree = "<group>"; };
 		84941CC819B8615100E2D690 /* KIAButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIAButtonTableViewCell.m; sourceTree = "<group>"; };
-		84B5B64514C46B8F00ADE76F /* KitchInApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchInApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B5B64514C46B8F00ADE76F /* Kitchin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kitchin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B5B64914C46B8F00ADE76F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84CB837019910C0F00EC34A3 /* KIACreateMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACreateMealViewController.h; sourceTree = "<group>"; };
 		84CB837119910C0F00EC34A3 /* KIACreateMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACreateMealViewController.m; sourceTree = "<group>"; };
@@ -1039,7 +1039,7 @@
 		84B5B64614C46B8F00ADE76F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84B5B64514C46B8F00ADE76F /* KitchInApp.app */,
+				84B5B64514C46B8F00ADE76F /* Kitchin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2317,7 +2317,7 @@
 			);
 			name = Application;
 			productName = NixProject;
-			productReference = 84B5B64514C46B8F00ADE76F /* KitchInApp.app */;
+			productReference = 84B5B64514C46B8F00ADE76F /* Kitchin.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -3055,9 +3055,9 @@
 				);
 				INFOPLIST_FILE = Resources/Plists/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = KitchInApp;
+				PRODUCT_NAME = Kitchin;
 				RESIGNED_BUNDLE_ID = com.corey.KitchInApp;
-				RESIGNED_BUNDLE_NAME = KitchInApp;
+				RESIGNED_BUNDLE_NAME = Kitchin;
 				RESIGNED_ENTITLEMENTS_PATH = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -3077,9 +3077,9 @@
 				);
 				INFOPLIST_FILE = Resources/Plists/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = KitchInApp;
+				PRODUCT_NAME = Kitchin;
 				RESIGNED_BUNDLE_ID = com.corey.KitchInApp;
-				RESIGNED_BUNDLE_NAME = KitchInApp;
+				RESIGNED_BUNDLE_NAME = Kitchin;
 				RESIGNED_ENTITLEMENTS_PATH = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

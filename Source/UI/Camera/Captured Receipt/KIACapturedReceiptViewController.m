@@ -67,6 +67,21 @@
     [alert show];
 }
 
+- (void)errorRequestTimedOut
+{
+    [[[self view] viewWithTag:1000] removeFromSuperview];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry, we didn't recognize the items on your receipt."
+                                                    message:@"Please check receipt."
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"Try again", @"OK", nil];
+    
+    [alert setTag:1000];
+    
+    [alert show];
+}
+
 - (IBAction)back:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -79,6 +94,22 @@
     [[self view] addSubview:_loader];
         
     [_sendCheckGateway sendCheckWithImage:_photo storeID:1 delegate:self];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([alertView tag] == 1000)
+    {
+        if (buttonIndex == 0)
+        {
+            [self send:nil];
+        }
+        
+        if (buttonIndex == 1)
+        {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

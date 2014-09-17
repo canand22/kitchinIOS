@@ -109,6 +109,13 @@
                                         NSLog(@"Failure: %d", kCFURLErrorBadServerResponse);
                                     }
          
+                                    if ([error code] == kCFURLErrorTimedOut)
+                                    {
+                                        NSLog(@"Failure: %d", kCFURLErrorTimedOut);
+                                        
+                                        [theDelegate errorRequestTimedOut];
+                                    }
+                                    
                                     NSLog(@"Failure: %@", [error localizedDescription]);
                                     
                                     [[self objectManager] removeRequestDescriptor:request];

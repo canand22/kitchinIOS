@@ -198,8 +198,8 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"There are no ingredients in your KitchIn!"
-                                                        message:@"Would you like to add ingredients to your KitchIn now?"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"There are no ingredients in your Kitchin!"
+                                                        message:@"Would you like to add ingredients to your Kitchin now?"
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"OK", nil];
@@ -216,8 +216,8 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"There are no ingredients in your KitchIn!"
-                                                        message:@"Would you like to add ingredients to your KitchIn now?"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"There are no ingredients in your Kitchin!"
+                                                        message:@"Would you like to add ingredients to your Kitchin now?"
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"OK", nil];

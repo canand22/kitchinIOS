@@ -41,6 +41,7 @@
 // metods for favorite data work
 - (void)addFavoriteWithId:(NSString *)theId name:(NSString *)recipeName url:(NSString *)recipeUrl rating:(NSInteger)rating served:(NSInteger)served time:(NSInteger)time icon:(NSString *)picture ingredients:(NSArray *)ingredients;
 - (NSArray *)getAllFav;
+- (BOOL)checkReceptInFavoriteWithID:(NSString *)receptId;
 - (void)removeFavorite:(KIAFavorite *)fav;
 
 + (KIAUpdater *)sharedUpdater;

@@ -292,7 +292,7 @@
     [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[item Ingredients]]]];
     [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
     [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d-star.png", [item Rating]]]];
-    [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %d min", [item TotalTime] / 3600, [item TotalTime] / 60] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
+    [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %@", [item TotalTime] / 3600, (([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60 > 0 ? [NSString stringWithFormat:@"%d min", ([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60] : @"")] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
     
     return cell;
 }
@@ -342,12 +342,14 @@
         });
     }
     
+    NSInteger a = ([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60;
+    
     [[cell title] setText:[item Title]];
     
     [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[item Ingredients]]]];
     [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
     [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d-star.png", [item Rating]]]];
-    [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %d min", [item TotalTime] / 3600, [item TotalTime] / 60] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
+    [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %@", [item TotalTime] / 3600, (([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60 > 0 ? [NSString stringWithFormat:@"%d min", ([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60] : @"")] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
     
     return cell;
 }

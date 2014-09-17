@@ -384,6 +384,26 @@
     return fav;
 }
 
+- (BOOL)checkReceptInFavoriteWithID:(NSString *)receptId
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KIAFavorite" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"recipeId contains[c] %@", receptId];
+    [request setPredicate:predicate];
+    NSError  *error;
+    NSArray *itemArr = [context executeFetchRequest:request error:&error];
+    
+    if ([itemArr count])
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
 - (void)removeFavorite:(KIAFavorite *)fav
 {
     NSManagedObjectContext *context = [self managedObjectContext];

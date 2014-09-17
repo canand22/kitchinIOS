@@ -295,7 +295,7 @@
     {
         if ([[_whereSearchBtn titleForState:UIControlStateNormal] isEqualToString:@"In my Kitchin"])
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selected ingredient will be deleted from your KitchIn."
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Selected ingredient will be deleted from your Kitchin."
                                                             message:@"Are you sure?"
                                                            delegate:self
                                                   cancelButtonTitle:@"Cancel"
@@ -321,7 +321,7 @@
             [_ingreditntsTable reloadData];
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                            message:@"New ingredient is added successfully to your KitchIn"
+                                                            message:@"New ingredient is added successfully to your Kitchin"
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
