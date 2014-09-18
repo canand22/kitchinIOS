@@ -234,6 +234,8 @@
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"OK", nil];
         
+        [alert setTag:2000];
+        
         [alert show];
     }
 }
@@ -251,6 +253,8 @@
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"OK", nil];
+        
+        [alert setTag:2000];
         
         [alert show];
     }
