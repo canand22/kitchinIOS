@@ -153,9 +153,22 @@
         }
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([temp count] > 0)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
     
-    [_delegate itemChecked:temp];
+        [_delegate itemChecked:temp];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Please, select at least one ingredient from your Kitchin."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

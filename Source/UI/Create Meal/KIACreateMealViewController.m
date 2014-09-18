@@ -11,6 +11,7 @@
 #import "KIAUsersFromHouseholdViewController.h"
 #import "KIASelectCategoryViewController.h"
 #import "KIASearchRecipiesViewController.h"
+#import "KIASettingViewController.h"
 
 #import "KIASearchDefines.h"
 
@@ -190,6 +191,35 @@
     [self firstTagsReloadFrameWithHeight:[_userTagView fittedSize].height];
 }
 
+- (IBAction)addUsers:(id)sender
+{
+    NSMutableArray *temp = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+    
+    KIAUser *item = [temp objectAtIndex:[temp count] - 1];
+    
+    if ([[item name] isEqualToString:@""])
+    {
+        [temp removeObject:item];
+    }
+    
+    if ([temp count] != [_usersCooking count])
+    {
+        [self performSegueWithIdentifier:@"usersFromHousehold" sender:self];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"All your users are currently added."
+                                                        message:@"Would you like to create a new user?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Add", nil];
+        
+        [alert setTag:1000];
+        
+        [alert show];
+    }
+}
+
 - (IBAction)cookWithAction:(id)sender
 {
     if ([[[KIAUpdater sharedUpdater] getAllItems] count] > 0)
@@ -226,18 +256,61 @@
     }
 }
 
+- (IBAction)searchRecipe:(id)sender
+{
+    if ([_usersCooking count])
+    {
+        [self performSegueWithIdentifier:@"SearchRecepies" sender:self];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"We need to know who to cook for before continuing. Please add a user first."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
+}
+
 #pragma mark ***** alert view *****
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
+    if ([alertView tag] == 1000)
     {
-        KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self tabBarController];
+        if (buttonIndex == 1)
+        {
+            KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self tabBarController];
+            
+            [tabBarVC setSelectedIndex:0];
+            [[[tabBarVC viewControllers] objectAtIndex:0] popToRootViewControllerAnimated:NO];
+            
+            [tabBarVC reloadButtonImageWithIndex:1];
+            
+            UIViewController *temp = [[[[tabBarVC viewControllers] objectAtIndex:0] childViewControllers] objectAtIndex:0];
+            
+            [temp performSegueWithIdentifier:@"settingVC" sender:temp];
+            
+            UIButton *newButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [newButton setTag:102];
+            
+            [(KIASettingViewController *)[temp presentedViewController] mealSetting:newButton];
+        }
+    }
+    
+    if ([alertView tag] == 2000)
+    {
+        if (buttonIndex == 1)
+        {
+            KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self tabBarController];
         
-        [tabBarVC setSelectedIndex:3];
-        [[[tabBarVC viewControllers] objectAtIndex:3] popToRootViewControllerAnimated:NO];
+            [tabBarVC setSelectedIndex:3];
+            [[[tabBarVC viewControllers] objectAtIndex:3] popToRootViewControllerAnimated:NO];
         
-        [tabBarVC reloadButtonImageWithIndex:5];
+            [tabBarVC reloadButtonImageWithIndex:5];
+        }
     }
 }
 

@@ -138,7 +138,7 @@
         }
         else
         {
-            [sender setBackgroundImage:[UIImage imageNamed:@"top_menu_button_active.png"] forState:UIControlStateNormal];
+            [(UIButton *)[[self view] viewWithTag:BUTTON_TAG + i] setBackgroundImage:[UIImage imageNamed:@"top_menu_button_active.png"] forState:UIControlStateNormal];
             
             [[[self view] viewWithTag:VIEW_TAG + i] setAlpha:1.0f];
         }

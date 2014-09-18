@@ -1913,7 +1913,7 @@
                                         </state>
                                         <state key="highlighted" backgroundImage="button_course_active.png"/>
                                         <connections>
-                                            <segue destination="sOd-cz-2cE" kind="modal" identifier="usersFromHousehold" id="eff-Ey-BHt"/>
+                                            <action selector="addUsers:" destination="maB-8B-TuY" eventType="touchUpInside" id="dev-q4-MhG"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" id="N3g-E6-HCE">
@@ -2098,7 +2098,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="f7k-q4-sbb" kind="push" identifier="SearchRecepies" id="bNs-Zq-nnk"/>
+                                    <action selector="searchRecipe:" destination="maB-8B-TuY" eventType="touchUpInside" id="JVP-IT-SJR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Search Recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uRc-8A-zQV">
@@ -2151,6 +2151,8 @@
                         <outlet property="userTagView" destination="CTm-42-Xx9" id="v9e-HX-NFQ"/>
                         <segue destination="GkU-uc-cka" kind="modal" identifier="categoryItemCookWith" id="DvA-WN-8Vs"/>
                         <segue destination="GkU-uc-cka" kind="modal" identifier="categoryItemCookWithout" id="7mK-VA-C4z"/>
+                        <segue destination="f7k-q4-sbb" kind="push" identifier="SearchRecepies" id="piy-QR-O5s"/>
+                        <segue destination="sOd-cz-2cE" kind="modal" identifier="usersFromHousehold" id="Hk3-t3-kPN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E6P-vc-S53" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2399,7 +2401,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="R33-ZW-u9A" kind="modal" id="6f6-WZ-E7K"/>
+                                    <segue destination="R33-ZW-u9A" kind="modal" identifier="settingVC" id="6f6-WZ-E7K"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LUM-Ty-Uh1">
@@ -5523,8 +5525,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="AdG-6B-Ybs"/>
         <segue reference="cYE-u7-Oty"/>
+        <segue reference="piy-QR-O5s"/>
         <segue reference="7mK-VA-C4z"/>
     </inferredMetricsTieBreakers>
 </document>
