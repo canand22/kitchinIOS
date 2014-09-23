@@ -38,6 +38,15 @@
     
     // Do any additional setup after loading the view.
     _favoriteRecipe = [[[KIAUpdater sharedUpdater] getAllFav] mutableCopy];
+    
+    if ([_favoriteRecipe count] == 0)
+    {
+        [_nonFavRecipe setHidden:NO];
+    }
+    else
+    {
+        [_nonFavRecipe setHidden:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,6 +114,11 @@
         [[KIAUpdater sharedUpdater] removeItem:[_favoriteRecipe objectAtIndex:[indexPath row]]];
         
         [_favoriteRecipe removeObjectAtIndex:[indexPath row]];
+        
+        if ([_favoriteRecipe count] == 0)
+        {
+            [_nonFavRecipe setHidden:NO];
+        }
         
         [_table reloadData];
     }

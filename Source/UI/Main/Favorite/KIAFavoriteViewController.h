@@ -17,4 +17,6 @@
 
 @property(nonatomic, strong) IBOutlet UITableView *table;
 
+@property(nonatomic, strong) IBOutlet UILabel *nonFavRecipe;
+
 @end

@@ -18,6 +18,8 @@
 @interface KIAEditRecognizeItemsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, EditRecognizedItemCellDelegate, UIPickerViewDataSource, UIPickerViewDelegate, serverGatewayDelegate>
 {
     id<getCategoryItemProtocol> _getItemGateway;
+    
+    UIPickerView *picker;
 }
 
 @property(nonatomic, strong) NSMutableArray *itemArray;

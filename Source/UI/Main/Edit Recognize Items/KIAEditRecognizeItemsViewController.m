@@ -69,6 +69,12 @@
 {
     [super viewDidAppear:animated];
     
+    picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, [[self view] frame].size.height, 320, 160)];
+    [picker setShowsSelectionIndicator:YES];
+    [picker setDataSource:self];
+    [picker setDelegate:self];
+    [[self view] addSubview:picker];
+    
     [_table reloadData];
 }
 
@@ -84,7 +90,9 @@
             
             if ([item IsSuccessMatching])
             {
-                [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[[item Category] uppercaseString]] integerValue] shortName:[item ItemShortName] count:1 value:@"" yummly:[item YummlyName]];
+                EditRecognizedItemCell *cell = (EditRecognizedItemCell *)[_table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+                
+                [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[[item Category] uppercaseString]] integerValue] shortName:[item ItemShortName] count:[[[cell countField] text] integerValue] value:@"" yummly:[item YummlyName]];
                 
                 UIViewController *temp = [[self presentingViewController] presentingViewController];
                 
@@ -188,7 +196,7 @@
                                                                  delegate:self
                                                         cancelButtonTitle:@"Cancel"
                                                    destructiveButtonTitle:nil
-                                                        otherButtonTitles:@"Add new item", @"Item from My Kitchen", nil];
+                                                        otherButtonTitles:@"Add new item", @"Item from My Kitchin", nil];
     
         [actionSheet setTag:numberOfCellRow];
         [actionSheet showInView:[self view]];
@@ -237,12 +245,7 @@
 
 - (void)showPickerView:(NSInteger)numberOfCellRow
 {
-    UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, [[self view] frame].size.height, 320, 160)];
-    [picker setShowsSelectionIndicator:YES];
-    [picker setDataSource:self];
-    [picker setDelegate:self];
     [picker setTag:numberOfCellRow];
-    [[self view] addSubview:picker];
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.5f];
@@ -290,8 +293,6 @@
     [_table setFrame:frame];
     
     [UIView commitAnimations];
-    
-    [pickerView performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:.5f];
 }
 
 #pragma mark *****

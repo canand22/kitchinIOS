@@ -2712,10 +2712,18 @@
                                     <outlet property="delegate" destination="Nh5-Yi-NWq" id="izt-Ve-Jgr"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You currently have no favorite recipes." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="24I-r7-0pu">
+                                <rect key="frame" x="20" y="259" width="280" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="0.0" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="nonFavRecipe" destination="24I-r7-0pu" id="Iov-w9-um9"/>
                         <outlet property="table" destination="tU6-ca-W9P" id="UcC-dx-gZ0"/>
                         <segue destination="cRg-OK-qdT" kind="push" identifier="viewRecipeIdentifier" id="cYE-u7-Oty"/>
                     </connections>
@@ -4083,6 +4091,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="rsr-F8-uj3" id="GgM-eg-tLn"/>
+                                                    </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B4H-wI-roi">
                                                     <rect key="frame" x="293" y="5" width="19" height="19"/>
