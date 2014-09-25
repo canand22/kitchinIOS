@@ -342,8 +342,6 @@
         });
     }
     
-    NSInteger a = ([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60;
-    
     [[cell title] setText:[item Title]];
     
     [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[item Ingredients]]]];
