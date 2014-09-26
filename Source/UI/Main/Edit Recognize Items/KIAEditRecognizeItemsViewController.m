@@ -90,7 +90,7 @@
             
             if ([item IsSuccessMatching])
             {
-                EditRecognizedItemCell *cell = (EditRecognizedItemCell *)[_table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+                EditRecognizedItemCell *cell = (EditRecognizedItemCell *)[_table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i + 1 inSection:0]];
                 
                 [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[[item Category] uppercaseString]] integerValue] shortName:[item ItemShortName] count:[[[cell countField] text] integerValue] value:@"" yummly:[item YummlyName]];
                 
@@ -249,11 +249,9 @@
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.5f];
-    
-    CGRect frame = [_table frame];
-    frame.size.height -= [picker frame].size.height;
+
     [picker setFrame:CGRectMake(0, [[self view] frame].size.height - 160, 320, 160)];
-    [_table setFrame:frame];
+    [_table setFrame:CGRectMake(0, 70, 320, [[self view] frame].size.height - 230)];
     
     [UIView commitAnimations];
 }
@@ -287,10 +285,8 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.5f];
     
-    CGRect frame = [_table frame];
-    frame.size.height += [pickerView frame].size.height;
     [pickerView setFrame:CGRectMake(0, [[self view] frame].size.height, 320, 160)];
-    [_table setFrame:frame];
+    [_table setFrame:CGRectMake(0, 70, 320, [[self view] frame].size.height)];
     
     [UIView commitAnimations];
 }
