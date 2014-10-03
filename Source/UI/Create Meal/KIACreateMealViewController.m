@@ -77,6 +77,15 @@
     [_userTagView setTagDelegate:self];
     [_ingredientWithTagView setTagDelegate:self];
     [_ingredientWithoutTagView setTagDelegate:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearArray) name:@"clearAll" object:nil];
+}
+
+- (void)clearArray
+{
+    [_cookWithout removeAllObjects];
+    [_cookWith removeAllObjects];
+    [_cookWithoutTemp removeAllObjects];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -559,5 +568,10 @@
 }
 
 #pragma mark *****
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

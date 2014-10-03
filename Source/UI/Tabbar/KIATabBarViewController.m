@@ -243,6 +243,8 @@
         [self setModalPresentationStyle:UIModalPresentationCurrentContext];
         [self presentViewController:loginViewController animated:YES completion:nil];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"clearAll" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
