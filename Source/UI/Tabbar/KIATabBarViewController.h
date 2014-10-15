@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+// #import "KIACapturedReceiptViewController.h"
+
+@class KIACapturedReceiptViewController;
+
 @interface KIATabBarViewController : UITabBarController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     UIImage *originalImage;
+    
+    KIACapturedReceiptViewController *capturedReceiptViewController;
 }
 
 - (void)reloadButtonImageWithIndex:(NSInteger)index;

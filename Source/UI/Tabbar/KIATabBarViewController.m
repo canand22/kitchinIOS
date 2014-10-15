@@ -48,6 +48,18 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (capturedReceiptViewController)
+    {
+        capturedReceiptViewController = nil;
+        
+        [self presentCamera];
+    }
+}
+
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
@@ -323,9 +335,10 @@
     
     [self saveImageInDocumentFolderWithImage:originalImage];
     
-    [picker dismissViewControllerAnimated:NO completion:nil];
-    
-    [self performSegueWithIdentifier:@"recognizeVC" sender:self];
+    [picker dismissViewControllerAnimated:NO completion:^
+    {
+       [self performSegueWithIdentifier:@"recognizeVC" sender:self];
+    }];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -350,7 +363,7 @@
 {
     if ([segue.identifier isEqualToString:@"recognizeVC"])
     {
-        KIACapturedReceiptViewController *capturedReceiptViewController = (KIACapturedReceiptViewController *)[segue destinationViewController];
+        capturedReceiptViewController = (KIACapturedReceiptViewController *)[segue destinationViewController];
         [capturedReceiptViewController setPhoto:originalImage];
         [capturedReceiptViewController setTitleText:@"Captured Receipt"];
     }
