@@ -18,6 +18,8 @@
     id<autorizationProtocol> _loginGateway;
     
     IBOutlet UIView *_mainView;
+    
+    CGRect _mainFrame;
 }
 
 @property(nonatomic, strong) id<autorizationProtocol> loginGateway;

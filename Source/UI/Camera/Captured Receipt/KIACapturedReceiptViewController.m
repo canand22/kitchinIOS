@@ -14,6 +14,7 @@
 
 #import "KIAEditRecognizeItemsViewController.h"
 #import "KIALoaderView.h"
+#import "KIATabBarViewController.h"
 
 @interface KIACapturedReceiptViewController ()
 
@@ -84,6 +85,17 @@
 
 - (IBAction)back:(id)sender
 {
+    KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[self presentingViewController];
+    
+    [tabBarVC setSelectedIndex:0];
+    [[[tabBarVC viewControllers] objectAtIndex:0] popToRootViewControllerAnimated:NO];
+    
+    [tabBarVC reloadButtonImageWithIndex:3];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTag:3];
+    [tabBarVC pressButton:btn];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

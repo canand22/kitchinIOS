@@ -12,8 +12,6 @@
 
 #import "KIATabBarViewController.h"
 
-#import "KIACameraViewController.h"
-
 @interface KIAAddReceiptViewController ()
 
 @end
@@ -79,13 +77,10 @@
     
     [tabBarVC reloadButtonImageWithIndex:3];
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        KIACameraViewController *cameraViewController = (KIACameraViewController *)[storyboard instantiateViewControllerWithIdentifier:@"cameraViewViewController"];
-        [tabBarVC presentViewController:cameraViewController animated:YES completion:nil];
-    }
-    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTag:3];
+    [tabBarVC pressButton:btn];
+        
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

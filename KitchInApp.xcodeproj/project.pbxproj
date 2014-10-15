@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		6B520969C2944D2DB36A9BD5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 934B9C312E7845A38D8175F7 /* libPods.a */; };
+		7ACD887C19ED7A1400C3CAC8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACD887B19ED7A1400C3CAC8 /* CoreGraphics.framework */; };
 		84503C8318BCA53F00191278 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84503C8218BCA53F00191278 /* MainStoryboard.storyboard */; };
 		84941CB919B46D4800E2D690 /* KIAFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 84941CB819B46D4800E2D690 /* KIAFavorite.m */; };
 		84941CBE19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.m in Sources */ = {isa = PBXBuildFile; fileRef = 84941CBD19B5C46D00E2D690 /* KIAServerGateway+SearchYamly.m */; };
@@ -244,7 +245,6 @@
 		84DB36D6198FDE17006029A8 /* KIAImageMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DB3675198FDE17006029A8 /* KIAImageMapping.m */; };
 		84DB36D7198FDE17006029A8 /* KIASendCheckMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DB3677198FDE17006029A8 /* KIASendCheckMapping.m */; };
 		84DB36D8198FDE17006029A8 /* KIACapturedReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DB367E198FDE17006029A8 /* KIACapturedReceiptViewController.m */; };
-		84DB36D9198FDE17006029A8 /* KIACameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DB3680198FDE17006029A8 /* KIACameraViewController.m */; };
 		84DB36DA198FDE17006029A8 /* KIASelectCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DB3683198FDE17006029A8 /* KIASelectCategoryViewController.m */; };
 		84DB36DB198FDE17006029A8 /* KIASelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DB3686198FDE17006029A8 /* KIASelectItemViewController.m */; };
 		84DB36DC198FDE17006029A8 /* CategoryItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DB368A198FDE17006029A8 /* CategoryItemCell.m */; };
@@ -491,6 +491,7 @@
 /* Begin PBXFileReference section */
 		74BA8F83165536D800FD00B1 /* NIXObjCLint */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NIXObjCLint; sourceTree = "<group>"; };
 		74DD09B516C8E32500969175 /* NIXImagesValidator */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NIXImagesValidator; sourceTree = "<group>"; };
+		7ACD887B19ED7A1400C3CAC8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8411D60C198A7A8900ADD72F /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = SOURCE_ROOT; };
 		84503C8218BCA53F00191278 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		84941CB719B46D4800E2D690 /* KIAFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIAFavorite.h; sourceTree = "<group>"; };
@@ -762,8 +763,6 @@
 		84DB3679198FDE17006029A8 /* serverGatewayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serverGatewayDelegate.h; sourceTree = "<group>"; };
 		84DB367D198FDE17006029A8 /* KIACapturedReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACapturedReceiptViewController.h; sourceTree = "<group>"; };
 		84DB367E198FDE17006029A8 /* KIACapturedReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACapturedReceiptViewController.m; sourceTree = "<group>"; };
-		84DB367F198FDE17006029A8 /* KIACameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIACameraViewController.h; sourceTree = "<group>"; };
-		84DB3680198FDE17006029A8 /* KIACameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIACameraViewController.m; sourceTree = "<group>"; };
 		84DB3682198FDE17006029A8 /* KIASelectCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASelectCategoryViewController.h; sourceTree = "<group>"; };
 		84DB3683198FDE17006029A8 /* KIASelectCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIASelectCategoryViewController.m; sourceTree = "<group>"; };
 		84DB3685198FDE17006029A8 /* KIASelectItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIASelectItemViewController.h; sourceTree = "<group>"; };
@@ -911,6 +910,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ACD887C19ED7A1400C3CAC8 /* CoreGraphics.framework in Frameworks */,
 				84B5B64A14C46B8F00ADE76F /* UIKit.framework in Frameworks */,
 				6B520969C2944D2DB36A9BD5 /* libPods.a in Frameworks */,
 			);
@@ -1047,6 +1047,7 @@
 		84B5B64814C46B8F00ADE76F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ACD887B19ED7A1400C3CAC8 /* CoreGraphics.framework */,
 				84B5B64914C46B8F00ADE76F /* UIKit.framework */,
 				934B9C312E7845A38D8175F7 /* libPods.a */,
 			);
@@ -1711,8 +1712,6 @@
 			isa = PBXGroup;
 			children = (
 				84DB367C198FDE17006029A8 /* Captured Receipt */,
-				84DB367F198FDE17006029A8 /* KIACameraViewController.h */,
-				84DB3680198FDE17006029A8 /* KIACameraViewController.m */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -2805,7 +2804,6 @@
 				84DB36D5198FDE17006029A8 /* KIAServerGateway+SendCheck.m in Sources */,
 				84DB36DB198FDE17006029A8 /* KIASelectItemViewController.m in Sources */,
 				84F5365019C6D50B00DF0DB9 /* KIASuccessMapping.m in Sources */,
-				84DB36D9198FDE17006029A8 /* KIACameraViewController.m in Sources */,
 				84DB36C7198FDE17006029A8 /* KIACategory.m in Sources */,
 				84DB36DA198FDE17006029A8 /* KIASelectCategoryViewController.m in Sources */,
 				84F0049B199BB8D0002F1FED /* KIARecipiesMapping.m in Sources */,

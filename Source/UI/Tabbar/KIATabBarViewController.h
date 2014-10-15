@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KIATabBarViewController : UITabBarController
+@interface KIATabBarViewController : UITabBarController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+{
+    UIImage *originalImage;
+}
 
 - (void)reloadButtonImageWithIndex:(NSInteger)index;
+- (void)pressButton:(id)sender;
 
 @end

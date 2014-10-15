@@ -56,7 +56,8 @@
 {
     [super viewDidAppear:animated];
     
-    [_table reloadData];
+    // [_table reloadData];
+    [self reloadTableView];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"])
     {
@@ -77,6 +78,39 @@
         
         [_changeUserInfo setEnabled:NO];
         [_changePassword setEnabled:NO];
+    }
+}
+
+- (void)reloadTableView
+{
+    _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+    [_users sortUsingComparator:^NSComparisonResult (id obj1, id obj2)
+    {
+        NSInteger firstID = [[obj1 idUser] integerValue];
+        NSInteger secondID = [[obj2 idUser] integerValue];
+         
+        if (firstID < secondID)
+        {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        else if (firstID > secondID)
+        {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else
+        {
+            return (NSComparisonResult)NSOrderedSame;
+        }
+    }];
+    
+    if ([_users count] > 0)
+    {
+        if (![[[_users objectAtIndex:[_users count] - 1] name] isEqualToString:@""])
+        {
+            [_users addObject:[[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@"" state:@NO]];
+        }
+        
+        [_table reloadData];
     }
 }
 
@@ -144,7 +178,7 @@
         }
     }
     
-    _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+    /*_users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
     [_users sortUsingComparator:^NSComparisonResult (id obj1, id obj2)
     {
         NSInteger firstID = [[obj1 idUser] integerValue];
@@ -172,7 +206,8 @@
         }
         
         [_table reloadData];
-    }
+    }*/
+    [self reloadTableView];
 }
 
 - (IBAction)help:(id)sender
@@ -363,23 +398,33 @@
 
 - (IBAction)addUserAction:(id)sender
 {
-    if (![[[_users objectAtIndex:[_users count] - 1] name] isEqualToString:@""])
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"])
     {
-        [[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@"" state:@NO];
+        if (![[[_users objectAtIndex:[_users count] - 1] name] isEqualToString:@""])
+        {
+            [[KIAUpdater sharedUpdater] addUserWithId:[_users count] name:@"" state:@NO];
     
-        _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
+            _users = [[[KIAUpdater sharedUpdater] getAllUsers] mutableCopy];
     
-        [_table reloadData];
+            [_table reloadData];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                            message:@"Please complete previous user info to continue..."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        
+            [alert show];
+        }
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"Please complete previous user info to continue..."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        
-        [alert show];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        KIALoginViewController *loginViewController = (KIALoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+        [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+        [self presentViewController:loginViewController animated:YES completion:nil];
     }
 }
 

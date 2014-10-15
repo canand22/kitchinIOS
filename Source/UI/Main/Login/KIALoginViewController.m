@@ -40,8 +40,17 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
+    _mainFrame = [_mainView frame];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [_mainView setFrame:_mainFrame];
 }
 
 #pragma mark ***** keyboard *****
@@ -50,10 +59,10 @@
 {
     CGRect keyboardBounds;
     [[[note userInfo] valueForKey:UIKeyboardFrameBeginUserInfoKey] getValue:&keyboardBounds];
-		
+
     CGRect frame = [_mainView frame];
     frame.origin.y = 5;
-    frame.size.height -= MIN(keyboardBounds.size.height, keyboardBounds.size.width) - 90;
+    frame.size.height = [[self view] frame].size.height - 258;
     [_mainView setFrame:frame];
 }
 
@@ -61,11 +70,14 @@
 {
     CGRect keyboardBounds;
     [[[note userInfo] valueForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardBounds];
-
-    CGRect frame = [_mainView frame];
-    frame.origin.y = 29;
-    frame.size.height += MIN(keyboardBounds.size.height, keyboardBounds.size.width) - 40;
-    [_mainView setFrame:frame];
+    
+    if (keyboardBounds.origin.y < [[self view] frame].size.height)
+    {
+        CGRect frame = [_mainView frame];
+        frame.origin.y = 29;
+        frame.size.height = [[self view] frame].size.height + 258;
+        [_mainView setFrame:frame];
+    }
 }
 
 #pragma mark *****
@@ -161,6 +173,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [_mainView setFrame:_mainFrame];
 }
 
 - (void)dealloc

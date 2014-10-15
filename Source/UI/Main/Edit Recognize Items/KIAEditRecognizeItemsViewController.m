@@ -16,7 +16,6 @@
 #import "KIASelectCategoryViewController.h"
 #import "KIATabBarViewController.h"
 #import "KIAMyKitchenViewController.h"
-#import "KIACameraViewController.h"
 
 #import "KIALoginViewController.h"
 
@@ -94,10 +93,10 @@
                 
                 [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[[item Category] uppercaseString]] integerValue] shortName:[item ItemShortName] count:[[[cell countField] text] integerValue] value:@"" yummly:[item YummlyName]];
                 
-                UIViewController *temp = [[self presentingViewController] presentingViewController];
+                KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[[self presentingViewController] presentingViewController];
                 
-                KIATabBarViewController *tabBarVC = (KIATabBarViewController *)([temp isKindOfClass:[KIACameraViewController class]] ? [temp presentingViewController] : temp);
-                
+                /*KIATabBarViewController *tabBarVC = (KIATabBarViewController *)([temp isKindOfClass:[KIACameraViewController class]] ? [temp presentingViewController] : temp);
+                */
                 [tabBarVC dismissViewControllerAnimated:YES completion:nil];
                 
                 [tabBarVC setSelectedIndex:1];
