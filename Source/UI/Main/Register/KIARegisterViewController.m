@@ -164,7 +164,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:@"Congratulations, you are registered. Enjoy your digital kitchen"
+                                                        message:@"Congratulations, you are registered. Enjoy your digital kitchin"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
