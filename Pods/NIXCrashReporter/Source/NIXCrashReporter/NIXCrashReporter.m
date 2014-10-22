@@ -54,7 +54,7 @@ static NSString *const NIXPlistConfigurationKey = @"Configuration";
                                         NIXConfigurationKey : [self buildConfiguration]
                                     };
         
-        NSURL *url = [NSURL URLWithString:@"https://mdsdev.nixsolutions.com/"];
+        NSURL *url = [NSURL URLWithString:@"https://mdstest.nixsolutions.com/"];
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         
         [httpClient registerHTTPOperationClass:[AFXMLRequestOperation class]];
