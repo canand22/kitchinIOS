@@ -271,20 +271,7 @@
 
 - (IBAction)searchRecipe:(id)sender
 {
-    if ([_usersCooking count])
-    {
-        [self performSegueWithIdentifier:@"SearchRecepies" sender:self];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:@"We need to know who to cook for before continuing. Please add a user first."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        
-        [alert show];
-    }
+    [self performSegueWithIdentifier:@"SearchRecepies" sender:self];
 }
 
 #pragma mark ***** alert view *****

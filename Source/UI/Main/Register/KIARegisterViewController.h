@@ -23,6 +23,8 @@
     IBOutlet UIScrollView *_scroll;
     
     id<registerProtocol> _registerGateway;
+    
+    BOOL isRequestLoad;
 }
 
 @property(nonatomic, strong) id<registerProtocol> registerGateway;

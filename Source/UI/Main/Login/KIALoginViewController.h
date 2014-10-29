@@ -18,8 +18,11 @@
     id<autorizationProtocol> _loginGateway;
     
     IBOutlet UIView *_mainView;
+    IBOutlet UIScrollView *_scroll;
     
     CGRect _mainFrame;
+    
+    BOOL isRequestLoad;
 }
 
 @property(nonatomic, strong) id<autorizationProtocol> loginGateway;

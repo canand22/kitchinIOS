@@ -18,6 +18,8 @@
     id<forgotProtocol> _forgotGateway;
     
     IBOutlet UIView *_mainView;
+    
+    BOOL isRequestLoad;
 }
 
 @property(nonatomic, strong) id<forgotProtocol> forgotGateway;

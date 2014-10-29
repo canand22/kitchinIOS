@@ -38,7 +38,7 @@
         _searchItemGateway = [KIAServerGateway gateway];
         _yummlySearchItemGateway = [KIAServerGateway gateway];
         
-        _storeArray = @[@"Potash store", @"Other"];
+        _storeArray = @[@"Potash Market", @"Other"];
         
         isBlock = YES;
         

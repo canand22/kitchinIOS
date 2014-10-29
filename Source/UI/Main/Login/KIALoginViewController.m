@@ -42,8 +42,12 @@
 	// Do any additional setup after loading the view.
     _mainFrame = [_mainView frame];
     
+    isRequestLoad = NO;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    
+    [_scroll setContentSize:CGSizeMake(268, 129)];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -109,7 +113,12 @@
     }
     else
     {
-        [_loginGateway loginUser:[_login text] withPassword:[_pass text] delegate:self];
+        if (!isRequestLoad)
+        {
+            isRequestLoad = YES;
+        
+            [_loginGateway loginUser:[_login text] withPassword:[_pass text] delegate:self];
+        }
     }
 }
 
@@ -138,6 +147,8 @@
 
 - (void)loginSuccess:(BOOL)success
 {
+    isRequestLoad = NO;
+    
     if (success)
     {
         NSArray *temp = [[KIAUpdater sharedUpdater] getAllUsers];

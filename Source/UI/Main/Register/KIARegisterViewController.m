@@ -37,6 +37,8 @@
 {
     [super viewDidLoad];
     
+    isRequestLoad = NO;
+    
 	// Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
@@ -117,7 +119,12 @@
     }
     else
     {
-        [_registerGateway registerUser:[_email text] withPassword:[_password text] firstName:[_firstName text] lastName:[_lastName text] delegate:self];
+        if (!isRequestLoad)
+        {
+            isRequestLoad = YES;
+            
+            [_registerGateway registerUser:[_email text] withPassword:[_password text] firstName:[_firstName text] lastName:[_lastName text] delegate:self];
+        }
     }
 }
 
@@ -156,6 +163,8 @@
 
 - (void)loginSuccess:(BOOL)success
 {
+    isRequestLoad = NO;
+    
     if (success)
     {
         [[KIAUpdater sharedUpdater] addUserWithId:0 name:[_firstName text] state:@YES];

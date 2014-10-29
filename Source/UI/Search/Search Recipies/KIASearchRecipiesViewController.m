@@ -71,6 +71,8 @@
     }
     
     [[KIAFilterSettings sharedFilterManager] saveSettings];
+    
+    [self showTableView:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
