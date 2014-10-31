@@ -201,17 +201,6 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if ([[_selectStoreTextFild text] isEqualToString:@"Other"])
-    {
-        [_yummlySearchItemGateway searchWithString:[[textField text] stringByAppendingString:string] delegate:self];
-    }
-    else
-    {
-        [_searchItemGateway searchItemWithText:[[textField text] stringByAppendingString:string] categoyId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName] storeId:1 delegate:self];
-    }
-    
-    isBlock = YES;
-    
     return YES;
 }
 
@@ -222,7 +211,20 @@
     return YES;
 }
 
-#pragma mark *****
+- (IBAction)search:(id)sender
+{
+    if ([[_selectStoreTextFild text] isEqualToString:@"Other"])
+    {
+        [_yummlySearchItemGateway searchWithString:[_itemTextField text] delegate:self];
+    }
+    else
+    {
+        [_searchItemGateway searchItemWithText:[_itemTextField text] categoyId:[[KIAUpdater sharedUpdater] idCategoryFromCategoryName:_categoryName] storeId:1 delegate:self];
+    }
+    
+    isBlock = YES;
+}
+
 #pragma mark ***** table view *****
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

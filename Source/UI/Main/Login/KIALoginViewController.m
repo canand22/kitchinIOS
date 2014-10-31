@@ -41,6 +41,7 @@
     
 	// Do any additional setup after loading the view.
     _mainFrame = [_mainView frame];
+    _scrollFrame = [_scroll frame];
     
     isRequestLoad = NO;
     
@@ -55,6 +56,7 @@
     [super viewDidAppear:animated];
     
     [_mainView setFrame:_mainFrame];
+    [_scroll setFrame:_scrollFrame];
 }
 
 #pragma mark ***** keyboard *****
@@ -68,6 +70,10 @@
     frame.origin.y = 5;
     frame.size.height = [[self view] frame].size.height - 258;
     [_mainView setFrame:frame];
+    
+    frame = [_scroll frame];
+    frame.size.height = [[self view] frame].size.height - 385;
+    [_scroll setFrame:frame];
 }
 
 - (void)keyboardWillHide:(NSNotification *)note
@@ -81,6 +87,10 @@
         frame.origin.y = 29;
         frame.size.height = [[self view] frame].size.height + 258;
         [_mainView setFrame:frame];
+        
+        frame = [_scroll frame];
+        frame.size.height = [[self view] frame].size.height + 385;
+        [_scroll setFrame:frame];
     }
 }
 
@@ -191,6 +201,7 @@
     [super viewWillDisappear:animated];
     
     [_mainView setFrame:_mainFrame];
+    [_scroll setFrame:_scrollFrame];
 }
 
 - (void)dealloc

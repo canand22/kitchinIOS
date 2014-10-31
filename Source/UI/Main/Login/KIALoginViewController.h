@@ -21,6 +21,7 @@
     IBOutlet UIScrollView *_scroll;
     
     CGRect _mainFrame;
+    CGRect _scrollFrame;
     
     BOOL isRequestLoad;
 }

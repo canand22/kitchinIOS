@@ -119,8 +119,6 @@
 
 - (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    [_yummlyGateway searchWithString:[[searchBar text] stringByAppendingString:text] delegate:self];
-    
     return YES;
 }
 

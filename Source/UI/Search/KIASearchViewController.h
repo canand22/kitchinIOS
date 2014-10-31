@@ -34,4 +34,6 @@
 
 @property(nonatomic, strong) IBOutlet UILabel *whereSearch;
 
+@property(nonatomic, strong) IBOutlet UITextField *searchField;
+
 @end

@@ -14,6 +14,8 @@
 
 #import "KIACacheManager.h"
 
+#import "KIALoaderView.h"
+
 #import "KIARecipeInstructionsViewController.h"
 #import "KIAMissingIngredientsViewController.h"
 
@@ -73,6 +75,10 @@
         [_addFavorite setEnabled:YES];
     }
     
+    KIALoaderView *_loader = [[KIALoaderView alloc] initWithFrame:[[self view] bounds]];
+    [_loader setTag:1000];
+    [[self view] addSubview:_loader];
+    
     [_recipeGateway sendRecipiesWithId:_recipiesIdentification delegate:self];
 }
 
@@ -97,12 +103,12 @@
     [_numberServed setText:[NSString stringWithFormat:@"Number served: %d", [_recipe Served]]];
     [_totalTime setText:[NSString stringWithFormat:@"Cook Time: %@", ([_recipe Time] > 0 ? ([_recipe Time] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %@", [_recipe Time] / 3600, (([_recipe Time] - [_recipe Time] / 3600 * 3600) / 60 > 0 ? [NSString stringWithFormat:@"%d min", ([_recipe Time] - [_recipe Time] / 3600 * 3600) / 60] : @"")] : [NSString stringWithFormat:@"%d min", [_recipe Time] / 60]) : @"N/A")]];
     
-    [_table reloadData];
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
     {
         [self checkCompliance];
     });
+    
+    [_table reloadData];
     
     CGRect frame = [_table frame];
     frame.size.height = _tableHeight + 80;
@@ -113,6 +119,8 @@
     frame = [_buttonPanel frame];
     frame.origin.y = [_table frame].origin.y + [_table frame].size.height + 15;
     [_buttonPanel setFrame:frame];
+    
+    [[[self view] viewWithTag:1000] removeFromSuperview];
 }
 
 - (void)checkCompliance

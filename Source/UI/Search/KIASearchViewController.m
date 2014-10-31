@@ -144,11 +144,6 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (![string isEqualToString:@""])
-    {
-        [self reloadQueryWithText:[[textField text] stringByAppendingString:string]];
-    }
-    
     return YES;
 }
 
@@ -157,6 +152,11 @@
     [textField resignFirstResponder];
     
     return YES;
+}
+
+- (IBAction)search:(id)sender
+{
+    [self reloadQueryWithText:[_searchField text]];
 }
 
 #pragma mark ***** picker view *****

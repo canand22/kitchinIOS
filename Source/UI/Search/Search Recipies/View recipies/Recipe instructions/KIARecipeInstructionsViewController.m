@@ -81,13 +81,15 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Load error!!!"
+    NSLog(@"%@", [error localizedDescription]);
+    
+    /* UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Load error!!!"
                                                     message:[error localizedDescription]
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     
-    [alert show];
+    [alert show]; */
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
