@@ -14,8 +14,6 @@
 
 #import "KIACacheManager.h"
 
-#import "KIALoaderView.h"
-
 #import "KIARecipeInstructionsViewController.h"
 #import "KIAMissingIngredientsViewController.h"
 
@@ -75,9 +73,7 @@
         [_addFavorite setEnabled:YES];
     }
     
-    KIALoaderView *_loader = [[KIALoaderView alloc] initWithFrame:[[self view] bounds]];
-    [_loader setTag:1000];
-    [[self view] addSubview:_loader];
+    [_cookItBtn setEnabled:NO];
     
     [_recipeGateway sendRecipiesWithId:_recipiesIdentification delegate:self];
 }
@@ -120,7 +116,7 @@
     frame.origin.y = [_table frame].origin.y + [_table frame].size.height + 15;
     [_buttonPanel setFrame:frame];
     
-    [[[self view] viewWithTag:1000] removeFromSuperview];
+    [_cookItBtn setEnabled:YES];
 }
 
 - (void)checkCompliance

@@ -44,5 +44,6 @@
 @property(nonatomic, strong) IBOutlet UIView *buttonPanel;
 
 @property(nonatomic, strong) IBOutlet UIButton *addFavorite;
+@property(nonatomic, strong) IBOutlet UIButton *cookItBtn;
 
 @end

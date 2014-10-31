@@ -1357,6 +1357,7 @@
                     <connections>
                         <outlet property="addFavorite" destination="J6H-7R-dW1" id="OOh-xW-cLB"/>
                         <outlet property="buttonPanel" destination="GmR-Ah-YhM" id="BBy-nN-QGb"/>
+                        <outlet property="cookItBtn" destination="g58-9Z-LLk" id="LAX-Oa-vsJ"/>
                         <outlet property="numberServed" destination="biZ-2S-moX" id="sBi-rt-4ik"/>
                         <outlet property="recipeImage" destination="aVb-us-urr" id="d6T-Oe-rHn"/>
                         <outlet property="recipeName" destination="jJS-ON-iFH" id="r4v-3d-Qb3"/>
