@@ -61,8 +61,17 @@
     NSMutableArray *tempAllergy = [[KIAFilterSettings sharedFilterManager] allergy];
     NSMutableArray *tempDiet = [[KIAFilterSettings sharedFilterManager] diet];
     
-    [tempAllergy addObjectsFromArray:[[_itemForQuery objectForKey:ALLERGIES] componentsSeparatedByString:@","]];
-    [tempDiet addObjectsFromArray:[[_itemForQuery objectForKey:DIETS] componentsSeparatedByString:@","]];
+    NSArray *a = [_itemForQuery objectForKey:ALLERGIES];
+    
+    if (![[_itemForQuery objectForKey:ALLERGIES] isEqualToString:@""])
+    {
+        [tempAllergy addObjectsFromArray:[[_itemForQuery objectForKey:ALLERGIES] componentsSeparatedByString:@","]];
+    }
+    
+    if (![[_itemForQuery objectForKey:DIETS] isEqualToString:@""])
+    {
+        [tempDiet addObjectsFromArray:[[_itemForQuery objectForKey:DIETS] componentsSeparatedByString:@","]];
+    }
     
     [[KIAFilterSettings sharedFilterManager] setAllergy:[[[NSSet setWithArray:tempAllergy] allObjects] mutableCopy]];
     [[KIAFilterSettings sharedFilterManager] setDiet:[[[NSSet setWithArray:tempDiet] allObjects] mutableCopy]];
