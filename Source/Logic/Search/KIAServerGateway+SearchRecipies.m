@@ -16,9 +16,9 @@
 
 @implementation KIAServerGateway (SearchRecipies)
 
-- (void)sendSearchRecipiesForItem:(NSDictionary *)item delegate:(id<serverGatewayDelegate>)delegate
+- (void)sendSearchRecipiesForItem:(NSDictionary *)item page:(NSUInteger)page delegate:(id<serverGatewayDelegate>)delegate
 {
-    [self postQueryWithSearchResipiesItem:item delegate:delegate];
+    [self postQueryWithSearchResipiesItem:item page:page delegate:delegate];
 }
 
 - (void)setupSearchRecipiesMapping
@@ -37,13 +37,13 @@
     [[self objectManager] addResponseDescriptor:descriptor];
 }
 
-- (void)postQueryWithSearchResipiesItem:(NSDictionary *)item delegate:(id<serverGatewayDelegate>)delegate
+- (void)postQueryWithSearchResipiesItem:(NSDictionary *)item page:(NSUInteger)page delegate:(id<serverGatewayDelegate>)delegate
 {
     [self setupSearchRecipiesMapping];
     
     // выполнение запроса
     [[self objectManager] getObject:nil
-                               path:[[NSString stringWithFormat:@"/KitchInAppService.svc/Recipies?cookwith=%@&cookwithout=%@&allergies=%@&diets=%@&cuisine=%@&dishtype=%@&holiday=%@&meal=%@&time=%@", [item objectForKey:COOK_WITH], [item objectForKey:COOK_WITHOUT], [item objectForKey:ALLERGIES], [item objectForKey:DIETS], [item objectForKey:CUISINE], [item objectForKey:DISH_TYPE], [item objectForKey:HOLIDAY], [item objectForKey:MEAL], [item objectForKey:TIME]] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]
+                               path:[[NSString stringWithFormat:@"/KitchInAppService.svc/Recipies?cookwith=%@&cookwithout=%@&allergies=%@&diets=%@&cuisine=%@&dishtype=%@&holiday=%@&meal=%@&time=%@&page=%lu&perpage=10", [item objectForKey:COOK_WITH], [item objectForKey:COOK_WITHOUT], [item objectForKey:ALLERGIES], [item objectForKey:DIETS], [item objectForKey:CUISINE], [item objectForKey:DISH_TYPE], [item objectForKey:HOLIDAY], [item objectForKey:MEAL], [item objectForKey:TIME], (unsigned long)page] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]
                          parameters:nil
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                             {
@@ -51,7 +51,7 @@
          
                                 NSArray *result = [mappingResult array];
          
-                                [delegate showData:result];
+                                [delegate showDic:[result objectAtIndex:0]];
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error)
                             {

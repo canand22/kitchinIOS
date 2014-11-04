@@ -31,6 +31,8 @@
     if (self)
     {
         // Custom initialization
+        _categoriesArray = [NSArray arrayWithObjects:@"Dairy", @"Produce", @"Poultry", @"Meats & Deli", @"Seafood", @"Breads & Bakery", @"Pasta", @"Cereal & Grains", @"Drinks", @"Dry Prepared Foods", @"Canned Foods, Soups, Broths", @"Frozen", @"Snacks", @"Sweets", @"Baking", @"Condiments, Sauces, Oils", @"Spices & Herbs", @"Other", nil];
+        
         _whereSearchArray = @[@"In my Kitchin", @"In the store"];
         
         _yummlyGateway = [KIAServerGateway gateway];
@@ -376,6 +378,19 @@
         for (int i = 0; i < [_ingredientArray count]; i++)
         {
             [temp addObject:[[_ingredientArray objectAtIndex:i] yummlyName]];
+        }
+        
+        if ([temp count] == 0)
+        {
+            for (int i = 0; i < 18; i++)
+            {
+                NSArray *items = [[KIAUpdater sharedUpdater] itemsForCategoryName:[_categoriesArray objectAtIndex:i]];
+                
+                if ([items count] > 0)
+                {
+                    [temp addObject:[[items objectAtIndex:0] name]];
+                }
+            }
         }
         
         NSMutableArray *items = [[NSMutableArray alloc] init];

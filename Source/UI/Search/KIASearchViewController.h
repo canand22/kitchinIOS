@@ -21,6 +21,8 @@
     NSMutableArray *_ingredientArray;
     
     BOOL isAlertShow;
+    
+    NSArray *_categoriesArray;
 }
 
 @property(nonatomic, strong) IBOutlet UIImageView *pickerFon;

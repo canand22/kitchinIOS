@@ -9,7 +9,7 @@
 #import "KIASearchRecipiesViewController.h"
 
 #import "KIAServerGateway.h"
-#import "KIARecipiesMapping.h"
+#import "KIASearchRecipiesMapping.h"
 
 #import "KIASearchRecipiesCollectionVeiwCell.h"
 #import "KIASearchRecipiesTableViewCell.h"
@@ -41,6 +41,13 @@
         
         _sortOptions = @[@"Missing ingredients", @"Rating"];
         _countRecipiesArray = [[NSMutableArray alloc] init];
+        
+        _recipiesArray = [[NSMutableArray alloc] init];
+        
+        countRecept = 0;
+        currentCountRecept = 1;
+        
+        isLoadContent = NO;
     }
     
     return self;
@@ -94,7 +101,11 @@
     
     _itemForQuery = [NSDictionary dictionaryWithObjects:items forKeys:keys];
     
-    [_searchGateway sendSearchRecipiesForItem:_itemForQuery delegate:self];
+    isLoadContent = YES;
+    
+    [_recipiesArray removeAllObjects];
+    
+    [_searchGateway sendSearchRecipiesForItem:_itemForQuery page:currentCountRecept delegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,16 +119,20 @@
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
-- (void)showData:(NSArray *)itemArray
+- (void)showDic:(NSDictionary *)itemDic;
 {
-    _recipiesArray = itemArray;
+    [_recipiesArray addObjectsFromArray:[(KIASearchRecipiesMapping *)itemDic Recipes]];
+    
+    countRecept = [(KIASearchRecipiesMapping *)itemDic TotalCount];
     
     for (int i = 0; i < [_recipiesArray count]; i++)
     {
-        [_countRecipiesArray addObject:[NSNumber numberWithInteger:[[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[[_recipiesArray objectAtIndex:i] Ingredients]]]];
+        [_countRecipiesArray addObject:[NSNumber numberWithInteger:[[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[[_recipiesArray objectAtIndex:i] objectForKey:@"Ingredients"]]]];
     }
     
     [self sortForMissingIngredients];
+    
+    isLoadContent = NO;
     
     [_collection reloadData];
     [_table reloadData];
@@ -160,10 +175,10 @@
 
 - (void)sortForMissingIngredients
 {
-    _recipiesArray = [_recipiesArray sortedArrayUsingComparator:^NSComparisonResult (id obj1, id obj2)
+    [_recipiesArray sortUsingComparator:^NSComparisonResult (id obj1, id obj2)
     {
-        NSInteger firstObj = [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[obj1 Ingredients]];
-        NSInteger secondObj = [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[obj2 Ingredients]];
+        NSInteger firstObj = [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[obj1 objectForKey:@"Ingredients"]];
+        NSInteger secondObj = [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[obj2 objectForKey:@"Ingredients"]];
                           
         if (firstObj < secondObj)
         {
@@ -185,10 +200,10 @@
 
 - (void)sortForRating
 {
-    _recipiesArray = [_recipiesArray sortedArrayUsingComparator:^NSComparisonResult (id obj1, id obj2)
+    [_recipiesArray sortUsingComparator:^NSComparisonResult (id obj1, id obj2)
     {
-        NSInteger firstObj = [obj1 Rating];
-        NSInteger secondObj = [obj2 Rating];
+        NSInteger firstObj = [[obj1 objectForKey:@"Rating"] integerValue];
+        NSInteger secondObj = [[obj2 objectForKey:@"Rating"] integerValue];
         
         if (firstObj > secondObj)
         {
@@ -260,43 +275,52 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [_recipiesArray count];
+    return isLoadContent ? [_recipiesArray count] + 1 : [_recipiesArray count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    KIASearchRecipiesCollectionVeiwCell *cell = (KIASearchRecipiesCollectionVeiwCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
-    KIARecipiesMapping *item = [_recipiesArray objectAtIndex:[indexPath row]];
-    NSURL *url = [NSURL URLWithString:[[item PhotoUrl] objectAtIndex:0]];
-    
-    if ([[KIACacheManager sharedCacheManager] checkImageForCacheWithIdentifier:[item ResipiesID]])
+    if ([indexPath row] < [_recipiesArray count])
     {
-        [[cell image] setImage:[[KIACacheManager sharedCacheManager] fetchCacheImageForIdentifier:[item ResipiesID]]];
+        KIASearchRecipiesCollectionVeiwCell *cell = (KIASearchRecipiesCollectionVeiwCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+        NSDictionary *item = [_recipiesArray objectAtIndex:[indexPath row]];
+        NSURL *url = [NSURL URLWithString:[[item objectForKey:@"PhotoUrl"] objectAtIndex:0]];
+    
+        if ([[KIACacheManager sharedCacheManager] checkImageForCacheWithIdentifier:[item objectForKey:@"Id"]])
+        {
+            [[cell image] setImage:[[KIACacheManager sharedCacheManager] fetchCacheImageForIdentifier:[item objectForKey:@"Id"]]];
+        }
+        else
+        {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
+            {
+                NSData *temp = [NSData dataWithContentsOfURL:url];
+        
+                [[KIACacheManager sharedCacheManager] saveCacheImage:[UIImage imageWithData:temp] forIdentifier:[item objectForKey:@"Id"]];
+        
+                dispatch_async(dispatch_get_main_queue(), ^
+                {
+                    [[cell image] setImage:[UIImage imageWithData:temp]];
+                });
+            });
+        }
+        
+        [[cell title] setText:[item objectForKey:@"Title"]];
+    
+        [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %ld", (long)[[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[item objectForKey:@"Ingredients"]]]];
+        [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
+        [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld-star.png", (long)[[item objectForKey:@"Rating"] integerValue]]]];
+        [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([[item objectForKey:@"TotalTime"] integerValue] > 0 ? ([[item objectForKey:@"TotalTime"] integerValue] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %@", [[item objectForKey:@"TotalTime"] integerValue] / 3600, (([[item objectForKey:@"TotalTime"] integerValue] - [[item objectForKey:@"TotalTime"] integerValue] / 3600 * 3600) / 60 > 0 ? [NSString stringWithFormat:@"%d min", ([[item objectForKey:@"TotalTime"] integerValue] - [[item objectForKey:@"TotalTime"] integerValue] / 3600 * 3600) / 60] : @"")] : [NSString stringWithFormat:@"%d min", [[item objectForKey:@"TotalTime"] integerValue] / 60]) : @"N/A")]];
+    
+        return cell;
     }
     else
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
-        {
-            NSData *temp = [NSData dataWithContentsOfURL:url];
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UpdateCell" forIndexPath:indexPath];
         
-            [[KIACacheManager sharedCacheManager] saveCacheImage:[UIImage imageWithData:temp] forIdentifier:[item ResipiesID]];
-        
-            dispatch_async(dispatch_get_main_queue(), ^
-            {
-                [[cell image] setImage:[UIImage imageWithData:temp]];
-            });
-        });
+        return cell;
     }
-        
-    [[cell title] setText:[item Title]];
-    
-    [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[item Ingredients]]]];
-    [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
-    [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d-star.png", [item Rating]]]];
-    [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %@", [item TotalTime] / 3600, (([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60 > 0 ? [NSString stringWithFormat:@"%d min", ([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60] : @"")] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
-    
-    return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -315,43 +339,52 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_recipiesArray count];
+    return isLoadContent ? [_recipiesArray count] + 1 : [_recipiesArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KIASearchRecipiesTableViewCell *cell = (KIASearchRecipiesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
-    KIARecipiesMapping *item = [_recipiesArray objectAtIndex:[indexPath row]];
-    NSURL *url = [NSURL URLWithString:[[item PhotoUrl] objectAtIndex:0]];
-    
-    if ([[KIACacheManager sharedCacheManager] checkImageForCacheWithIdentifier:[item ResipiesID]])
+    if ([indexPath row] < [_recipiesArray count])
     {
-        [[cell image] setImage:[[KIACacheManager sharedCacheManager] fetchCacheImageForIdentifier:[item ResipiesID]]];
+        KIASearchRecipiesTableViewCell *cell = (KIASearchRecipiesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+        NSDictionary *item = [_recipiesArray objectAtIndex:[indexPath row]];
+        NSURL *url = [NSURL URLWithString:[[item objectForKey:@"PhotoUrl"] objectAtIndex:0]];
+    
+        if ([[KIACacheManager sharedCacheManager] checkImageForCacheWithIdentifier:[item objectForKey:@"Id"]])
+        {
+            [[cell image] setImage:[[KIACacheManager sharedCacheManager] fetchCacheImageForIdentifier:[item objectForKey:@"Id"]]];
+        }
+        else
+        {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
+            {
+                NSData *temp = [NSData dataWithContentsOfURL:url];
+                           
+                [[KIACacheManager sharedCacheManager] saveCacheImage:[UIImage imageWithData:temp] forIdentifier:[item objectForKey:@"Id"]];
+                           
+                dispatch_async(dispatch_get_main_queue(), ^
+                {
+                    [[cell image] setImage:[UIImage imageWithData:temp]];
+                });
+            });
+        }
+    
+        [[cell title] setText:[item objectForKey:@"Title"]];
+    
+        [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %ld", (long)[[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[item objectForKey:@"Ingredients"]]]];
+        [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
+        [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld-star.png", (long)[[item objectForKey:@"Rating"] integerValue]]]];
+        [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([[item objectForKey:@"TotalTime"] integerValue] > 0 ? ([[item objectForKey:@"TotalTime"] integerValue] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %@", [[item objectForKey:@"TotalTime"] integerValue] / 3600, (([[item objectForKey:@"TotalTime"] integerValue] - [[item objectForKey:@"TotalTime"] integerValue] / 3600 * 3600) / 60 > 0 ? [NSString stringWithFormat:@"%d min", ([[item objectForKey:@"TotalTime"] integerValue] - [[item objectForKey:@"TotalTime"] integerValue] / 3600 * 3600) / 60] : @"")] : [NSString stringWithFormat:@"%d min", [[item objectForKey:@"TotalTime"] integerValue] / 60]) : @"N/A")]];
+        
+        return cell;
     }
     else
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
-        {
-            NSData *temp = [NSData dataWithContentsOfURL:url];
-                           
-            [[KIACacheManager sharedCacheManager] saveCacheImage:[UIImage imageWithData:temp] forIdentifier:[item ResipiesID]];
-                           
-            dispatch_async(dispatch_get_main_queue(), ^
-            {
-                [[cell image] setImage:[UIImage imageWithData:temp]];
-            });
-        });
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UpdateCell"];
+        
+        return cell;
     }
-    
-    [[cell title] setText:[item Title]];
-    
-    [[cell countIngridient] setText:[NSString stringWithFormat:@"Missing Ingredients: %d", [[KIAUpdater sharedUpdater] howMuchIsMissingIngredient:[item Ingredients]]]];
-    [[cell kalories] setText:[NSString stringWithFormat:@"Rating:"]];
-    [[cell stars] setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d-star.png", [item Rating]]]];
-    [[cell time] setText:[NSString stringWithFormat:@"Cook Time: %@", ([item TotalTime] > 0 ? ([item TotalTime] / 3600 > 0 ? [NSString stringWithFormat:@"%d hr %@", [item TotalTime] / 3600, (([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60 > 0 ? [NSString stringWithFormat:@"%d min", ([item TotalTime] - [item TotalTime] / 3600 * 3600) / 60] : @"")] : [NSString stringWithFormat:@"%d min", [item TotalTime] / 60]) : @"N/A")]];
-    
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -359,6 +392,22 @@
     _selectedItem = [indexPath row];
     
     [self performSegueWithIdentifier:@"viewRecipeIdentifier" sender:self];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    BOOL endOfTable = (scrollView.contentOffset.y >= (([_recipiesArray count] * 60) - scrollView.frame.size.height)); // Here 56 is row height
+    
+    if (countRecept > [_recipiesArray count] - 1 && endOfTable && !scrollView.dragging && !scrollView.decelerating)
+    {
+        isLoadContent = YES;
+        
+        [_table reloadData];
+        [_collection reloadData];
+        
+        NSLog(@"reload");
+        [_searchGateway sendSearchRecipiesForItem:_itemForQuery page:++currentCountRecept delegate:self];
+    }
 }
 
 #pragma mark - Navigation
@@ -372,8 +421,8 @@
     if ([[segue identifier] isEqualToString:@"viewRecipeIdentifier"])
     {
         KIAViewRecipiesViewController *viewController = (KIAViewRecipiesViewController *)[segue destinationViewController];
-        [viewController setRecipiesIdentification:[[_recipiesArray objectAtIndex:_selectedItem] ResipiesID]];
-        [viewController setIngredientsArray:[[_recipiesArray objectAtIndex:_selectedItem] Ingredients]];
+        [viewController setRecipiesIdentification:[[_recipiesArray objectAtIndex:_selectedItem] objectForKey:@"Id"]];
+        [viewController setIngredientsArray:[[_recipiesArray objectAtIndex:_selectedItem] objectForKey:@"Ingredients"]];
     }
 }
 

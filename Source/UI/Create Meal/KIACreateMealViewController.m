@@ -33,6 +33,8 @@
     if (self)
     {
         // Custom initialization
+        _categoriesArray = [NSArray arrayWithObjects:@"Dairy", @"Produce", @"Poultry", @"Meats & Deli", @"Seafood", @"Breads & Bakery", @"Pasta", @"Cereal & Grains", @"Drinks", @"Dry Prepared Foods", @"Canned Foods, Soups, Broths", @"Frozen", @"Snacks", @"Sweets", @"Baking", @"Condiments, Sauces, Oils", @"Spices & Herbs", @"Other", nil];
+        
         _mealArray = @[@"Any", @"Breakfast & Brunch", @"Dinner", @"Lunch & Snack"];
         _dishTypeArray = @[@"Any", @"Beverage", @"Bread", @"Dessert", @"Main Dish", @"Salad", @"Side Dish", @"Soup"];
         
@@ -492,6 +494,23 @@
     if ([[segue identifier] isEqualToString:@"SearchRecepies"])
     {
         KIASearchRecipiesViewController *viewController = (KIASearchRecipiesViewController *)[segue destinationViewController];
+        
+        NSMutableArray *temp = [[NSMutableArray alloc] init];
+        
+        if ([_cookWith count] == 0)
+        {
+            for (int i = 0; i < 18; i++)
+            {
+                NSArray *items = [[KIAUpdater sharedUpdater] itemsForCategoryName:[_categoriesArray objectAtIndex:i]];
+                
+                if ([items count] > 0)
+                {
+                    [temp addObject:[[items objectAtIndex:0] name]];
+                }
+            }
+            
+            _cookWith = temp;
+        }
         
         NSMutableArray *items = [[NSMutableArray alloc] init];
         [items addObject:[_cookWith componentsJoinedByString:@","]];

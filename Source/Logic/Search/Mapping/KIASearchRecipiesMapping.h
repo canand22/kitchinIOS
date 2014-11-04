@@ -11,6 +11,13 @@
 @class RKObjectMapping;
 
 @interface KIASearchRecipiesMapping : NSObject
+{
+    NSUInteger _totalCount;
+    NSArray *_recipes;
+}
+
+@property(nonatomic, assign) NSUInteger TotalCount;
+@property(nonatomic, strong) NSArray *Recipes;
 
 + (RKObjectMapping *)mapping;
 

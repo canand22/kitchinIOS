@@ -11,6 +11,6 @@
 
 @protocol SearchRecipiesProtocol<baseServerGatewayProtocol>
 
-- (void)sendSearchRecipiesForItem:(NSDictionary *)item delegate:(id<serverGatewayDelegate>)delegate;
+- (void)sendSearchRecipiesForItem:(NSDictionary *)item page:(NSUInteger)page delegate:(id<serverGatewayDelegate>)delegate;
 
 @end

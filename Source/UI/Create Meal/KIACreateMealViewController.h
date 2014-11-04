@@ -27,6 +27,8 @@
     NSMutableArray *_cookWithoutTemp;
     
     NSMutableArray *_users;
+    
+    NSArray *_categoriesArray;
 }
 
 @property(nonatomic, strong) IBOutlet UIScrollView *scroll;

@@ -15,12 +15,16 @@
 {
     id<SearchRecipiesProtocol> _searchGateway;
     
-    NSArray *_recipiesArray;
+    NSMutableArray *_recipiesArray;
     NSMutableArray *_countRecipiesArray;
     
     NSInteger _selectedItem;
     
     NSArray *_sortOptions;
+    NSUInteger countRecept;
+    NSUInteger currentCountRecept;
+    
+    BOOL isLoadContent;
 }
 
 @property(nonatomic, strong) NSDictionary *itemForQuery;

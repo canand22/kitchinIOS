@@ -14,6 +14,7 @@
 
 @optional
 - (void)showData:(NSArray *)itemArray;
+- (void)showDic:(NSDictionary *)itemDic;
 - (void)nullData;
 - (void)errorRequestTimedOut;
 - (void)loginSuccess:(BOOL)success;
