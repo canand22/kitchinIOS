@@ -25,6 +25,8 @@
     NSUInteger currentCountRecept;
     
     BOOL isLoadContent;
+    
+    BOOL isFilterSettings;
 }
 
 @property(nonatomic, strong) NSDictionary *itemForQuery;

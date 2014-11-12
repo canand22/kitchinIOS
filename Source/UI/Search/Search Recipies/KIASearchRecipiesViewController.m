@@ -48,6 +48,7 @@
         currentCountRecept = 1;
         
         isLoadContent = NO;
+        isFilterSettings = YES;
     }
     
     return self;
@@ -93,26 +94,31 @@
 {
     [super viewDidAppear:animated];
     
-    // ALLERGIES, DIETS, CUISINE, DISH_TYPE, HOLIDAY, MEAL, TIME
-    NSMutableArray *items = [[NSMutableArray alloc] init];
-    [items addObject:[_itemForQuery objectForKey:COOK_WITH]];
-    [items addObject:[_itemForQuery objectForKey:COOK_WITHOUT]];
-    [items addObject:[[KIAFilterSettings sharedFilterManager] allergy]];
-    [items addObject:[[KIAFilterSettings sharedFilterManager] diet]];
-    [items addObject:[[KIAFilterSettings sharedFilterManager] cuisine]];
-    [items addObject:[[KIAFilterSettings sharedFilterManager] dishType]];
-    [items addObject:[[KIAFilterSettings sharedFilterManager] holiday]];
-    [items addObject:[[KIAFilterSettings sharedFilterManager] meal]];
-    [items addObject:[[KIAFilterSettings sharedFilterManager] time]];
-    NSArray *keys = [NSArray arrayWithObjects:COOK_WITH, COOK_WITHOUT, ALLERGIES, DIETS, CUISINE, DISH_TYPE, HOLIDAY, MEAL, TIME, nil];
+    if (isFilterSettings)
+    {
+        // ALLERGIES, DIETS, CUISINE, DISH_TYPE, HOLIDAY, MEAL, TIME
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        [items addObject:[_itemForQuery objectForKey:COOK_WITH]];
+        [items addObject:[_itemForQuery objectForKey:COOK_WITHOUT]];
+        [items addObject:[[KIAFilterSettings sharedFilterManager] allergy]];
+        [items addObject:[[KIAFilterSettings sharedFilterManager] diet]];
+        [items addObject:[[KIAFilterSettings sharedFilterManager] cuisine]];
+        [items addObject:[[KIAFilterSettings sharedFilterManager] dishType]];
+        [items addObject:[[KIAFilterSettings sharedFilterManager] holiday]];
+        [items addObject:[[KIAFilterSettings sharedFilterManager] meal]];
+        [items addObject:[[KIAFilterSettings sharedFilterManager] time]];
+        NSArray *keys = [NSArray arrayWithObjects:COOK_WITH, COOK_WITHOUT, ALLERGIES, DIETS, CUISINE, DISH_TYPE, HOLIDAY, MEAL, TIME, nil];
     
-    _itemForQuery = [NSDictionary dictionaryWithObjects:items forKeys:keys];
+        _itemForQuery = [NSDictionary dictionaryWithObjects:items forKeys:keys];
     
-    isLoadContent = YES;
+        isLoadContent = YES;
     
-    [_recipiesArray removeAllObjects];
+        [_recipiesArray removeAllObjects];
     
-    [_searchGateway sendSearchRecipiesForItem:_itemForQuery page:currentCountRecept delegate:self];
+        [_searchGateway sendSearchRecipiesForItem:_itemForQuery page:currentCountRecept delegate:self];
+    }
+    
+    isFilterSettings = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -335,6 +341,8 @@
     _selectedItem = [indexPath row];
     
     [self performSegueWithIdentifier:@"viewRecipeIdentifier" sender:self];
+    
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark ***** table view *****
@@ -399,6 +407,8 @@
     _selectedItem = [indexPath row];
     
     [self performSegueWithIdentifier:@"viewRecipeIdentifier" sender:self];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -440,6 +450,12 @@
         KIAViewRecipiesViewController *viewController = (KIAViewRecipiesViewController *)[segue destinationViewController];
         [viewController setRecipiesIdentification:[[_recipiesArray objectAtIndex:_selectedItem] objectForKey:@"Id"]];
         [viewController setIngredientsArray:[[_recipiesArray objectAtIndex:_selectedItem] objectForKey:@"Ingredients"]];
+        
+        isFilterSettings = NO;
+    }
+    else
+    {
+        isFilterSettings = YES;
     }
 }
 
