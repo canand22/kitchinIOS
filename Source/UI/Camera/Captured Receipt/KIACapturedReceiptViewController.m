@@ -84,7 +84,7 @@
 }
 
 - (IBAction)back:(id)sender
-{    
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -92,8 +92,17 @@
 {
     KIALoaderView *_loader = [[KIALoaderView alloc] initWithFrame:[[self view] bounds]];
     [_loader setTag:1000];
+    
+    UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [cancelBtn setFrame:CGRectMake(([_loader frame].size.width - 103) / 2, [_loader frame].size.height - 80, 103, 37)];
+    [cancelBtn setTitle:@"Cancel" forState:UIControlStateNormal];
+    [cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cancelBtn setBackgroundImage:[UIImage imageNamed:@"button_more.png"] forState:UIControlStateNormal];
+    [cancelBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    [_loader addSubview:cancelBtn];
+    
     [[self view] addSubview:_loader];
-        
+    
     [_sendCheckGateway sendCheckWithImage:_photo storeID:1 delegate:self];
 }
 

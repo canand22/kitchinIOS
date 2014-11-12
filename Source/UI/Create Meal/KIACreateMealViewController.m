@@ -17,6 +17,7 @@
 
 #import "KIAUpdater.h"
 #import "KIAUser.h"
+#import "KIAItem.h"
 
 #import "KIATabBarViewController.h"
 
@@ -505,7 +506,7 @@
                 
                 if ([items count] > 0)
                 {
-                    [temp addObject:[[items objectAtIndex:0] name]];
+                    [temp addObject:[[items objectAtIndex:0] yummlyName]];
                 }
             }
             

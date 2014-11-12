@@ -61,8 +61,6 @@
     NSMutableArray *tempAllergy = [[KIAFilterSettings sharedFilterManager] allergy];
     NSMutableArray *tempDiet = [[KIAFilterSettings sharedFilterManager] diet];
     
-    NSArray *a = [_itemForQuery objectForKey:ALLERGIES];
-    
     if (![[_itemForQuery objectForKey:ALLERGIES] isEqualToString:@""])
     {
         [tempAllergy addObjectsFromArray:[[_itemForQuery objectForKey:ALLERGIES] componentsSeparatedByString:@","]];
@@ -401,6 +399,16 @@
     _selectedItem = [indexPath row];
     
     [self performSegueWithIdentifier:@"viewRecipeIdentifier" sender:self];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_recipiesArray count] == [indexPath row])
+    {
+        return 60;
+    }
+    
+    return 120;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

@@ -24,7 +24,7 @@
     
     [searchRecipiesMapping addAttributeMappingsFromDictionary:@{@"Recipes" : @"_recipes", @"TotalCount" : @"_totalCount"}];
     
-    //[searchRecipiesMapping addAttributeMappingsFromDictionary:@{@"Id" : @"_resipiesID", @"Ingredients" : @"Ingredients", @"Kalories" : @"_kalories", @"PhotoUrl" : @"_photoUrl", @"Title" : @"_title", @"TotalTime" : @"_totalTime", @"Rating" : @"_rating"}];
+    // [searchRecipiesMapping addAttributeMappingsFromDictionary:@{@"Id" : @"_resipiesID", @"Ingredients" : @"Ingredients", @"Kalories" : @"_kalories", @"PhotoUrl" : @"_photoUrl", @"Title" : @"_title", @"TotalTime" : @"_totalTime", @"Rating" : @"_rating"}];
     
     return searchRecipiesMapping;
 }

@@ -337,7 +337,7 @@
     
     [picker dismissViewControllerAnimated:NO completion:^
     {
-       [self performSegueWithIdentifier:@"recognizeVC" sender:self];
+        [self performSegueWithIdentifier:@"recognizeVC" sender:self];
     }];
 }
 
