@@ -418,7 +418,7 @@
         return 60;
     }
     
-    return 120;
+    return 95;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

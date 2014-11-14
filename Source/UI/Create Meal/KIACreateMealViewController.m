@@ -494,12 +494,16 @@
         
     if ([[segue identifier] isEqualToString:@"SearchRecepies"])
     {
+        BOOL custom = YES;
+        
         KIASearchRecipiesViewController *viewController = (KIASearchRecipiesViewController *)[segue destinationViewController];
         
         NSMutableArray *temp = [[NSMutableArray alloc] init];
         
         if ([_cookWith count] == 0)
         {
+            custom = NO;
+            
             for (int i = 0; i < 18; i++)
             {
                 NSArray *items = [[KIAUpdater sharedUpdater] itemsForCategoryName:[_categoriesArray objectAtIndex:i]];
@@ -510,11 +514,20 @@
                 }
             }
             
-            _cookWith = temp;
+            // _cookWith = temp;
         }
         
         NSMutableArray *items = [[NSMutableArray alloc] init];
-        [items addObject:[_cookWith componentsJoinedByString:@","]];
+        
+        if (custom)
+        {
+            [items addObject:[_cookWith componentsJoinedByString:@","]];
+        }
+        else
+        {
+            [items addObject:[temp componentsJoinedByString:@","]];
+        }
+        
         [items addObject:[_cookWithout componentsJoinedByString:@","]];
         [items addObject:[_allergiesUser componentsJoinedByString:@","]];
         [items addObject:[_dietaryUser componentsJoinedByString:@","]];
