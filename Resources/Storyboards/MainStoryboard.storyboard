@@ -5457,7 +5457,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1.png" width="56" height="99"/>
+        <image name="1.png" width="55" height="100"/>
         <image name="aa.png" width="118" height="16"/>
         <image name="add_receipt_bg.png" width="320" height="568"/>
         <image name="back_active.png" width="50" height="30"/>

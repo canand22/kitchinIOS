@@ -92,7 +92,7 @@
 {
     KIALoaderView *_loader = [[KIALoaderView alloc] initWithFrame:[[self view] bounds]];
     [[_loader title] setText:@"This will take just a moment..."];
-    [[_loader subtitle] setText:@"unpacking gloceries now"];
+    [[_loader subtitle] setText:@"unpacking your groceries now"];
     [_loader setTag:1000];
     
     UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];

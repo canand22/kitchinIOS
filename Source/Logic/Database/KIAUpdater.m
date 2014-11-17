@@ -108,6 +108,7 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     BOOL unique = YES;
+    KIAItem *temp = nil;
     NSError  *error;
     NSArray *items = [context executeFetchRequest:request error:&error];
     
@@ -118,6 +119,8 @@
             if ([[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:theId]] && ![[thisItem idItem] isEqualToNumber:[NSNumber numberWithInteger:-1]])
             {
                 unique = NO;
+                
+                temp = thisItem;
             }
         }
     }
@@ -143,7 +146,19 @@
     }
     else
     {
-        // а
+        if (temp != nil)
+        {
+            NSInteger countItem = [[temp count] integerValue];
+            [temp setCount:[NSNumber numberWithInteger:(countItem + count)]];
+            
+            NSError *error = nil;
+            
+            // Save the object to persistent store
+            if (![context save:&error])
+            {
+                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+            }
+        }
     }
 }
 

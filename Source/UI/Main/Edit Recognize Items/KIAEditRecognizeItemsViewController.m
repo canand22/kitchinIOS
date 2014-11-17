@@ -91,7 +91,13 @@
             {
                 EditRecognizedItemCell *cell = (EditRecognizedItemCell *)[_table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i + 1 inSection:0]];
                 
-                [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id] name:[item ItemName] categoryId:[[_category objectForKey:[[item Category] uppercaseString]] integerValue] shortName:[item ItemShortName] count:[[[cell countField] text] integerValue] value:@"" yummly:[item YummlyName]];
+                [[KIAUpdater sharedUpdater] addItemFromKitchInWihtId:[item Id]
+                                                                name:[item ItemName]
+                                                          categoryId:[[_category objectForKey:[[item Category] uppercaseString]] integerValue]
+                                                           shortName:[item ItemShortName]
+                                                               count:[[[cell countField] text] integerValue]
+                                                               value:[[cell unit] titleForState:UIControlStateNormal]
+                                                              yummly:[item YummlyName]];
                 
                 KIATabBarViewController *tabBarVC = (KIATabBarViewController *)[[self presentingViewController] presentingViewController];
                 [tabBarVC dismissViewControllerAnimated:YES completion:nil];
