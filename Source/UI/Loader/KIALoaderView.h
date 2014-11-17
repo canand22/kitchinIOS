@@ -16,4 +16,7 @@
 
 @property(nonatomic, strong) UIImageView *image;
 
+@property(nonatomic, strong) UILabel *title;
+@property(nonatomic, strong) UILabel *subtitle;
+
 @end
