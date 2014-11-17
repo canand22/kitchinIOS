@@ -150,6 +150,7 @@
         {
             NSInteger countItem = [[temp count] integerValue];
             [temp setCount:[NSNumber numberWithInteger:(countItem + count)]];
+            [temp setValue:value];
             
             NSError *error = nil;
             
