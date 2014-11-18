@@ -42,7 +42,7 @@
     [self setupSearchItemWithText:text categoyId:catId storeId:storeId];
     
     // выполнение запроса
-    [[self objectManager] getObjectsAtPath:[NSString stringWithFormat:@"KitchInAppService.svc/SearchProduct?product=%@&categoryId=%ld&storeId=%ld", text, (unsigned long)catId, (unsigned long)storeId]
+    [[self objectManager] getObjectsAtPath:[[NSString stringWithFormat:@"KitchInAppService.svc/SearchProduct?product=%@&categoryId=%ld&storeId=%ld", text, (unsigned long)catId, (unsigned long)storeId] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]
                                 parameters:nil
                                    success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                                     {

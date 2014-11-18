@@ -41,7 +41,7 @@
     
     // выполнение запроса
     [[self objectManager] getObject:nil
-                               path:[NSString stringWithFormat:@"/KitchInAppService.svc/YummlyIngredientsRelations/%@", yamlyString]
+                               path:[[NSString stringWithFormat:@"/KitchInAppService.svc/YummlyIngredientsRelations/%@", yamlyString] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]
                          parameters:nil
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                             {
