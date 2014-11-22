@@ -117,6 +117,16 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:.5f];
+        
+        CGRect frame = [_table frame];
+        frame.size.height += [picker frame].size.height;
+        [picker setFrame:CGRectMake(0, [[self view] frame].size.height, 320, 162)];
+        [_table setFrame:frame];
+        
+        [UIView commitAnimations];
+        
         [self deleteItemFromIndex:[indexPath row]];
     }
 }
@@ -191,8 +201,6 @@
     [_table setFrame:frame];
     
     [UIView commitAnimations];
-    
-    // [pickerView performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:.5f];
 }
 
 #pragma mark *****
