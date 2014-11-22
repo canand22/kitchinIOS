@@ -100,11 +100,11 @@
         NSMutableArray *items = [[NSMutableArray alloc] init];
         [items addObject:[_itemForQuery objectForKey:COOK_WITH]];
         [items addObject:[_itemForQuery objectForKey:COOK_WITHOUT]];
-        [items addObject:[[KIAFilterSettings sharedFilterManager] allergy]];
-        [items addObject:[[KIAFilterSettings sharedFilterManager] diet]];
-        [items addObject:[[KIAFilterSettings sharedFilterManager] cuisine]];
+        [items addObject:[[[KIAFilterSettings sharedFilterManager] allergy] componentsJoinedByString:@","]];
+        [items addObject:[[[KIAFilterSettings sharedFilterManager] diet] componentsJoinedByString:@","]];
+        [items addObject:[[[KIAFilterSettings sharedFilterManager] cuisine] componentsJoinedByString:@","]];
         [items addObject:[[KIAFilterSettings sharedFilterManager] dishType]];
-        [items addObject:[[KIAFilterSettings sharedFilterManager] holiday]];
+        [items addObject:[[[KIAFilterSettings sharedFilterManager] holiday] componentsJoinedByString:@","]];
         [items addObject:[[KIAFilterSettings sharedFilterManager] meal]];
         [items addObject:[[KIAFilterSettings sharedFilterManager] time]];
         NSArray *keys = [NSArray arrayWithObjects:COOK_WITH, COOK_WITHOUT, ALLERGIES, DIETS, CUISINE, DISH_TYPE, HOLIDAY, MEAL, TIME, nil];
