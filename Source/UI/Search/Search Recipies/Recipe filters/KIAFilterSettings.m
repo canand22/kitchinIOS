@@ -62,7 +62,7 @@ static KIAFilterSettings *manager = nil;
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Cuisine"])
     {
-        _cuisine = [[NSUserDefaults standardUserDefaults] objectForKey:@"Cuisine"];
+        _cuisine = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Cuisine"] mutableCopy];
     }
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Meal"])
@@ -82,17 +82,17 @@ static KIAFilterSettings *manager = nil;
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Holiday"])
     {
-        _holiday = [[NSUserDefaults standardUserDefaults] objectForKey:@"Holiday"];
+        _holiday = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Holiday"] mutableCopy];
     }
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Allergy"])
     {
-        _allergy = [[NSUserDefaults standardUserDefaults] objectForKey:@"Allergy"];
+        _allergy = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Allergy"] mutableCopy];
     }
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Diet"])
     {
-        _diet = [[NSUserDefaults standardUserDefaults] objectForKey:@"Diet"];
+        _diet = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Diet"] mutableCopy];
     }
 }
 
