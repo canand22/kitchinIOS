@@ -1107,6 +1107,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="cjm-aR-X8m">
+                                <rect key="frame" x="0.0" y="111" width="320" height="379"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" id="pAm-hh-OCi">
+                                        <rect key="frame" x="142" y="171" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picker.png" id="wgV-Q2-pl5">
                                 <rect key="frame" x="58" y="106" width="168" height="162"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1136,6 +1147,7 @@
                     <connections>
                         <outlet property="collection" destination="1vs-1H-HYh" id="4ka-xe-ZXc"/>
                         <outlet property="collectionView" destination="K1W-EK-dJu" id="GFa-CK-iQM"/>
+                        <outlet property="loader" destination="cjm-aR-X8m" id="H1c-vm-PfK"/>
                         <outlet property="pickerFonSort" destination="wgV-Q2-pl5" id="Sav-te-eCa"/>
                         <outlet property="pickerIndicatorSort" destination="KRi-CD-Pow" id="CKD-dQ-hDg"/>
                         <outlet property="pickerSort" destination="JsK-p4-hrA" id="z5t-DE-77o"/>

@@ -45,4 +45,6 @@
 @property(nonatomic, strong) IBOutlet UIImageView *pickerIndicatorSort;
 @property(nonatomic, strong) IBOutlet UIButton *sortButton;
 
+@property(nonatomic, strong) IBOutlet UIView *loader;
+
 @end

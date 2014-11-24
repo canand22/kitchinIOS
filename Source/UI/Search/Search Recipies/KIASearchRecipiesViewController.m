@@ -115,6 +115,8 @@
     
         [_recipiesArray removeAllObjects];
     
+        [_loader setHidden:NO];
+        
         [_searchGateway sendSearchRecipiesForItem:_itemForQuery page:currentCountRecept delegate:self];
     }
     
@@ -146,6 +148,8 @@
     [self sortForMissingIngredients];
     
     isLoadContent = NO;
+    
+    [_loader setHidden:YES];
     
     [_collection reloadData];
     [_table reloadData];
