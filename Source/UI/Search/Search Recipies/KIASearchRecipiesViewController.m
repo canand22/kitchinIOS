@@ -102,10 +102,10 @@
         [items addObject:[_itemForQuery objectForKey:COOK_WITHOUT]];
         [items addObject:[[[KIAFilterSettings sharedFilterManager] allergy] componentsJoinedByString:@","]];
         [items addObject:[[[KIAFilterSettings sharedFilterManager] diet] componentsJoinedByString:@","]];
-        [items addObject:[[[KIAFilterSettings sharedFilterManager] cuisine] componentsJoinedByString:@","]];
+        [items addObject:[[[[KIAFilterSettings sharedFilterManager] cuisine] componentsJoinedByString:@","] stringByReplacingOccurrencesOfString:@" & " withString:@" "]];
         [items addObject:[[KIAFilterSettings sharedFilterManager] dishType]];
         [items addObject:[[[KIAFilterSettings sharedFilterManager] holiday] componentsJoinedByString:@","]];
-        [items addObject:[[KIAFilterSettings sharedFilterManager] meal]];
+        [items addObject:[[[[KIAFilterSettings sharedFilterManager] meal] stringByReplacingOccurrencesOfString:@" & " withString:@""] lowercaseString]];
         [items addObject:[[KIAFilterSettings sharedFilterManager] time]];
         NSArray *keys = [NSArray arrayWithObjects:COOK_WITH, COOK_WITHOUT, ALLERGIES, DIETS, CUISINE, DISH_TYPE, HOLIDAY, MEAL, TIME, nil];
     

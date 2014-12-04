@@ -37,7 +37,7 @@
         _categoriesArray = [NSArray arrayWithObjects:@"Dairy", @"Produce", @"Poultry", @"Meats & Deli", @"Seafood", @"Breads & Bakery", @"Pasta", @"Cereal & Grains", @"Drinks", @"Dry Prepared Foods", @"Canned Foods, Soups, Broths", @"Frozen", @"Snacks", @"Sweets", @"Baking", @"Condiments, Sauces, Oils", @"Spices & Herbs", @"Other", nil];
         
         _mealArray = @[@"Any", @"Breakfast & Brunch", @"Dinner", @"Lunch & Snack"];
-        _dishTypeArray = @[@"Any", @"Beverage", @"Bread", @"Dessert", @"Main Dish", @"Salad", @"Side Dish", @"Soup"];
+        _dishTypeArray = @[@"Any", @"Beverages", @"Breads", @"Desserts", @"Main Dishes", @"Salads", @"Side Dishes", @"Soups"];
         
         _dietaryAndAllergies = @{@"0" : @"Low-Calorie",
                                  @"1" : @"Low-Fat",
