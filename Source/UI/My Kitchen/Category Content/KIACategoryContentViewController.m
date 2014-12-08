@@ -91,7 +91,7 @@
 
     KIAItem *temp = [_categoryItems objectAtIndex:[indexPath row]];
     
-    [[cell itemName] setText:[temp name]];
+    [[cell itemName] setText:[temp yummlyName]];
     
     [[cell countIngredient] setText:[NSString stringWithFormat:@"%@", [temp count]]];
     [[cell valueBtn] setTitle:[temp value] forState:UIControlStateNormal];
