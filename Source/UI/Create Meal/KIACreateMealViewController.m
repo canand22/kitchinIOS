@@ -274,7 +274,20 @@
 
 - (IBAction)searchRecipe:(id)sender
 {
-    [self performSegueWithIdentifier:@"SearchRecepies" sender:self];
+    if ([_cookWith count])
+    {
+        [self performSegueWithIdentifier:@"SearchRecepies" sender:self];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Please select at least one ingredient you would like to cook with."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 #pragma mark ***** alert view *****
