@@ -37,16 +37,16 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"welcome"] boolValue])
+    /* if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"welcome"] boolValue])
     {
         NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"];
     
         [_fio setText:(name ? [NSString stringWithFormat:@"Hi, %@!", name] : @"")];
     }
     else
-    {
+    { */
         [_fio setText:@""];
-    }
+    // }
 }
 
 - (void)viewDidDisappear:(BOOL)animated

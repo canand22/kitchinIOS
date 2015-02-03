@@ -809,7 +809,6 @@
 		84E0803515299BAF00F277B5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84E0803915299BE800F277B5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84E0804F15299DCE00F277B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		84E0807915299ED700F277B5 /* NIXBuildAutomationScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NIXBuildAutomationScripts; sourceTree = "<group>"; };
 		84E080861529BE5100F277B5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		84EBCB2419AD279E00D97C21 /* KIARecipeInstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIARecipeInstructionsViewController.h; sourceTree = "<group>"; };
 		84EBCB2519AD279E00D97C21 /* KIARecipeInstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIARecipeInstructionsViewController.m; sourceTree = "<group>"; };
@@ -1941,7 +1940,6 @@
 				84DC64EC18111C7A00C8FE9D /* ConfigurationFiles */,
 				74DD09B516C8E32500969175 /* NIXImagesValidator */,
 				74BA8F83165536D800FD00B1 /* NIXObjCLint */,
-				84E0807915299ED700F277B5 /* NIXBuildAutomationScripts */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
