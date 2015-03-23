@@ -224,8 +224,8 @@
 
 - (void)pressButton:(id)sender
 {
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"] || [sender tag] == 3 || [sender tag] == 1)
-    {
+    // if ([[NSUserDefaults standardUserDefaults] objectForKey:@"sessionId"] || [sender tag] == 3 || [sender tag] == 1)
+    // {
         [self reloadButtonImageWithIndex:[sender tag]];
     
         if ([sender tag] < 3)
@@ -257,14 +257,14 @@
                 }
             }
         }
-    }
+    /* }
     else
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         KIALoginViewController *loginViewController = (KIALoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
         [self setModalPresentationStyle:UIModalPresentationCurrentContext];
         [self presentViewController:loginViewController animated:YES completion:nil];
-    }
+    } */
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"clearAll" object:nil];
 }
